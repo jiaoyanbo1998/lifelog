@@ -1,0 +1,76 @@
+// 版本号
+syntax = "proto3";
+
+// 包名
+package interactive.v1;
+
+// 路径
+option go_package = "interactive/v1";
+
+// interactiveService 互动服务
+service interactiveService {
+  rpc Like(LikeRequest) returns(LikeResponse);
+  rpc UnLike(UnLikeRequest) returns(UnLikeResponse);
+  rpc Collect(CollectRequest) returns(CollectResponse);
+  rpc UnCollect(UnCollectRequest) returns(UnCollectResponse);
+  rpc GetInteractiveInfo(GetInteractiveInfoRequest) returns(GetInteractiveInfoResponse);
+}
+
+// 获取互动信息（阅读数，点赞数，收藏数）（根据lifelog的id）
+// 请求
+message GetInteractiveInfoRequest {
+  InteractiveDomain interactiveDomain = 1;
+}
+// 响应
+message GetInteractiveInfoResponse {
+  InteractiveDomain interactiveDomain = 1;
+}
+
+
+message InteractiveDomain {
+  string biz = 1;
+  int64 biz_id = 2;
+  int64 user_id = 3;
+  int64 id = 4;
+  int64 read_count = 5;
+  int64 collect_count = 6;
+  int64 like_count = 7;
+  int64 create_time = 8;
+  int64 update_time = 9;
+}
+
+// 点赞（根据lifelog的id）
+// 请求
+message LikeRequest {
+  InteractiveDomain interactiveDomain = 1;
+}
+// 响应
+message LikeResponse {
+}
+
+// 取消点赞（根据lifelog的id）
+// 请求
+message UnLikeRequest {
+  InteractiveDomain interactiveDomain = 1;
+}
+// 响应
+message UnLikeResponse {
+}
+
+// 收藏（根据lifelog的id）
+// 请求
+message CollectRequest {
+  InteractiveDomain interactiveDomain = 1;
+}
+// 响应
+message CollectResponse {
+}
+
+// 取消收藏（根据lifelog的id）
+// 请求
+message UnCollectRequest {
+  InteractiveDomain interactiveDomain = 1;
+}
+// 响应
+message UnCollectResponse {
+}

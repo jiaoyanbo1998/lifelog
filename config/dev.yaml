@@ -22,3 +22,13 @@ codeEtcd:
     port: 8071
     addr:
         - "localhost:12379"
+
+lifeLogEtcd:
+    port: 8072
+    addr:
+        - "localhost:12379"
+
+interactiveEtcd:
+    port: 8073
+    addr:
+        - "localhost:12379"

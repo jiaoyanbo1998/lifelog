@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="lifelog和interactive转为微服务">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/code/v1/code.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/code/v1/code_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/lifelog/v1/lifelog.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/lifelog/v1/lifelog_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/user/v1/user.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/user/v1/user_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/lifelog/v1/lifelog.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/ioc/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/ioc/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/ioc/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/wire.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ioc/interactiveServiceGRPCClient.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ioc/lifeLogServiceGRPCClient.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/db.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/logger.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/redis.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/wire.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lifelog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lifelog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/web.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/grpcx/interceptors/ratelimit/interceptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/grpcx/interceptors/ratelimit/interceptor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/articleHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://$PROJECT_DIR$/../../../pack/GoLang" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2r6xsngn2s46cotp0GGGH3ON3QT" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "D:/GoLangProjects/src/lifelog/interactive/ioc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "configurable.group.tools"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog\interactive\ioc" />
+      <recent name="D:\GoLangProjects\src\lifelog\interactive" />
+      <recent name="D:\GoLangProjects\src\lifelog\interactive\grpc" />
+      <recent name="D:\GoLangProjects\src\lifelog\lifeLog\ioc" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog\interactive" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build lifelog-grpc/code">
+    <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/code" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/code" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/code/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/user" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/user" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/user/main.go" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/user" />
+        <item itemvalue="Go Build.go build lifelog-grpc/code" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lifelog和interactive转为微服务" />
+    <option name="LAST_COMMIT_MESSAGE" value="lifelog和interactive转为微服务" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

@@ -1,0 +1,109 @@
+// 版本
+syntax = "proto3";
+
+// 包名
+package lifelog.v1;
+
+// 路径
+option go_package = "lifelog/v1";
+
+// lifelog服务
+service LifeLogService {
+  rpc Edit(EditRequest) returns(EditResponse);
+  rpc Delete(DeleteRequest) returns(DeleteResponse);
+  rpc SearchByTitle(SearchByTitleRequest) returns(SearchByTitleResponse);
+  rpc DraftList(DraftListRequest) returns(DraftListResponse);
+  rpc Revoke(RevokeRequest) returns(RevokeResponse);
+  rpc Publish(PublishRequest) returns(PublishResponse);
+  rpc Detail(DetailRequest) returns(DetailResponse);
+}
+
+// 获取lifelog详情
+// 请求
+message DetailRequest {
+  LifeLogDomain lifeLogDomain = 1;
+  bool is_public = 2;
+}
+// 响应
+message DetailResponse {
+  LifeLogDomain lifeLogDomain = 1;
+}
+
+message LifeLogDomain {
+  int64 id = 1;
+  string title = 2;
+  string content = 3;
+  Author author = 4;
+  int64 create_time = 5;
+  int64 update_time = 6;
+  int64 limit = 7;
+  int64 offset = 8;
+  int64 status = 9;
+  int64 read_count = 10;
+  int64 like_count = 11;
+  int64 collect_count = 12;
+}
+
+message Author {
+  int64 user_id = 1;
+  string nick_name = 2;
+}
+
+// 编辑lifelog
+// 请求
+message EditRequest {
+  LifeLogDomain lifeLogDomain = 1;
+}
+// 响应
+message EditResponse {
+  LifeLogDomain lifeLogDomain = 1;
+}
+
+// 根据id删除lifelog
+// 请求
+message DeleteRequest {
+  repeated int64 ids = 1;
+  bool is_public = 2;
+}
+// 响应
+message DeleteResponse {
+}
+
+// 根据title查找lifelog
+// 请求
+message SearchByTitleRequest {
+  LifeLogDomain lifeLogDomain = 1;
+}
+// 响应
+message SearchByTitleResponse {
+  repeated LifeLogDomain lifeLogDomain = 1;
+}
+
+// 根据id查找制作库的lifelog（作者的lifelog列表）
+// 请求
+message DraftListRequest {
+  LifeLogDomain lifeLogDomain = 1;
+}
+// 响应
+message DraftListResponse {
+  repeated LifeLogDomain lifeLogDomain = 1;
+}
+
+// 根据id撤销已发表的lifelog
+// 请求
+message RevokeRequest {
+  LifeLogDomain lifeLogDomain = 1;
+}
+// 响应
+message RevokeResponse {
+}
+
+// 发布lifelog，将制作库的lifelog发布到线上库
+// 请求
+message PublishRequest {
+  LifeLogDomain lifeLogDomain = 1;
+}
+// 响应
+message PublishResponse {
+  LifeLogDomain lifeLogDomain = 1;
+}
