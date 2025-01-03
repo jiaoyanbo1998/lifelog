@@ -1,0 +1,1099 @@
+{"L":"info","time":"2024-12-31 23:14:15","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2024-12-31 23:14:16","C":"loggerx/zap_logger.go:62","M":"增加阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadInfo"}
+{"L":"error","time":"2024-12-31 23:14:16","C":"loggerx/zap_logger.go:62","M":"插入阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:16","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:16","C":"loggerx/zap_logger.go:62","M":"处理消息失败","topic":"read_article","partition":0,"offset":39,"error":"context deadline exceeded"}
+{"L":"error","time":"2024-12-31 23:14:18","C":"loggerx/zap_logger.go:62","M":"限流器创建失败","error":"i/o timeout"}
+{"L":"error","time":"2024-12-31 23:14:18","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:18","C":"loggerx/zap_logger.go:62","M":"处理消息失败","topic":"read_article","partition":0,"offset":40,"error":"context deadline exceeded"}
+{"L":"error","time":"2024-12-31 23:14:19","C":"loggerx/zap_logger.go:62","M":"增加阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadInfo"}
+{"L":"error","time":"2024-12-31 23:14:19","C":"loggerx/zap_logger.go:62","M":"插入阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:19","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:19","C":"loggerx/zap_logger.go:62","M":"处理消息失败","topic":"read_article","partition":0,"offset":41,"error":"context deadline exceeded"}
+{"L":"error","time":"2024-12-31 23:14:20","C":"loggerx/zap_logger.go:62","M":"增加阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadInfo"}
+{"L":"error","time":"2024-12-31 23:14:20","C":"loggerx/zap_logger.go:62","M":"插入阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:20","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:20","C":"loggerx/zap_logger.go:62","M":"处理消息失败","topic":"read_article","partition":0,"offset":42,"error":"context deadline exceeded"}
+{"L":"error","time":"2024-12-31 23:14:21","C":"loggerx/zap_logger.go:62","M":"增加阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadInfo"}
+{"L":"error","time":"2024-12-31 23:14:21","C":"loggerx/zap_logger.go:62","M":"插入阅读记录失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:21","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:21","C":"loggerx/zap_logger.go:62","M":"处理消息失败","topic":"read_article","partition":0,"offset":43,"error":"context deadline exceeded"}
+{"L":"error","time":"2024-12-31 23:14:22","C":"loggerx/zap_logger.go:62","M":"增加阅读数失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:22","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"context deadline exceeded","method:":"InteractiveDaoV1:InsertReadCount"}
+{"L":"error","time":"2024-12-31 23:14:22","C":"loggerx/zap_logger.go:62","M":"处理消息失败","topic":"read_article","partition":0,"offset":44,"error":"context deadline exceeded"}
+{"L":"info","time":"2024-12-31 23:14:36","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2024-12-31 23:14:43","C":"loggerx/zap_logger.go:62","M":"限流器创建失败","error":"i/o timeout"}
+{"L":"info","time":"2024-12-31 23:16:08","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2024-12-31 23:16:30","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2024-12-31 23:16:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2024-12-31 23:16:46","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2024-12-31 23:16:46","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"密码输入错误，crypto/bcrypt: hashedPassword is not the hash of the given password","email":"1242644832@qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2024-12-31 23:16:55","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2024-12-31 23:16:56","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"密码输入错误，crypto/bcrypt: hashedPassword is not the hash of the given password","email":"1242644832@qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2024-12-31 23:17:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2024-12-31 23:17:00","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"密码输入错误，crypto/bcrypt: hashedPassword is not the hash of the given password","email":"1242644832@qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2024-12-31 23:17:15","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-01 11:04:53","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-01 11:06:59","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-01 11:07:51","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/send_code"}
+{"L":"error","time":"2025-01-01 11:08:03","C":"loggerx/zap_logger.go:62","M":"jwt-token获取失败，没有传入jwt，或jwt被篡改，middleware包下的jwt方法","path":"/code/send_code","token":""}
+{"L":"info","time":"2025-01-01 11:09:15","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:09:15","C":"loggerx/zap_logger.go:62","M":"发送验证码失败","error":"参数不能为空","method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:09:35","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:09:35","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"848494","phone：":"13658956321"}
+{"L":"info","time":"2025-01-01 11:09:48","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-01 11:10:58","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:10:58","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"441079","phone：":"13658956321"}
+{"L":"info","time":"2025-01-01 11:11:40","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:11:40","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"186059","phone：":"13658956321"}
+{"L":"info","time":"2025-01-01 11:11:50","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:11:50","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"114200","phone：":"13658956321"}
+{"L":"info","time":"2025-01-01 11:11:54","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:11:54","C":"loggerx/zap_logger.go:62","M":"发送验证码太频繁","error":"短信验证码发送太频繁","method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:12:04","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:12:04","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"524239","phone：":"13658956321"}
+{"L":"info","time":"2025-01-01 11:12:12","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:12:12","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"921578","phone：":"13658956321"}
+{"L":"info","time":"2025-01-01 11:12:20","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:12:20","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"13658956321"}
+{"L":"error","time":"2025-01-01 11:12:20","C":"loggerx/zap_logger.go:62","M":"发送验证码次数已达上限，明日再试","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:12:36","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:12:36","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:12:53","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:12:53","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:13:05","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:13:05","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:13:16","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:13:16","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:13:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:13:26","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:15:53","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:15:53","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:16:07","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:18:30","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:18:38","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 11:19:52","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"UserHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 11:28:08","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:28:16","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"144138","phone：":"13658956327"}
+{"L":"info","time":"2025-01-01 11:28:34","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:28:34","C":"loggerx/zap_logger.go:62","M":"验证码格式错误","code":"14413","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:28:43","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:28:43","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:29:06","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:29:06","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:29:16","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:29:16","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:29:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:29:21","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:29:25","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:29:25","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:29:40","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:29:40","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:31:47","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:31:47","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"963841","phone：":"13658956327"}
+{"L":"info","time":"2025-01-01 11:32:07","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:32:07","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:33:13","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:33:13","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"871540","phone：":"13658956327"}
+{"L":"info","time":"2025-01-01 11:33:28","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:33:29","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:33:41","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:33:41","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:33:50","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:33:50","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:34:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:34:00","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:34:18","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:34:18","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:35:06","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:35:06","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"696502","phone：":"13658956327"}
+{"L":"info","time":"2025-01-01 11:35:22","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:35:22","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:35:33","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:35:33","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:35:41","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:35:41","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:35:52","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:35:52","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:36:14","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:36:14","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"185952","phone：":"13658956327"}
+{"L":"info","time":"2025-01-01 11:37:25","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-01 11:37:55","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:37:55","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"245226","phone：":"13658956327"}
+{"L":"info","time":"2025-01-01 11:38:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:38:26","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:39:18","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:39:18","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:41:05","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:41:05","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"087030","phone：":"17838466789"}
+{"L":"info","time":"2025-01-01 11:41:42","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:41:42","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:42:12","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:42:12","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:44:03","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:44:04","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"413593","phone：":"17838466789"}
+{"L":"info","time":"2025-01-01 11:44:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:44:29","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:44:57","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:44:57","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:55:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 11:55:39","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"236723","phone：":"17838466700"}
+{"L":"info","time":"2025-01-01 11:56:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:56:00","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:56:17","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:56:17","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:56:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:56:21","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:56:28","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:56:28","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:56:34","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:56:34","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:57:56","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:57:57","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 11:58:47","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 11:58:47","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:00:48","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:00:48","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"685782","phone：":"17838466799"}
+{"L":"info","time":"2025-01-01 12:01:33","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:01:33","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:01:51","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:01:51","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:02:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:02:26","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:03:28","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:03:28","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"728166","phone：":"17838466111"}
+{"L":"info","time":"2025-01-01 12:03:54","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:03:54","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:04:03","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:04:03","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:04:06","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:04:06","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:04:11","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:04:11","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:04:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:04:21","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:09:23","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:09:23","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"154979","phone：":"17832226111"}
+{"L":"info","time":"2025-01-01 12:09:44","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:09:44","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:10:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:10:00","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:10:04","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:10:04","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:10:11","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:10:11","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:10:23","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:10:23","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:10:56","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:10:56","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:14:42","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:14:42","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"406083","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 12:15:10","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:15:10","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:15:23","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:15:23","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:15:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:15:32","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:15:40","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:15:40","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:15:50","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:15:50","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:18:44","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:18:44","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"380258","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 12:19:02","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:19:02","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:19:09","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:19:09","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:19:12","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:19:12","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:19:16","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:19:16","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:19:22","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:19:22","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:21:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:21:29","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:21:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:21:32","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"206516","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 12:21:41","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:21:41","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:22:30","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:22:30","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:22:34","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:22:34","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:22:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:22:39","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:22:56","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:22:56","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:26:59","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:26:59","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"297269","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 12:27:09","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:27:09","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:27:16","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:27:16","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:27:19","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:27:19","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:27:23","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:27:23","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:27:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:27:29","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:30:46","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:30:46","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"515400","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 12:30:54","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:30:55","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:30:59","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:30:59","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:31:02","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:31:02","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:31:06","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:31:06","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:31:13","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:31:13","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:31:35","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 12:31:35","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 12:32:11","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 12:32:11","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"785949","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 12:32:24","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-01 13:40:27","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:40:27","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"969945","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 13:40:34","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:40:34","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"002117","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 13:40:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:40:39","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"851904","phone：":"19832226111"}
+{"L":"info","time":"2025-01-01 13:40:43","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:40:43","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226111"}
+{"L":"error","time":"2025-01-01 13:40:44","C":"loggerx/zap_logger.go:62","M":"发送验证码次数已达上限，明日再试","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:40:57","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:40:57","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:51:07","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:51:07","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"711394","phone：":"19832226777"}
+{"L":"info","time":"2025-01-01 13:51:23","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:51:23","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"653215","phone：":"19832226777"}
+{"L":"info","time":"2025-01-01 13:51:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:51:26","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"790649","phone：":"19832226777"}
+{"L":"info","time":"2025-01-01 13:51:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:51:29","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"096225","phone：":"19832226777"}
+{"L":"info","time":"2025-01-01 13:51:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:51:32","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"943060","phone：":"19832226777"}
+{"L":"info","time":"2025-01-01 13:51:36","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:51:36","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226777"}
+{"L":"error","time":"2025-01-01 13:51:36","C":"loggerx/zap_logger.go:62","M":"设置手机号黑名单失败","error":"手机号转换失败，strconv.ParseUint: parsing \"phone\": invalid syntax","method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:52:03","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:52:03","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226777"}
+{"L":"error","time":"2025-01-01 13:52:03","C":"loggerx/zap_logger.go:62","M":"设置手机号黑名单失败","error":"手机号转换失败，strconv.ParseUint: parsing \"phone\": invalid syntax","method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:52:08","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:52:08","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226777"}
+{"L":"error","time":"2025-01-01 13:52:08","C":"loggerx/zap_logger.go:62","M":"设置手机号黑名单失败","error":"手机号转换失败，strconv.ParseUint: parsing \"phone\": invalid syntax","method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:52:53","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:56:56","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226777"}
+{"L":"error","time":"2025-01-01 13:56:56","C":"loggerx/zap_logger.go:62","M":"设置手机号黑名单失败","error":"手机号转换失败，strconv.ParseUint: parsing \"phone\": invalid syntax","method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:57:20","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:57:20","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226777"}
+{"L":"error","time":"2025-01-01 13:57:20","C":"loggerx/zap_logger.go:62","M":"发送验证码次数已达上限，明日再试","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:57:27","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:57:27","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:57:49","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:58:02","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:58:28","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 13:59:00","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226777"}
+{"L":"error","time":"2025-01-01 13:59:00","C":"loggerx/zap_logger.go:62","M":"发送验证码次数已达上限，明日再试","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 13:59:42","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:59:42","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"122170","phone：":"19832226666"}
+{"L":"info","time":"2025-01-01 13:59:49","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:59:49","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"824213","phone：":"19832226666"}
+{"L":"info","time":"2025-01-01 13:59:52","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:59:52","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"880466","phone：":"19832226666"}
+{"L":"info","time":"2025-01-01 13:59:55","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:59:55","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"445070","phone：":"19832226666"}
+{"L":"info","time":"2025-01-01 13:59:58","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-01 13:59:58","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"213045","phone：":"19832226666"}
+{"L":"info","time":"2025-01-01 14:00:01","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 14:00:01","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226666"}
+{"L":"error","time":"2025-01-01 14:00:01","C":"loggerx/zap_logger.go:62","M":"发送验证码次数已达上限，明日再试","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 14:00:13","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-01 14:00:13","C":"loggerx/zap_logger.go:62","M":"黑名单手机访问，怀疑是非法攻击","error":null,"method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-01 14:00:38","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-01 14:00:38","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-01 14:00:48","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"debug","time":"2025-01-03 10:51:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:2 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:51:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"error","time":"2025-01-03 10:52:25","C":"loggerx/zap_logger.go:62","M":"退出了消费循环异常","error":"kafka server: Request was for a topic or partition that does not exist on this broker","method:":"event/LifeLogEvent/consumer.go"}
+{"L":"debug","time":"2025-01-03 10:52:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:52:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:53:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:54:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:55:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"info","time":"2025-01-03 10:56:20","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"debug","time":"2025-01-03 10:56:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"error","time":"2025-01-03 10:56:23","C":"loggerx/zap_logger.go:62","M":"限流器创建失败","error":"i/o timeout"}
+{"L":"debug","time":"2025-01-03 10:56:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:56:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:57:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:58:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"info","time":"2025-01-03 10:59:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"debug","time":"2025-01-03 10:59:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 10:59:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"info","time":"2025-01-03 11:00:54","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"debug","time":"2025-01-03 11:00:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"info","time":"2025-01-03 11:00:54","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"584076","phone：":"19832226666"}
+{"L":"debug","time":"2025-01-03 11:00:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:00:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:11","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:16","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:42","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:01:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:04","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:05","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:06","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:07","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:08","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:09","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:10","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:12","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:13","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:14","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:15","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:17","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:18","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:19","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:20","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:21","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:22","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:23","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:24","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:25","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:26","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:27","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:28","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:29","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:30","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:31","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:32","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:33","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:34","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:35","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:36","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:37","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:38","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:39","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"info","time":"2025-01-03 11:02:40","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"debug","time":"2025-01-03 11:02:40","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:41","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:43","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:44","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:45","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:46","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:47","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:48","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:49","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:50","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:51","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:52","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:53","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:54","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:55","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:56","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:57","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:58","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:02:59","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:03:00","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:03:01","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:03:02","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"debug","time":"2025-01-03 11:03:03","C":"loggerx/zap_logger.go:47","M":"续约：","resp":"cluster_id:14841639068965178418 member_id:10276657743932975437 revision:3 raft_term:11 "}
+{"L":"info","time":"2025-01-03 11:35:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 11:35:47","C":"loggerx/zap_logger.go:62","M":"退出了消费循环异常","error":"kafka server: Request was for a consumer group that is not coordinated by this broker","method:":"event/LifeLogEvent/consumer.go"}
+{"L":"error","time":"2025-01-03 11:36:00","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-03 11:36:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-03 11:36:48","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Canceled desc = context canceled","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-03 11:37:31","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 11:37:31","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"995233","phone：":"19832226666"}
+{"L":"info","time":"2025-01-03 11:38:04","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-03 11:38:04","C":"loggerx/zap_logger.go:62","M":"发送验证码太频繁","error":"短信验证码发送太频繁","method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-03 11:38:12","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 11:38:12","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"253822","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 11:49:08","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 11:49:08","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"410684","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 11:49:27","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-03 11:49:27","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.1.7:8070: connectex: No connection could be made because the target machine actively refused it.\"; last resolver error: produced zero addresses","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-03 11:51:09","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-03 11:51:15","C":"loggerx/zap_logger.go:62","M":"限流器创建失败","error":"i/o timeout"}
+{"L":"error","time":"2025-01-03 11:51:15","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.1.7:8070: connectex: No connection could be made because the target machine actively refused it.\"; last resolver error: produced zero addresses","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-03 11:52:47","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-03 11:52:47","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.1.7:8070: connectex: No connection could be made because the target machine actively refused it.\"; last resolver error: produced zero addresses","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-03 11:58:54","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-03 11:58:54","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.1.7:8070: connectex: No connection could be made because the target machine actively refused it.\"; last resolver error: produced zero addresses","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"error","time":"2025-01-03 11:59:52","C":"loggerx/zap_logger.go:62","M":"退出了消费循环异常","error":"kafka server: Request was for a consumer group that is not coordinated by this broker","method:":"event/LifeLogEvent/consumer.go"}
+{"L":"info","time":"2025-01-03 11:59:52","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-03 11:59:54","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Unknown desc = 邮箱已存在","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-03 12:14:16","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 12:14:16","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"570222","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 12:14:25","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 12:14:59","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-03 12:16:22","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 12:19:28","C":"loggerx/zap_logger.go:62","M":"旧密码和新密码相同","error":null,"method":"UserHandler:UpdateUserInfoById"}
+{"L":"error","time":"2025-01-03 12:21:12","C":"loggerx/zap_logger.go:62","M":"jwt-token非法","path":"/user/logout","error":"token has invalid claims: token is expired"}
+{"L":"error","time":"2025-01-03 12:21:28","C":"loggerx/zap_logger.go:62","M":"用户已经退出","path":"/user/info/2","sessionId":"98939157-9ca3-4304-ac86-e286b6fd96a1"}
+{"L":"info","time":"2025-01-03 12:29:27","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 12:29:37","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-03 12:30:48","C":"loggerx/zap_logger.go:62","M":"非法用户修改信息","error":null,"method":"UserHandler:UpdateUserInfoById"}
+{"L":"error","time":"2025-01-03 12:34:39","C":"loggerx/zap_logger.go:62","M":"修改用户信息失败","error":"rpc error: code = Unknown desc = 不能使用历史密码","method":"UserHandler:UpdateUserInfoById"}
+{"L":"info","time":"2025-01-03 12:56:24","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 12:56:34","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-03 12:57:12","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 12:57:12","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"464565","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 12:57:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 12:58:12","C":"loggerx/zap_logger.go:62","M":"无权限删除用户信息","method":"UserHandler:DeleteUSerInfoByIds"}
+{"L":"info","time":"2025-01-03 12:59:34","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 12:59:34","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"674644","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 12:59:45","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 13:00:16","C":"loggerx/zap_logger.go:62","M":"无权限删除用户信息","method":"UserHandler:DeleteUSerInfoByIds"}
+{"L":"error","time":"2025-01-03 13:00:27","C":"loggerx/zap_logger.go:62","M":"无权限删除用户信息","method":"UserHandler:DeleteUSerInfoByIds"}
+{"L":"error","time":"2025-01-03 13:02:39","C":"loggerx/zap_logger.go:62","M":"无权限删除用户信息","method":"UserHandler:DeleteUSerInfoByIds"}
+{"L":"info","time":"2025-01-03 13:02:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"error","time":"2025-01-03 13:02:39","C":"loggerx/zap_logger.go:62","M":"短信发送次数达到上限","phone":"19832226667"}
+{"L":"error","time":"2025-01-03 13:02:42","C":"loggerx/zap_logger.go:62","M":"设置手机号黑名单失败","error":"context deadline exceeded","method":"CodeHandler:SendPhoneCode"}
+{"L":"info","time":"2025-01-03 13:03:44","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 13:03:44","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"563721","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 13:03:57","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-03 13:05:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 13:05:32","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"034275","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 13:05:43","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-03 13:08:46","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 13:09:58","C":"loggerx/zap_logger.go:62","M":"验证码验证失败","error":"context canceled"}
+{"L":"info","time":"2025-01-03 13:12:31","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 13:12:31","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"764766","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 13:12:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-03 13:15:25","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 13:15:25","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-03 13:15:33","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-03 13:15:33","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"727976","phone：":"19832226667"}
+{"L":"info","time":"2025-01-03 13:15:42","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 13:15:42","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-03 13:15:58","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-03 13:15:58","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-03 13:16:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-03 13:19:43","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 13:20:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-03 13:21:44","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-03 13:26:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-03 13:59:52","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 14:00:53","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-03 14:02:37","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 14:04:10","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 14:07:04","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 14:18:44","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-03 14:19:06","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-03 14:20:17","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-03 14:20:48","C":"loggerx/zap_logger.go:62","M":"无权限删除用户信息","method":"UserHandler:DeleteUSerInfoByIds"}
+{"L":"info","time":"2025-01-03 14:22:42","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}

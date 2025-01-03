@@ -1,0 +1,102 @@
+// protobuf版本
+syntax = "proto3";
+
+// go包名 user.v1 == userv1
+package user.v1;
+
+// 生成的文件存放在/user/v1目录下
+option go_package = "/user/v1;userv1";
+// 前缀"/api/proto/gen"，被写入到了buf.gen.yaml中
+// option go_package = "/api/proto/gen/user/v1";
+
+// 定义服务
+service UserService {
+  rpc RegisterByEmailAndPassword(RegisterByEmailAndPasswordRequest) returns(RegisterByEmailAndPasswordResponse);
+  rpc LoginByEmailAndPassword(LoginByEmailAndPasswordRequest) returns(LoginByEmailAndPasswordResponse);
+  rpc GetUserInfoById(GetUserInfoByIdRequest) returns(GetUserInfoByIdResponse);
+  rpc UpdateUserInfoById(UpdateUserInfoByIdRequest) returns(UpdateUserInfoByIdResponse);
+  rpc DeleteUserInfoByIds(DeleteUserInfoByIdsRequest) returns(DeleteUserInfoByIdsResponse);
+  rpc Logout(LogoutRequest) returns(LogoutResponse);
+  rpc LoginByPhoneCode(LoginByPhoneCodeRequest) returns(LoginByPhoneCodeResponse);
+}
+
+// 手机短信验证码登录
+// 请求
+message LoginByPhoneCodeRequest {
+  UserDomain user_domain = 1;
+  string biz = 2;
+}
+// 响应
+message LoginByPhoneCodeResponse {
+  UserDomain user_domain = 1;
+}
+
+// 退出
+// 请求
+message LogoutRequest {
+  string session_id = 1;
+}
+// 响应
+message LogoutResponse {
+}
+
+// 根据用户id删除用户信息
+// 请求
+message DeleteUserInfoByIdsRequest {
+  repeated int64 ids = 1; // repeated 表示数组
+}
+// 响应
+message DeleteUserInfoByIdsResponse {
+}
+
+// 根据用户id更新用户信息
+// 请求
+message UpdateUserInfoByIdRequest {
+  UserDomain user_domain = 1;
+}
+// 响应
+message UpdateUserInfoByIdResponse {
+}
+
+// 根据用户id获取用户信息
+// 请求
+message GetUserInfoByIdRequest {
+  UserDomain user_domain = 1;
+}
+// 响应
+message GetUserInfoByIdResponse {
+  UserDomain user_domain = 1;
+}
+
+// 邮箱和密码登录
+// 请求
+message LoginByEmailAndPasswordRequest {
+  UserDomain user_domain = 1;
+}
+// 响应
+message LoginByEmailAndPasswordResponse {
+  UserDomain user_domain = 1;
+  string info = 2;
+}
+
+// 邮箱和密码注册
+// 请求
+message RegisterByEmailAndPasswordRequest {
+  UserDomain user_domain = 1;
+}
+// 响应
+message RegisterByEmailAndPasswordResponse {
+  UserDomain user_domain = 1;
+}
+
+// 用户domain
+message UserDomain {
+  int64 id = 1;
+  string email = 2;
+  string password = 3;
+  string nick_name = 4;
+  string phone = 5;
+  string new_password = 6;
+  string code = 7;
+  int64 Authority = 8;
+}

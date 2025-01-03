@@ -1,0 +1,56 @@
+// 版本
+syntax = "proto3";
+
+// 包名
+package code.v1;
+
+// 存放路径
+option go_package = "code/v1";
+
+// code服务
+service CodeService {
+    rpc SendPhoneCode(SendPhoneCodeRequest) returns(SendPhoneCodeResponse);
+    rpc VerifyPhoneCode(VerifyPhoneCodeRequest) returns(VerifyPhoneCodeResponse);
+    rpc SetBlackPhone(SetBlackPhoneRequest) returns(SetBlackPhoneResponse);
+    rpc IsBackPhone(IsBackPhoneRequest) returns(IsBackPhoneResponse);
+}
+
+// 发送短息服务
+// 请求
+message SendPhoneCodeRequest {
+    string phone = 1;
+    string biz = 2;
+}
+// 响应
+message SendPhoneCodeResponse {
+}
+
+// 发送短息服务
+// 请求
+message VerifyPhoneCodeRequest {
+  string phone = 1;
+  string code = 2;
+  string biz = 3;
+}
+// 响应
+message VerifyPhoneCodeResponse {
+}
+
+// 发送短息服务
+// 请求
+message SetBlackPhoneRequest {
+  string phone = 1;
+}
+// 响应
+message SetBlackPhoneResponse {
+}
+
+// 发送短息服务
+// 请求
+message IsBackPhoneRequest {
+  string phone = 1;
+}
+// 响应
+message IsBackPhoneResponse {
+  bool is_back = 1;
+}

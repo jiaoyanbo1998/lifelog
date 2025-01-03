@@ -1,0 +1,24 @@
+# 版本号
+version: v1
+
+# 是否自动生成
+managed:
+  # 是否开启
+  enabled: true
+  # 包名
+  go_package_prefix:
+    # 默认生成的Go包前缀
+    default: api/proto/gen
+
+plugins:
+  # protoc-gen-go插件
+  - plugin: buf.build/protocolbuffers/go
+    # 输出生成的文件到指定目录
+    out: api/proto/gen
+    opt: paths=source_relative # 生成文件的相对路径设置为相对于源代码的路径
+
+  # grpc插件
+  - plugin: buf.build/grpc/go
+    # 输出生成的文件到指定目录
+    out: api/proto/gen
+    opt: paths=source_relative # 生成文件的相对路径设置为相对于源代码的路径

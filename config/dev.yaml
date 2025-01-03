@@ -1,0 +1,24 @@
+db:
+    mysql:
+        dsn: "root:123456@tcp(localhost:3306)/lifelog?charset=utf8mb4&parseTime=True&loc=Local"
+
+redis:
+    addr: "127.0.0.1:6379"
+    password: ""
+    db: 0
+
+kafka:
+    addr: "localhost:9092"
+
+grpc:
+    secure : false
+
+userEtcd:
+    port: 8070
+    addr:
+        - "localhost:12379"
+
+codeEtcd:
+    port: 8071
+    addr:
+        - "localhost:12379"
