@@ -2,20 +2,12 @@ package service
 
 import (
 	"context"
-	"errors"
 	"fmt"
 	"golang.org/x/crypto/bcrypt"
+	"lifelog-grpc/errs"
 	"lifelog-grpc/user/domain"
 	"lifelog-grpc/user/repository"
 	"time"
-)
-
-var (
-	ErrEmailExist      = repository.ErrEmailExist
-	ErrUserNotExist    = repository.ErrUserNotExist
-	ErrPasswordWrong   = errors.New("旧密码错误输入错误")
-	ErrUseOldPassword  = errors.New("不能使用历史密码")
-	NeedUpdatePassword = "需要修改密码"
 )
 
 type UserService interface {
@@ -51,7 +43,7 @@ func (u *UserServiceV1) RegisterByEmailAndPassword(ctx context.Context,
 	// 密码加密
 	gfp, err := bcrypt.GenerateFromPassword([]byte(userDomain.Password), bcrypt.DefaultCost)
 	if err != nil {
-		if err == ErrEmailExist {
+		if err == errs.EmailExist {
 			return domain.UserDomain{}, err
 		}
 		return domain.UserDomain{}, fmt.Errorf("加密失败，%w", err)
@@ -67,7 +59,7 @@ func (u *UserServiceV1) LoginByEmailAndPassword(ctx context.Context, userDomain 
 	user, err := u.userRepository.FindByEmail(ctx, userDomain)
 	// 出现错误
 	if err != nil {
-		if err == ErrUserNotExist {
+		if err == errs.UserNotExist {
 			return domain.UserDomain{}, "", err
 		}
 		return domain.UserDomain{}, "", err
@@ -104,7 +96,7 @@ func (u *UserServiceV1) UpdateUserInfoById(ctx context.Context, userDomain domai
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(userDomain.Password))
 	if err != nil {
 		// 旧密码输入错误
-		return ErrPasswordWrong
+		return errs.PasswordWrong
 	}
 	// 获取历史密码
 	historyPasswords, err := u.userRepository.GetHistoryPassword(ctx, user.Email)
@@ -117,7 +109,7 @@ func (u *UserServiceV1) UpdateUserInfoById(ctx context.Context, userDomain domai
 		// 相等，会返回nil
 		// 新密码在历史密码中
 		if bcrypt.CompareHashAndPassword([]byte(password), []byte(userDomain.NewPassword)) == nil {
-			return ErrUseOldPassword
+			return errs.UseOldPassword
 		}
 	}
 	// 新密码加密

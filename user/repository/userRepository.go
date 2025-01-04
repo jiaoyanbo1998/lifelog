@@ -8,11 +8,6 @@ import (
 	"lifelog-grpc/user/repository/dao"
 )
 
-var (
-	ErrEmailExist   = dao.ErrEmailExist
-	ErrUserNotExist = dao.ErrUserNotExist
-)
-
 type UserRepository interface {
 	CreateUser(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error)
 	FindById(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error)

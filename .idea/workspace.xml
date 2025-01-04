@@ -4,53 +4,31 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="lifelog和interactive转为微服务">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/code/v1/code.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/code/v1/code_grpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive_grpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/lifelog/v1/lifelog.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/lifelog/v1/lifelog_grpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/user/v1/user.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/user/v1/user_grpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/lifelog/v1/lifelog.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/ioc/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/ioc/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/ioc/redis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/wire.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ioc/interactiveServiceGRPCClient.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ioc/lifeLogServiceGRPCClient.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/logger.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/redis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/wire.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/lifelog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lifelog.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errs/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/errs/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ioc/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/web.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/grpcx/interceptors/ratelimit/interceptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/grpcx/interceptors/ratelimit/interceptor.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/articleHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/dao/userDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/dao/userDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/userRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/userRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/service/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/userService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/codeHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/codeHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,28 +57,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/GoLangProjects/src/lifelog/interactive/ioc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "configurable.group.tools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog/interactive/ioc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GoLangProjects\src\lifelog\interactive\ioc" />
@@ -112,7 +90,7 @@
       <recent name="D:\GoLangProjects\src\lifelog\interactive" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build lifelog-grpc/code">
+  <component name="RunManager" selected="Go Build.go build lifelog-grpc">
     <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="lifelog" />
       <working_directory value="$PROJECT_DIR$" />
@@ -131,6 +109,24 @@
       <filePath value="$PROJECT_DIR$/code/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/interactive" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/interactive/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/lifeLog" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/lifeLog" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/lifeLog/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build lifelog-grpc/user" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="lifelog" />
       <working_directory value="$PROJECT_DIR$" />
@@ -142,7 +138,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/lifeLog" />
         <item itemvalue="Go Build.go build lifelog-grpc/user" />
         <item itemvalue="Go Build.go build lifelog-grpc/code" />
       </list>

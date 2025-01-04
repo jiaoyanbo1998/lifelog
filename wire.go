@@ -4,9 +4,6 @@ package main
 
 import (
 	"github.com/google/wire"
-	codeRepository "lifelog-grpc/code/repository"
-	codeCache "lifelog-grpc/code/repository/cache"
-	codeService "lifelog-grpc/code/service"
 	collectClipRepository "lifelog-grpc/collectClip/repository"
 	collectClipDao "lifelog-grpc/collectClip/repository/dao"
 	collectClipService "lifelog-grpc/collectClip/service"
@@ -15,40 +12,25 @@ import (
 	commentService "lifelog-grpc/comment/service"
 	"lifelog-grpc/event/commentEvent"
 	"lifelog-grpc/event/lifeLogEvent"
-	interactiveRepository "lifelog-grpc/interactive/repository"
-	interactiveCache "lifelog-grpc/interactive/repository/cache"
-	interactiveDao "lifelog-grpc/interactive/repository/dao"
-	interactiveService "lifelog-grpc/interactive/service"
+	"lifelog-grpc/interactive/repository"
+	"lifelog-grpc/interactive/repository/cache"
+	"lifelog-grpc/interactive/repository/dao"
+	"lifelog-grpc/interactive/service"
 	"lifelog-grpc/ioc"
-	lifeLogRepository "lifelog-grpc/lifeLog/repository"
-	lifeLogCache "lifelog-grpc/lifeLog/repository/cache"
-	lifeLogDao "lifelog-grpc/lifeLog/repository/dao"
-	lifeLogService "lifelog-grpc/lifeLog/service"
 	rankingRepository "lifelog-grpc/ranking/repository"
 	rankingCache "lifelog-grpc/ranking/repository/cache"
 	rankingService "lifelog-grpc/ranking/service"
-	"lifelog-grpc/user/repository"
-	"lifelog-grpc/user/repository/cache"
-	"lifelog-grpc/user/repository/dao"
-	"lifelog-grpc/user/service"
 	"lifelog-grpc/web"
 )
 
 // userSet user模块的依赖注入
 var userSet = wire.NewSet(
 	web.NewUserHandler,
-	service.NewUserService,
-	repository.NewUserRepository,
-	dao.NewUserDao,
-	cache.NewUserCache,
 	ioc.InitUserServiceGRPCClient,
 )
 
 // codeSet code模块的依赖注入
 var codeSet = wire.NewSet(
-	codeService.NewCodeService,
-	codeRepository.NewCodeRepository,
-	codeCache.NewCodeCache,
 	web.NewCodeHandler,
 	ioc.InitCodeServiceGRPCClient,
 )
@@ -58,26 +40,20 @@ var JwtSet = wire.NewSet(
 	web.NewJWTHandler,
 )
 
-// 短信模块
-var smsSet = wire.NewSet(
-	ioc.InitSms,
-)
-
 // interactiveSet interactive模块的依赖注入
 var interactiveSet = wire.NewSet(
-	interactiveService.NewInteractiveService,
-	interactiveRepository.NewInteractiveRepository,
-	interactiveDao.NewInteractiveDao,
-	interactiveCache.NewInteractiveCache,
+	web.NewInteractiveHandler,
+	ioc.InitInteractiveServiceGRPCClient,
+	service.NewInteractiveService,
+	repository.NewInteractiveRepository,
+	dao.NewInteractiveDao,
+	cache.NewInteractiveCache,
 )
 
 // LifeLog模块
 var lifeLogSet = wire.NewSet(
 	web.NewLifeLogHandler,
-	lifeLogService.NewLifeLogService,
-	lifeLogRepository.NewLifeLogRepository,
-	lifeLogDao.NewLifeLogDao,
-	lifeLogCache.NewLifeLogRedisCache,
+	ioc.InitLifeLogServiceCRPCClient,
 )
 
 // collectClipSet collectClip模块的依赖注入
@@ -135,8 +111,6 @@ func InitApp() *App {
 		ioc.InitMiddlewares,
 		// 初始化redis
 		ioc.InitRedis,
-		// 初始化布隆过滤器
-		ioc.InitBloomFilter,
 
 		// 初始化user模块
 		userSet,
@@ -146,9 +120,6 @@ func InitApp() *App {
 
 		// 初始化jwt模块
 		JwtSet,
-
-		// 初始化短信sms模块
-		smsSet,
 
 		// 初始化验证码code模块
 		codeSet,

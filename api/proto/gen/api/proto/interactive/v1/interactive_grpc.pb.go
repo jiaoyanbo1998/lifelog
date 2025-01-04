@@ -23,11 +23,12 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	InteractiveService_Like_FullMethodName               = "/interactive.v1.interactiveService/Like"
-	InteractiveService_UnLike_FullMethodName             = "/interactive.v1.interactiveService/UnLike"
-	InteractiveService_Collect_FullMethodName            = "/interactive.v1.interactiveService/Collect"
-	InteractiveService_UnCollect_FullMethodName          = "/interactive.v1.interactiveService/UnCollect"
-	InteractiveService_GetInteractiveInfo_FullMethodName = "/interactive.v1.interactiveService/GetInteractiveInfo"
+	InteractiveService_Like_FullMethodName            = "/interactive.v1.interactiveService/Like"
+	InteractiveService_UnLike_FullMethodName          = "/interactive.v1.interactiveService/UnLike"
+	InteractiveService_Collect_FullMethodName         = "/interactive.v1.interactiveService/Collect"
+	InteractiveService_UnCollect_FullMethodName       = "/interactive.v1.interactiveService/UnCollect"
+	InteractiveService_InteractiveInfo_FullMethodName = "/interactive.v1.interactiveService/InteractiveInfo"
+	InteractiveService_IncreaseRead_FullMethodName    = "/interactive.v1.interactiveService/IncreaseRead"
 )
 
 // InteractiveServiceClient is the client API for InteractiveService service.
@@ -40,7 +41,8 @@ type InteractiveServiceClient interface {
 	UnLike(ctx context.Context, in *UnLikeRequest, opts ...grpc.CallOption) (*UnLikeResponse, error)
 	Collect(ctx context.Context, in *CollectRequest, opts ...grpc.CallOption) (*CollectResponse, error)
 	UnCollect(ctx context.Context, in *UnCollectRequest, opts ...grpc.CallOption) (*UnCollectResponse, error)
-	GetInteractiveInfo(ctx context.Context, in *GetInteractiveInfoRequest, opts ...grpc.CallOption) (*GetInteractiveInfoResponse, error)
+	InteractiveInfo(ctx context.Context, in *InteractiveInfoRequest, opts ...grpc.CallOption) (*InteractiveInfoResponse, error)
+	IncreaseRead(ctx context.Context, in *IncreaseReadRequest, opts ...grpc.CallOption) (*IncreaseReadResponse, error)
 }
 
 type interactiveServiceClient struct {
@@ -91,10 +93,20 @@ func (c *interactiveServiceClient) UnCollect(ctx context.Context, in *UnCollectR
 	return out, nil
 }
 
-func (c *interactiveServiceClient) GetInteractiveInfo(ctx context.Context, in *GetInteractiveInfoRequest, opts ...grpc.CallOption) (*GetInteractiveInfoResponse, error) {
+func (c *interactiveServiceClient) InteractiveInfo(ctx context.Context, in *InteractiveInfoRequest, opts ...grpc.CallOption) (*InteractiveInfoResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetInteractiveInfoResponse)
-	err := c.cc.Invoke(ctx, InteractiveService_GetInteractiveInfo_FullMethodName, in, out, cOpts...)
+	out := new(InteractiveInfoResponse)
+	err := c.cc.Invoke(ctx, InteractiveService_InteractiveInfo_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactiveServiceClient) IncreaseRead(ctx context.Context, in *IncreaseReadRequest, opts ...grpc.CallOption) (*IncreaseReadResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(IncreaseReadResponse)
+	err := c.cc.Invoke(ctx, InteractiveService_IncreaseRead_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
@@ -111,7 +123,8 @@ type InteractiveServiceServer interface {
 	UnLike(context.Context, *UnLikeRequest) (*UnLikeResponse, error)
 	Collect(context.Context, *CollectRequest) (*CollectResponse, error)
 	UnCollect(context.Context, *UnCollectRequest) (*UnCollectResponse, error)
-	GetInteractiveInfo(context.Context, *GetInteractiveInfoRequest) (*GetInteractiveInfoResponse, error)
+	InteractiveInfo(context.Context, *InteractiveInfoRequest) (*InteractiveInfoResponse, error)
+	IncreaseRead(context.Context, *IncreaseReadRequest) (*IncreaseReadResponse, error)
 	mustEmbedUnimplementedInteractiveServiceServer()
 }
 
@@ -134,8 +147,11 @@ func (UnimplementedInteractiveServiceServer) Collect(context.Context, *CollectRe
 func (UnimplementedInteractiveServiceServer) UnCollect(context.Context, *UnCollectRequest) (*UnCollectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UnCollect not implemented")
 }
-func (UnimplementedInteractiveServiceServer) GetInteractiveInfo(context.Context, *GetInteractiveInfoRequest) (*GetInteractiveInfoResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetInteractiveInfo not implemented")
+func (UnimplementedInteractiveServiceServer) InteractiveInfo(context.Context, *InteractiveInfoRequest) (*InteractiveInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InteractiveInfo not implemented")
+}
+func (UnimplementedInteractiveServiceServer) IncreaseRead(context.Context, *IncreaseReadRequest) (*IncreaseReadResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method IncreaseRead not implemented")
 }
 func (UnimplementedInteractiveServiceServer) mustEmbedUnimplementedInteractiveServiceServer() {}
 func (UnimplementedInteractiveServiceServer) testEmbeddedByValue()                            {}
@@ -230,20 +246,38 @@ func _InteractiveService_UnCollect_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
-func _InteractiveService_GetInteractiveInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetInteractiveInfoRequest)
+func _InteractiveService_InteractiveInfo_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InteractiveInfoRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(InteractiveServiceServer).GetInteractiveInfo(ctx, in)
+		return srv.(InteractiveServiceServer).InteractiveInfo(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: InteractiveService_GetInteractiveInfo_FullMethodName,
+		FullMethod: InteractiveService_InteractiveInfo_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(InteractiveServiceServer).GetInteractiveInfo(ctx, req.(*GetInteractiveInfoRequest))
+		return srv.(InteractiveServiceServer).InteractiveInfo(ctx, req.(*InteractiveInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractiveService_IncreaseRead_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IncreaseReadRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractiveServiceServer).IncreaseRead(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractiveService_IncreaseRead_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractiveServiceServer).IncreaseRead(ctx, req.(*IncreaseReadRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -272,8 +306,12 @@ var InteractiveService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _InteractiveService_UnCollect_Handler,
 		},
 		{
-			MethodName: "GetInteractiveInfo",
-			Handler:    _InteractiveService_GetInteractiveInfo_Handler,
+			MethodName: "InteractiveInfo",
+			Handler:    _InteractiveService_InteractiveInfo_Handler,
+		},
+		{
+			MethodName: "IncreaseRead",
+			Handler:    _InteractiveService_IncreaseRead_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

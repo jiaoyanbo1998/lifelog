@@ -27,7 +27,7 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 	interactiveCache := cache.NewInteractiveCache(cmdable, logger)
 	interactiveRepository := repository.NewInteractiveRepository(interactiveDao, interactiveCache)
 	interactiveService := service.NewInteractiveService(interactiveRepository)
-	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService, logger)
+	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService)
 	return interactiveServiceGRPCService
 }
 

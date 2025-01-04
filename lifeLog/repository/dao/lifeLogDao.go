@@ -5,9 +5,9 @@ import (
 	"errors"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
-	"time"
 	"lifelog-grpc/lifeLog/domain"
 	"lifelog-grpc/pkg/loggerx"
+	"time"
 )
 
 type LifeLogDao interface {
@@ -100,7 +100,7 @@ func (g *GormLifeLogDao) UpdateById(ctx context.Context, lifeLog LifeLog) (domai
 		"title":       lifeLog.Title,
 		"content":     lifeLog.Content,
 		"update_time": lifeLog.UpdateTime,
-		"status":      uint8(lifeLog.Status),
+		"status":      lifeLog.Status,
 	})
 	// LifeLog更新失败
 	if res.Error != nil {
@@ -133,7 +133,6 @@ func (g *GormLifeLogDao) Insert(ctx context.Context, lifeLog LifeLog) (domain.Li
 	now := time.Now().UnixMilli()
 	lifeLog.CreateTime = now
 	lifeLog.UpdateTime = now
-	lifeLog.Status = uint8(domain.LifeLogStatusUnPublish)
 	// 插入LifeLog
 	err := g.db.WithContext(ctx).Create(&lifeLog).Error
 	// LifeLog插入失败
@@ -363,10 +362,12 @@ func (g *GormLifeLogDao) Sync(ctx context.Context, lifeLog LifeLog) (domain.Life
 			_, err = txDao.UpdateById(ctx, lifeLog)
 		} else {
 			// 没传入id，表示插入数据
+			// 这是属于，直接发布lifelog，制作库的lifelog的status=1
+			lifeLog.Status = domain.LifeLogStatusPublished
 			_, err = txDao.Insert(ctx, lifeLog)
 		}
 		if err != nil {
-			g.logger.Error("同步制作库和线上库数据失败", loggerx.Error(err),
+			g.logger.Error("操作制作库失败", loggerx.Error(err),
 				loggerx.String("method:", "LifeLogDao:Sync"))
 			return err
 		}
@@ -412,7 +413,10 @@ func (a *GormLifeLogDao) Upsert(ctx context.Context, publishLifeLog PublicLifeLo
 		}),
 		// 要插入数据
 	}).Create(&publishLifeLog).Error
-	return err
+	if err != nil {
+		return err // 返回错误
+	}
+	return nil
 }
 
 // lifeLogsToLifeLogDomains 将制作库LifeLog列表转换为领域模型

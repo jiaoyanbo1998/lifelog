@@ -26,7 +26,7 @@ func InitLifeLogServiceGRPCService() *grpc.LifeLogServiceGRPCService {
 	lifeLogCache := cache.NewLifeLogRedisCache(cmdable, logger)
 	lifeLogRepository := repository.NewLifeLogRepository(lifeLogDao, logger, lifeLogCache)
 	lifeLogService := service.NewLifeLogService(lifeLogRepository)
-	lifeLogServiceGRPCService := grpc.NewLifeLogServiceGRPCService(lifeLogService)
+	lifeLogServiceGRPCService := grpc.NewLifeLogServiceGRPCService(lifeLogService, logger)
 	return lifeLogServiceGRPCService
 }
 

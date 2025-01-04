@@ -54,7 +54,7 @@ func (a *LifeLogRepositoryV1) Modify(ctx context.Context, lifeLogDomain domain.L
 	})
 }
 
-// Create 创建LifeLog
+// Create 创建LifeLog（制作库）
 func (a *LifeLogRepositoryV1) Create(ctx context.Context, lifeLogDomain domain.LifeLogDomain) (domain.LifeLogDomain, error) {
 	go func() {
 		err := a.lifeLogCache.DelFirstPage(ctx, lifeLogDomain.Author.Id)
@@ -67,8 +67,7 @@ func (a *LifeLogRepositoryV1) Create(ctx context.Context, lifeLogDomain domain.L
 		Title:    lifeLogDomain.Title,
 		Content:  lifeLogDomain.Content,
 		AuthorId: lifeLogDomain.Author.Id,
-		// 制作库中的LifeLog，只有未发布状态
-		Status: domain.LifeLogStatusUnPublish,
+		Status:   domain.LifeLogStatusUnPublish,
 	})
 }
 

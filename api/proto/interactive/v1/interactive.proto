@@ -13,16 +13,27 @@ service interactiveService {
   rpc UnLike(UnLikeRequest) returns(UnLikeResponse);
   rpc Collect(CollectRequest) returns(CollectResponse);
   rpc UnCollect(UnCollectRequest) returns(UnCollectResponse);
-  rpc GetInteractiveInfo(GetInteractiveInfoRequest) returns(GetInteractiveInfoResponse);
+  rpc InteractiveInfo(InteractiveInfoRequest) returns(InteractiveInfoResponse);
+  rpc IncreaseRead(IncreaseReadRequest) returns(IncreaseReadResponse);
 }
 
-// 获取互动信息（阅读数，点赞数，收藏数）（根据lifelog的id）
+// 阅读，增加阅读数（根据lifelog的id）
 // 请求
-message GetInteractiveInfoRequest {
+message IncreaseReadRequest {
   InteractiveDomain interactiveDomain = 1;
 }
 // 响应
-message GetInteractiveInfoResponse {
+message IncreaseReadResponse {
+}
+
+
+// 获取互动信息（阅读数，点赞数，收藏数）（根据lifelog的id）
+// 请求
+message InteractiveInfoRequest {
+  InteractiveDomain interactiveDomain = 1;
+}
+// 响应
+message InteractiveInfoResponse {
   InteractiveDomain interactiveDomain = 1;
 }
 

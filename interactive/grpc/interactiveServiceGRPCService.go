@@ -18,24 +18,34 @@ func NewCodeServiceGRPCService(interactiveService service.InteractiveService) *I
 	}
 }
 
-func (i *InteractiveServiceGRPCService) GetInteractiveInfo(ctx context.Context, request *interactivev1.GetInteractiveInfoRequest) (*interactivev1.GetInteractiveInfoResponse, error) {
-	info, err := i.GetInteractiveInfo(ctx, &interactivev1.GetInteractiveInfoRequest{
-		InteractiveDomain: &interactivev1.InteractiveDomain{
-			Biz:   request.GetInteractiveDomain().GetBiz(),
-			BizId: request.GetInteractiveDomain().GetBizId(),
-		},
-	})
+func (i *InteractiveServiceGRPCService) IncreaseRead(ctx context.Context, request *interactivev1.IncreaseReadRequest) (*interactivev1.IncreaseReadResponse, error) {
+	err := i.interactiveService.IncreaseReadCount(ctx,
+		request.GetInteractiveDomain().GetBiz(),
+		request.GetInteractiveDomain().GetBizId(),
+		request.GetInteractiveDomain().GetUserId())
 	if err != nil {
-		return &interactivev1.GetInteractiveInfoResponse{}, err
+		return &interactivev1.IncreaseReadResponse{}, err
 	}
-	return &interactivev1.GetInteractiveInfoResponse{
+	return &interactivev1.IncreaseReadResponse{}, nil
+}
+
+func (i *InteractiveServiceGRPCService) InteractiveInfo(
+	ctx context.Context, request *interactivev1.InteractiveInfoRequest) (*interactivev1.InteractiveInfoResponse, error) {
+	info, err := i.interactiveService.GetInteractiveInfo(ctx,
+		request.GetInteractiveDomain().GetBiz(),
+		request.GetInteractiveDomain().GetBizId(),
+	)
+	if err != nil {
+		return &interactivev1.InteractiveInfoResponse{}, err
+	}
+	return &interactivev1.InteractiveInfoResponse{
 		InteractiveDomain: &interactivev1.InteractiveDomain{
-			Id:           info.GetInteractiveDomain().GetId(),
-			CreateTime:   info.GetInteractiveDomain().GetCreateTime(),
-			UpdateTime:   info.GetInteractiveDomain().GetUpdateTime(),
-			ReadCount:    info.GetInteractiveDomain().GetReadCount(),
-			LikeCount:    info.GetInteractiveDomain().GetLikeCount(),
-			CollectCount: info.GetInteractiveDomain().GetCollectCount(),
+			Id:           info.Id,
+			CreateTime:   info.CreateTime,
+			UpdateTime:   info.UpdateTime,
+			ReadCount:    info.ReadCount,
+			LikeCount:    info.LikeCount,
+			CollectCount: info.CollectCount,
 		},
 	}, nil
 }

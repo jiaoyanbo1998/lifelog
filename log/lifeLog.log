@@ -1143,3 +1143,153 @@
 {"L":"info","time":"2025-01-03 18:32:48","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
 {"L":"info","time":"2025-01-03 18:32:48","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"840185","phone：":"18838116744"}
 {"L":"info","time":"2025-01-03 18:32:58","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-04 10:24:27","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-04 10:25:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 10:25:32","C":"loggerx/zap_logger.go:62","M":"邮箱格式不正确","error":null,"email":"17838466781qq.com","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 10:25:43","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 10:25:43","C":"loggerx/zap_logger.go:62","M":"两次输入的密码不一致，RegisterByEmailAndPassword方法","error":null,"method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 10:25:51","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 10:25:51","C":"loggerx/zap_logger.go:62","M":"密码格式错误，RegisterByEmailAndPassword方法","error":null,"method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 10:27:01","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 10:27:01","C":"loggerx/zap_logger.go:62","M":"密码为空","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 10:28:58","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-04 10:29:03","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:29:03","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 密码输入错误，crypto/bcrypt: hashedPassword is not the hash of the given password","email":"17838466781@qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:29:10","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:29:11","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:47:11","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:47:11","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:47:23","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:47:23","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:47:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:47:30","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:47:48","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:49:10","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:52:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:52:26","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:52:37","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:52:37","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:53:22","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:53:42","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 10:54:12","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 10:59:16","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:01:39","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:02:43","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:03:44","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:03:44","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:06:41","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:06:42","C":"loggerx/zap_logger.go:62","M":"用户不存在，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17838466781qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:07:08","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:07:08","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 密码输入错误，crypto/bcrypt: hashedPassword is not the hash of the given password","email":"17838466781@qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:12:15","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-04 11:12:40","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 11:12:42","C":"loggerx/zap_logger.go:62","M":"邮箱重复，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 邮箱已存在","email":"17831466781@qq.com","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 11:13:07","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-04 11:15:38","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-04 11:16:43","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 11:16:43","C":"loggerx/zap_logger.go:62","M":"邮箱格式不正确","error":null,"email":"17821115239qq.com","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 11:16:49","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 11:16:49","C":"loggerx/zap_logger.go:62","M":"两次输入的密码不一致，RegisterByEmailAndPassword方法","error":null,"method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 11:16:54","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 11:16:54","C":"loggerx/zap_logger.go:62","M":"密码格式错误，RegisterByEmailAndPassword方法","error":null,"method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 11:16:59","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 11:16:59","C":"loggerx/zap_logger.go:62","M":"邮箱重复，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 邮箱已存在","email":"17821115239@qq.com","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 11:17:13","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"info","time":"2025-01-04 11:17:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:17:21","C":"loggerx/zap_logger.go:62","M":"用户不存在，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 用户没有注册","email":"17821115239qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:17:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:17:29","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 密码输入错误，crypto/bcrypt: hashedPassword is not the hash of the given password","email":"17821115239@qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:17:48","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:20:47","C":"loggerx/zap_logger.go:62","M":"非法用户修改信息","error":null,"method":"UserHandler:UpdateUserInfoById"}
+{"L":"info","time":"2025-01-04 11:21:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-04 11:21:55","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:22:48","C":"loggerx/zap_logger.go:62","M":"修改用户信息失败","error":"rpc error: code = Unknown desc = 不能使用历史密码","method":"UserHandler:UpdateUserInfoById"}
+{"L":"error","time":"2025-01-04 11:25:39","C":"loggerx/zap_logger.go:62","M":"用户已经退出","path":"/user/logout","sessionId":"b3d42daa-f144-4d4d-922a-78ac205d0289"}
+{"L":"error","time":"2025-01-04 11:25:48","C":"loggerx/zap_logger.go:62","M":"用户已经退出","path":"/user/info/20","sessionId":"b3d42daa-f144-4d4d-922a-78ac205d0289"}
+{"L":"info","time":"2025-01-04 11:26:09","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-04 11:26:09","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"451889","phone：":"14838116744"}
+{"L":"info","time":"2025-01-04 11:28:02","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-04 11:28:02","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-04 11:28:18","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-04 11:28:18","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-04 11:28:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-04 11:28:29","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"789530","phone：":"14838116744"}
+{"L":"info","time":"2025-01-04 11:28:50","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-04 11:28:50","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-04 11:29:51","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-04 11:32:14","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-04 11:32:36","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-04 11:32:36","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"354631","phone：":"14838116744"}
+{"L":"info","time":"2025-01-04 11:32:56","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-04 11:34:14","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-04 11:34:14","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"317159","phone：":"17838116744"}
+{"L":"info","time":"2025-01-04 11:34:35","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-04 11:34:43","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-04 11:35:14","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-04 11:35:14","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"051478","phone：":"13949779974"}
+{"L":"info","time":"2025-01-04 11:35:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-04 11:35:33","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-04 11:35:33","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-04 11:35:47","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-04 11:35:47","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"820089","phone：":"13949779974"}
+{"L":"info","time":"2025-01-04 11:36:02","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-04 11:36:02","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-04 11:36:07","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-04 11:36:27","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:36:28","C":"loggerx/zap_logger.go:62","M":"用户名或密码错误，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 密码输入错误，crypto/bcrypt: hashedPassword is not the hash of the given password","email":"17821555239@qq.com","method":"UserHandler:Login"}
+{"L":"info","time":"2025-01-04 11:36:34","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-04 11:36:35","C":"loggerx/zap_logger.go:62","M":"邮箱重复，可能有人在搞你的系统","error":"rpc error: code = Unknown desc = 邮箱已存在","email":"17821555239@qq.com","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-04 11:36:47","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-04 11:37:52","C":"loggerx/zap_logger.go:62","M":"编辑LifeLog失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method：":"LifeLogHandler:Edit"}
+{"L":"error","time":"2025-01-04 11:46:24","C":"loggerx/zap_logger.go:62","M":"插入LifeLog失败","error":"Error 1062 (23000): Duplicate entry '《c》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogDao:Insert"}
+{"L":"error","time":"2025-01-04 11:46:24","C":"loggerx/zap_logger.go:62","M":"同步制作库和线上库数据失败","error":"Error 1062 (23000): Duplicate entry '《c》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogDao:Sync"}
+{"L":"error","time":"2025-01-04 11:46:24","C":"loggerx/zap_logger.go:62","M":"LifeLog发表失败，Publish方法","error":"rpc error: code = Unknown desc = Error 1062 (23000): Duplicate entry '《c》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogHandler:Publish"}
+{"L":"error","time":"2025-01-04 12:09:23","C":"loggerx/zap_logger.go:62","M":"插入LifeLog失败","error":"Error 1062 (23000): Duplicate entry '《Java》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogDao:Insert"}
+{"L":"error","time":"2025-01-04 12:09:25","C":"loggerx/zap_logger.go:62","M":"同步制作库和线上库数据失败","error":"Error 1062 (23000): Duplicate entry '《Java》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogDao:Sync"}
+{"L":"error","time":"2025-01-04 12:09:25","C":"loggerx/zap_logger.go:62","M":"LifeLog发表失败，Publish方法","error":"rpc error: code = Unknown desc = Error 1062 (23000): Duplicate entry '《Java》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogHandler:Publish"}
+{"L":"error","time":"2025-01-04 12:09:34","C":"loggerx/zap_logger.go:62","M":"更新LifeLog失败","error":"Error 1062 (23000): Duplicate entry '《Java》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogDao:UpdateById"}
+{"L":"error","time":"2025-01-04 12:09:34","C":"loggerx/zap_logger.go:62","M":"同步制作库和线上库数据失败","error":"Error 1062 (23000): Duplicate entry '《Java》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogDao:Sync"}
+{"L":"error","time":"2025-01-04 12:09:36","C":"loggerx/zap_logger.go:62","M":"LifeLog发表失败，Publish方法","error":"rpc error: code = Unknown desc = Error 1062 (23000): Duplicate entry '《Java》' for key 'tb_lifelog.tb_fifeLog_title'","method:":"LifeLogHandler:Publish"}
+{"L":"error","time":"2025-01-04 13:06:54","C":"loggerx/zap_logger.go:62","M":"LifeLog发表失败，Publish方法","error":"rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.1.7:8072: connectex: No connection could be made because the target machine actively refused it.\"; last resolver error: produced zero addresses","method:":"LifeLogHandler:Publish"}
+{"L":"error","time":"2025-01-04 13:07:15","C":"loggerx/zap_logger.go:62","M":"LifeLog发表失败，Publish方法","error":"rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.1.7:8072: connectex: No connection could be made because the target machine actively refused it.\"; last resolver error: produced zero addresses","method:":"LifeLogHandler:Publish"}
+{"L":"warn","time":"2025-01-04 13:27:23","C":"loggerx/zap_logger.go:57","M":"更新LifeLog失败，创作者非法，可能有人在搞你的系统","error":null,"method:":"LifeLogDao:UpdateById"}
+{"L":"error","time":"2025-01-04 13:27:23","C":"loggerx/zap_logger.go:62","M":"操作制作库失败","error":"更新LifeLog失败，创作者非法，可能有人在搞你的系统","method:":"LifeLogDao:Sync"}
+{"L":"error","time":"2025-01-04 13:27:23","C":"loggerx/zap_logger.go:62","M":"LifeLog发表失败，Publish方法","error":"rpc error: code = Unknown desc = 更新LifeLog失败，创作者非法，可能有人在搞你的系统","method:":"LifeLogHandler:Publish"}
+{"L":"error","time":"2025-01-04 13:35:00","C":"loggerx/zap_logger.go:62","M":"jwt-token非法","path":"/lifeLog/title","error":"token has invalid claims: token is expired"}
+{"L":"error","time":"2025-01-04 13:35:12","C":"loggerx/zap_logger.go:62","M":"jwt-token非法","path":"/lifeLog/title","error":"token has invalid claims: token is expired"}
+{"L":"error","time":"2025-01-04 13:37:32","C":"loggerx/zap_logger.go:62","M":"查找LifeLog失败","error":"rpc error: code = Unimplemented desc = method Detail not implemented","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-04 13:37:41","C":"loggerx/zap_logger.go:62","M":"查找LifeLog失败","error":"rpc error: code = Unimplemented desc = method Detail not implemented","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-04 13:43:44","C":"loggerx/zap_logger.go:62","M":"增加阅读量失败","error":"kafka server: Request was for a topic or partition that does not exist on this broker","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-04 13:48:11","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:54791->192.168.1.7:8073: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 13:49:56","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:54862->192.168.1.7:8073: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 13:50:32","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:54935->192.168.1.7:8073: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:03:17","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:55698->192.168.1.7:8073: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:09:18","C":"loggerx/zap_logger.go:62","M":"获取文章互动信息失败","error":"record not found","method:":"InteractiveDao:GetInteractiveInfoByBizId"}
+{"L":"error","time":"2025-01-04 14:09:18","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unknown desc = record not found","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:09:29","C":"loggerx/zap_logger.go:62","M":"获取文章互动信息失败","error":"record not found","method:":"InteractiveDao:GetInteractiveInfoByBizId"}
+{"L":"error","time":"2025-01-04 14:09:29","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unknown desc = record not found","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:10:33","C":"loggerx/zap_logger.go:62","M":"获取文章互动信息失败","error":"record not found","method:":"InteractiveDao:GetInteractiveInfoByBizId"}
+{"L":"error","time":"2025-01-04 14:10:33","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unknown desc = record not found","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:12:21","C":"loggerx/zap_logger.go:62","M":"redis获取失败","error":"redis: nil","method：":"LifeLogHandler:GetFirstPage"}
+{"L":"error","time":"2025-01-04 14:12:21","C":"loggerx/zap_logger.go:62","M":"redis存储失败","error":"redis: can't marshal domain.LifeLogDomain (implement encoding.BinaryMarshaler)","method：":"LifeLogHandler:Set"}
+{"L":"error","time":"2025-01-04 14:12:21","C":"loggerx/zap_logger.go:62","M":"预缓存失败","error":"redis: can't marshal domain.LifeLogDomain (implement encoding.BinaryMarshaler)","method:":"lifeLogRepository:SearchByAuthorId"}
+{"L":"error","time":"2025-01-04 14:18:54","C":"loggerx/zap_logger.go:62","M":"获取文章互动信息失败","error":"record not found","method:":"InteractiveDao:GetInteractiveInfoByBizId"}
+{"L":"error","time":"2025-01-04 14:18:54","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unknown desc = record not found","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:19:22","C":"loggerx/zap_logger.go:62","M":"获取文章互动信息失败","error":"record not found","method:":"InteractiveDao:GetInteractiveInfoByBizId"}
+{"L":"error","time":"2025-01-04 14:19:22","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unknown desc = record not found","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:20:11","C":"loggerx/zap_logger.go:62","M":"查找LifeLog列表失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:56003->192.168.1.7:8072: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-04 14:20:52","C":"loggerx/zap_logger.go:62","M":"查找LifeLog失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-04 14:21:10","C":"loggerx/zap_logger.go:62","M":"获取文章互动信息失败","error":"record not found","method:":"InteractiveDao:GetInteractiveInfoByBizId"}
+{"L":"error","time":"2025-01-04 14:21:10","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unknown desc = record not found","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-04 14:21:25","C":"loggerx/zap_logger.go:62","M":"查找LifeLog列表失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:56580->192.168.1.7:8072: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-04 14:24:16","C":"loggerx/zap_logger.go:62","M":"redis获取失败","error":"redis: nil","method：":"LifeLogHandler:GetFirstPage"}
+{"L":"error","time":"2025-01-04 14:24:17","C":"loggerx/zap_logger.go:62","M":"redis存储失败","error":"redis: can't marshal domain.LifeLogDomain (implement encoding.BinaryMarshaler)","method：":"LifeLogHandler:Set"}
+{"L":"error","time":"2025-01-04 14:24:17","C":"loggerx/zap_logger.go:62","M":"预缓存失败","error":"redis: can't marshal domain.LifeLogDomain (implement encoding.BinaryMarshaler)","method:":"lifeLogRepository:SearchByAuthorId"}
+{"L":"error","time":"2025-01-04 14:25:59","C":"loggerx/zap_logger.go:62","M":"获取文章互动信息失败","error":"record not found","method:":"InteractiveDao:GetInteractiveInfoByBizId"}
+{"L":"error","time":"2025-01-04 14:25:59","C":"loggerx/zap_logger.go:62","M":"获取点赞数，收藏数，阅读数失败","error":"rpc error: code = Unknown desc = record not found","method:":"LifeLogHandler:Detail"}
+{"L":"warn","time":"2025-01-04 14:26:51","C":"loggerx/zap_logger.go:57","M":"点赞数自增失败，缓存过期，或者有人在搞你的系统","method:":"InteractiveCache:InsertLikeCount"}
+{"L":"error","time":"2025-01-04 14:26:51","C":"loggerx/zap_logger.go:62","M":"点赞失败","error":"rpc error: code = Unknown desc = 点赞数自增失败，key不存在，缓存过期，或者有人在搞你的系统","method:":"InteractiveHandler:Like"}
+{"L":"error","time":"2025-01-04 15:05:17","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"不能重复取消点赞","method:":"InteractiveDaoV1:DecreaseLikeCount"}
+{"L":"error","time":"2025-01-04 15:05:17","C":"loggerx/zap_logger.go:62","M":"取消点赞失败","error":"rpc error: code = Unknown desc = 不能重复取消点赞","method:":"InteractiveHandler:UnLike"}
+{"L":"error","time":"2025-01-04 15:21:06","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"不能重复取消点赞","method:":"InteractiveDaoV1:DecreaseLikeCount"}
+{"L":"error","time":"2025-01-04 15:21:06","C":"loggerx/zap_logger.go:62","M":"取消点赞失败","error":"rpc error: code = Unknown desc = 不能重复取消点赞","method:":"InteractiveHandler:UnLike"}

@@ -2,11 +2,12 @@ package dao
 
 import (
 	"context"
+	"errors"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
-	"time"
 	"lifelog-grpc/interactive/domain"
 	"lifelog-grpc/pkg/loggerx"
+	"time"
 )
 
 type InteractiveDao interface {
@@ -197,7 +198,11 @@ func (i *InteractiveDaoV1) InsertLikeCount(ctx context.Context, biz string, bizI
 				return err
 			}
 		}
-		// 2.更新点赞数
+		// 2.判断用户是否已经点赞过了
+		if interactiveLike.Status == 1 {
+			return errors.New("用户已经点赞过了")
+		}
+		// 3.更新点赞数
 		// 	 发生唯一键冲突，就更新数据
 		// 	 没有发生唯一键冲突，就插入数据
 		err := tx.Where("biz_id = ? AND biz = ?", bizId, biz).
@@ -212,6 +217,15 @@ func (i *InteractiveDaoV1) InsertLikeCount(ctx context.Context, biz string, bizI
 			i.logger.Error("增加点赞数失败", loggerx.Error(err),
 				loggerx.String("method:", "InteractiveDaoV1:InsertLikeCount"))
 			return err
+		}
+		// 4.更新点赞记录
+		if err = tx.Model(&interactiveLike).Where("biz_id = ? AND biz = ? AND user_id = ?", bizId, biz, userId).
+			Updates(map[string]interface{}{
+				"status":      1,
+				"update_time": now,
+			}).Error; err != nil {
+			i.logger.Error("更新点赞记录失败", loggerx.Error(err),
+				loggerx.String("method:", "InteractiveDaoV1:InsertLikeCount"))
 		}
 		return nil
 	})
@@ -246,8 +260,20 @@ func (i *InteractiveDaoV1) InsertLikeInfo(ctx context.Context, biz string, bizId
 func (i *InteractiveDaoV1) DecreaseLikeCount(ctx context.Context, biz string, bizId int64, userId int64) error {
 	now := time.Now().UnixMilli()
 	er := i.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
+		// 查询当前点赞记录的 status
+		var likeRecord InteractiveLike
+		err := tx.Model(&InteractiveLike{}).
+			Where("biz = ? AND biz_id = ? AND user_id = ?", biz, bizId, userId).
+			First(&likeRecord).Error
+		if err != nil {
+			return err
+		}
+		// 如果status == 2，表示已经取消点赞了，你不要再取消了
+		if likeRecord.Status == 2 {
+			return errors.New("不能重复取消点赞")
+		}
 		// 更新点赞数
-		err := tx.Model(&Interactive{}).Where("biz = ? AND biz_id = ?", biz, bizId).
+		err = tx.Model(&Interactive{}).Where("biz = ? AND biz_id = ?", biz, bizId).
 			Updates(map[string]interface{}{
 				"like_count":  gorm.Expr("like_count - 1"), // 防止 like_count 变为负数
 				"update_time": now,

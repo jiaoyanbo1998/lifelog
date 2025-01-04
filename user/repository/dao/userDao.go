@@ -7,14 +7,10 @@ import (
 	"fmt"
 	"github.com/google/uuid"
 	"gorm.io/gorm"
+	"lifelog-grpc/errs"
 	"lifelog-grpc/user/domain"
 	"strings"
 	"time"
-)
-
-var (
-	ErrEmailExist   = errors.New("邮箱已存在")
-	ErrUserNotExist = errors.New("用户没有注册")
 )
 
 type UserDao interface {
@@ -126,7 +122,7 @@ func (g *GormUserDao) Insert(ctx context.Context, userDomain domain.UserDomain) 
 	if err != nil {
 		ok := strings.Contains(err.Error(), "Duplicate")
 		if ok {
-			return domain.UserDomain{}, ErrEmailExist
+			return domain.UserDomain{}, errs.EmailExist
 		}
 		return domain.UserDomain{}, fmt.Errorf("数据库插入失败，%w", err)
 	}
@@ -141,7 +137,7 @@ func (g *GormUserDao) GetUserByEmail(ctx context.Context, email string) (domain.
 	if err != nil {
 		// 用户没有被注册，数据库中没有数据
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return domain.UserDomain{}, ErrUserNotExist
+			return domain.UserDomain{}, errs.UserNotExist
 		}
 		return domain.UserDomain{}, fmt.Errorf("数据库查询失败，%w", err)
 	}
@@ -163,7 +159,7 @@ func (g *GormUserDao) GetUserById(ctx context.Context, id int64) (domain.UserDom
 	if err != nil {
 		// 用户没有被注册，数据库中没有数据
 		if errors.Is(err, gorm.ErrRecordNotFound) {
-			return domain.UserDomain{}, ErrUserNotExist
+			return domain.UserDomain{}, errs.UserNotExist
 		}
 		return domain.UserDomain{}, fmt.Errorf("数据库查询失败，%w", err)
 	}

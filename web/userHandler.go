@@ -7,7 +7,6 @@ import (
 	userv1 "lifelog-grpc/api/proto/gen/user/v1"
 	"lifelog-grpc/errs"
 	"lifelog-grpc/pkg/loggerx"
-	"lifelog-grpc/user/service"
 	"lifelog-grpc/user/vo"
 	"net/http"
 	"strconv"
@@ -95,6 +94,16 @@ func (userHandler *UserHandler) RegisterByEmailAndPassword(ctx *gin.Context) {
 			loggerx.String("method", "UserHandler:RegisterByEmailAndPassword"))
 		return
 	}
+	if req.Email == "" {
+		ctx.JSON(http.StatusBadRequest, Result[string]{
+			Code: errs.ErrInvalidParams,
+			Msg:  "邮箱不能为空",
+			Data: "error",
+		})
+		userHandler.logger.Error("邮箱为空",
+			loggerx.String("method", "UserHandler:RegisterByEmailAndPassword"))
+		return
+	}
 	if req.Password == "" || req.ConfirmPassword == "" {
 		ctx.JSON(http.StatusBadRequest, Result[string]{
 			Code: errs.ErrInvalidParams,
@@ -174,19 +183,19 @@ func (userHandler *UserHandler) RegisterByEmailAndPassword(ctx *gin.Context) {
 				Password: req.Password,
 			},
 		})
-	if err == service.ErrEmailExist {
-		ctx.JSON(http.StatusOK, Result[string]{
-			Code: errs.ErrEmailAlreadyRegistered,
-			Msg:  "邮箱已存在",
-			Data: "error",
-		})
-		userHandler.logger.Error("邮箱重复，可能有人在搞你的系统",
-			loggerx.Error(err),
-			loggerx.String("email", req.Email),
-			loggerx.String("method", "UserHandler:RegisterByEmailAndPassword"))
-		return
-	}
 	if err != nil {
+		if strings.Contains(err.Error(), errs.EmailExist.Error()) {
+			ctx.JSON(http.StatusOK, Result[string]{
+				Code: errs.ErrEmailAlreadyRegistered,
+				Msg:  "邮箱已存在",
+				Data: "error",
+			})
+			userHandler.logger.Error("邮箱重复，可能有人在搞你的系统",
+				loggerx.Error(err),
+				loggerx.String("email", req.Email),
+				loggerx.String("method", "UserHandler:RegisterByEmailAndPassword"))
+			return
+		}
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrSystemError,
 			Msg:  "系统错误",
@@ -229,20 +238,20 @@ func (userHandler *UserHandler) LoginByEmailAndPassword(ctx *gin.Context) {
 				Password: req.Password,
 			},
 		})
-	if err == service.ErrUserNotExist {
-		ctx.JSON(http.StatusOK, Result[string]{
-			Code: errs.ErrUserNotRegistered,
-			Msg:  "用户没有被注册",
-			Data: "error",
-		})
-		userHandler.logger.Error("用户不存在，可能有人在搞你的系统",
-			loggerx.Error(err),
-			loggerx.String("email", req.Email),
-			loggerx.String("method", "UserHandler:Login"),
-		)
-		return
-	}
 	if err != nil {
+		if strings.Contains(err.Error(), errs.UserNotExist.Error()) {
+			ctx.JSON(http.StatusOK, Result[string]{
+				Code: errs.ErrUserNotRegistered,
+				Msg:  "用户没有被注册",
+				Data: "error",
+			})
+			userHandler.logger.Error("用户不存在，可能有人在搞你的系统",
+				loggerx.Error(err),
+				loggerx.String("email", req.Email),
+				loggerx.String("method", "UserHandler:Login"),
+			)
+			return
+		}
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrUsernameOrPasswordError,
 			Msg:  "用户名或密码错误",
@@ -263,7 +272,7 @@ func (userHandler *UserHandler) LoginByEmailAndPassword(ctx *gin.Context) {
 	// 登陆成功，生成长短token
 	userHandler.jwtHandler.SetJwt(ctx, userClaims, true)
 	// 提醒用户需要修改密码
-	if res.Info == service.NeedUpdatePassword {
+	if res.Info == errs.NeedUpdatePassword {
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: 200,
 			Msg:  "登录成功",
@@ -299,17 +308,17 @@ func (userHandler *UserHandler) GetUserInfoById(ctx *gin.Context) {
 			Id: id,
 		},
 	})
-	if err == service.ErrUserNotExist {
-		ctx.JSON(http.StatusOK, Result[string]{
-			Code: errs.ErrUserNotRegistered,
-			Msg:  "用户不存在",
-			Data: "error",
-		})
-		userHandler.logger.Error("用户不存在", loggerx.Error(err),
-			loggerx.String("method", "UserHandler:GetUserInfoById"))
-		return
-	}
 	if err != nil {
+		if strings.Contains(err.Error(), errs.UserNotExist.Error()) {
+			ctx.JSON(http.StatusOK, Result[string]{
+				Code: errs.ErrUserNotRegistered,
+				Msg:  "用户不存在",
+				Data: "error",
+			})
+			userHandler.logger.Error("用户不存在", loggerx.Error(err),
+				loggerx.String("method", "UserHandler:GetUserInfoById"))
+			return
+		}
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrSystemError,
 			Msg:  "系统错误",
@@ -388,7 +397,7 @@ func (userHandler *UserHandler) UpdateUserInfoById(ctx *gin.Context) {
 			NewPassword: req.NewPassword,
 		},
 	})
-	if errors.Is(err, service.ErrUseOldPassword) {
+	if errors.Is(err, errs.UseOldPassword) {
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrUseOldPassword,
 			Msg:  "更新密码时，不要使用历史密码",
@@ -398,17 +407,17 @@ func (userHandler *UserHandler) UpdateUserInfoById(ctx *gin.Context) {
 			loggerx.String("method", "UserHandler:UpdateUserInfoById"))
 		return
 	}
-	if err == service.ErrPasswordWrong {
-		ctx.JSON(http.StatusOK, Result[string]{
-			Code: errs.ErrUsernameOrPasswordError,
-			Msg:  "旧密码输入错误",
-			Data: "error",
-		})
-		userHandler.logger.Error("旧密码错误", loggerx.Error(err),
-			loggerx.String("method", "UserHandler:UpdateUserInfoById"))
-		return
-	}
 	if err != nil {
+		if strings.Contains(err.Error(), errs.PasswordWrong.Error()) {
+			ctx.JSON(http.StatusOK, Result[string]{
+				Code: errs.ErrUsernameOrPasswordError,
+				Msg:  "旧密码输入错误",
+				Data: "error",
+			})
+			userHandler.logger.Error("旧密码错误", loggerx.Error(err),
+				loggerx.String("method", "UserHandler:UpdateUserInfoById"))
+			return
+		}
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrSystemError,
 			Msg:  "系统错误",

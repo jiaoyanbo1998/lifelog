@@ -23,6 +23,27 @@ func NewLifeLogServiceGRPCService(lifeLogService service.LifeLogService,
 	}
 }
 
+func (l *LifeLogServiceGRPCService) Detail(ctx context.Context, request *lifelogv1.DetailRequest) (*lifelogv1.DetailResponse, error) {
+	detail, err := l.lifeLogService.Detail(ctx, request.GetLifeLogDomain().GetId(), request.GetIsPublic())
+	if err != nil {
+		return &lifelogv1.DetailResponse{}, err
+	}
+	return &lifelogv1.DetailResponse{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
+			Id:         detail.Id,
+			Title:      detail.Title,
+			Content:    detail.Content,
+			CreateTime: detail.CreateTime,
+			UpdateTime: detail.UpdateTime,
+			Status:     int64(detail.Status),
+			Author: &lifelogv1.Author{
+				UserId:   detail.Author.Id,
+				NickName: detail.Author.Name,
+			},
+		},
+	}, nil
+}
+
 func (l *LifeLogServiceGRPCService) Edit(ctx context.Context, request *lifelogv1.EditRequest) (*lifelogv1.EditResponse, error) {
 	// 调用service层
 	res, err := l.lifeLogService.Save(ctx, domain.LifeLogDomain{

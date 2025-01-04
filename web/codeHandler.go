@@ -4,28 +4,29 @@ import (
 	"errors"
 	regexp "github.com/dlclark/regexp2"
 	"github.com/gin-gonic/gin"
-	"net/http"
+	codev1 "lifelog-grpc/api/proto/gen/code/v1"
 	"lifelog-grpc/code/service"
 	"lifelog-grpc/errs"
 	"lifelog-grpc/pkg/loggerx"
+	"net/http"
 )
 
 // CodeHandler 短信处理器
 type CodeHandler struct {
-	codeService service.CodeService
-	logger      loggerx.Logger
-	phoneRegexp *regexp.Regexp
+	codeServiceClient codev1.CodeServiceClient
+	logger            loggerx.Logger
+	phoneRegexp       *regexp.Regexp
 }
 
 // NewCodeHandler 构造短信处理器
-func NewCodeHandler(l loggerx.Logger, codeService service.CodeService) *CodeHandler {
+func NewCodeHandler(l loggerx.Logger, codeServiceClient codev1.CodeServiceClient) *CodeHandler {
 	// 定义正则表达式常量
 	const PhoneRegexp = "^1[3-9]\\d{9}$"
 	return &CodeHandler{
 		logger: l,
 		// 预编译正则表达式（性能优化：只需要编译一次，后续就可以重复使用）
-		phoneRegexp: regexp.MustCompile(PhoneRegexp, regexp.None),
-		codeService: codeService,
+		phoneRegexp:       regexp.MustCompile(PhoneRegexp, regexp.None),
+		codeServiceClient: codeServiceClient,
 	}
 }
 
@@ -55,7 +56,9 @@ func (codeHandler *CodeHandler) SendPhoneCode(ctx *gin.Context) {
 		return
 	}
 	// 检查手机号是否为黑名单
-	isBackPhone, err := codeHandler.codeService.IsBackPhone(ctx.Request.Context(), req.Phone)
+	isBackPhone, err := codeHandler.codeServiceClient.IsBackPhone(ctx.Request.Context(), &codev1.IsBackPhoneRequest{
+		Phone: req.Phone,
+	})
 	if err != nil {
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrSystemError,
@@ -66,7 +69,7 @@ func (codeHandler *CodeHandler) SendPhoneCode(ctx *gin.Context) {
 			loggerx.String("method", "CodeHandler:SendPhoneCode"))
 		return
 	}
-	if isBackPhone {
+	if isBackPhone.GetIsBack() {
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrPhoneIsBlack,
 			Msg:  "系统错误",
@@ -99,7 +102,10 @@ func (codeHandler *CodeHandler) SendPhoneCode(ctx *gin.Context) {
 			loggerx.String("method", "CodeHandler:SendPhoneCode"))
 		return
 	}
-	err = codeHandler.codeService.SendPhoneCode(ctx.Request.Context(), req.Phone, req.Biz)
+	_, err = codeHandler.codeServiceClient.SendPhoneCode(ctx.Request.Context(), &codev1.SendPhoneCodeRequest{
+		Phone: req.Phone,
+		Biz:   req.Biz,
+	})
 	if errors.Is(err, service.ErrCodeSendFrequent) {
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrCodeInputFrequently,
@@ -111,7 +117,9 @@ func (codeHandler *CodeHandler) SendPhoneCode(ctx *gin.Context) {
 		return
 	}
 	if errors.Is(err, service.ErrCodeSendMany) {
-		err := codeHandler.codeService.SetBlackPhone(ctx, req.Phone)
+		_, err := codeHandler.codeServiceClient.SetBlackPhone(ctx.Request.Context(), &codev1.SetBlackPhoneRequest{
+			Phone: req.Phone,
+		})
 		if err != nil {
 			ctx.JSON(http.StatusOK, Result[string]{
 				Code: errs.ErrSystemError,

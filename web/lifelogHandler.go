@@ -6,7 +6,6 @@ import (
 	interactivev1 "lifelog-grpc/api/proto/gen/api/proto/interactive/v1"
 	lifelogv1 "lifelog-grpc/api/proto/gen/api/proto/lifelog/v1"
 	"lifelog-grpc/event/lifeLogEvent"
-	"lifelog-grpc/job"
 	"lifelog-grpc/lifeLog/vo"
 	"lifelog-grpc/pkg/loggerx"
 	"net/http"
@@ -18,7 +17,6 @@ type LifeLogHandler struct {
 	logger                   loggerx.Logger
 	lifeLogServiceClient     lifelogv1.LifeLogServiceClient
 	interactiveServiceClient interactivev1.InteractiveServiceClient
-	job                      job.Job
 	biz                      string
 	syncProducer             lifeLogEvent.Producer
 	JWTHandler
@@ -26,7 +24,6 @@ type LifeLogHandler struct {
 
 func NewLifeLogHandler(l loggerx.Logger,
 	lifeLogServiceClient lifelogv1.LifeLogServiceClient,
-	job job.Job,
 	syncProducer lifeLogEvent.Producer,
 	interactiveServiceClient interactivev1.InteractiveServiceClient) *LifeLogHandler {
 	return &LifeLogHandler{
@@ -34,7 +31,6 @@ func NewLifeLogHandler(l loggerx.Logger,
 		lifeLogServiceClient:     lifeLogServiceClient,
 		interactiveServiceClient: interactiveServiceClient,
 		biz:                      "lifeLog",
-		job:                      job,
 		syncProducer:             syncProducer,
 	}
 }
@@ -55,8 +51,6 @@ func (l *LifeLogHandler) RegisterRoutes(server *gin.Engine) {
 	// 读者的接口
 	// 根据标题查找LifeLog
 	rg.POST("/title", l.SearchByTitle)
-	// 热榜
-	rg.GET("/hot", l.Hot)
 	// 查看LifeLog的详情 （根据id查找LifeLog，线上库/制作库）
 	rg.POST("/detail", l.Detail)
 }
@@ -431,7 +425,7 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			Data: "error",
 		})
 		l.logger.Error("参数bind失败",
-			loggerx.String("method:", "LifeLogHandler:SearchById"))
+			loggerx.String("method:", "LifeLogHandler:Detail"))
 		return
 	}
 	if req.Id <= 0 {
@@ -441,7 +435,7 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			Data: "error",
 		})
 		l.logger.Error("id参数<=0",
-			loggerx.String("method:", "LifeLogHandler:SearchById"))
+			loggerx.String("method:", "LifeLogHandler:Detail"))
 		return
 	}
 	// 获取token中存储的用户信息
@@ -453,7 +447,7 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			Data: "error",
 		})
 		l.logger.Error("获取用户信息失败，token中不存在用户信息",
-			loggerx.String("method：", "LifeLogHandler:Search"))
+			loggerx.String("method：", "LifeLogHandler:Detail"))
 		return
 	}
 	res, err := l.lifeLogServiceClient.Detail(ctx, &lifelogv1.DetailRequest{
@@ -469,21 +463,23 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			Data: "error",
 		})
 		l.logger.Error("查找LifeLog失败", loggerx.Error(err),
-			loggerx.String("method:", "LifeLogHandler:Search"))
+			loggerx.String("method:", "LifeLogHandler:Detail"))
 		return
 	}
 	// 增加阅读量
-	// 异步执行，防止子协程出现错误，导致主协程阻塞
-	er := l.syncProducer.ProduceReadEvent(lifeLogEvent.ReadEvent{
-		LifeLogId: res.GetLifeLogDomain().GetId(),
-		UserId:    userInfo.Id,
+	_, er := l.interactiveServiceClient.IncreaseRead(ctx, &interactivev1.IncreaseReadRequest{
+		InteractiveDomain: &interactivev1.InteractiveDomain{
+			Biz:    l.biz,
+			BizId:  res.GetLifeLogDomain().GetId(),
+			UserId: userInfo.Id,
+		},
 	})
 	if er != nil {
 		l.logger.Error("增加阅读量失败", loggerx.Error(er),
-			loggerx.String("method:", "LifeLogHandler:Search"))
+			loggerx.String("method:", "LifeLogHandler:Detail"))
 	}
 	// 获取点赞数，收藏数，阅读数
-	interactiveInfo, err := l.interactiveServiceClient.GetInteractiveInfo(ctx, &interactivev1.GetInteractiveInfoRequest{
+	interactiveInfo, err := l.interactiveServiceClient.InteractiveInfo(ctx, &interactivev1.InteractiveInfoRequest{
 		InteractiveDomain: &interactivev1.InteractiveDomain{
 			Biz:   l.biz,
 			BizId: res.GetLifeLogDomain().GetId(),
@@ -499,7 +495,7 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 		Data: vo.LifeLogVo{
 			Id:      res.GetLifeLogDomain().GetId(),
 			Title:   res.GetLifeLogDomain().GetTitle(),
-			Content: res.GetLifeLogDomain().GetContent(),
+			Content: l.Abstract(res.GetLifeLogDomain().GetContent()),
 			// 将毫秒值时间戳，转换为，time.Time类型(2024-09-23 16:00:00 +0800 CST)
 			CreateTime:   time.UnixMilli(res.GetLifeLogDomain().GetCreateTime()),
 			UpdateTime:   time.UnixMilli(res.GetLifeLogDomain().GetUpdateTime()),
@@ -510,28 +506,6 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			LikeCount:    interactiveInfo.GetInteractiveDomain().GetLikeCount(),
 			CollectCount: interactiveInfo.GetInteractiveDomain().GetCollectCount(),
 		},
-	})
-}
-
-func (l *LifeLogHandler) Hot(c *gin.Context) {
-	// 获取热榜
-	res, err := l.job.Run()
-	// 将res转为[]string
-	r, _ := res.([]string)
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, Result[string]{
-			Code: 500,
-			Msg:  "获取热门LifeLog失败",
-			Data: "error",
-		})
-		l.logger.Error("获取热门LifeLog失败", loggerx.Error(err),
-			loggerx.String("method:", "LifeLogHandler:Hot"))
-		return
-	}
-	c.JSON(http.StatusOK, Result[[]string]{
-		Code: 200,
-		Msg:  "获取热门LifeLog成功",
-		Data: r,
 	})
 }
 
