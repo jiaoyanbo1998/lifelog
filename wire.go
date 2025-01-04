@@ -4,9 +4,9 @@ package main
 
 import (
 	"github.com/google/wire"
-	collectClipRepository "lifelog-grpc/collectClip/repository"
-	collectClipDao "lifelog-grpc/collectClip/repository/dao"
-	collectClipService "lifelog-grpc/collectClip/service"
+	collectClipRepository "lifelog-grpc/collect/repository"
+	collectClipDao "lifelog-grpc/collect/repository/dao"
+	collectClipService "lifelog-grpc/collect/service"
 	commentRepository "lifelog-grpc/comment/repository"
 	commentDao "lifelog-grpc/comment/repository/dao"
 	commentService "lifelog-grpc/comment/service"
@@ -58,10 +58,10 @@ var lifeLogSet = wire.NewSet(
 
 // collectClipSet collectClip模块的依赖注入
 var collectClipSet = wire.NewSet(
-	web.NewCollectClipHandler,
-	collectClipService.NewCollectClipService,
-	collectClipRepository.NewCollectClipRepository,
-	collectClipDao.NewCollectClipDao,
+	web.NewCollectHandler,
+	collectClipService.NewCollectService,
+	collectClipRepository.NewCollectRepository,
+	collectClipDao.NewCollectDao,
 )
 
 // kafkaSet kafka模块的依赖注入

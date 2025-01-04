@@ -1,6 +1,6 @@
 package domain
 
-type CollectClipDomain struct {
+type CollectDomain struct {
 	Id         int64
 	Name       string
 	CreateTime int64
@@ -9,7 +9,7 @@ type CollectClipDomain struct {
 	UserId     int64
 }
 
-type CollectClipDetailDomain struct {
+type CollectDetailDomain struct {
 	Id                  int64
 	CollectId           int64
 	LifeLogId           int64

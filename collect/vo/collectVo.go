@@ -1,6 +1,6 @@
 package vo
 
-type CollectClipVo struct {
+type CollectVo struct {
 	Id         int64  `json:"id"`
 	Name       string `json:"name"`
 	Status     uint8  `json:"status"`
@@ -9,7 +9,7 @@ type CollectClipVo struct {
 	UpdateTime int64  `json:"updateTime"`
 }
 
-type CollectClipDetailVo struct {
+type CollectDetailVo struct {
 	Id              int64
 	CollectId       int64
 	LifeLogId       int64

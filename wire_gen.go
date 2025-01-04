@@ -8,9 +8,9 @@ package main
 
 import (
 	"github.com/google/wire"
-	"lifelog-grpc/collectClip/repository"
-	"lifelog-grpc/collectClip/repository/dao"
-	"lifelog-grpc/collectClip/service"
+	"lifelog-grpc/collect/repository"
+	"lifelog-grpc/collect/repository/dao"
+	"lifelog-grpc/collect/service"
 	repository2 "lifelog-grpc/comment/repository"
 	dao2 "lifelog-grpc/comment/repository/dao"
 	service2 "lifelog-grpc/comment/service"
@@ -43,10 +43,10 @@ func InitApp() *App {
 	interactiveServiceClient := ioc.InitInteractiveServiceGRPCClient(logger)
 	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, producer, interactiveServiceClient)
 	db := ioc.GetMysql(logger)
-	collectClipDao := dao.NewCollectClipDao(db, logger)
-	collectClipRepository := repository.NewCollectClipRepository(collectClipDao)
-	collectClipService := service.NewCollectClipService(collectClipRepository)
-	collectClipHandler := web.NewCollectClipHandler(collectClipService)
+	collectDao := dao.NewCollectDao(db, logger)
+	collectRepository := repository.NewCollectRepository(collectDao)
+	collectService := service.NewCollectService(collectRepository)
+	collectHandler := web.NewCollectHandler(collectService)
 	commentDao := dao2.NewCommentDaoGorm(db, logger)
 	commentRepository := repository2.NewCommentRepository(commentDao)
 	commentService := service2.NewCommentService(commentRepository)
@@ -58,7 +58,7 @@ func InitApp() *App {
 	rankingService := service3.NewRankingService(rankingRepository)
 	job := ioc.InitRankingJob(rankingService, logger, cmdable)
 	interactiveHandler := web.NewInteractiveHandler(logger, interactiveServiceClient, job, producer)
-	engine := ioc.InitGin(userHandler, v, lifeLogHandler, collectClipHandler, commentHandler, codeHandler, interactiveHandler)
+	engine := ioc.InitGin(userHandler, v, lifeLogHandler, collectHandler, commentHandler, codeHandler, interactiveHandler)
 	interactiveDao := dao3.NewInteractiveDao(db, logger)
 	interactiveCache := cache2.NewInteractiveCache(cmdable, logger)
 	interactiveRepository := repository4.NewInteractiveRepository(interactiveDao, interactiveCache)
@@ -92,7 +92,7 @@ var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveS
 var lifeLogSet = wire.NewSet(web.NewLifeLogHandler, ioc.InitLifeLogServiceCRPCClient)
 
 // collectClipSet collectClip模块的依赖注入
-var collectClipSet = wire.NewSet(web.NewCollectClipHandler, service.NewCollectClipService, repository.NewCollectClipRepository, dao.NewCollectClipDao)
+var collectClipSet = wire.NewSet(web.NewCollectHandler, service.NewCollectService, repository.NewCollectRepository, dao.NewCollectDao)
 
 // kafkaSet kafka模块的依赖注入
 var kafkaSet = wire.NewSet(ioc.InitKafka, lifeLogEvent.NewReadEventBatchConsumer, lifeLogEvent.NewReadEventConsumer, lifeLogEvent.NewSaramaSyncProducer, commentEvent.NewCommentEventBatchConsumer, ioc.InitConsumers, ioc.InitSyncProducer)

@@ -2,44 +2,44 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
+	"lifelog-grpc/collect/domain"
+	"lifelog-grpc/collect/service"
+	"lifelog-grpc/collect/vo"
+	"lifelog-grpc/pkg/loggerx"
 	"net/http"
 	"strconv"
 	"strings"
-	"lifelog-grpc/collectClip/domain"
-	"lifelog-grpc/collectClip/service"
-	"lifelog-grpc/collectClip/vo"
-	"lifelog-grpc/pkg/loggerx"
 )
 
-type CollectClipHandler struct {
-	collectClipService service.CollectClipService
-	biz                string
+type CollectHandler struct {
+	collectService service.CollectService
+	biz            string
 	JWTHandler
 }
 
-func NewCollectClipHandler(collectClipService service.CollectClipService) *CollectClipHandler {
-	return &CollectClipHandler{
-		collectClipService: collectClipService,
-		biz:                "lifeLog",
+func NewCollectHandler(collectService service.CollectService) *CollectHandler {
+	return &CollectHandler{
+		collectService: collectService,
+		biz:            "lifeLog",
 	}
 }
 
-func (c *CollectClipHandler) RegisterRoutes(server *gin.Engine) {
-	rg := server.Group("/collectClip")
+func (c *CollectHandler) RegisterRoutes(server *gin.Engine) {
+	rg := server.Group("/collect")
 	// 编辑收藏夹（创建/update）
-	rg.POST("/edit", c.EditCollectClip)
+	rg.POST("/edit", c.EditCollect)
 	// 删除收藏夹
-	rg.DELETE("/:ids", c.DeleteCollectClip)
+	rg.DELETE("/:ids", c.DeleteCollect)
 	// 获取收藏夹列表
-	rg.POST("/list", c.CollectClipList)
+	rg.POST("/list", c.CollectList)
 	// 将LifeLog插入收藏夹
-	rg.POST("/insert", c.InsertCollectClipDetail)
+	rg.POST("/insert", c.InsertCollectDetail)
 	// 查看收藏夹详情
-	rg.POST("/detail", c.CollectClipDetail)
+	rg.POST("/detail", c.CollectDetail)
 }
 
-// EditCollectClip 编辑收藏夹（创建或更新）
-func (c *CollectClipHandler) EditCollectClip(ctx *gin.Context) {
+// EditCollect 编辑收藏夹（创建或更新）
+func (c *CollectHandler) EditCollect(ctx *gin.Context) {
 	type CollectReq struct {
 		Id   int64  `json:"id"`
 		Name string `json:"name"`
@@ -53,7 +53,7 @@ func (c *CollectClipHandler) EditCollectClip(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:EditCollectClip"))
+			loggerx.String("method:", "ArticleHandler:EditCollect"))
 		return
 	}
 	// 获取用户信息
@@ -65,11 +65,11 @@ func (c *CollectClipHandler) EditCollectClip(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取用户信息失败，token中不存在用户信息",
-			loggerx.String("method：", "ArticleHandler:EditCollectClip"))
+			loggerx.String("method：", "ArticleHandler:EditCollect"))
 		return
 	}
-	err = c.collectClipService.EditCollectClip(ctx.Request.Context(),
-		domain.CollectClipDomain{
+	err = c.collectService.EditCollect(ctx.Request.Context(),
+		domain.CollectDomain{
 			Id:     req.Id,
 			Name:   req.Name,
 			UserId: userInfo.Id,
@@ -81,7 +81,7 @@ func (c *CollectClipHandler) EditCollectClip(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("编辑收藏夹失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:EditCollectClip"))
+			loggerx.String("method:", "ArticleHandler:EditCollect"))
 		return
 	}
 	ctx.JSON(http.StatusOK, Result[string]{
@@ -91,8 +91,8 @@ func (c *CollectClipHandler) EditCollectClip(ctx *gin.Context) {
 	})
 }
 
-// DeleteCollectClip 删除收藏夹
-func (c *CollectClipHandler) DeleteCollectClip(ctx *gin.Context) {
+// DeleteCollect 删除收藏夹
+func (c *CollectHandler) DeleteCollect(ctx *gin.Context) {
 	idsString, ok := ctx.Params.Get("ids")
 	if !ok {
 		ctx.JSON(http.StatusBadRequest, Result[string]{
@@ -101,7 +101,7 @@ func (c *CollectClipHandler) DeleteCollectClip(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数获取失败",
-			loggerx.String("method:", "ArticleHandler:DeleteCollectClip"))
+			loggerx.String("method:", "ArticleHandler:DeleteCollect"))
 		return
 	}
 	// 按照,分割
@@ -109,7 +109,7 @@ func (c *CollectClipHandler) DeleteCollectClip(ctx *gin.Context) {
 	var ids []int64
 	for _, idString := range idsStringSplit {
 		// string转换为int64
-		collectClipId, err := strconv.ParseInt(idString, 10, 64)
+		collectId, err := strconv.ParseInt(idString, 10, 64)
 		if err != nil {
 			ctx.JSON(http.StatusBadRequest, Result[string]{
 				Code: 400,
@@ -117,12 +117,12 @@ func (c *CollectClipHandler) DeleteCollectClip(ctx *gin.Context) {
 				Data: "error",
 			})
 			c.logger.Error("string转为int64失败", loggerx.Error(err),
-				loggerx.String("method:", "ArticleHandler:DeleteCollectClip"))
+				loggerx.String("method:", "ArticleHandler:DeleteCollect"))
 			return
 		}
-		ids = append(ids, collectClipId)
+		ids = append(ids, collectId)
 	}
-	err := c.collectClipService.DeleteCollectClip(ctx.Request.Context(), ids)
+	err := c.collectService.DeleteCollect(ctx.Request.Context(), ids)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
 			Code: 500,
@@ -130,7 +130,7 @@ func (c *CollectClipHandler) DeleteCollectClip(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("删除收藏夹失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:DeleteCollectClip"))
+			loggerx.String("method:", "ArticleHandler:DeleteCollect"))
 		return
 	}
 	ctx.JSON(http.StatusOK, Result[string]{
@@ -140,8 +140,8 @@ func (c *CollectClipHandler) DeleteCollectClip(ctx *gin.Context) {
 	})
 }
 
-// CollectClipList 获取收藏夹列表
-func (c *CollectClipHandler) CollectClipList(ctx *gin.Context) {
+// CollectList 获取收藏夹列表
+func (c *CollectHandler) CollectList(ctx *gin.Context) {
 	userInfo, ok := c.GetUserInfo(ctx)
 	if !ok {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
@@ -150,7 +150,7 @@ func (c *CollectClipHandler) CollectClipList(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取用户信息失败，token中不存在用户信息",
-			loggerx.String("method：", "ArticleHandler:CollectClipList"))
+			loggerx.String("method：", "ArticleHandler:CollectList"))
 		return
 	}
 	type ListReq struct {
@@ -166,10 +166,10 @@ func (c *CollectClipHandler) CollectClipList(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectClipList"))
+			loggerx.String("method:", "ArticleHandler:CollectList"))
 		return
 	}
-	cds, err := c.collectClipService.CollectClipList(ctx.Request.Context(), userInfo.Id,
+	cds, err := c.collectService.CollectList(ctx.Request.Context(), userInfo.Id,
 		req.Limit, req.Offset)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
@@ -178,21 +178,21 @@ func (c *CollectClipHandler) CollectClipList(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取收藏夹列表失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectClipList"))
+			loggerx.String("method:", "ArticleHandler:CollectList"))
 		return
 	}
-	ctx.JSON(http.StatusOK, Result[[]vo.CollectClipVo]{
+	ctx.JSON(http.StatusOK, Result[[]vo.CollectVo]{
 		Code: 200,
 		Msg:  "获取收藏夹列表成功",
-		Data: c.collectClipsToCollectClipVo(cds),
+		Data: c.collectsToCollectVo(cds),
 	})
 }
 
-// collectClipsToCollectClipVo 将domain.CollectClipDomain转换为vo.CollectClipVo
-func (c *CollectClipHandler) collectClipsToCollectClipVo(cds []domain.CollectClipDomain) []vo.CollectClipVo {
-	ccvs := make([]vo.CollectClipVo, 0, len(cds))
+// collectsToCollectVo 将domain.CollectDomain转换为vo.CollectVo
+func (c *CollectHandler) collectsToCollectVo(cds []domain.CollectDomain) []vo.CollectVo {
+	ccvs := make([]vo.CollectVo, 0, len(cds))
 	for _, cd := range cds {
-		ccvs = append(ccvs, vo.CollectClipVo{
+		ccvs = append(ccvs, vo.CollectVo{
 			Id:         cd.Id,
 			Name:       cd.Name,
 			UserId:     cd.UserId,
@@ -204,8 +204,8 @@ func (c *CollectClipHandler) collectClipsToCollectClipVo(cds []domain.CollectCli
 	return ccvs
 }
 
-// InsertCollectClipDetail 将LifeLog插入收藏夹
-func (c *CollectClipHandler) InsertCollectClipDetail(ctx *gin.Context) {
+// InsertCollectDetail 将LifeLog插入收藏夹
+func (c *CollectHandler) InsertCollectDetail(ctx *gin.Context) {
 	type InsertCollectReq struct {
 		CollectId int64 `json:"collect_id"`
 		LifeLogId int64 `json:"life_log_id"`
@@ -219,11 +219,11 @@ func (c *CollectClipHandler) InsertCollectClipDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:InsertCollectClip"))
+			loggerx.String("method:", "ArticleHandler:InsertCollect"))
 		return
 	}
-	err = c.collectClipService.InsertCollectClipDetail(ctx.Request.Context(),
-		domain.CollectClipDetailDomain{
+	err = c.collectService.InsertCollectDetail(ctx.Request.Context(),
+		domain.CollectDetailDomain{
 			CollectId: req.CollectId,
 			LifeLogId: req.LifeLogId,
 		})
@@ -234,7 +234,7 @@ func (c *CollectClipHandler) InsertCollectClipDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("插入收藏夹失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:InsertCollectClip"))
+			loggerx.String("method:", "ArticleHandler:InsertCollect"))
 		return
 	}
 	ctx.JSON(http.StatusOK, Result[string]{
@@ -244,14 +244,14 @@ func (c *CollectClipHandler) InsertCollectClipDetail(ctx *gin.Context) {
 	})
 }
 
-// CollectClipDetail 获取收藏夹详情
-func (c *CollectClipHandler) CollectClipDetail(ctx *gin.Context) {
-	type CollectClipDetailReq struct {
+// CollectDetail 获取收藏夹详情
+func (c *CollectHandler) CollectDetail(ctx *gin.Context) {
+	type CollectDetailReq struct {
 		CollectId int64 `json:"collect_id"`
 		Limit     int   `json:"limit"`
 		Offset    int   `json:"offset"`
 	}
-	var req CollectClipDetailReq
+	var req CollectDetailReq
 	err := ctx.Bind(&req)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, Result[string]{
@@ -260,7 +260,7 @@ func (c *CollectClipHandler) CollectClipDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectClipDetail"))
+			loggerx.String("method:", "ArticleHandler:CollectDetail"))
 		return
 	}
 	// 获取登录用户的id
@@ -272,10 +272,10 @@ func (c *CollectClipHandler) CollectClipDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取用户信息失败，token中不存在用户信息",
-			loggerx.String("method：", "ArticleHandler:CollectClipDetail"))
+			loggerx.String("method：", "ArticleHandler:CollectDetail"))
 		return
 	}
-	collectClipDetails, err := c.collectClipService.CollectClipDetail(ctx.Request.Context(), req.CollectId,
+	collectDetails, err := c.collectService.CollectDetail(ctx.Request.Context(), req.CollectId,
 		req.Limit, req.Offset, userInfo.Id)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
@@ -284,22 +284,22 @@ func (c *CollectClipHandler) CollectClipDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("查询收藏夹详情失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectClipDetail"))
+			loggerx.String("method:", "ArticleHandler:CollectDetail"))
 		return
 	}
-	ctx.JSON(http.StatusOK, Result[[]vo.CollectClipDetailVo]{
+	ctx.JSON(http.StatusOK, Result[[]vo.CollectDetailVo]{
 		Code: 200,
 		Msg:  "查询成功",
-		Data: c.collectClipDetailToCollectClipVo(collectClipDetails),
+		Data: c.collectDetailToCollectVo(collectDetails),
 	})
 }
 
-// collectClipDetailToCollectClipVo 将domain.CollectClipDetailDomain转换为vo.CollectClipVo
-func (c *CollectClipHandler) collectClipDetailToCollectClipVo(
-	cds []domain.CollectClipDetailDomain) []vo.CollectClipDetailVo {
-	ccvs := make([]vo.CollectClipDetailVo, 0, len(cds))
+// collectDetailToCollectVo 将domain.CollectDetailDomain转换为vo.CollectVo
+func (c *CollectHandler) collectDetailToCollectVo(
+	cds []domain.CollectDetailDomain) []vo.CollectDetailVo {
+	ccvs := make([]vo.CollectDetailVo, 0, len(cds))
 	for _, cd := range cds {
-		ccvs = append(ccvs, vo.CollectClipDetailVo{
+		ccvs = append(ccvs, vo.CollectDetailVo{
 			CollectId:  cd.CollectId,
 			LifeLogId:  cd.LifeLogId,
 			CreateTime: cd.CreateTime,
