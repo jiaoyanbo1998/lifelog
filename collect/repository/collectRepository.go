@@ -8,10 +8,10 @@ import (
 
 type CollectRepository interface {
 	SaveCollect(ctx context.Context, collectDomain domain.CollectDomain) error
-	DeleteCollect(ctx context.Context, ids []int64) error
+	DeleteCollect(ctx context.Context, ids []int64, authorId int64) error
 	CollectList(ctx context.Context, userId int64, limit int, offset int) ([]domain.CollectDomain, error)
 	InsertCollectDetail(ctx context.Context, detailDomain domain.CollectDetailDomain) error
-	CollectDetail(ctx context.Context, id int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error)
+	CollectDetail(ctx context.Context, collectId int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error)
 }
 
 type CollectRepositoryV1 struct {
@@ -31,18 +31,18 @@ func (c *CollectRepositoryV1) SaveCollect(ctx context.Context, collectDomain dom
 		return c.collectDao.UpdateCollect(ctx, dao.Collect{
 			Id:     collectDomain.Id,
 			Name:   collectDomain.Name,
-			UserId: collectDomain.UserId,
+			UserId: collectDomain.AuthorId,
 		})
 	}
 	return c.collectDao.InsertCollect(ctx, dao.Collect{
 		Name:   collectDomain.Name,
-		UserId: collectDomain.UserId,
+		UserId: collectDomain.AuthorId,
 	})
 }
 
 // DeleteCollect 删除收藏夹
-func (c *CollectRepositoryV1) DeleteCollect(ctx context.Context, ids []int64) error {
-	return c.collectDao.DeleteCollectByIds(ctx, ids)
+func (c *CollectRepositoryV1) DeleteCollect(ctx context.Context, ids []int64, authorId int64) error {
+	return c.collectDao.DeleteCollectByIds(ctx, ids, authorId)
 }
 
 // CollectList 收藏夹列表
@@ -59,7 +59,7 @@ func (c *CollectRepositoryV1) InsertCollectDetail(ctx context.Context, detailDom
 }
 
 // CollectDetail 收藏夹详情
-func (c *CollectRepositoryV1) CollectDetail(ctx context.Context, id int64, limit int, offset int,
+func (c *CollectRepositoryV1) CollectDetail(ctx context.Context, collectId int64, limit int, offset int,
 	authorId int64) ([]domain.CollectDetailDomain, error) {
-	return c.collectDao.GetCollectDetailById(ctx, id, limit, offset, authorId)
+	return c.collectDao.GetCollectDetailById(ctx, collectId, limit, offset, authorId)
 }

@@ -8,7 +8,7 @@ import (
 
 type CollectService interface {
 	EditCollect(ctx context.Context, collectDomain domain.CollectDomain) error
-	DeleteCollect(ctx context.Context, ids []int64) error
+	DeleteCollect(ctx context.Context, ids []int64, authorId int64) error
 	CollectList(ctx context.Context, userId int64, limit int, offset int) ([]domain.CollectDomain, error)
 	InsertCollectDetail(ctx context.Context, detailDomain domain.CollectDetailDomain) error
 	CollectDetail(ctx context.Context, id int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error)
@@ -30,8 +30,8 @@ func (c *CollectServiceV1) EditCollect(ctx context.Context, collectDomain domain
 }
 
 // DeleteCollect 删除收藏夹
-func (c *CollectServiceV1) DeleteCollect(ctx context.Context, ids []int64) error {
-	return c.collectRepository.DeleteCollect(ctx, ids)
+func (c *CollectServiceV1) DeleteCollect(ctx context.Context, ids []int64, authorId int64) error {
+	return c.collectRepository.DeleteCollect(ctx, ids, authorId)
 }
 
 // CollectList 收藏夹列表
@@ -45,6 +45,6 @@ func (c *CollectServiceV1) InsertCollectDetail(ctx context.Context, detailDomain
 }
 
 // CollectDetail 收藏夹详情
-func (c *CollectServiceV1) CollectDetail(ctx context.Context, id int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error) {
-	return c.collectRepository.CollectDetail(ctx, id, limit, offset, authorId)
+func (c *CollectServiceV1) CollectDetail(ctx context.Context, collectId int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error) {
+	return c.collectRepository.CollectDetail(ctx, collectId, limit, offset, authorId)
 }

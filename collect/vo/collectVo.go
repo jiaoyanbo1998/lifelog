@@ -16,7 +16,7 @@ type CollectDetailVo struct {
 	UpdateTime      int64
 	CreateTime      int64
 	Status          uint8
-	PublicLifeLogVo PublicLifeLogVo
+	PublicLifeLogVo []PublicLifeLogVo
 }
 
 type PublicLifeLogVo struct {

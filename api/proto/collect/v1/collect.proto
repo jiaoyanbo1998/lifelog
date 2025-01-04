@@ -1,0 +1,101 @@
+// 版本
+syntax = "proto3";
+
+// 包名 collectv1
+package collect.v1;
+
+// 文件路径
+option go_package = "collect/v1";
+
+// 收藏夹服务
+service CollectService {
+  rpc EditCollect(EditCollectRequest) returns(EditCollectResponse);
+  rpc DeleteCollect(DeleteCollectRequest) returns(DeleteCollectResponse);
+  rpc CollectList(CollectListRequest) returns(CollectListResponse);
+  rpc InsertCollectDetail(InsertCollectDetailRequest) returns(InsertCollectDetailResponse);
+  rpc CollectDetail(CollectDetailRequest) returns(CollectDetailResponse);
+}
+
+message Collect {
+  int64 collect_id = 1;
+  string name = 2;
+  int64 author_id = 3;
+  int64 status = 4;
+  int64 create_time = 5;
+  int64 update_time = 6;
+}
+
+message CollectDetail {
+  int64 collect_id = 1;
+  int64 life_log_id = 2;
+  int64 create_time = 3;
+  int64 update_time = 4;
+  int64 status = 5;
+  int64 author_id = 6;
+  int64 id = 7;
+}
+
+message PublicLifeLog {
+  int64 publicLifeLogId = 1;
+  string title = 2;
+  string content = 3;
+  int64 AuthorId = 4;
+  int64 create_time = 5;
+  int64 update_time = 6;
+  int64 status = 7;
+}
+
+
+// 编辑收藏夹，传入id == 修改收藏夹，不传入id == 新建收藏夹
+// 请求
+message EditCollectRequest {
+  Collect collect = 1;
+}
+// 响应
+message EditCollectResponse {
+}
+
+// 删除收藏夹
+// 请求
+message DeleteCollectRequest {
+  repeated int64 ids = 1;
+  int64 author_id = 2;
+}
+// 响应
+message DeleteCollectResponse {
+}
+
+// 获取收藏夹列表
+// 请求
+message CollectListRequest {
+  int64 author_id = 1;
+  int64 limit = 2;
+  int64 offset = 3;
+}
+// 响应
+message CollectListResponse {
+  repeated Collect collects = 1;
+}
+
+// 插入收藏夹详情（将LifeLog插入收藏夹）
+// 请求
+message InsertCollectDetailRequest {
+  Collect collect = 1;
+  CollectDetail collectDetail = 2;
+}
+// 响应
+message InsertCollectDetailResponse {
+}
+
+// 获取收藏夹详情
+// 请求
+message CollectDetailRequest {
+  Collect collect = 1;
+  int64 limit = 2;
+  int64 offset = 3;
+}
+
+message CollectDetailResponse {
+    CollectDetail collectDetail = 1;
+    repeated PublicLifeLog publicLifeLogs = 2;
+}

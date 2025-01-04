@@ -2,8 +2,8 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
-	"lifelog-grpc/collect/domain"
-	"lifelog-grpc/collect/service"
+	"github.com/jinzhu/copier"
+	collectv1 "lifelog-grpc/api/proto/gen/api/proto/collect/v1"
 	"lifelog-grpc/collect/vo"
 	"lifelog-grpc/pkg/loggerx"
 	"net/http"
@@ -12,15 +12,15 @@ import (
 )
 
 type CollectHandler struct {
-	collectService service.CollectService
-	biz            string
+	collectServiceClient collectv1.CollectServiceClient
+	biz                  string
 	JWTHandler
 }
 
-func NewCollectHandler(collectService service.CollectService) *CollectHandler {
+func NewCollectHandler(collectServiceClient collectv1.CollectServiceClient) *CollectHandler {
 	return &CollectHandler{
-		collectService: collectService,
-		biz:            "lifeLog",
+		collectServiceClient: collectServiceClient,
+		biz:                  "lifeLog",
 	}
 }
 
@@ -53,7 +53,7 @@ func (c *CollectHandler) EditCollect(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:EditCollect"))
+			loggerx.String("method:", "CollectHandler:EditCollect"))
 		return
 	}
 	// 获取用户信息
@@ -65,15 +65,18 @@ func (c *CollectHandler) EditCollect(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取用户信息失败，token中不存在用户信息",
-			loggerx.String("method：", "ArticleHandler:EditCollect"))
+			loggerx.String("method：", "CollectHandler:EditCollect"))
 		return
 	}
-	err = c.collectService.EditCollect(ctx.Request.Context(),
-		domain.CollectDomain{
-			Id:     req.Id,
-			Name:   req.Name,
-			UserId: userInfo.Id,
-		})
+	_, err = c.collectServiceClient.EditCollect(ctx.Request.Context(),
+		&collectv1.EditCollectRequest{
+			Collect: &collectv1.Collect{
+				CollectId: req.Id,
+				AuthorId:  userInfo.Id,
+				Name:      req.Name,
+			},
+		},
+	)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
 			Code: 500,
@@ -81,7 +84,7 @@ func (c *CollectHandler) EditCollect(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("编辑收藏夹失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:EditCollect"))
+			loggerx.String("method:", "CollectHandler:EditCollect"))
 		return
 	}
 	ctx.JSON(http.StatusOK, Result[string]{
@@ -101,7 +104,7 @@ func (c *CollectHandler) DeleteCollect(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数获取失败",
-			loggerx.String("method:", "ArticleHandler:DeleteCollect"))
+			loggerx.String("method:", "CollectHandler:DeleteCollect"))
 		return
 	}
 	// 按照,分割
@@ -117,12 +120,28 @@ func (c *CollectHandler) DeleteCollect(ctx *gin.Context) {
 				Data: "error",
 			})
 			c.logger.Error("string转为int64失败", loggerx.Error(err),
-				loggerx.String("method:", "ArticleHandler:DeleteCollect"))
+				loggerx.String("method:", "CollectHandler:DeleteCollect"))
 			return
 		}
 		ids = append(ids, collectId)
 	}
-	err := c.collectService.DeleteCollect(ctx.Request.Context(), ids)
+	// 获取用户信息
+	userInfo, ok := c.GetUserInfo(ctx)
+	if !ok {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		c.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "CollectHandler:DeleteCollect"))
+		return
+	}
+	_, err := c.collectServiceClient.DeleteCollect(ctx.Request.Context(),
+		&collectv1.DeleteCollectRequest{
+			Ids:      ids,
+			AuthorId: userInfo.Id,
+		})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
 			Code: 500,
@@ -130,7 +149,7 @@ func (c *CollectHandler) DeleteCollect(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("删除收藏夹失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:DeleteCollect"))
+			loggerx.String("method:", "CollectHandler:DeleteCollect"))
 		return
 	}
 	ctx.JSON(http.StatusOK, Result[string]{
@@ -150,7 +169,7 @@ func (c *CollectHandler) CollectList(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取用户信息失败，token中不存在用户信息",
-			loggerx.String("method：", "ArticleHandler:CollectList"))
+			loggerx.String("method：", "CollectHandler:CollectList"))
 		return
 	}
 	type ListReq struct {
@@ -166,11 +185,15 @@ func (c *CollectHandler) CollectList(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectList"))
+			loggerx.String("method:", "CollectHandler:CollectList"))
 		return
 	}
-	cds, err := c.collectService.CollectList(ctx.Request.Context(), userInfo.Id,
-		req.Limit, req.Offset)
+	cds, err := c.collectServiceClient.CollectList(ctx.Request.Context(),
+		&collectv1.CollectListRequest{
+			AuthorId: userInfo.Id,
+			Limit:    int64(req.Limit),
+			Offset:   int64(req.Offset),
+		})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
 			Code: 500,
@@ -178,25 +201,25 @@ func (c *CollectHandler) CollectList(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取收藏夹列表失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectList"))
+			loggerx.String("method:", "CollectHandler:CollectList"))
 		return
 	}
 	ctx.JSON(http.StatusOK, Result[[]vo.CollectVo]{
 		Code: 200,
 		Msg:  "获取收藏夹列表成功",
-		Data: c.collectsToCollectVo(cds),
+		Data: c.collectsToCollectVo(cds.GetCollects()),
 	})
 }
 
 // collectsToCollectVo 将domain.CollectDomain转换为vo.CollectVo
-func (c *CollectHandler) collectsToCollectVo(cds []domain.CollectDomain) []vo.CollectVo {
+func (c *CollectHandler) collectsToCollectVo(cds []*collectv1.Collect) []vo.CollectVo {
 	ccvs := make([]vo.CollectVo, 0, len(cds))
 	for _, cd := range cds {
 		ccvs = append(ccvs, vo.CollectVo{
-			Id:         cd.Id,
+			Id:         cd.CollectId,
 			Name:       cd.Name,
-			UserId:     cd.UserId,
-			Status:     cd.Status,
+			UserId:     cd.AuthorId,
+			Status:     uint8(cd.Status),
 			CreateTime: cd.CreateTime,
 			UpdateTime: cd.UpdateTime,
 		})
@@ -204,7 +227,7 @@ func (c *CollectHandler) collectsToCollectVo(cds []domain.CollectDomain) []vo.Co
 	return ccvs
 }
 
-// InsertCollectDetail 将LifeLog插入收藏夹
+// InsertCollectDetail 插入收藏夹详情（将LifeLog插入收藏夹）
 func (c *CollectHandler) InsertCollectDetail(ctx *gin.Context) {
 	type InsertCollectReq struct {
 		CollectId int64 `json:"collect_id"`
@@ -219,13 +242,30 @@ func (c *CollectHandler) InsertCollectDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:InsertCollect"))
+			loggerx.String("method:", "CollectHandler:InsertCollectDetail"))
 		return
 	}
-	err = c.collectService.InsertCollectDetail(ctx.Request.Context(),
-		domain.CollectDetailDomain{
-			CollectId: req.CollectId,
-			LifeLogId: req.LifeLogId,
+	// 获取用户信息
+	userInfo, ok := c.GetUserInfo(ctx)
+	if !ok {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		c.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "CollectHandler:InsertCollectDetail"))
+		return
+	}
+	_, err = c.collectServiceClient.InsertCollectDetail(ctx.Request.Context(),
+		&collectv1.InsertCollectDetailRequest{
+			Collect: &collectv1.Collect{
+				CollectId: req.CollectId,
+				AuthorId:  userInfo.Id,
+			},
+			CollectDetail: &collectv1.CollectDetail{
+				LifeLogId: req.LifeLogId,
+			},
 		})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
@@ -234,7 +274,7 @@ func (c *CollectHandler) InsertCollectDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("插入收藏夹失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:InsertCollect"))
+			loggerx.String("method:", "CollectHandler:InsertCollectDetail"))
 		return
 	}
 	ctx.JSON(http.StatusOK, Result[string]{
@@ -260,7 +300,7 @@ func (c *CollectHandler) CollectDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("参数bind失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectDetail"))
+			loggerx.String("method:", "CollectHandler:CollectDetail"))
 		return
 	}
 	// 获取登录用户的id
@@ -272,11 +312,18 @@ func (c *CollectHandler) CollectDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("获取用户信息失败，token中不存在用户信息",
-			loggerx.String("method：", "ArticleHandler:CollectDetail"))
+			loggerx.String("method：", "CollectHandler:CollectDetail"))
 		return
 	}
-	collectDetails, err := c.collectService.CollectDetail(ctx.Request.Context(), req.CollectId,
-		req.Limit, req.Offset, userInfo.Id)
+	collectDetails, err := c.collectServiceClient.CollectDetail(ctx.Request.Context(),
+		&collectv1.CollectDetailRequest{
+			Collect: &collectv1.Collect{
+				CollectId: req.CollectId,
+				AuthorId:  userInfo.Id,
+			},
+			Limit:  int64(req.Limit),
+			Offset: int64(req.Offset),
+		})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
 			Code: 500,
@@ -284,34 +331,23 @@ func (c *CollectHandler) CollectDetail(ctx *gin.Context) {
 			Data: "error",
 		})
 		c.logger.Error("查询收藏夹详情失败", loggerx.Error(err),
-			loggerx.String("method:", "ArticleHandler:CollectDetail"))
+			loggerx.String("method:", "CollectHandler:CollectDetail"))
 		return
 	}
-	ctx.JSON(http.StatusOK, Result[[]vo.CollectDetailVo]{
+	// 将collectv1.collectDetail转换为collectDetailVo
+	plvs := make([]vo.PublicLifeLogVo, 0, len(collectDetails.GetPublicLifeLogs()))
+	copier.Copy(&plvs, collectDetails.GetPublicLifeLogs())
+	ctx.JSON(http.StatusOK, Result[vo.CollectDetailVo]{
 		Code: 200,
 		Msg:  "查询成功",
-		Data: c.collectDetailToCollectVo(collectDetails),
+		Data: vo.CollectDetailVo{
+			Id:              collectDetails.GetCollectDetail().GetId(),
+			CollectId:       collectDetails.GetCollectDetail().GetCollectId(),
+			LifeLogId:       collectDetails.GetCollectDetail().GetLifeLogId(),
+			UpdateTime:      collectDetails.GetCollectDetail().GetUpdateTime(),
+			CreateTime:      collectDetails.GetCollectDetail().GetCreateTime(),
+			Status:          uint8(collectDetails.GetCollectDetail().GetStatus()),
+			PublicLifeLogVo: plvs,
+		},
 	})
-}
-
-// collectDetailToCollectVo 将domain.CollectDetailDomain转换为vo.CollectVo
-func (c *CollectHandler) collectDetailToCollectVo(
-	cds []domain.CollectDetailDomain) []vo.CollectDetailVo {
-	ccvs := make([]vo.CollectDetailVo, 0, len(cds))
-	for _, cd := range cds {
-		ccvs = append(ccvs, vo.CollectDetailVo{
-			CollectId:  cd.CollectId,
-			LifeLogId:  cd.LifeLogId,
-			CreateTime: cd.CreateTime,
-			Id:         cd.Id,
-			Status:     cd.Status,
-			UpdateTime: cd.UpdateTime,
-			PublicLifeLogVo: vo.PublicLifeLogVo{
-				Title:    cd.PublicLifeLogDomain.Title,
-				Content:  cd.PublicLifeLogDomain.Content,
-				AuthorId: cd.PublicLifeLogDomain.AuthorId,
-			},
-		})
-	}
-	return ccvs
 }

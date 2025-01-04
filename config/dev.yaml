@@ -32,3 +32,8 @@ interactiveEtcd:
     port: 8073
     addr:
         - "localhost:12379"
+
+collectEtcd:
+    port: 8074
+    addr:
+        - "localhost:12379"

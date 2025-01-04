@@ -30,6 +30,7 @@ const (
 	LifeLogService_Revoke_FullMethodName        = "/lifelog.v1.LifeLogService/Revoke"
 	LifeLogService_Publish_FullMethodName       = "/lifelog.v1.LifeLogService/Publish"
 	LifeLogService_Detail_FullMethodName        = "/lifelog.v1.LifeLogService/Detail"
+	LifeLogService_DetailMany_FullMethodName    = "/lifelog.v1.LifeLogService/DetailMany"
 )
 
 // LifeLogServiceClient is the client API for LifeLogService service.
@@ -45,6 +46,7 @@ type LifeLogServiceClient interface {
 	Revoke(ctx context.Context, in *RevokeRequest, opts ...grpc.CallOption) (*RevokeResponse, error)
 	Publish(ctx context.Context, in *PublishRequest, opts ...grpc.CallOption) (*PublishResponse, error)
 	Detail(ctx context.Context, in *DetailRequest, opts ...grpc.CallOption) (*DetailResponse, error)
+	DetailMany(ctx context.Context, in *DetailManyRequest, opts ...grpc.CallOption) (*DetailManyResponse, error)
 }
 
 type lifeLogServiceClient struct {
@@ -125,6 +127,16 @@ func (c *lifeLogServiceClient) Detail(ctx context.Context, in *DetailRequest, op
 	return out, nil
 }
 
+func (c *lifeLogServiceClient) DetailMany(ctx context.Context, in *DetailManyRequest, opts ...grpc.CallOption) (*DetailManyResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DetailManyResponse)
+	err := c.cc.Invoke(ctx, LifeLogService_DetailMany_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // LifeLogServiceServer is the server API for LifeLogService service.
 // All implementations must embed UnimplementedLifeLogServiceServer
 // for forward compatibility.
@@ -138,6 +150,7 @@ type LifeLogServiceServer interface {
 	Revoke(context.Context, *RevokeRequest) (*RevokeResponse, error)
 	Publish(context.Context, *PublishRequest) (*PublishResponse, error)
 	Detail(context.Context, *DetailRequest) (*DetailResponse, error)
+	DetailMany(context.Context, *DetailManyRequest) (*DetailManyResponse, error)
 	mustEmbedUnimplementedLifeLogServiceServer()
 }
 
@@ -168,6 +181,9 @@ func (UnimplementedLifeLogServiceServer) Publish(context.Context, *PublishReques
 }
 func (UnimplementedLifeLogServiceServer) Detail(context.Context, *DetailRequest) (*DetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Detail not implemented")
+}
+func (UnimplementedLifeLogServiceServer) DetailMany(context.Context, *DetailManyRequest) (*DetailManyResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DetailMany not implemented")
 }
 func (UnimplementedLifeLogServiceServer) mustEmbedUnimplementedLifeLogServiceServer() {}
 func (UnimplementedLifeLogServiceServer) testEmbeddedByValue()                        {}
@@ -316,6 +332,24 @@ func _LifeLogService_Detail_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _LifeLogService_DetailMany_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DetailManyRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(LifeLogServiceServer).DetailMany(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: LifeLogService_DetailMany_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(LifeLogServiceServer).DetailMany(ctx, req.(*DetailManyRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // LifeLogService_ServiceDesc is the grpc.ServiceDesc for LifeLogService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -350,6 +384,10 @@ var LifeLogService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Detail",
 			Handler:    _LifeLogService_Detail_Handler,
+		},
+		{
+			MethodName: "DetailMany",
+			Handler:    _LifeLogService_DetailMany_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

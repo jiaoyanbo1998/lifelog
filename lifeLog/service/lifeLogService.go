@@ -14,6 +14,7 @@ type LifeLogService interface {
 	SearchByAuthorId(ctx context.Context, authorId, limit, offset int64) ([]domain.LifeLogDomain, error)
 	Revoke(ctx context.Context, id, authorId int64) error
 	Publish(ctx context.Context, lifeLogDomain domain.LifeLogDomain) error
+	DetailMany(ctx context.Context, ids []int64) ([]domain.LifeLogDomain, error)
 }
 
 type LifeLogServiceV1 struct {
@@ -49,6 +50,11 @@ func (a *LifeLogServiceV1) SearchByTitle(ctx context.Context, title string, limi
 // Detail 查询LifeLog
 func (a *LifeLogServiceV1) Detail(ctx context.Context, id int64, public bool) (domain.LifeLogDomain, error) {
 	return a.lifeLogRepository.SearchById(ctx, id, public)
+}
+
+// DetailMany 查询多个LifeLog
+func (a *LifeLogServiceV1) DetailMany(ctx context.Context, ids []int64) ([]domain.LifeLogDomain, error) {
+	return a.lifeLogRepository.SearchByIds(ctx, ids)
 }
 
 // SearchByAuthorId 查询LifeLog

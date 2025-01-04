@@ -4,9 +4,6 @@ package main
 
 import (
 	"github.com/google/wire"
-	collectClipRepository "lifelog-grpc/collect/repository"
-	collectClipDao "lifelog-grpc/collect/repository/dao"
-	collectClipService "lifelog-grpc/collect/service"
 	commentRepository "lifelog-grpc/comment/repository"
 	commentDao "lifelog-grpc/comment/repository/dao"
 	commentService "lifelog-grpc/comment/service"
@@ -40,16 +37,6 @@ var JwtSet = wire.NewSet(
 	web.NewJWTHandler,
 )
 
-// interactiveSet interactive模块的依赖注入
-var interactiveSet = wire.NewSet(
-	web.NewInteractiveHandler,
-	ioc.InitInteractiveServiceGRPCClient,
-	service.NewInteractiveService,
-	repository.NewInteractiveRepository,
-	dao.NewInteractiveDao,
-	cache.NewInteractiveCache,
-)
-
 // LifeLog模块
 var lifeLogSet = wire.NewSet(
 	web.NewLifeLogHandler,
@@ -59,9 +46,13 @@ var lifeLogSet = wire.NewSet(
 // collectClipSet collectClip模块的依赖注入
 var collectClipSet = wire.NewSet(
 	web.NewCollectHandler,
-	collectClipService.NewCollectService,
-	collectClipRepository.NewCollectRepository,
-	collectClipDao.NewCollectDao,
+	ioc.InitCollectServiceGRPCClient,
+)
+
+// interactiveSet interactive模块的依赖注入
+var interactiveSet = wire.NewSet(
+	web.NewInteractiveHandler,
+	ioc.InitInteractiveServiceGRPCClient,
 )
 
 // kafkaSet kafka模块的依赖注入
@@ -74,6 +65,11 @@ var kafkaSet = wire.NewSet(
 	// ioc.InitBatchConsumers,
 	ioc.InitConsumers,
 	ioc.InitSyncProducer,
+	// 生产者消费者
+	service.NewInteractiveService,
+	repository.NewInteractiveRepository,
+	dao.NewInteractiveDao,
+	cache.NewInteractiveCache,
 )
 
 // rankingSet ranking模块的依赖注入

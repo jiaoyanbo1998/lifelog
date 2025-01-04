@@ -16,6 +16,17 @@ service LifeLogService {
   rpc Revoke(RevokeRequest) returns(RevokeResponse);
   rpc Publish(PublishRequest) returns(PublishResponse);
   rpc Detail(DetailRequest) returns(DetailResponse);
+  rpc DetailMany(DetailManyRequest) returns(DetailManyResponse);
+}
+
+// 获取多个lifelog详情
+// 请求
+message DetailManyRequest {
+  repeated int64 ids = 1;
+}
+// 响应
+message DetailManyResponse {
+  repeated LifeLogDomain lifeLogDomain = 1;
 }
 
 // 获取lifelog详情

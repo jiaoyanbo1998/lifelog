@@ -23,6 +23,24 @@ func NewLifeLogServiceGRPCService(lifeLogService service.LifeLogService,
 	}
 }
 
+func (l *LifeLogServiceGRPCService) DetailMany(ctx context.Context, request *lifelogv1.DetailManyRequest) (*lifelogv1.DetailManyResponse, error) {
+	res, err := l.lifeLogService.DetailMany(ctx, request.GetIds())
+	if err != nil {
+		return &lifelogv1.DetailManyResponse{}, err
+	}
+	// 将[]domain.LifeLogDomain，转为[]*LifeLogDomain
+	llds := make([]*lifelogv1.LifeLogDomain, 0, len(res))
+	err = copier.Copy(&llds, &res)
+	if err != nil {
+		l.logger.Error("copier失败", loggerx.Error(err),
+			loggerx.String("method:", "LifeLogServiceGRPCService:DetailMany"))
+		return &lifelogv1.DetailManyResponse{}, err
+	}
+	return &lifelogv1.DetailManyResponse{
+		LifeLogDomain: llds,
+	}, nil
+}
+
 func (l *LifeLogServiceGRPCService) Detail(ctx context.Context, request *lifelogv1.DetailRequest) (*lifelogv1.DetailResponse, error) {
 	detail, err := l.lifeLogService.Detail(ctx, request.GetLifeLogDomain().GetId(), request.GetIsPublic())
 	if err != nil {

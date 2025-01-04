@@ -3,6 +3,7 @@ package dao
 import (
 	"context"
 	"errors"
+	"github.com/jinzhu/copier"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"lifelog-grpc/lifeLog/domain"
@@ -21,6 +22,7 @@ type LifeLogDao interface {
 	// 同步先线上库和制作库的数据
 	Sync(ctx context.Context, lifeLog LifeLog) (domain.LifeLogDomain, error)
 	Upsert(ctx context.Context, publishLifeLog PublicLifeLog) error
+	SelectByIds(ctx context.Context, ids []int64) ([]domain.LifeLogDomain, error)
 }
 
 type GormLifeLogDao struct {
@@ -263,6 +265,23 @@ func (g *GormLifeLogDao) SelectById(ctx context.Context, id int64, public bool) 
 		UpdateTime: lifeLog.UpdateTime,
 		Status:     lifeLog.Status,
 	}, nil
+}
+
+// SelectByIds 根据id批量查询LifeLog
+func (g *GormLifeLogDao) SelectByIds(ctx context.Context, ids []int64) ([]domain.LifeLogDomain, error) {
+	var publicLifeLog []PublicLifeLog
+	// 线上库
+	err := g.db.WithContext(ctx).Where("ids in ? and status = ?",
+		ids, domain.LifeLogStatusPublished).Find(&publicLifeLog).Error
+	if err != nil {
+		g.logger.Error("查询线上库LifeLog失败", loggerx.Error(err),
+			loggerx.String("method:", "LifeLogDao:SelectByIds"))
+		return nil, err
+	}
+	// 将publicLifeLog中的数据复制到lifelogs中
+	var lifeLogs []domain.LifeLogDomain
+	copier.Copy(&lifeLogs, &publicLifeLog)
+	return lifeLogs, nil
 }
 
 // SelectByAuthorId 根据作者id查询LifeLog

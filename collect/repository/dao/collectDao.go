@@ -2,6 +2,7 @@ package dao
 
 import (
 	"context"
+	"github.com/jinzhu/copier"
 	"gorm.io/gorm"
 	"lifelog-grpc/collect/domain"
 	"lifelog-grpc/pkg/loggerx"
@@ -11,19 +12,19 @@ import (
 type CollectDao interface {
 	UpdateCollect(ctx context.Context, collect Collect) error
 	InsertCollect(ctx context.Context, collect Collect) error
-	DeleteCollectByIds(ctx context.Context, ids []int64) error
+	DeleteCollectByIds(ctx context.Context, ids []int64, authorId int64) error
 	PageQuery(ctx context.Context, id int64, limit int, offset int) ([]domain.CollectDomain, error)
 	InsertCollectDetail(ctx context.Context, detail CollectDetail) error
-	GetCollectDetailById(ctx context.Context, id int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error)
+	GetCollectDetailById(ctx context.Context, collectId int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error)
 }
 
-type CollectGormClipDao struct {
+type CollectGormDao struct {
 	db     *gorm.DB
 	logger loggerx.Logger
 }
 
 func NewCollectDao(db *gorm.DB, l loggerx.Logger) CollectDao {
-	return &CollectGormClipDao{
+	return &CollectGormDao{
 		db:     db,
 		logger: l,
 	}
@@ -39,22 +40,7 @@ type Collect struct {
 }
 
 func (Collect) TableName() string {
-	return "tb_collect_clip"
-}
-
-type Interactive struct {
-	Id           int64  `gorm:"primaryKey;autoIncrement"`   // 主键
-	Biz          string `gorm:"uniqueIndex:idx_biz_id_biz"` // 业务类型
-	BizId        int64  `gorm:"uniqueIndex:idx_biz_id_biz"` // 业务id（文章id）
-	ReadCount    int64  // 阅读数
-	CollectCount int64  // 收藏数
-	LikeCount    int64  // 点赞数
-	CreateTime   int64  // 创建时间
-	UpdateTime   int64  // 更新时间
-}
-
-func (Interactive) TableName() string {
-	return "tb_interactive"
+	return "tb_collect"
 }
 
 type CollectDetail struct {
@@ -64,34 +50,17 @@ type CollectDetail struct {
 	CreateTime int64 // 创建时间
 	UpdateTime int64 // 更新时间
 	Status     uint8
+	AuthorId   int64
 }
 
 func (CollectDetail) TableName() string {
-	return "tb_collect_clip_detail"
-}
-
-type PublicLifeLog struct {
-	Id         int64
-	Title      string
-	Content    string
-	AuthorId   int64
-	CreateTime int64
-	UpdateTime int64
-	Status     uint8
-}
-
-func (PublicLifeLog) TableName() string {
-	return "tb_publish_lifeLog"
-}
-
-type CollectDetailWithLifeLog struct {
-	CollectDetail `gorm:"embedded"` // 嵌入CollectDetail结构体
-	PublicLifeLog `gorm:"embedded"` // 嵌入PublicLifeLog结构体
+	return "tb_collect_detail"
 }
 
 // UpdateCollect 更新收藏夹
-func (c *CollectGormClipDao) UpdateCollect(ctx context.Context, collect Collect) error {
-	err := c.db.WithContext(ctx).Where("id = ?", collect.Id).Model(&Collect{}).
+func (c *CollectGormDao) UpdateCollect(ctx context.Context, collect Collect) error {
+	err := c.db.WithContext(ctx).Where("id = ? and author_id = ?",
+		collect.Id, collect.UserId).Model(&Collect{}).
 		Updates(map[string]any{
 			"name":        collect.Name,
 			"update_time": time.Now().UnixMilli(),
@@ -105,7 +74,7 @@ func (c *CollectGormClipDao) UpdateCollect(ctx context.Context, collect Collect)
 }
 
 // InsertCollect 插入收藏夹
-func (c *CollectGormClipDao) InsertCollect(ctx context.Context, collect Collect) error {
+func (c *CollectGormDao) InsertCollect(ctx context.Context, collect Collect) error {
 	now := time.Now().UnixMilli()
 	collect.CreateTime = now
 	collect.UpdateTime = now
@@ -120,8 +89,9 @@ func (c *CollectGormClipDao) InsertCollect(ctx context.Context, collect Collect)
 }
 
 // DeleteCollectByIds 根据id批量删除收藏夹
-func (c *CollectGormClipDao) DeleteCollectByIds(ctx context.Context, ids []int64) error {
-	err := c.db.WithContext(ctx).Where("id in ?", ids).Delete(&Collect{}).Error
+func (c *CollectGormDao) DeleteCollectByIds(ctx context.Context, ids []int64, authorId int64) error {
+	err := c.db.WithContext(ctx).Where("id in ? and author_id = ?",
+		ids, authorId).Delete(&Collect{}).Error
 	if err != nil {
 		c.logger.Error("收藏夹删除失败", loggerx.Error(err),
 			loggerx.String("method:", "CollectGormClipDao:DeleteCollectByIds"))
@@ -131,7 +101,7 @@ func (c *CollectGormClipDao) DeleteCollectByIds(ctx context.Context, ids []int64
 }
 
 // PageQuery 分页查询收藏夹
-func (c *CollectGormClipDao) PageQuery(ctx context.Context, id int64, limit int, offset int) ([]domain.CollectDomain, error) {
+func (c *CollectGormDao) PageQuery(ctx context.Context, id int64, limit int, offset int) ([]domain.CollectDomain, error) {
 	var collects []Collect
 	err := c.db.WithContext(ctx).Where("user_id = ?", id).
 		Limit(limit).
@@ -146,13 +116,13 @@ func (c *CollectGormClipDao) PageQuery(ctx context.Context, id int64, limit int,
 }
 
 // collectsToDomain 将收藏夹转换为领域对象
-func (c *CollectGormClipDao) collectsToDomain(clips []Collect) []domain.CollectDomain {
+func (c *CollectGormDao) collectsToDomain(clips []Collect) []domain.CollectDomain {
 	dcs := make([]domain.CollectDomain, 0, len(clips))
 	for _, cl := range clips {
 		dcs = append(dcs, domain.CollectDomain{
 			Id:         cl.Id,
 			Name:       cl.Name,
-			UserId:     cl.UserId,
+			AuthorId:   cl.UserId,
 			Status:     cl.Status,
 			CreateTime: cl.CreateTime,
 			UpdateTime: cl.UpdateTime,
@@ -162,7 +132,7 @@ func (c *CollectGormClipDao) collectsToDomain(clips []Collect) []domain.CollectD
 }
 
 // InsertCollectDetail 将文章插入收藏夹详情
-func (c *CollectGormClipDao) InsertCollectDetail(ctx context.Context, detail CollectDetail) error {
+func (c *CollectGormDao) InsertCollectDetail(ctx context.Context, detail CollectDetail) error {
 	now := time.Now().UnixMilli()
 	detail.CreateTime = now
 	detail.UpdateTime = now
@@ -176,58 +146,26 @@ func (c *CollectGormClipDao) InsertCollectDetail(ctx context.Context, detail Col
 	return nil
 }
 
-// GetCollectDetailById 根据id查询收藏夹详情
-func (c *CollectGormClipDao) GetCollectDetailById(ctx context.Context, id int64,
+// GetCollectDetailById 根据collectId查询收藏夹详情
+func (c *CollectGormDao) GetCollectDetailById(ctx context.Context,
+	collectId int64,
 	limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error) {
-	var cwas []CollectDetailWithLifeLog
-	// 执行JOIN 查询
-	err := c.db.WithContext(ctx).
-		Table("tb_collect_clip_detail as clip_detail").
-		Select(`
-            clip_detail.id as id,
-            clip_detail.collect_id as collect_id,
-            clip_detail.lifeLog_id as lifeLog_id,
-            clip_detail.create_time as create_time,
-            clip_detail.update_time as update_time,
-            clip_detail.status as status,
-            lifeLog.id as lifeLog_id,
-            lifeLog.title as title,
-            lifeLog.content as content,
-            lifeLog.author_id as author_id,
-            lifeLog.create_time as lifeLog_create_time,
-            lifeLog.update_time as lifeLog_update_time,
-            lifeLog.status as lifeLog_status
-        `).
-		Joins("inner join tb_publish_lifeLog as lifeLog on clip_detail.lifeLog_id = lifeLog.id").
-		Where("clip_detail.collect_id = ? and clip_detail.status != ? and "+
-			"clip_detail.author_id = ?", id, 2, authorId).
-		Limit(limit).
-		Offset(offset).
-		Scan(&cwas).Error
+	var collectDetail []CollectDetail
+	err := c.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
+		err := tx.WithContext(ctx).Where("collect_id = ? and authorId = ?",
+			collectId, authorId).
+			Limit(limit).
+			Offset(offset).
+			Find(&collectDetail).Error
+		return err
+	})
 	if err != nil {
+		c.logger.Error("收藏夹详情查询失败", loggerx.Error(err),
+			loggerx.String("method:", "CollectGormClipDao:GetCollectDetailById"))
 		return nil, err
 	}
-	// 映射查询结果到 CollectDetailDomain
-	var collectDetails []domain.CollectDetailDomain
-	for _, cwa := range cwas {
-		collectDetail := domain.CollectDetailDomain{
-			Id:         cwa.CollectDetail.Id,
-			CollectId:  cwa.CollectDetail.CollectId,
-			LifeLogId:  cwa.CollectDetail.LifeLogId,
-			CreateTime: cwa.CollectDetail.CreateTime,
-			UpdateTime: cwa.CollectDetail.UpdateTime,
-			Status:     cwa.CollectDetail.Status,
-			PublicLifeLogDomain: domain.PublicLifeLogDomain{
-				Id:         cwa.PublicLifeLog.Id,
-				Title:      cwa.PublicLifeLog.Title,
-				Content:    cwa.PublicLifeLog.Content,
-				AuthorId:   cwa.PublicLifeLog.AuthorId,
-				CreateTime: cwa.PublicLifeLog.CreateTime,
-				UpdateTime: cwa.PublicLifeLog.UpdateTime,
-				Status:     cwa.PublicLifeLog.Status,
-			},
-		}
-		collectDetails = append(collectDetails, collectDetail)
-	}
-	return collectDetails, nil
+	// 将[]collect转为[]domain.CollectDetailDomain
+	var collectDetailDomain []domain.CollectDetailDomain
+	copier.Copy(&collectDetailDomain, &collectDetail)
+	return collectDetailDomain, nil
 }

@@ -18,6 +18,7 @@ type LifeLogRepository interface {
 	SearchByAuthorId(ctx context.Context, authorId, limit, offset int64) ([]domain.LifeLogDomain, error)
 	RevokeById(ctx context.Context, id, authorId int64) error
 	Sync(ctx context.Context, lifeLogDomain domain.LifeLogDomain) error
+	SearchByIds(ctx context.Context, ids []int64) ([]domain.LifeLogDomain, error)
 }
 
 type LifeLogRepositoryV1 struct {
@@ -84,6 +85,11 @@ func (a *LifeLogRepositoryV1) SearchByTitle(ctx context.Context, title string, l
 // SearchById 搜索LifeLog
 func (a *LifeLogRepositoryV1) SearchById(ctx context.Context, id int64, public bool) (domain.LifeLogDomain, error) {
 	return a.lifeLogDao.SelectById(ctx, id, public)
+}
+
+// SearchByIds 搜索多个LifeLog
+func (a *LifeLogRepositoryV1) SearchByIds(ctx context.Context, ids []int64) ([]domain.LifeLogDomain, error) {
+	return a.lifeLogDao.SelectByIds(ctx, ids)
 }
 
 // SearchByAuthorId 搜索LifeLog

@@ -1052,7 +1052,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="303" parent="289" name="tb_collect_clip_detail">
+    <table id="303" parent="289" name="tb_collect_detail">
       <Comment>收藏表详情</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
@@ -1179,7 +1179,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DasType>tinyint|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="328" parent="302" name="user_id">
+    <column id="328" parent="302" name="author_id">
       <Comment>用户id</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
@@ -1195,7 +1195,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="331" parent="303" name="tb_collect_clip_detail_chk_1">
+    <check id="331" parent="303" name="tb_collect_detail_chk_1">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`status` in (1,2)</Predicate>
     </check>

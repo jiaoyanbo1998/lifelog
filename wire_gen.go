@@ -8,22 +8,19 @@ package main
 
 import (
 	"github.com/google/wire"
-	"lifelog-grpc/collect/repository"
-	"lifelog-grpc/collect/repository/dao"
-	"lifelog-grpc/collect/service"
-	repository2 "lifelog-grpc/comment/repository"
-	dao2 "lifelog-grpc/comment/repository/dao"
-	service2 "lifelog-grpc/comment/service"
+	"lifelog-grpc/comment/repository"
+	"lifelog-grpc/comment/repository/dao"
+	"lifelog-grpc/comment/service"
 	"lifelog-grpc/event/commentEvent"
 	"lifelog-grpc/event/lifeLogEvent"
-	repository4 "lifelog-grpc/interactive/repository"
+	repository3 "lifelog-grpc/interactive/repository"
 	cache2 "lifelog-grpc/interactive/repository/cache"
-	dao3 "lifelog-grpc/interactive/repository/dao"
-	service4 "lifelog-grpc/interactive/service"
+	dao2 "lifelog-grpc/interactive/repository/dao"
+	service3 "lifelog-grpc/interactive/service"
 	"lifelog-grpc/ioc"
-	repository3 "lifelog-grpc/ranking/repository"
+	repository2 "lifelog-grpc/ranking/repository"
 	"lifelog-grpc/ranking/repository/cache"
-	service3 "lifelog-grpc/ranking/service"
+	service2 "lifelog-grpc/ranking/service"
 	"lifelog-grpc/web"
 )
 
@@ -42,27 +39,25 @@ func InitApp() *App {
 	producer := lifeLogEvent.NewSaramaSyncProducer(syncProducer)
 	interactiveServiceClient := ioc.InitInteractiveServiceGRPCClient(logger)
 	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, producer, interactiveServiceClient)
+	collectServiceClient := ioc.InitCollectServiceGRPCClient(logger)
+	collectHandler := web.NewCollectHandler(collectServiceClient)
 	db := ioc.GetMysql(logger)
-	collectDao := dao.NewCollectDao(db, logger)
-	collectRepository := repository.NewCollectRepository(collectDao)
-	collectService := service.NewCollectService(collectRepository)
-	collectHandler := web.NewCollectHandler(collectService)
-	commentDao := dao2.NewCommentDaoGorm(db, logger)
-	commentRepository := repository2.NewCommentRepository(commentDao)
-	commentService := service2.NewCommentService(commentRepository)
+	commentDao := dao.NewCommentDaoGorm(db, logger)
+	commentRepository := repository.NewCommentRepository(commentDao)
+	commentService := service.NewCommentService(commentRepository)
 	commentHandler := web.NewCommentHandler(logger, commentService)
 	codeServiceClient := ioc.InitCodeServiceGRPCClient(logger)
 	codeHandler := web.NewCodeHandler(logger, codeServiceClient)
 	rankingCache := cache.NewRankingCacheRedis(cmdable)
-	rankingRepository := repository3.NewRankingRepository(rankingCache)
-	rankingService := service3.NewRankingService(rankingRepository)
+	rankingRepository := repository2.NewRankingRepository(rankingCache)
+	rankingService := service2.NewRankingService(rankingRepository)
 	job := ioc.InitRankingJob(rankingService, logger, cmdable)
 	interactiveHandler := web.NewInteractiveHandler(logger, interactiveServiceClient, job, producer)
 	engine := ioc.InitGin(userHandler, v, lifeLogHandler, collectHandler, commentHandler, codeHandler, interactiveHandler)
-	interactiveDao := dao3.NewInteractiveDao(db, logger)
+	interactiveDao := dao2.NewInteractiveDao(db, logger)
 	interactiveCache := cache2.NewInteractiveCache(cmdable, logger)
-	interactiveRepository := repository4.NewInteractiveRepository(interactiveDao, interactiveCache)
-	interactiveService := service4.NewInteractiveService(interactiveRepository)
+	interactiveRepository := repository3.NewInteractiveRepository(interactiveDao, interactiveCache)
+	interactiveService := service3.NewInteractiveService(interactiveRepository)
 	readEventConsumer := lifeLogEvent.NewReadEventConsumer(client, logger, interactiveService)
 	v2 := ioc.InitConsumers(readEventConsumer)
 	cron := ioc.InitCronRankingJob(logger, job)
@@ -85,23 +80,23 @@ var codeSet = wire.NewSet(web.NewCodeHandler, ioc.InitCodeServiceGRPCClient)
 // JwtSet 初始化jwt模块
 var JwtSet = wire.NewSet(web.NewJWTHandler)
 
-// interactiveSet interactive模块的依赖注入
-var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveServiceGRPCClient, service4.NewInteractiveService, repository4.NewInteractiveRepository, dao3.NewInteractiveDao, cache2.NewInteractiveCache)
-
 // LifeLog模块
 var lifeLogSet = wire.NewSet(web.NewLifeLogHandler, ioc.InitLifeLogServiceCRPCClient)
 
 // collectClipSet collectClip模块的依赖注入
-var collectClipSet = wire.NewSet(web.NewCollectHandler, service.NewCollectService, repository.NewCollectRepository, dao.NewCollectDao)
+var collectClipSet = wire.NewSet(web.NewCollectHandler, ioc.InitCollectServiceGRPCClient)
 
 // kafkaSet kafka模块的依赖注入
 var kafkaSet = wire.NewSet(ioc.InitKafka, lifeLogEvent.NewReadEventBatchConsumer, lifeLogEvent.NewReadEventConsumer, lifeLogEvent.NewSaramaSyncProducer, commentEvent.NewCommentEventBatchConsumer, ioc.InitConsumers, ioc.InitSyncProducer)
 
+// interactiveSet interactive模块的依赖注入
+var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveServiceGRPCClient, service3.NewInteractiveService, repository3.NewInteractiveRepository, dao2.NewInteractiveDao, cache2.NewInteractiveCache)
+
 // rankingSet ranking模块的依赖注入
-var rankingSet = wire.NewSet(service3.NewRankingService, repository3.NewRankingRepository, cache.NewRankingCacheRedis)
+var rankingSet = wire.NewSet(service2.NewRankingService, repository2.NewRankingRepository, cache.NewRankingCacheRedis)
 
 // rankingJobCronSet 热榜定时任务的依赖注入
 var rankingJobCronSet = wire.NewSet(ioc.InitRankingJob, ioc.InitCronRankingJob)
 
 // commentSet 评论
-var commentSet = wire.NewSet(web.NewCommentHandler, service2.NewCommentService, repository2.NewCommentRepository, dao2.NewCommentDaoGorm)
+var commentSet = wire.NewSet(web.NewCommentHandler, service.NewCommentService, repository.NewCommentRepository, dao.NewCommentDaoGorm)
