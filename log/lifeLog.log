@@ -1293,3 +1293,7 @@
 {"L":"error","time":"2025-01-04 15:05:17","C":"loggerx/zap_logger.go:62","M":"取消点赞失败","error":"rpc error: code = Unknown desc = 不能重复取消点赞","method:":"InteractiveHandler:UnLike"}
 {"L":"error","time":"2025-01-04 15:21:06","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"不能重复取消点赞","method:":"InteractiveDaoV1:DecreaseLikeCount"}
 {"L":"error","time":"2025-01-04 15:21:06","C":"loggerx/zap_logger.go:62","M":"取消点赞失败","error":"rpc error: code = Unknown desc = 不能重复取消点赞","method:":"InteractiveHandler:UnLike"}
+{"L":"error","time":"2025-01-04 15:24:19","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"用户已经点赞过了","method:":"InteractiveDaoV1:InsertLikeCount"}
+{"L":"error","time":"2025-01-04 15:24:19","C":"loggerx/zap_logger.go:62","M":"点赞失败","error":"rpc error: code = Unknown desc = 用户已经点赞过了","method:":"InteractiveHandler:Like"}
+{"L":"error","time":"2025-01-04 15:24:53","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"不能重复取消点赞","method:":"InteractiveDaoV1:DecreaseLikeCount"}
+{"L":"error","time":"2025-01-04 15:24:53","C":"loggerx/zap_logger.go:62","M":"取消点赞失败","error":"rpc error: code = Unknown desc = 不能重复取消点赞","method:":"InteractiveHandler:UnLike"}
