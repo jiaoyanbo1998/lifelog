@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive_grpc.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errs/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/errs/code.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ioc/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/web.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository/dao/userDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/dao/userDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository/userRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/userRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/service/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/userService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/codeHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/codeHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
-    </list>
+    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="修改了一些bug" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -152,7 +127,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lifelog和interactive转为微服务" />
-    <option name="LAST_COMMIT_MESSAGE" value="lifelog和interactive转为微服务" />
+    <MESSAGE value="修改了一些bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了一些bug" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
