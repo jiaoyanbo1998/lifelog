@@ -11,8 +11,8 @@ type InteractiveRepository interface {
 	IncreaseReadCount(ctx context.Context, biz string, bizId int64, userId int64) error
 	IncreaseLikeCount(ctx context.Context, biz string, bizId int64, userId int64) error
 	DecreaseLikeCount(ctx context.Context, biz string, bizId int64, userId int64) error
-	IncreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error
-	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error
+	IncreaseCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error
+	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error
 	BatchInteractiveReadCount(ctx context.Context, biz string, bizIds, userIds []int64) error
 	GetInteractiveInfoByBizId(ctx context.Context, biz string, bizId int64) (domain.InteractiveDomain, error)
 }
@@ -77,9 +77,9 @@ func (i *InteractiveRepositoryV1) DecreaseLikeCount(ctx context.Context, biz str
 
 // IncreaseCollectCount 增加收藏数
 func (i *InteractiveRepositoryV1) IncreaseCollectCount(ctx context.Context, biz string,
-	bizId int64, userId int64) error {
+	bizId int64, userId, collectId int64) error {
 	// 先更新数据库中的收藏数
-	err := i.interactiveDao.InsertCollectCount(ctx, biz, bizId, userId)
+	err := i.interactiveDao.InsertCollectCount(ctx, biz, bizId, userId, collectId)
 	if err != nil {
 		return err
 	}
@@ -92,9 +92,9 @@ func (i *InteractiveRepositoryV1) IncreaseCollectCount(ctx context.Context, biz 
 }
 
 // DecreaseCollectCount 减少收藏数
-func (i *InteractiveRepositoryV1) DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error {
+func (i *InteractiveRepositoryV1) DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error {
 	// 先操作数据库
-	err := i.interactiveDao.DecreaseCollectCount(ctx, biz, bizId, userId)
+	err := i.interactiveDao.DecreaseCollectCount(ctx, biz, bizId, userId, collectId)
 	if err != nil {
 		return err
 	}

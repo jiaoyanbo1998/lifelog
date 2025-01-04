@@ -42,7 +42,7 @@ func (a *InteractiveHandler) RegisterRoutes(server *gin.Engine) {
 	// 收藏LifeLog
 	rg.POST("/collect", a.Collect)
 	// 取消收藏LifeLog
-	rg.PUT("/unCollect/:id", a.UnCollect)
+	rg.POST("/unCollect", a.UnCollect)
 }
 
 // Like 点赞LifeLog
@@ -151,7 +151,8 @@ func (i *InteractiveHandler) UnLike(ctx *gin.Context) {
 // Collect 收藏LifeLog
 func (i *InteractiveHandler) Collect(ctx *gin.Context) {
 	type CollectReq struct {
-		BizId int64 `json:"biz_id"`
+		BizId     int64 `json:"biz_id"`
+		CollectId int64 `json:"collect_id"`
 	}
 	var req CollectReq
 	err := ctx.Bind(&req)
@@ -181,7 +182,7 @@ func (i *InteractiveHandler) Collect(ctx *gin.Context) {
 			Biz:    i.biz,
 			BizId:  req.BizId,
 			UserId: userInfo.Id,
-		},
+		}, CollectId: req.CollectId,
 	})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
@@ -202,18 +203,20 @@ func (i *InteractiveHandler) Collect(ctx *gin.Context) {
 
 // UnCollect 取消收藏LifeLog
 func (i *InteractiveHandler) UnCollect(ctx *gin.Context) {
-	// 获取路径参数
-	idString := ctx.Param("id")
-	// 将string转为int64
-	lifeLogId, err := strconv.ParseInt(idString, 10, 64)
+	type CollectReq struct {
+		BizId     int64 `json:"biz_id"`
+		CollectId int64 `json:"collect_id"`
+	}
+	var req CollectReq
+	err := ctx.Bind(&req)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, Result[string]{
 			Code: 400,
 			Msg:  "系统错误",
 			Data: "error",
 		})
-		i.logger.Error("id string转int64失败", loggerx.Error(err),
-			loggerx.String("method:", "InteractiveHandler:UnCollect"))
+		i.logger.Error("参数bind失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:collect"))
 		return
 	}
 	userInfo, ok := i.GetUserInfo(ctx)
@@ -231,9 +234,9 @@ func (i *InteractiveHandler) UnCollect(ctx *gin.Context) {
 	_, err = i.interactiveServiceClient.UnCollect(ctx.Request.Context(), &interactivev1.UnCollectRequest{
 		InteractiveDomain: &interactivev1.InteractiveDomain{
 			Biz:    i.biz,
-			BizId:  lifeLogId,
+			BizId:  req.BizId,
 			UserId: userInfo.Id,
-		},
+		}, CollectId: req.CollectId,
 	})
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{

@@ -72,6 +72,7 @@ message UnLikeResponse {
 // 请求
 message CollectRequest {
   InteractiveDomain interactiveDomain = 1;
+  int64 collectId = 2;
 }
 // 响应
 message CollectResponse {
@@ -81,6 +82,7 @@ message CollectResponse {
 // 请求
 message UnCollectRequest {
   InteractiveDomain interactiveDomain = 1;
+  int64 collectId = 2;
 }
 // 响应
 message UnCollectResponse {

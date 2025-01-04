@@ -75,7 +75,8 @@ func (i *InteractiveServiceGRPCService) Collect(ctx context.Context, request *in
 	err := i.interactiveService.IncreaseCollectCount(ctx,
 		request.InteractiveDomain.Biz,
 		request.GetInteractiveDomain().GetBizId(),
-		request.GetInteractiveDomain().GetUserId())
+		request.GetInteractiveDomain().GetUserId(),
+		request.GetCollectId())
 	if err != nil {
 		return &interactivev1.CollectResponse{}, err
 	}
@@ -86,7 +87,8 @@ func (i *InteractiveServiceGRPCService) UnCollect(ctx context.Context, request *
 	err := i.interactiveService.DecreaseCollectCount(ctx,
 		request.GetInteractiveDomain().GetBiz(),
 		request.GetInteractiveDomain().GetBizId(),
-		request.GetInteractiveDomain().GetUserId())
+		request.GetInteractiveDomain().GetUserId(),
+		request.GetCollectId())
 	if err != nil {
 		return &interactivev1.UnCollectResponse{}, err
 	}

@@ -11,8 +11,8 @@ type InteractiveService interface {
 	BatchInteractiveReadCount(ctx context.Context, biz string, bizIds, userIds []int64) error
 	IncreaseLikeCount(ctx context.Context, biz string, bizId int64, userId int64) error
 	DecreaseLikeCount(ctx context.Context, biz string, bizId int64, userId int64) error
-	IncreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error
-	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error
+	IncreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64, collectId int64) error
+	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64, collectId int64) error
 	GetInteractiveInfo(ctx context.Context, biz string, bizId int64) (domain.InteractiveDomain, error)
 }
 
@@ -43,13 +43,13 @@ func (i *InteractiveServiceV1) DecreaseLikeCount(ctx context.Context, biz string
 
 // IncreaseCollectCount 增加收藏数
 func (i *InteractiveServiceV1) IncreaseCollectCount(ctx context.Context, biz string,
-	bizId int64, userId int64) error {
-	return i.interactiveRepository.IncreaseCollectCount(ctx, biz, bizId, userId)
+	bizId int64, userId int64, collectId int64) error {
+	return i.interactiveRepository.IncreaseCollectCount(ctx, biz, bizId, userId, collectId)
 }
 
 // DecreaseCollectCount 减少收藏数
-func (i *InteractiveServiceV1) DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error {
-	return i.interactiveRepository.DecreaseCollectCount(ctx, biz, bizId, userId)
+func (i *InteractiveServiceV1) DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64, collectId int64) error {
+	return i.interactiveRepository.DecreaseCollectCount(ctx, biz, bizId, userId, collectId)
 }
 
 // BatchInteractiveReadCount 批量增加阅读数

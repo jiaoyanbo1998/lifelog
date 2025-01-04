@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="修改了一些bug" />
+    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="修改了一些bug">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/service/interactiveService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/service/interactiveService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/interactiveHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -132,5 +143,31 @@
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go</url>
+          <line>359</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go</url>
+          <line>361</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go</url>
+          <line>368</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go</url>
+          <line>376</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

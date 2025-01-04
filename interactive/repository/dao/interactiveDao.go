@@ -16,8 +16,8 @@ type InteractiveDao interface {
 	InsertLikeCount(ctx context.Context, biz string, bizId int64, userId int64) error
 	InsertLikeInfo(ctx context.Context, biz string, bizId int64, userId int64) error
 	DecreaseLikeCount(ctx context.Context, biz string, bizId int64, userId int64) error
-	InsertCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error
-	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error
+	InsertCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error
+	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error
 	BatchInteractiveReadCount(ctx context.Context, biz string, bizIds, userIds []int64) error
 	GetInteractiveInfoByBizId(ctx context.Context, biz string, bizId int64) (domain.InteractiveDomain, error)
 }
@@ -84,23 +84,11 @@ type InteractiveCollect struct {
 	CreateTime int64  // 创建时间
 	Status     uint8  // 软删除，1收藏，2取消收藏
 	UserId     int64  // 用户id
+	CollectId  int64
 }
 
 func (InteractiveCollect) TableName() string {
 	return "tb_interactive_collect"
-}
-
-type CollectClipDetail struct {
-	Id         int64 `gorm:"primaryKey;autoIncrement"` // 主键
-	CollectId  int64
-	LifeLogId  int64
-	CreateTime int64 // 创建时间
-	UpdateTime int64 // 更新时间
-	Status     uint8
-}
-
-func (CollectClipDetail) TableName() string {
-	return "tb_collect_clip_detail"
 }
 
 // InsertReadCount 增加阅读数，biz业务类型， bizId业务id， userId用户id
@@ -301,7 +289,7 @@ func (i *InteractiveDaoV1) DecreaseLikeCount(ctx context.Context, biz string, bi
 }
 
 // InsertCollectInfo 增加收藏记录，biz业务类型， bizId业务id， userId用户id
-func (i *InteractiveDaoV1) InsertCollectInfo(ctx context.Context, biz string, bizId, userId int64) error {
+func (i *InteractiveDaoV1) InsertCollectInfo(ctx context.Context, biz string, bizId, userId, collectId int64) error {
 	var interactiveCollect InteractiveCollect
 	now := time.Now().UnixMilli()
 	interactiveCollect.Biz = biz
@@ -310,6 +298,7 @@ func (i *InteractiveDaoV1) InsertCollectInfo(ctx context.Context, biz string, bi
 	interactiveCollect.CreateTime = now
 	interactiveCollect.Status = 1
 	interactiveCollect.UserId = userId
+	interactiveCollect.CollectId = collectId
 	err := i.db.WithContext(ctx).Create(&interactiveCollect).Error
 	if err != nil {
 		i.logger.Error("插入收藏记录失败", loggerx.Error(err),
@@ -320,7 +309,7 @@ func (i *InteractiveDaoV1) InsertCollectInfo(ctx context.Context, biz string, bi
 }
 
 // DecreaseCollectCount 减少收藏数，biz业务类型， bizId业务id， userId用户id
-func (i *InteractiveDaoV1) DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error {
+func (i *InteractiveDaoV1) DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error {
 	now := time.Now().UnixMilli()
 	er := i.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
 		// 更新互动表的收藏数，收藏数-1
@@ -335,24 +324,14 @@ func (i *InteractiveDaoV1) DecreaseCollectCount(ctx context.Context, biz string,
 			return err
 		}
 		// 更新收藏表的状态，状态=2，表示取消收藏
-		err = tx.Where("biz_id = ? AND biz = ? AND user_id = ?", bizId, biz, userId).
+		err = tx.Where("biz_id = ? AND biz = ? AND user_id = ? and collect_id = ?",
+			bizId, biz, userId, collectId).
 			Model(&InteractiveCollect{}).Updates(map[string]any{
 			"status":      2,
 			"update_time": now,
 		}).Error
 		if err != nil {
 			i.logger.Error("收藏表状态更新失败", loggerx.Error(err),
-				loggerx.String("method:", "InteractiveRepository:DecreaseCollectCount"))
-			return err
-		}
-		// 更新收藏夹中文章的状态，状态=2，表示取消收藏
-		err = tx.Where("life_log_id = ?", bizId).Model(&CollectClipDetail{}).
-			Updates(map[string]any{
-				"status":      2,
-				"update_time": now,
-			}).Error
-		if err != nil {
-			i.logger.Error("文章移除收藏夹失败", loggerx.Error(err),
 				loggerx.String("method:", "InteractiveRepository:DecreaseCollectCount"))
 			return err
 		}
@@ -367,33 +346,38 @@ func (i *InteractiveDaoV1) DecreaseCollectCount(ctx context.Context, biz string,
 }
 
 // InsertCollectCount 增加收藏数，biz业务类型， bizId业务id， userId用户id
-func (i *InteractiveDaoV1) InsertCollectCount(ctx context.Context, biz string, bizId int64, userId int64) error {
+func (i *InteractiveDaoV1) InsertCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error {
+	// 初始化interactive
 	var interactive Interactive
 	var interactiveCollect InteractiveCollect
+	now := time.Now().UnixMilli()
+	interactive.Biz = biz
+	interactive.BizId = bizId
+	interactive.CreateTime = now
+	interactive.UpdateTime = now
+	interactive.CollectCount = 1
 	// Gorm闭包事务，gorm帮我们自动控制事务的生命周期（开始，提交，回滚）
 	err := i.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
-		// 初始化interactive
-		now := time.Now().UnixMilli()
-		interactive.Biz = biz
-		interactive.BizId = bizId
-		interactive.CreateTime = now
-		interactive.UpdateTime = now
-		interactive.CollectCount = 1
 		// 1.判断用户的收藏记录是否已存在
-		readInfoExists := tx.Where("biz_id = ? AND biz = ? AND user_id = ?", bizId, biz, userId).
+		readInfoExists := tx.Where("biz_id = ? AND biz = ? "+
+			"AND user_id = ? and collect_id = ?", bizId, biz, userId, collectId).
 			First(&interactiveCollect).
 			// 影响记录条数 > 0，表示存在，返回true
 			// 影响记录条数 <= 0，表示不存在，返回false
 			RowsAffected > 0
 		// 如果是第一次收藏，插入收藏记录
 		if !readInfoExists {
-			if err := i.InsertCollectInfo(ctx, biz, bizId, userId); err != nil {
+			if err := i.InsertCollectInfo(ctx, biz, bizId, userId, collectId); err != nil {
 				i.logger.Error("插入收藏记录失败", loggerx.Error(err),
 					loggerx.String("method:", "InteractiveDaoV1:InsertCollectCount"))
 				return err
 			}
 		}
-		// 2.更新收藏数
+		// 2.判断用户是否已经，收藏到这个收藏夹了
+		if interactiveCollect.Status == 1 {
+			return errors.New("不能重复收藏")
+		}
+		// 3.更新收藏数
 		// 	 发生唯一键冲突，就更新数据
 		// 	 没有发生唯一键冲突，就插入数据
 		err := tx.Where("biz_id = ? AND biz = ?", bizId, biz).
@@ -406,6 +390,18 @@ func (i *InteractiveDaoV1) InsertCollectCount(ctx context.Context, biz string, b
 		// 插入收藏数失败
 		if err != nil {
 			i.logger.Error("增加收藏数失败", loggerx.Error(err),
+				loggerx.String("method:", "InteractiveDaoV1:InsertCollectCount"))
+			return err
+		}
+		// 4.更新收藏记录
+		err = tx.WithContext(ctx).Model(&InteractiveCollect{}).
+			Where("user_id = ? and biz_id = ? and biz = ? and collect_id = ?",
+				userId, bizId, biz, collectId).Updates(map[string]interface{}{
+			"status":      1,
+			"update_time": now,
+		}).Error
+		if err != nil {
+			i.logger.Error("更新收藏记录失败", loggerx.Error(err),
 				loggerx.String("method:", "InteractiveDaoV1:InsertCollectCount"))
 			return err
 		}
