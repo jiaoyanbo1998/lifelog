@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/jinzhu/copier"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 	"lifelog-grpc/collect/domain"
 	"lifelog-grpc/pkg/loggerx"
 	"time"
@@ -16,6 +17,7 @@ type CollectDao interface {
 	PageQuery(ctx context.Context, id int64, limit int, offset int) ([]domain.CollectDomain, error)
 	InsertCollectDetail(ctx context.Context, detail CollectDetail) error
 	GetCollectDetailById(ctx context.Context, collectId int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error)
+	DeleteCollectDetail(ctx context.Context, collectId, lifeLogId, authorId int64) error
 }
 
 type CollectGormDao struct {
@@ -34,7 +36,7 @@ type Collect struct {
 	Id         int64  `gorm:"primaryKey;autoIncrement"`
 	Name       string `gorm:"uniqueIndex"`
 	Status     uint8
-	UserId     int64
+	AuthorId   int64
 	CreateTime int64
 	UpdateTime int64
 }
@@ -60,7 +62,7 @@ func (CollectDetail) TableName() string {
 // UpdateCollect 更新收藏夹
 func (c *CollectGormDao) UpdateCollect(ctx context.Context, collect Collect) error {
 	err := c.db.WithContext(ctx).Where("id = ? and author_id = ?",
-		collect.Id, collect.UserId).Model(&Collect{}).
+		collect.Id, collect.AuthorId).Model(&Collect{}).
 		Updates(map[string]any{
 			"name":        collect.Name,
 			"update_time": time.Now().UnixMilli(),
@@ -71,6 +73,23 @@ func (c *CollectGormDao) UpdateCollect(ctx context.Context, collect Collect) err
 		return err
 	}
 	return nil
+}
+
+// DeleteCollectDetail 删除收藏夹详情
+func (c *CollectGormDao) DeleteCollectDetail(ctx context.Context, collectId, lifeLogId, authorId int64) error {
+	return c.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
+		err := tx.WithContext(ctx).Model(&CollectDetail{}).
+			Where("collect_id = ? and life_log_id = ? and author_id = ?",
+				collectId, lifeLogId, authorId).Updates(map[string]any{
+			"status": 2,
+		}).Error
+		if err != nil {
+			c.logger.Error("收藏夹详情删除失败", loggerx.Error(err),
+				loggerx.String("method:", "CollectGormClipDao:DeleteCollectDetail"))
+			return err
+		}
+		return nil
+	})
 }
 
 // InsertCollect 插入收藏夹
@@ -103,7 +122,7 @@ func (c *CollectGormDao) DeleteCollectByIds(ctx context.Context, ids []int64, au
 // PageQuery 分页查询收藏夹
 func (c *CollectGormDao) PageQuery(ctx context.Context, id int64, limit int, offset int) ([]domain.CollectDomain, error) {
 	var collects []Collect
-	err := c.db.WithContext(ctx).Where("user_id = ?", id).
+	err := c.db.WithContext(ctx).Where("author_id = ?", id).
 		Limit(limit).
 		Offset(offset).
 		Find(&collects).Error
@@ -122,7 +141,7 @@ func (c *CollectGormDao) collectsToDomain(clips []Collect) []domain.CollectDomai
 		dcs = append(dcs, domain.CollectDomain{
 			Id:         cl.Id,
 			Name:       cl.Name,
-			AuthorId:   cl.UserId,
+			AuthorId:   cl.AuthorId,
 			Status:     cl.Status,
 			CreateTime: cl.CreateTime,
 			UpdateTime: cl.UpdateTime,
@@ -137,13 +156,26 @@ func (c *CollectGormDao) InsertCollectDetail(ctx context.Context, detail Collect
 	detail.CreateTime = now
 	detail.UpdateTime = now
 	detail.Status = 1
-	err := c.db.WithContext(ctx).Create(&detail).Error
-	if err != nil {
-		c.logger.Error("收藏夹详情插入失败", loggerx.Error(err),
-			loggerx.String("method:", "CollectGormClipDao:InsertCollectDetail"))
-		return err
-	}
-	return nil
+	// 有记录就更新，没有记录才插入
+	return c.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
+		err := tx.Clauses(clause.OnConflict{
+			Columns: []clause.Column{
+				{Name: "collect_id"},  // 冲突判断字段
+				{Name: "life_log_id"}, // 冲突判断字段
+				{Name: "author_id"},   // 冲突判断字段
+			},
+			DoUpdates: clause.AssignmentColumns([]string{
+				"status", // 更新字段
+				"update_time",
+			}),
+		}).Create(&detail).Error
+		if err != nil {
+			c.logger.Error("收藏夹详情更新/插入失败", loggerx.Error(err),
+				loggerx.String("method:", "CollectGormClipDao:InsertCollectDetail"))
+			return err
+		}
+		return nil
+	})
 }
 
 // GetCollectDetailById 根据collectId查询收藏夹详情
@@ -152,7 +184,7 @@ func (c *CollectGormDao) GetCollectDetailById(ctx context.Context,
 	limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error) {
 	var collectDetail []CollectDetail
 	err := c.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
-		err := tx.WithContext(ctx).Where("collect_id = ? and authorId = ?",
+		err := tx.WithContext(ctx).Where("collect_id = ? and author_id = ?",
 			collectId, authorId).
 			Limit(limit).
 			Offset(offset).

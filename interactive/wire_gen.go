@@ -27,13 +27,14 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 	interactiveCache := cache.NewInteractiveCache(cmdable, logger)
 	interactiveRepository := repository.NewInteractiveRepository(interactiveDao, interactiveCache)
 	interactiveService := service.NewInteractiveService(interactiveRepository)
-	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService)
+	collectServiceClient := ioc.InitCollectServiceGRPCClient(logger)
+	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService, collectServiceClient)
 	return interactiveServiceGRPCService
 }
 
 // wire.go:
 
-// codeSet 注入
-var codeSet = wire.NewSet(service.NewInteractiveService, repository.NewInteractiveRepository, cache.NewInteractiveCache, dao.NewInteractiveDao)
+// interactiveSet 注入
+var interactiveSet = wire.NewSet(service.NewInteractiveService, repository.NewInteractiveRepository, cache.NewInteractiveCache, dao.NewInteractiveDao)
 
-var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger)
+var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitCollectServiceGRPCClient)

@@ -1,7 +1,7 @@
 package vo
 
 type CollectVo struct {
-	Id         int64  `json:"id"`
+	Id         int64  `json:"Id"`
 	Name       string `json:"name"`
 	Status     uint8  `json:"status"`
 	UserId     int64  `json:"userId"`
@@ -10,9 +10,7 @@ type CollectVo struct {
 }
 
 type CollectDetailVo struct {
-	Id              int64
 	CollectId       int64
-	LifeLogId       int64
 	UpdateTime      int64
 	CreateTime      int64
 	Status          uint8
@@ -20,7 +18,8 @@ type CollectDetailVo struct {
 }
 
 type PublicLifeLogVo struct {
-	Title    string
-	Content  string
-	AuthorId int64
+	PublicLifeLogId int64
+	Title           string
+	Content         string
+	AuthorId        int64
 }

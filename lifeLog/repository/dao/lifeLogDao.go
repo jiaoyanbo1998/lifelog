@@ -3,7 +3,6 @@ package dao
 import (
 	"context"
 	"errors"
-	"github.com/jinzhu/copier"
 	"gorm.io/gorm"
 	"gorm.io/gorm/clause"
 	"lifelog-grpc/lifeLog/domain"
@@ -271,7 +270,7 @@ func (g *GormLifeLogDao) SelectById(ctx context.Context, id int64, public bool) 
 func (g *GormLifeLogDao) SelectByIds(ctx context.Context, ids []int64) ([]domain.LifeLogDomain, error) {
 	var publicLifeLog []PublicLifeLog
 	// 线上库
-	err := g.db.WithContext(ctx).Where("ids in ? and status = ?",
+	err := g.db.WithContext(ctx).Where("id in ? and status = ?",
 		ids, domain.LifeLogStatusPublished).Find(&publicLifeLog).Error
 	if err != nil {
 		g.logger.Error("查询线上库LifeLog失败", loggerx.Error(err),
@@ -280,7 +279,19 @@ func (g *GormLifeLogDao) SelectByIds(ctx context.Context, ids []int64) ([]domain
 	}
 	// 将publicLifeLog中的数据复制到lifelogs中
 	var lifeLogs []domain.LifeLogDomain
-	copier.Copy(&lifeLogs, &publicLifeLog)
+	for _, lifeLog := range publicLifeLog {
+		lifeLogs = append(lifeLogs, domain.LifeLogDomain{
+			Id:      lifeLog.Id,
+			Title:   lifeLog.Title,
+			Content: lifeLog.Content,
+			Author: domain.Author{
+				Id: lifeLog.AuthorId,
+			},
+			CreateTime: lifeLog.CreateTime,
+			UpdateTime: lifeLog.UpdateTime,
+			Status:     lifeLog.Status,
+		})
+	}
 	return lifeLogs, nil
 }
 

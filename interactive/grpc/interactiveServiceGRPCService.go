@@ -2,19 +2,23 @@ package grpc
 
 import (
 	"context"
+	collectv1 "lifelog-grpc/api/proto/gen/api/proto/collect/v1"
 	interactivev1 "lifelog-grpc/api/proto/gen/api/proto/interactive/v1"
 	"lifelog-grpc/interactive/service"
 )
 
 // InteractiveServiceGRPCService 短信服务的grpc服务器
 type InteractiveServiceGRPCService struct {
-	interactiveService service.InteractiveService
+	interactiveService   service.InteractiveService
+	collectServiceClient collectv1.CollectServiceClient
 	interactivev1.UnimplementedInteractiveServiceServer
 }
 
-func NewCodeServiceGRPCService(interactiveService service.InteractiveService) *InteractiveServiceGRPCService {
+func NewCodeServiceGRPCService(interactiveService service.InteractiveService,
+	collectServiceClient collectv1.CollectServiceClient) *InteractiveServiceGRPCService {
 	return &InteractiveServiceGRPCService{
-		interactiveService: interactiveService,
+		interactiveService:   interactiveService,
+		collectServiceClient: collectServiceClient,
 	}
 }
 
@@ -72,11 +76,26 @@ func (i *InteractiveServiceGRPCService) UnLike(ctx context.Context, request *int
 }
 
 func (i *InteractiveServiceGRPCService) Collect(ctx context.Context, request *interactivev1.CollectRequest) (*interactivev1.CollectResponse, error) {
+	// 操作互动表
 	err := i.interactiveService.IncreaseCollectCount(ctx,
 		request.InteractiveDomain.Biz,
 		request.GetInteractiveDomain().GetBizId(),
 		request.GetInteractiveDomain().GetUserId(),
 		request.GetCollectId())
+	if err != nil {
+		return &interactivev1.CollectResponse{}, err
+	}
+	// 调用收藏夹服务
+	// 插入收藏详情表
+	_, err = i.collectServiceClient.InsertCollectDetail(ctx, &collectv1.InsertCollectDetailRequest{
+		Collect: &collectv1.Collect{
+			Id:       request.GetCollectId(),
+			AuthorId: request.GetInteractiveDomain().GetUserId(),
+		},
+		CollectDetail: &collectv1.CollectDetail{
+			LifeLogId: request.GetInteractiveDomain().GetBizId(),
+		},
+	})
 	if err != nil {
 		return &interactivev1.CollectResponse{}, err
 	}
@@ -89,6 +108,16 @@ func (i *InteractiveServiceGRPCService) UnCollect(ctx context.Context, request *
 		request.GetInteractiveDomain().GetBizId(),
 		request.GetInteractiveDomain().GetUserId(),
 		request.GetCollectId())
+	if err != nil {
+		return &interactivev1.UnCollectResponse{}, err
+	}
+	// 调用收藏夹服务
+	// 取消收藏后，要将这个lifelog从收藏夹中详情表中移除此条记录
+	_, err = i.collectServiceClient.DeleteCollectDetail(ctx, &collectv1.DeleteCollectDetailRequest{
+		CollectId: request.CollectId,
+		LifeLogId: request.GetInteractiveDomain().GetBizId(),
+		AuthorId:  request.GetInteractiveDomain().GetUserId(),
+	})
 	if err != nil {
 		return &interactivev1.UnCollectResponse{}, err
 	}

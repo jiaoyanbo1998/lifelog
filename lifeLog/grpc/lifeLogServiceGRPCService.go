@@ -30,7 +30,19 @@ func (l *LifeLogServiceGRPCService) DetailMany(ctx context.Context, request *lif
 	}
 	// 将[]domain.LifeLogDomain，转为[]*LifeLogDomain
 	llds := make([]*lifelogv1.LifeLogDomain, 0, len(res))
-	err = copier.Copy(&llds, &res)
+	for _, v := range res {
+		llds = append(llds, &lifelogv1.LifeLogDomain{
+			Id:         v.Id,
+			Title:      v.Title,
+			Content:    v.Content,
+			CreateTime: v.CreateTime,
+			UpdateTime: v.UpdateTime,
+			Status:     int64(v.Status),
+			Author: &lifelogv1.Author{
+				UserId: v.Author.Id,
+			},
+		})
+	}
 	if err != nil {
 		l.logger.Error("copier失败", loggerx.Error(err),
 			loggerx.String("method:", "LifeLogServiceGRPCService:DetailMany"))

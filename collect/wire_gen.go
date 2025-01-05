@@ -24,7 +24,8 @@ func InitCollectServiceGRPCService() *grpc.CollectServiceGRPCService {
 	collectDao := dao.NewCollectDao(db, logger)
 	collectRepository := repository.NewCollectRepository(collectDao)
 	collectService := service.NewCollectService(collectRepository)
-	collectServiceGRPCService := grpc.NewCollectServiceGRPCService(collectService)
+	lifeLogServiceClient := ioc.InitLifeLogServiceCRPCClient()
+	collectServiceGRPCService := grpc.NewCollectServiceGRPCService(collectService, lifeLogServiceClient)
 	return collectServiceGRPCService
 }
 

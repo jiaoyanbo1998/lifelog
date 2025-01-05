@@ -28,6 +28,7 @@ const (
 	CollectService_CollectList_FullMethodName         = "/collect.v1.CollectService/CollectList"
 	CollectService_InsertCollectDetail_FullMethodName = "/collect.v1.CollectService/InsertCollectDetail"
 	CollectService_CollectDetail_FullMethodName       = "/collect.v1.CollectService/CollectDetail"
+	CollectService_DeleteCollectDetail_FullMethodName = "/collect.v1.CollectService/DeleteCollectDetail"
 )
 
 // CollectServiceClient is the client API for CollectService service.
@@ -41,6 +42,7 @@ type CollectServiceClient interface {
 	CollectList(ctx context.Context, in *CollectListRequest, opts ...grpc.CallOption) (*CollectListResponse, error)
 	InsertCollectDetail(ctx context.Context, in *InsertCollectDetailRequest, opts ...grpc.CallOption) (*InsertCollectDetailResponse, error)
 	CollectDetail(ctx context.Context, in *CollectDetailRequest, opts ...grpc.CallOption) (*CollectDetailResponse, error)
+	DeleteCollectDetail(ctx context.Context, in *DeleteCollectDetailRequest, opts ...grpc.CallOption) (*DeleteCollectDetailResponse, error)
 }
 
 type collectServiceClient struct {
@@ -101,6 +103,16 @@ func (c *collectServiceClient) CollectDetail(ctx context.Context, in *CollectDet
 	return out, nil
 }
 
+func (c *collectServiceClient) DeleteCollectDetail(ctx context.Context, in *DeleteCollectDetailRequest, opts ...grpc.CallOption) (*DeleteCollectDetailResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(DeleteCollectDetailResponse)
+	err := c.cc.Invoke(ctx, CollectService_DeleteCollectDetail_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CollectServiceServer is the server API for CollectService service.
 // All implementations must embed UnimplementedCollectServiceServer
 // for forward compatibility.
@@ -112,6 +124,7 @@ type CollectServiceServer interface {
 	CollectList(context.Context, *CollectListRequest) (*CollectListResponse, error)
 	InsertCollectDetail(context.Context, *InsertCollectDetailRequest) (*InsertCollectDetailResponse, error)
 	CollectDetail(context.Context, *CollectDetailRequest) (*CollectDetailResponse, error)
+	DeleteCollectDetail(context.Context, *DeleteCollectDetailRequest) (*DeleteCollectDetailResponse, error)
 	mustEmbedUnimplementedCollectServiceServer()
 }
 
@@ -136,6 +149,9 @@ func (UnimplementedCollectServiceServer) InsertCollectDetail(context.Context, *I
 }
 func (UnimplementedCollectServiceServer) CollectDetail(context.Context, *CollectDetailRequest) (*CollectDetailResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CollectDetail not implemented")
+}
+func (UnimplementedCollectServiceServer) DeleteCollectDetail(context.Context, *DeleteCollectDetailRequest) (*DeleteCollectDetailResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCollectDetail not implemented")
 }
 func (UnimplementedCollectServiceServer) mustEmbedUnimplementedCollectServiceServer() {}
 func (UnimplementedCollectServiceServer) testEmbeddedByValue()                        {}
@@ -248,6 +264,24 @@ func _CollectService_CollectDetail_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CollectService_DeleteCollectDetail_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(DeleteCollectDetailRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CollectServiceServer).DeleteCollectDetail(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CollectService_DeleteCollectDetail_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CollectServiceServer).DeleteCollectDetail(ctx, req.(*DeleteCollectDetailRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CollectService_ServiceDesc is the grpc.ServiceDesc for CollectService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -274,6 +308,10 @@ var CollectService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "CollectDetail",
 			Handler:    _CollectService_CollectDetail_Handler,
+		},
+		{
+			MethodName: "DeleteCollectDetail",
+			Handler:    _CollectService_DeleteCollectDetail_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

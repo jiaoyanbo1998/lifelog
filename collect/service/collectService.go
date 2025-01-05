@@ -12,6 +12,7 @@ type CollectService interface {
 	CollectList(ctx context.Context, userId int64, limit int, offset int) ([]domain.CollectDomain, error)
 	InsertCollectDetail(ctx context.Context, detailDomain domain.CollectDetailDomain) error
 	CollectDetail(ctx context.Context, id int64, limit int, offset int, authorId int64) ([]domain.CollectDetailDomain, error)
+	DeleteCollectDetail(ctx context.Context, collectId, lifeLogId, authorId int64) error
 }
 
 type CollectServiceV1 struct {
@@ -22,6 +23,11 @@ func NewCollectService(collectRepository repository.CollectRepository) CollectSe
 	return &CollectServiceV1{
 		collectRepository: collectRepository,
 	}
+}
+
+// DeleteCollectDetail 删除收藏夹详情
+func (c *CollectServiceV1) DeleteCollectDetail(ctx context.Context, collectId, lifeLogId, authorId int64) error {
+	return c.collectRepository.DeleteCollectDetail(ctx, collectId, lifeLogId, authorId)
 }
 
 // EditCollect 编辑收藏夹

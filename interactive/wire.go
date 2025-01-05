@@ -12,8 +12,8 @@ import (
 	"lifelog-grpc/interactive/service"
 )
 
-// codeSet 注入
-var codeSet = wire.NewSet(
+// interactiveSet 注入
+var interactiveSet = wire.NewSet(
 	service.NewInteractiveService,
 	repository.NewInteractiveRepository,
 	cache.NewInteractiveCache,
@@ -24,6 +24,7 @@ var third = wire.NewSet(
 	ioc.InitRedis,
 	ioc.GetMysql,
 	ioc.InitLogger,
+	ioc.InitCollectServiceGRPCClient,
 )
 
 // InitInteractiveServiceGRPCService 初始化InitInteractiveServiceGRPCService
@@ -31,7 +32,7 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 	wire.Build(
 		third,
 		grpc.NewCodeServiceGRPCService,
-		codeSet,
+		interactiveSet,
 	)
 	return new(grpc.InteractiveServiceGRPCService)
 }

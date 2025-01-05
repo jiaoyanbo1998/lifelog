@@ -40,7 +40,7 @@ func InitApp() *App {
 	interactiveServiceClient := ioc.InitInteractiveServiceGRPCClient(logger)
 	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, producer, interactiveServiceClient)
 	collectServiceClient := ioc.InitCollectServiceGRPCClient(logger)
-	collectHandler := web.NewCollectHandler(collectServiceClient)
+	collectHandler := web.NewCollectHandler(collectServiceClient, logger)
 	db := ioc.GetMysql(logger)
 	commentDao := dao.NewCommentDaoGorm(db, logger)
 	commentRepository := repository.NewCommentRepository(commentDao)
@@ -86,11 +86,11 @@ var lifeLogSet = wire.NewSet(web.NewLifeLogHandler, ioc.InitLifeLogServiceCRPCCl
 // collectClipSet collectClip模块的依赖注入
 var collectClipSet = wire.NewSet(web.NewCollectHandler, ioc.InitCollectServiceGRPCClient)
 
-// kafkaSet kafka模块的依赖注入
-var kafkaSet = wire.NewSet(ioc.InitKafka, lifeLogEvent.NewReadEventBatchConsumer, lifeLogEvent.NewReadEventConsumer, lifeLogEvent.NewSaramaSyncProducer, commentEvent.NewCommentEventBatchConsumer, ioc.InitConsumers, ioc.InitSyncProducer)
-
 // interactiveSet interactive模块的依赖注入
-var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveServiceGRPCClient, service3.NewInteractiveService, repository3.NewInteractiveRepository, dao2.NewInteractiveDao, cache2.NewInteractiveCache)
+var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveServiceGRPCClient)
+
+// kafkaSet kafka模块的依赖注入
+var kafkaSet = wire.NewSet(ioc.InitKafka, lifeLogEvent.NewReadEventBatchConsumer, lifeLogEvent.NewReadEventConsumer, lifeLogEvent.NewSaramaSyncProducer, commentEvent.NewCommentEventBatchConsumer, ioc.InitConsumers, ioc.InitSyncProducer, service3.NewInteractiveService, repository3.NewInteractiveRepository, dao2.NewInteractiveDao, cache2.NewInteractiveCache)
 
 // rankingSet ranking模块的依赖注入
 var rankingSet = wire.NewSet(service2.NewRankingService, repository2.NewRankingRepository, cache.NewRankingCacheRedis)

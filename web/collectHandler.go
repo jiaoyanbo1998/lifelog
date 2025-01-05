@@ -14,28 +14,31 @@ import (
 type CollectHandler struct {
 	collectServiceClient collectv1.CollectServiceClient
 	biz                  string
+	logger               loggerx.Logger
 	JWTHandler
 }
 
-func NewCollectHandler(collectServiceClient collectv1.CollectServiceClient) *CollectHandler {
+func NewCollectHandler(collectServiceClient collectv1.CollectServiceClient,
+	logger loggerx.Logger) *CollectHandler {
 	return &CollectHandler{
 		collectServiceClient: collectServiceClient,
 		biz:                  "lifeLog",
+		logger:               logger,
 	}
 }
 
 func (c *CollectHandler) RegisterRoutes(server *gin.Engine) {
 	rg := server.Group("/collect")
-	// 编辑收藏夹（创建/update）
-	rg.POST("/edit", c.EditCollect)
-	// 删除收藏夹
-	rg.DELETE("/:ids", c.DeleteCollect)
-	// 获取收藏夹列表
-	rg.POST("/list", c.CollectList)
 	// 将LifeLog插入收藏夹
 	rg.POST("/insert", c.InsertCollectDetail)
+	// 获取收藏夹列表
+	rg.POST("/list", c.CollectList)
+	// 编辑收藏夹（创建/update）
+	rg.POST("/edit", c.EditCollect)
 	// 查看收藏夹详情
 	rg.POST("/detail", c.CollectDetail)
+	// 删除收藏夹
+	rg.DELETE("/:ids", c.DeleteCollect)
 }
 
 // EditCollect 编辑收藏夹（创建或更新）
@@ -71,9 +74,9 @@ func (c *CollectHandler) EditCollect(ctx *gin.Context) {
 	_, err = c.collectServiceClient.EditCollect(ctx.Request.Context(),
 		&collectv1.EditCollectRequest{
 			Collect: &collectv1.Collect{
-				CollectId: req.Id,
-				AuthorId:  userInfo.Id,
-				Name:      req.Name,
+				Id:       req.Id,
+				AuthorId: userInfo.Id,
+				Name:     req.Name,
 			},
 		},
 	)
@@ -216,7 +219,7 @@ func (c *CollectHandler) collectsToCollectVo(cds []*collectv1.Collect) []vo.Coll
 	ccvs := make([]vo.CollectVo, 0, len(cds))
 	for _, cd := range cds {
 		ccvs = append(ccvs, vo.CollectVo{
-			Id:         cd.CollectId,
+			Id:         cd.Id,
 			Name:       cd.Name,
 			UserId:     cd.AuthorId,
 			Status:     uint8(cd.Status),
@@ -260,8 +263,8 @@ func (c *CollectHandler) InsertCollectDetail(ctx *gin.Context) {
 	_, err = c.collectServiceClient.InsertCollectDetail(ctx.Request.Context(),
 		&collectv1.InsertCollectDetailRequest{
 			Collect: &collectv1.Collect{
-				CollectId: req.CollectId,
-				AuthorId:  userInfo.Id,
+				Id:       req.CollectId,
+				AuthorId: userInfo.Id,
 			},
 			CollectDetail: &collectv1.CollectDetail{
 				LifeLogId: req.LifeLogId,
@@ -318,8 +321,8 @@ func (c *CollectHandler) CollectDetail(ctx *gin.Context) {
 	collectDetails, err := c.collectServiceClient.CollectDetail(ctx.Request.Context(),
 		&collectv1.CollectDetailRequest{
 			Collect: &collectv1.Collect{
-				CollectId: req.CollectId,
-				AuthorId:  userInfo.Id,
+				Id:       req.CollectId,
+				AuthorId: userInfo.Id,
 			},
 			Limit:  int64(req.Limit),
 			Offset: int64(req.Offset),
@@ -336,14 +339,12 @@ func (c *CollectHandler) CollectDetail(ctx *gin.Context) {
 	}
 	// 将collectv1.collectDetail转换为collectDetailVo
 	plvs := make([]vo.PublicLifeLogVo, 0, len(collectDetails.GetPublicLifeLogs()))
-	copier.Copy(&plvs, collectDetails.GetPublicLifeLogs())
+	err = copier.Copy(&plvs, collectDetails.GetPublicLifeLogs())
 	ctx.JSON(http.StatusOK, Result[vo.CollectDetailVo]{
 		Code: 200,
 		Msg:  "查询成功",
 		Data: vo.CollectDetailVo{
-			Id:              collectDetails.GetCollectDetail().GetId(),
 			CollectId:       collectDetails.GetCollectDetail().GetCollectId(),
-			LifeLogId:       collectDetails.GetCollectDetail().GetLifeLogId(),
 			UpdateTime:      collectDetails.GetCollectDetail().GetUpdateTime(),
 			CreateTime:      collectDetails.GetCollectDetail().GetCreateTime(),
 			Status:          uint8(collectDetails.GetCollectDetail().GetStatus()),
