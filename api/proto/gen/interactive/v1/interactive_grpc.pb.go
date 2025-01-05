@@ -29,6 +29,11 @@ const (
 	InteractiveService_UnCollect_FullMethodName       = "/interactive.v1.interactiveService/UnCollect"
 	InteractiveService_InteractiveInfo_FullMethodName = "/interactive.v1.interactiveService/InteractiveInfo"
 	InteractiveService_IncreaseRead_FullMethodName    = "/interactive.v1.interactiveService/IncreaseRead"
+	InteractiveService_InsertFollow_FullMethodName    = "/interactive.v1.interactiveService/InsertFollow"
+	InteractiveService_CancelFollow_FullMethodName    = "/interactive.v1.interactiveService/CancelFollow"
+	InteractiveService_FollowList_FullMethodName      = "/interactive.v1.interactiveService/FollowList"
+	InteractiveService_FanList_FullMethodName         = "/interactive.v1.interactiveService/FanList"
+	InteractiveService_BothFollowList_FullMethodName  = "/interactive.v1.interactiveService/BothFollowList"
 )
 
 // InteractiveServiceClient is the client API for InteractiveService service.
@@ -43,6 +48,11 @@ type InteractiveServiceClient interface {
 	UnCollect(ctx context.Context, in *UnCollectRequest, opts ...grpc.CallOption) (*UnCollectResponse, error)
 	InteractiveInfo(ctx context.Context, in *InteractiveInfoRequest, opts ...grpc.CallOption) (*InteractiveInfoResponse, error)
 	IncreaseRead(ctx context.Context, in *IncreaseReadRequest, opts ...grpc.CallOption) (*IncreaseReadResponse, error)
+	InsertFollow(ctx context.Context, in *InsertFollowRequest, opts ...grpc.CallOption) (*InsertFollowResponse, error)
+	CancelFollow(ctx context.Context, in *CancelFollowRequest, opts ...grpc.CallOption) (*CancelFollowResponse, error)
+	FollowList(ctx context.Context, in *FollowListRequest, opts ...grpc.CallOption) (*FollowListResponse, error)
+	FanList(ctx context.Context, in *FanListRequest, opts ...grpc.CallOption) (*FanListResponse, error)
+	BothFollowList(ctx context.Context, in *BothFollowListRequest, opts ...grpc.CallOption) (*BothFollowListResponse, error)
 }
 
 type interactiveServiceClient struct {
@@ -113,6 +123,56 @@ func (c *interactiveServiceClient) IncreaseRead(ctx context.Context, in *Increas
 	return out, nil
 }
 
+func (c *interactiveServiceClient) InsertFollow(ctx context.Context, in *InsertFollowRequest, opts ...grpc.CallOption) (*InsertFollowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(InsertFollowResponse)
+	err := c.cc.Invoke(ctx, InteractiveService_InsertFollow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactiveServiceClient) CancelFollow(ctx context.Context, in *CancelFollowRequest, opts ...grpc.CallOption) (*CancelFollowResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(CancelFollowResponse)
+	err := c.cc.Invoke(ctx, InteractiveService_CancelFollow_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactiveServiceClient) FollowList(ctx context.Context, in *FollowListRequest, opts ...grpc.CallOption) (*FollowListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FollowListResponse)
+	err := c.cc.Invoke(ctx, InteractiveService_FollowList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactiveServiceClient) FanList(ctx context.Context, in *FanListRequest, opts ...grpc.CallOption) (*FanListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(FanListResponse)
+	err := c.cc.Invoke(ctx, InteractiveService_FanList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *interactiveServiceClient) BothFollowList(ctx context.Context, in *BothFollowListRequest, opts ...grpc.CallOption) (*BothFollowListResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BothFollowListResponse)
+	err := c.cc.Invoke(ctx, InteractiveService_BothFollowList_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // InteractiveServiceServer is the server API for InteractiveService service.
 // All implementations must embed UnimplementedInteractiveServiceServer
 // for forward compatibility.
@@ -125,6 +185,11 @@ type InteractiveServiceServer interface {
 	UnCollect(context.Context, *UnCollectRequest) (*UnCollectResponse, error)
 	InteractiveInfo(context.Context, *InteractiveInfoRequest) (*InteractiveInfoResponse, error)
 	IncreaseRead(context.Context, *IncreaseReadRequest) (*IncreaseReadResponse, error)
+	InsertFollow(context.Context, *InsertFollowRequest) (*InsertFollowResponse, error)
+	CancelFollow(context.Context, *CancelFollowRequest) (*CancelFollowResponse, error)
+	FollowList(context.Context, *FollowListRequest) (*FollowListResponse, error)
+	FanList(context.Context, *FanListRequest) (*FanListResponse, error)
+	BothFollowList(context.Context, *BothFollowListRequest) (*BothFollowListResponse, error)
 	mustEmbedUnimplementedInteractiveServiceServer()
 }
 
@@ -152,6 +217,21 @@ func (UnimplementedInteractiveServiceServer) InteractiveInfo(context.Context, *I
 }
 func (UnimplementedInteractiveServiceServer) IncreaseRead(context.Context, *IncreaseReadRequest) (*IncreaseReadResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method IncreaseRead not implemented")
+}
+func (UnimplementedInteractiveServiceServer) InsertFollow(context.Context, *InsertFollowRequest) (*InsertFollowResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method InsertFollow not implemented")
+}
+func (UnimplementedInteractiveServiceServer) CancelFollow(context.Context, *CancelFollowRequest) (*CancelFollowResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CancelFollow not implemented")
+}
+func (UnimplementedInteractiveServiceServer) FollowList(context.Context, *FollowListRequest) (*FollowListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FollowList not implemented")
+}
+func (UnimplementedInteractiveServiceServer) FanList(context.Context, *FanListRequest) (*FanListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method FanList not implemented")
+}
+func (UnimplementedInteractiveServiceServer) BothFollowList(context.Context, *BothFollowListRequest) (*BothFollowListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BothFollowList not implemented")
 }
 func (UnimplementedInteractiveServiceServer) mustEmbedUnimplementedInteractiveServiceServer() {}
 func (UnimplementedInteractiveServiceServer) testEmbeddedByValue()                            {}
@@ -282,6 +362,96 @@ func _InteractiveService_IncreaseRead_Handler(srv interface{}, ctx context.Conte
 	return interceptor(ctx, in, info, handler)
 }
 
+func _InteractiveService_InsertFollow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(InsertFollowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractiveServiceServer).InsertFollow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractiveService_InsertFollow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractiveServiceServer).InsertFollow(ctx, req.(*InsertFollowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractiveService_CancelFollow_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CancelFollowRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractiveServiceServer).CancelFollow(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractiveService_CancelFollow_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractiveServiceServer).CancelFollow(ctx, req.(*CancelFollowRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractiveService_FollowList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FollowListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractiveServiceServer).FollowList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractiveService_FollowList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractiveServiceServer).FollowList(ctx, req.(*FollowListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractiveService_FanList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(FanListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractiveServiceServer).FanList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractiveService_FanList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractiveServiceServer).FanList(ctx, req.(*FanListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _InteractiveService_BothFollowList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BothFollowListRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(InteractiveServiceServer).BothFollowList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: InteractiveService_BothFollowList_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(InteractiveServiceServer).BothFollowList(ctx, req.(*BothFollowListRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // InteractiveService_ServiceDesc is the grpc.ServiceDesc for InteractiveService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -312,6 +482,26 @@ var InteractiveService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "IncreaseRead",
 			Handler:    _InteractiveService_IncreaseRead_Handler,
+		},
+		{
+			MethodName: "InsertFollow",
+			Handler:    _InteractiveService_InsertFollow_Handler,
+		},
+		{
+			MethodName: "CancelFollow",
+			Handler:    _InteractiveService_CancelFollow_Handler,
+		},
+		{
+			MethodName: "FollowList",
+			Handler:    _InteractiveService_FollowList_Handler,
+		},
+		{
+			MethodName: "FanList",
+			Handler:    _InteractiveService_FanList_Handler,
+		},
+		{
+			MethodName: "BothFollowList",
+			Handler:    _InteractiveService_BothFollowList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

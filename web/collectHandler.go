@@ -3,7 +3,7 @@ package web
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/copier"
-	collectv1 "lifelog-grpc/api/proto/gen/api/proto/collect/v1"
+	collectv12 "lifelog-grpc/api/proto/gen/collect/v1"
 	"lifelog-grpc/collect/vo"
 	"lifelog-grpc/pkg/loggerx"
 	"net/http"
@@ -12,13 +12,13 @@ import (
 )
 
 type CollectHandler struct {
-	collectServiceClient collectv1.CollectServiceClient
+	collectServiceClient collectv12.CollectServiceClient
 	biz                  string
 	logger               loggerx.Logger
 	JWTHandler
 }
 
-func NewCollectHandler(collectServiceClient collectv1.CollectServiceClient,
+func NewCollectHandler(collectServiceClient collectv12.CollectServiceClient,
 	logger loggerx.Logger) *CollectHandler {
 	return &CollectHandler{
 		collectServiceClient: collectServiceClient,
@@ -72,8 +72,8 @@ func (c *CollectHandler) EditCollect(ctx *gin.Context) {
 		return
 	}
 	_, err = c.collectServiceClient.EditCollect(ctx.Request.Context(),
-		&collectv1.EditCollectRequest{
-			Collect: &collectv1.Collect{
+		&collectv12.EditCollectRequest{
+			Collect: &collectv12.Collect{
 				Id:       req.Id,
 				AuthorId: userInfo.Id,
 				Name:     req.Name,
@@ -141,7 +141,7 @@ func (c *CollectHandler) DeleteCollect(ctx *gin.Context) {
 		return
 	}
 	_, err := c.collectServiceClient.DeleteCollect(ctx.Request.Context(),
-		&collectv1.DeleteCollectRequest{
+		&collectv12.DeleteCollectRequest{
 			Ids:      ids,
 			AuthorId: userInfo.Id,
 		})
@@ -192,7 +192,7 @@ func (c *CollectHandler) CollectList(ctx *gin.Context) {
 		return
 	}
 	cds, err := c.collectServiceClient.CollectList(ctx.Request.Context(),
-		&collectv1.CollectListRequest{
+		&collectv12.CollectListRequest{
 			AuthorId: userInfo.Id,
 			Limit:    int64(req.Limit),
 			Offset:   int64(req.Offset),
@@ -215,7 +215,7 @@ func (c *CollectHandler) CollectList(ctx *gin.Context) {
 }
 
 // collectsToCollectVo 将domain.CollectDomain转换为vo.CollectVo
-func (c *CollectHandler) collectsToCollectVo(cds []*collectv1.Collect) []vo.CollectVo {
+func (c *CollectHandler) collectsToCollectVo(cds []*collectv12.Collect) []vo.CollectVo {
 	ccvs := make([]vo.CollectVo, 0, len(cds))
 	for _, cd := range cds {
 		ccvs = append(ccvs, vo.CollectVo{
@@ -261,12 +261,12 @@ func (c *CollectHandler) InsertCollectDetail(ctx *gin.Context) {
 		return
 	}
 	_, err = c.collectServiceClient.InsertCollectDetail(ctx.Request.Context(),
-		&collectv1.InsertCollectDetailRequest{
-			Collect: &collectv1.Collect{
+		&collectv12.InsertCollectDetailRequest{
+			Collect: &collectv12.Collect{
 				Id:       req.CollectId,
 				AuthorId: userInfo.Id,
 			},
-			CollectDetail: &collectv1.CollectDetail{
+			CollectDetail: &collectv12.CollectDetail{
 				LifeLogId: req.LifeLogId,
 			},
 		})
@@ -319,8 +319,8 @@ func (c *CollectHandler) CollectDetail(ctx *gin.Context) {
 		return
 	}
 	collectDetails, err := c.collectServiceClient.CollectDetail(ctx.Request.Context(),
-		&collectv1.CollectDetailRequest{
-			Collect: &collectv1.Collect{
+		&collectv12.CollectDetailRequest{
+			Collect: &collectv12.Collect{
 				Id:       req.CollectId,
 				AuthorId: userInfo.Id,
 			},

@@ -2,7 +2,7 @@ package grpc
 
 import (
 	"context"
-	commentv1 "lifelog-grpc/api/proto/gen/api/proto/comment/v1"
+	commentv1 "lifelog-grpc/api/proto/gen/comment/v1"
 	"lifelog-grpc/comment/domain"
 	"lifelog-grpc/comment/service"
 )

@@ -15,6 +15,11 @@ type InteractiveRepository interface {
 	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error
 	BatchInteractiveReadCount(ctx context.Context, biz string, bizIds, userIds []int64) error
 	GetInteractiveInfoByBizId(ctx context.Context, biz string, bizId int64) (domain.InteractiveDomain, error)
+	InsertFollow(ctx context.Context, followerId, followeeId int64) error
+	CancelFollow(ctx context.Context, followerId, followeeId int64) error
+	FollowList(ctx context.Context, id int64) ([]int64, error)
+	FanList(ctx context.Context, id int64) ([]int64, error)
+	BothFollowList(ctx context.Context, id int64) ([]int64, error)
 }
 
 type InteractiveRepositoryV1 struct {
@@ -28,6 +33,26 @@ func NewInteractiveRepository(interactiveDao dao.InteractiveDao,
 		interactiveDao:   interactiveDao,
 		interactiveCache: interactiveCache,
 	}
+}
+
+func (i *InteractiveRepositoryV1) FollowList(ctx context.Context, id int64) ([]int64, error) {
+	return i.interactiveDao.FollowList(ctx, id)
+}
+
+func (i *InteractiveRepositoryV1) FanList(ctx context.Context, id int64) ([]int64, error) {
+	return i.interactiveDao.FanList(ctx, id)
+}
+
+func (i *InteractiveRepositoryV1) BothFollowList(ctx context.Context, id int64) ([]int64, error) {
+	return i.interactiveDao.BothFollowList(ctx, id)
+}
+
+func (i *InteractiveRepositoryV1) InsertFollow(ctx context.Context, followerId, followeeId int64) error {
+	return i.interactiveDao.InsertFollow(ctx, followerId, followeeId)
+}
+
+func (i *InteractiveRepositoryV1) CancelFollow(ctx context.Context, followerId, followeeId int64) error {
+	return i.interactiveDao.CancelFollow(ctx, followerId, followeeId)
 }
 
 // IncreaseReadCount 增加阅读数

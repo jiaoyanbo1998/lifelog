@@ -15,6 +15,44 @@ service interactiveService {
   rpc UnCollect(UnCollectRequest) returns(UnCollectResponse);
   rpc InteractiveInfo(InteractiveInfoRequest) returns(InteractiveInfoResponse);
   rpc IncreaseRead(IncreaseReadRequest) returns(IncreaseReadResponse);
+  rpc InsertFollow(InsertFollowRequest) returns(InsertFollowResponse);
+  rpc CancelFollow(CancelFollowRequest) returns(CancelFollowResponse);
+  rpc FollowList(FollowListRequest) returns(FollowListResponse);
+  rpc FanList(FanListRequest) returns(FanListResponse);
+  rpc BothFollowList(BothFollowListRequest) returns(BothFollowListResponse);
+}
+
+message FollowListRequest {
+  int64 id = 1;
+}
+message FollowListResponse {
+  repeated int64 ids = 1;
+}
+
+message FanListRequest {
+  int64 id = 1;
+}
+message FanListResponse {
+  repeated int64 ids = 1;
+}
+
+message BothFollowListRequest {
+  int64 id = 1;
+}
+message BothFollowListResponse {
+  repeated int64 ids = 1;
+}
+
+message InsertFollowRequest {
+  Follow follow = 1;
+}
+message InsertFollowResponse {
+}
+
+message CancelFollowRequest {
+  Follow follow = 1;
+}
+message CancelFollowResponse {
 }
 
 // 阅读，增加阅读数（根据lifelog的id）
@@ -37,6 +75,12 @@ message InteractiveInfoResponse {
   InteractiveDomain interactiveDomain = 1;
 }
 
+message Follow  {
+  int64 Id = 1;         // 主键
+  int64 FollowerId = 2;  // 关注着
+  int64 followeeId = 3; // 被关注着
+  int64 CreateTime = 4; // 创建时间
+}
 
 message InteractiveDomain {
   string biz = 1;

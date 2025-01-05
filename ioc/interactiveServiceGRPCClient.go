@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/viper"
 	"github.com/zeromicro/go-zero/core/discov"
 	"github.com/zeromicro/go-zero/zrpc"
-	interactivev1 "lifelog-grpc/api/proto/gen/api/proto/interactive/v1"
+	"lifelog-grpc/api/proto/gen/interactive/v1"
 	"lifelog-grpc/pkg/loggerx"
 )
 

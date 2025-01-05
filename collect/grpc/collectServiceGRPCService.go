@@ -4,8 +4,8 @@ import (
 	"context"
 	"fmt"
 	"github.com/jinzhu/copier"
-	collectv1 "lifelog-grpc/api/proto/gen/api/proto/collect/v1"
-	lifelogv1 "lifelog-grpc/api/proto/gen/api/proto/lifelog/v1"
+	collectv1 "lifelog-grpc/api/proto/gen/collect/v1"
+	lifelogv1 "lifelog-grpc/api/proto/gen/lifelog/v1"
 	"lifelog-grpc/collect/domain"
 	"lifelog-grpc/collect/service"
 )

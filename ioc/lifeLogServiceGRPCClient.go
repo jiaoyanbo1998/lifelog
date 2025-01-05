@@ -4,7 +4,7 @@ import (
 	"github.com/spf13/viper"
 	"github.com/zeromicro/go-zero/core/discov"
 	"github.com/zeromicro/go-zero/zrpc"
-	lifelogv1 "lifelog-grpc/api/proto/gen/api/proto/lifelog/v1"
+	"lifelog-grpc/api/proto/gen/lifelog/v1"
 )
 
 func InitLifeLogServiceCRPCClient() lifelogv1.LifeLogServiceClient {

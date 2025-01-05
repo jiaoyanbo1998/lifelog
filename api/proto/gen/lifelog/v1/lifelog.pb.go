@@ -218,9 +218,9 @@ type LifeLogDomain struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            int64                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Title         string                 `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
-	Content       string                 `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
-	Author        *Author                `protobuf:"bytes,4,opt,name=author,proto3" json:"author,omitempty"`
-	CreateTime    int64                  `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
+	Content       string  `protobuf:"bytes,3,opt,name=content,proto3" json:"content,omitempty"`
+	Author        *Author `protobuf:"bytes,4,opt,name=author,proto3" json:"author,omitempty"`
+	CreateTime    int64   `protobuf:"varint,5,opt,name=create_time,json=createTime,proto3" json:"create_time,omitempty"`
 	UpdateTime    int64                  `protobuf:"varint,6,opt,name=update_time,json=updateTime,proto3" json:"update_time,omitempty"`
 	Limit         int64                  `protobuf:"varint,7,opt,name=limit,proto3" json:"limit,omitempty"`
 	Offset        int64                  `protobuf:"varint,8,opt,name=offset,proto3" json:"offset,omitempty"`

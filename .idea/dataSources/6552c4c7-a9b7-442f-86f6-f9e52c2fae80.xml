@@ -1062,495 +1062,490 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="305" parent="289" name="tb_interactive">
+    <table id="305" parent="289" name="tb_follow">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <table id="306" parent="289" name="tb_interactive">
       <Comment>互动表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="306" parent="289" name="tb_interactive_collect">
+    <table id="307" parent="289" name="tb_interactive_collect">
       <Comment>收藏表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="307" parent="289" name="tb_interactive_like">
+    <table id="308" parent="289" name="tb_interactive_like">
       <Comment>点赞表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="308" parent="289" name="tb_interactive_read">
+    <table id="309" parent="289" name="tb_interactive_read">
       <Comment>收藏表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="309" parent="289" name="tb_lifelog">
+    <table id="310" parent="289" name="tb_lifelog">
       <Comment>生活记录表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="310" parent="289" name="tb_publish_lifelog">
+    <table id="311" parent="289" name="tb_publish_lifelog">
       <Comment>线上库(线上库的数据库表)</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="311" parent="289" name="tb_user">
+    <table id="312" parent="289" name="tb_user">
       <Comment>用户表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="312" parent="296" name="tb_collect_clip">
+    <table id="313" parent="296" name="tb_collect_clip">
       <Comment>收藏夹</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="313" parent="296" name="tb_collect_clip_detail">
+    <table id="314" parent="296" name="tb_collect_clip_detail">
       <Comment>收藏表详情</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="314" parent="296" name="tb_comment">
+    <table id="315" parent="296" name="tb_comment">
       <Comment>评论表(邻接表)</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="315" parent="296" name="tb_interactive">
+    <table id="316" parent="296" name="tb_interactive">
       <Comment>互动表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="316" parent="296" name="tb_interactive_collect">
+    <table id="317" parent="296" name="tb_interactive_collect">
       <Comment>收藏表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="317" parent="296" name="tb_interactive_like">
+    <table id="318" parent="296" name="tb_interactive_like">
       <Comment>点赞表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="318" parent="296" name="tb_interactive_read">
+    <table id="319" parent="296" name="tb_interactive_read">
       <Comment>收藏表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="319" parent="296" name="tb_lifelog">
+    <table id="320" parent="296" name="tb_lifelog">
       <Comment>生活记录表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="320" parent="296" name="tb_publish_lifelog">
+    <table id="321" parent="296" name="tb_publish_lifelog">
       <Comment>线上库(线上库的数据库表)</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <table id="321" parent="296" name="tb_user">
+    <table id="322" parent="296" name="tb_user">
       <Comment>用户表</Comment>
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb4_general_ci</CollationName>
     </table>
-    <check id="322" parent="302" name="tb_collect_chk_1">
+    <check id="323" parent="302" name="tb_collect_chk_1">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`status` in (1,2)</Predicate>
     </check>
-    <column id="323" parent="302" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="324" parent="302" name="id">
+      <AutoIncrement>5</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="324" parent="302" name="name">
+    <column id="325" parent="302" name="name">
       <Comment>收藏夹名字</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="325" parent="302" name="create_time">
+    <column id="326" parent="302" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="326" parent="302" name="update_time">
+    <column id="327" parent="302" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="327" parent="302" name="status">
+    <column id="328" parent="302" name="status">
       <Comment>删除状态，1未删除，2删除</Comment>
       <DasType>tinyint|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="328" parent="302" name="author_id">
+    <column id="329" parent="302" name="author_id">
       <Comment>用户id</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <index id="329" parent="302" name="PRIMARY">
+    <index id="330" parent="302" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="330" parent="302" name="PRIMARY">
+    <key id="331" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="331" parent="303" name="tb_collect_detail_chk_1">
+    <check id="332" parent="303" name="tb_collect_detail_chk_1">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`status` in (1,2)</Predicate>
     </check>
-    <column id="332" parent="303" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="333" parent="303" name="id">
+      <AutoIncrement>6</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="333" parent="303" name="collect_id">
+    <column id="334" parent="303" name="collect_id">
       <Comment>收藏夹ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="334" parent="303" name="life_log_id">
+    <column id="335" parent="303" name="life_log_id">
       <Comment>lifeLog的ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="335" parent="303" name="update_time">
+    <column id="336" parent="303" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="336" parent="303" name="create_time">
+    <column id="337" parent="303" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="337" parent="303" name="status">
+    <column id="338" parent="303" name="status">
       <Comment>删除状态，1未删除，2删除</Comment>
       <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="338" parent="303" name="author_id">
+    <column id="339" parent="303" name="author_id">
       <Comment>作者id</Comment>
       <DasType>int|0s</DasType>
       <Position>7</Position>
     </column>
-    <foreign-key id="339" parent="303" name="fk_collect_clip">
+    <foreign-key id="340" parent="303" name="fk_collect_clip">
       <ColNames>collect_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>tb_collect</RefTableName>
     </foreign-key>
-    <index id="340" parent="303" name="PRIMARY">
+    <index id="341" parent="303" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="341" parent="303" name="unique_collect_fifeLog">
+    <index id="342" parent="303" name="unique_collect_fifeLog">
       <ColNames>collect_id
 life_log_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="342" parent="303" name="collect_id">
+    <index id="343" parent="303" name="collect_id">
       <ColNames>collect_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="343" parent="303" name="fifeLog_id">
+    <index id="344" parent="303" name="fifeLog_id">
       <ColNames>life_log_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="344" parent="303" name="PRIMARY">
+    <key id="345" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="345" parent="303" name="unique_collect_fifeLog">
+    <key id="346" parent="303" name="unique_collect_fifeLog">
       <UnderlyingIndexName>unique_collect_fifeLog</UnderlyingIndexName>
     </key>
-    <key id="346" parent="303" name="collect_id">
+    <key id="347" parent="303" name="collect_id">
       <UnderlyingIndexName>collect_id</UnderlyingIndexName>
     </key>
-    <key id="347" parent="303" name="fifeLog_id">
+    <key id="348" parent="303" name="fifeLog_id">
       <UnderlyingIndexName>fifeLog_id</UnderlyingIndexName>
     </key>
-    <column id="348" parent="304" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="349" parent="304" name="id">
+      <AutoIncrement>7</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="349" parent="304" name="user_id">
+    <column id="350" parent="304" name="user_id">
       <Comment>发表评论的用户ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="350" parent="304" name="biz">
+    <column id="351" parent="304" name="biz">
       <Comment>业务类型</Comment>
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="351" parent="304" name="biz_id">
+    <column id="352" parent="304" name="biz_id">
       <Comment>业务ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="352" parent="304" name="content">
+    <column id="353" parent="304" name="content">
       <Comment>评论内容</Comment>
       <DasType>varchar(1024)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="353" parent="304" name="parent_id">
+    <column id="354" parent="304" name="parent_id">
       <Comment>父评论ID</Comment>
       <DasType>bigint|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="354" parent="304" name="root_id">
+    <column id="355" parent="304" name="root_id">
       <Comment>根评论ID，用于优化查询</Comment>
       <DasType>bigint|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="355" parent="304" name="create_time">
+    <column id="356" parent="304" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="356" parent="304" name="update_time">
+    <column id="357" parent="304" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <foreign-key id="357" parent="304" name="tb_comment_ibfk_1">
+    <foreign-key id="358" parent="304" name="tb_comment_ibfk_1">
       <ColNames>parent_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>tb_comment</RefTableName>
     </foreign-key>
-    <index id="358" parent="304" name="PRIMARY">
+    <index id="359" parent="304" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="359" parent="304" name="index_biz_bizid">
+    <index id="360" parent="304" name="index_biz_bizid">
       <ColNames>biz
 biz_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="360" parent="304" name="index_parent_id">
+    <index id="361" parent="304" name="index_parent_id">
       <ColNames>parent_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="361" parent="304" name="index_root_id_create_time">
+    <index id="362" parent="304" name="index_root_id_create_time">
       <ColNames>root_id
 create_time</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="362" parent="304" name="PRIMARY">
+    <key id="363" parent="304" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="363" parent="305" name="id">
+    <column id="364" parent="305" name="id">
       <AutoIncrement>1</AutoIncrement>
-      <Comment>ID</Comment>
+      <Comment>自增 ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="364" parent="305" name="biz">
-      <Comment>业务</Comment>
-      <DasType>varchar(100)|0s</DasType>
+    <column id="365" parent="305" name="follower_id">
+      <Comment>关注者 ID（当前登录用户的id）</Comment>
+      <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="365" parent="305" name="biz_id">
-      <Comment>业务标识（lifeLog的id，或文章id，提供统一抽象）</Comment>
+    <column id="366" parent="305" name="followee_id">
+      <Comment>被关注者 ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="366" parent="305" name="read_count">
-      <Comment>阅读数</Comment>
+    <column id="367" parent="305" name="create_time">
+      <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="367" parent="305" name="collect_count">
-      <Comment>收藏数</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="368" parent="305" name="like_count">
-      <Comment>点赞数</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="369" parent="305" name="create_time">
-      <Comment>创建时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-    </column>
-    <column id="370" parent="305" name="update_time">
-      <Comment>更新时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-    </column>
-    <index id="371" parent="305" name="PRIMARY">
+    <foreign-key id="368" parent="305" name="tb_follow_ibfk_1">
+      <ColNames>follower_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>tb_user</RefTableName>
+    </foreign-key>
+    <foreign-key id="369" parent="305" name="tb_follow_ibfk_2">
+      <ColNames>followee_id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>tb_user</RefTableName>
+    </foreign-key>
+    <index id="370" parent="305" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="372" parent="305" name="idx_biz_biz_id">
-      <ColNames>biz
-biz_id</ColNames>
+    <index id="371" parent="305" name="follower_id">
+      <ColNames>follower_id
+followee_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
+    </index>
+    <index id="372" parent="305" name="followee_id">
+      <ColNames>followee_id</ColNames>
+      <Type>btree</Type>
     </index>
     <key id="373" parent="305" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="374" parent="305" name="idx_biz_biz_id">
-      <UnderlyingIndexName>idx_biz_biz_id</UnderlyingIndexName>
+    <key id="374" parent="305" name="follower_id">
+      <UnderlyingIndexName>follower_id</UnderlyingIndexName>
     </key>
-    <check id="375" parent="306" name="tb_interactive_collect_chk_1">
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`status` in (1,2)</Predicate>
-    </check>
-    <column id="376" parent="306" name="id">
-      <AutoIncrement>1</AutoIncrement>
+    <column id="375" parent="306" name="id">
+      <AutoIncrement>28</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="377" parent="306" name="biz">
+    <column id="376" parent="306" name="biz">
+      <Comment>业务</Comment>
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="377" parent="306" name="biz_id">
+      <Comment>业务标识（lifeLog的id，或文章id，提供统一抽象）</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="378" parent="306" name="read_count">
+      <Comment>阅读数</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="379" parent="306" name="collect_count">
+      <Comment>收藏数</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="380" parent="306" name="like_count">
+      <Comment>点赞数</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="381" parent="306" name="create_time">
+      <Comment>创建时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="382" parent="306" name="update_time">
+      <Comment>更新时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <index id="383" parent="306" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="384" parent="306" name="idx_biz_biz_id">
+      <ColNames>biz
+biz_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="385" parent="306" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="386" parent="306" name="idx_biz_biz_id">
+      <UnderlyingIndexName>idx_biz_biz_id</UnderlyingIndexName>
+    </key>
+    <check id="387" parent="307" name="tb_interactive_collect_chk_1">
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`status` in (1,2)</Predicate>
+    </check>
+    <column id="388" parent="307" name="id">
+      <AutoIncrement>8</AutoIncrement>
+      <Comment>ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="389" parent="307" name="biz">
       <Comment>业务类型</Comment>
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="378" parent="306" name="biz_id">
+    <column id="390" parent="307" name="biz_id">
       <Comment>业务ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="379" parent="306" name="update_time">
+    <column id="391" parent="307" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="380" parent="306" name="create_time">
+    <column id="392" parent="307" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="381" parent="306" name="status">
+    <column id="393" parent="307" name="status">
       <Comment>软删除，状态，1收藏，2取消收藏</Comment>
       <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="382" parent="306" name="user_id">
+    <column id="394" parent="307" name="user_id">
       <Comment>用户Id</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="383" parent="306" name="collect_id">
+    <column id="395" parent="307" name="collect_id">
       <Comment>收藏夹id</Comment>
       <DasType>bigint|0s</DasType>
       <Position>8</Position>
-    </column>
-    <index id="384" parent="306" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="385" parent="306" name="idx_user_id_biz_biz_id">
-      <ColNames>user_id
-biz
-biz_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="386" parent="306" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <key id="387" parent="306" name="idx_user_id_biz_biz_id">
-      <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
-    </key>
-    <check id="388" parent="307" name="tb_interactive_like_chk_1">
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`status` in (1,2)</Predicate>
-    </check>
-    <column id="389" parent="307" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <Comment>ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="390" parent="307" name="biz">
-      <Comment>业务类型</Comment>
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="391" parent="307" name="biz_id">
-      <Comment>业务ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="392" parent="307" name="update_time">
-      <Comment>更新时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="393" parent="307" name="create_time">
-      <Comment>创建时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="394" parent="307" name="status">
-      <Comment>软删除，状态，1点赞，2取消点赞</Comment>
-      <DasType>tinyint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="395" parent="307" name="user_id">
-      <Comment>用户Id</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
     </column>
     <index id="396" parent="307" name="PRIMARY">
       <ColNames>id</ColNames>
@@ -1572,180 +1567,247 @@ biz_id</ColNames>
     <key id="399" parent="307" name="idx_user_id_biz_biz_id">
       <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
     </key>
-    <column id="400" parent="308" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <Comment>ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="401" parent="308" name="biz">
-      <Comment>业务类型</Comment>
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="402" parent="308" name="biz_id">
-      <Comment>业务ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="403" parent="308" name="update_time">
-      <Comment>更新时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="404" parent="308" name="create_time">
-      <Comment>创建时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="405" parent="308" name="user_id">
-      <Comment>用户Id</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <index id="406" parent="308" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="407" parent="308" name="idx_user_id_biz_biz_id">
-      <ColNames>user_id
-biz
-biz_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="408" parent="308" name="PRIMARY">
+    <check id="400" parent="308" name="tb_interactive_like_chk_1">
       <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <key id="409" parent="308" name="idx_user_id_biz_biz_id">
-      <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
-    </key>
-    <column id="410" parent="309" name="id">
-      <AutoIncrement>4</AutoIncrement>
-      <Comment>ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="411" parent="309" name="title">
-      <Comment>lifeLog标题</Comment>
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="412" parent="309" name="content">
-      <Comment>lifeLog内容</Comment>
-      <DasType>blob|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="413" parent="309" name="author_id">
-      <Comment>作者ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="414" parent="309" name="create_time">
-      <Comment>创建时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="415" parent="309" name="update_time">
-      <Comment>更新时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="416" parent="309" name="status">
-      <Comment>lifeLog状态，制作库
-（1 已发布，2未发布状态，3撤回）</Comment>
-      <DasType>tinyint|0s</DasType>
-      <Position>7</Position>
-    </column>
-    <index id="417" parent="309" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="418" parent="309" name="tb_lifelog_index_authorId_title">
-      <ColNames>title
-author_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="419" parent="309" name="tb_fifeLog_title">
-      <ColNames>title</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="420" parent="309" name="tb_fifeLog_id_create_time">
-      <ColNames>author_id
-create_time</ColNames>
-      <Type>btree</Type>
-    </index>
-    <key id="421" parent="309" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <key id="422" parent="309" name="tb_lifelog_index_authorId_title">
-      <UnderlyingIndexName>tb_lifelog_index_authorId_title</UnderlyingIndexName>
-    </key>
-    <key id="423" parent="309" name="tb_fifeLog_title">
-      <UnderlyingIndexName>tb_fifeLog_title</UnderlyingIndexName>
-    </key>
-    <check id="424" parent="310" name="tb_publish_lifelog_chk_1">
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`status` in (1,2,3)</Predicate>
+      <Predicate>`status` in (1,2)</Predicate>
     </check>
-    <column id="425" parent="310" name="id">
+    <column id="401" parent="308" name="id">
       <AutoIncrement>3</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="426" parent="310" name="title">
-      <Comment>lifeLog标题</Comment>
-      <DasType>varchar(100)|0s</DasType>
+    <column id="402" parent="308" name="biz">
+      <Comment>业务类型</Comment>
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="427" parent="310" name="content">
-      <Comment>lifeLog内容</Comment>
-      <DasType>blob|0s</DasType>
+    <column id="403" parent="308" name="biz_id">
+      <Comment>业务ID</Comment>
+      <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="428" parent="310" name="author_id">
-      <Comment>作者ID</Comment>
+    <column id="404" parent="308" name="update_time">
+      <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="429" parent="310" name="create_time">
+    <column id="405" parent="308" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="430" parent="310" name="update_time">
+    <column id="406" parent="308" name="status">
+      <Comment>软删除，状态，1点赞，2取消点赞</Comment>
+      <DasType>tinyint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="407" parent="308" name="user_id">
+      <Comment>用户Id</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <index id="408" parent="308" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="409" parent="308" name="idx_user_id_biz_biz_id">
+      <ColNames>user_id
+biz
+biz_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="410" parent="308" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="411" parent="308" name="idx_user_id_biz_biz_id">
+      <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
+    </key>
+    <column id="412" parent="309" name="id">
+      <AutoIncrement>2</AutoIncrement>
+      <Comment>ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="413" parent="309" name="biz">
+      <Comment>业务类型</Comment>
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="414" parent="309" name="biz_id">
+      <Comment>业务ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="415" parent="309" name="update_time">
+      <Comment>更新时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="416" parent="309" name="create_time">
+      <Comment>创建时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="417" parent="309" name="user_id">
+      <Comment>用户Id</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <index id="418" parent="309" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="419" parent="309" name="idx_user_id_biz_biz_id">
+      <ColNames>user_id
+biz
+biz_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="420" parent="309" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="421" parent="309" name="idx_user_id_biz_biz_id">
+      <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
+    </key>
+    <column id="422" parent="310" name="id">
+      <AutoIncrement>25</AutoIncrement>
+      <Comment>ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="423" parent="310" name="title">
+      <Comment>lifeLog标题</Comment>
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="424" parent="310" name="content">
+      <Comment>lifeLog内容</Comment>
+      <DasType>blob|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="425" parent="310" name="author_id">
+      <Comment>作者ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="426" parent="310" name="create_time">
+      <Comment>创建时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="427" parent="310" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="431" parent="310" name="status">
+    <column id="428" parent="310" name="status">
+      <Comment>lifeLog状态，制作库
+（1 已发布，2未发布状态，3撤回）</Comment>
+      <DasType>tinyint|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="429" parent="310" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="430" parent="310" name="tb_lifelog_index_authorId_title">
+      <ColNames>title
+author_id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="431" parent="310" name="tb_fifeLog_title">
+      <ColNames>title</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="432" parent="310" name="tb_fifeLog_id_create_time">
+      <ColNames>author_id
+create_time</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="433" parent="310" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="434" parent="310" name="tb_lifelog_index_authorId_title">
+      <UnderlyingIndexName>tb_lifelog_index_authorId_title</UnderlyingIndexName>
+    </key>
+    <key id="435" parent="310" name="tb_fifeLog_title">
+      <UnderlyingIndexName>tb_fifeLog_title</UnderlyingIndexName>
+    </key>
+    <check id="436" parent="311" name="tb_publish_lifelog_chk_1">
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`status` in (1,2,3)</Predicate>
+    </check>
+    <column id="437" parent="311" name="id">
+      <AutoIncrement>25</AutoIncrement>
+      <Comment>ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="438" parent="311" name="title">
+      <Comment>lifeLog标题</Comment>
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="439" parent="311" name="content">
+      <Comment>lifeLog内容</Comment>
+      <DasType>blob|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="440" parent="311" name="author_id">
+      <Comment>作者ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="441" parent="311" name="create_time">
+      <Comment>创建时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="442" parent="311" name="update_time">
+      <Comment>更新时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="443" parent="311" name="status">
       <Comment>lifeLog的状态
 1，lifeLog已发布(线上库)
 3，lifeLog隐藏了(不对外展示)</Comment>
@@ -1753,89 +1815,89 @@ create_time</ColNames>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <index id="432" parent="310" name="PRIMARY">
+    <index id="444" parent="311" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="433" parent="310" name="tb_publish_lifelog_index_authorId_title">
+    <index id="445" parent="311" name="tb_publish_lifelog_index_authorId_title">
       <ColNames>title
 author_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="434" parent="310" name="tb_publish_fifeLog_title">
+    <index id="446" parent="311" name="tb_publish_fifeLog_title">
       <ColNames>title</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="435" parent="310" name="idx_author_id">
+    <index id="447" parent="311" name="idx_author_id">
       <ColNames>author_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="436" parent="310" name="PRIMARY">
+    <key id="448" parent="311" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="437" parent="310" name="tb_publish_lifelog_index_authorId_title">
+    <key id="449" parent="311" name="tb_publish_lifelog_index_authorId_title">
       <UnderlyingIndexName>tb_publish_lifelog_index_authorId_title</UnderlyingIndexName>
     </key>
-    <key id="438" parent="310" name="tb_publish_fifeLog_title">
+    <key id="450" parent="311" name="tb_publish_fifeLog_title">
       <UnderlyingIndexName>tb_publish_fifeLog_title</UnderlyingIndexName>
     </key>
-    <column id="439" parent="311" name="id">
+    <column id="451" parent="312" name="id">
       <AutoIncrement>27</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="440" parent="311" name="email">
+    <column id="452" parent="312" name="email">
       <Comment>邮箱</Comment>
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="441" parent="311" name="password">
+    <column id="453" parent="312" name="password">
       <Comment>密码</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="442" parent="311" name="create_time">
+    <column id="454" parent="312" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="443" parent="311" name="update_time">
+    <column id="455" parent="312" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="444" parent="311" name="phone">
+    <column id="456" parent="312" name="phone">
       <Comment>手机号</Comment>
       <DasType>varchar(20)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="445" parent="311" name="wechat_union_id">
+    <column id="457" parent="312" name="wechat_union_id">
       <Comment>微信unionId</Comment>
       <DasType>varchar(100)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="446" parent="311" name="wechat_open_id">
+    <column id="458" parent="312" name="wechat_open_id">
       <Comment>微信openId</Comment>
       <DasType>varchar(100)|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="447" parent="311" name="nick_name">
+    <column id="459" parent="312" name="nick_name">
       <Comment>昵称</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <column id="448" parent="311" name="authority">
+    <column id="460" parent="312" name="authority">
       <Comment>1，管理员，2普通用户
 只有管理员，才拥有删除用户信息的权限</Comment>
       <DasType>tinyint|0s</DasType>
@@ -1843,80 +1905,23 @@ author_id</ColNames>
       <NotNull>1</NotNull>
       <Position>10</Position>
     </column>
-    <index id="449" parent="311" name="PRIMARY">
+    <index id="461" parent="312" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="450" parent="311" name="email">
+    <index id="462" parent="312" name="email">
       <ColNames>email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="451" parent="311" name="phone">
+    <index id="463" parent="312" name="phone">
       <ColNames>phone</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="452" parent="311" name="wechat_open_id">
+    <index id="464" parent="312" name="wechat_open_id">
       <ColNames>wechat_open_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="453" parent="311" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <key id="454" parent="311" name="email">
-      <UnderlyingIndexName>email</UnderlyingIndexName>
-    </key>
-    <key id="455" parent="311" name="phone">
-      <UnderlyingIndexName>phone</UnderlyingIndexName>
-    </key>
-    <key id="456" parent="311" name="wechat_open_id">
-      <UnderlyingIndexName>wechat_open_id</UnderlyingIndexName>
-    </key>
-    <check id="457" parent="312" name="tb_collect_clip_chk_1">
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`status` in (1,2)</Predicate>
-    </check>
-    <column id="458" parent="312" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <Comment>ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="459" parent="312" name="name">
-      <Comment>收藏夹名字</Comment>
-      <DasType>varchar(100)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="460" parent="312" name="create_time">
-      <Comment>创建时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <Position>3</Position>
-    </column>
-    <column id="461" parent="312" name="update_time">
-      <Comment>更新时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <Position>4</Position>
-    </column>
-    <column id="462" parent="312" name="status">
-      <Comment>删除状态，1未删除，2删除</Comment>
-      <DasType>tinyint|0s</DasType>
-      <Position>5</Position>
-    </column>
-    <column id="463" parent="312" name="user_id">
-      <Comment>用户id</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <index id="464" parent="312" name="PRIMARY">
-      <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
@@ -1925,299 +1930,289 @@ author_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <check id="466" parent="313" name="tb_collect_clip_detail_chk_1">
+    <key id="466" parent="312" name="email">
+      <UnderlyingIndexName>email</UnderlyingIndexName>
+    </key>
+    <key id="467" parent="312" name="phone">
+      <UnderlyingIndexName>phone</UnderlyingIndexName>
+    </key>
+    <key id="468" parent="312" name="wechat_open_id">
+      <UnderlyingIndexName>wechat_open_id</UnderlyingIndexName>
+    </key>
+    <check id="469" parent="313" name="tb_collect_clip_chk_1">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`status` in (1,2)</Predicate>
     </check>
-    <column id="467" parent="313" name="id">
+    <column id="470" parent="313" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="468" parent="313" name="collect_id">
+    <column id="471" parent="313" name="name">
+      <Comment>收藏夹名字</Comment>
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="472" parent="313" name="create_time">
+      <Comment>创建时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="473" parent="313" name="update_time">
+      <Comment>更新时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="474" parent="313" name="status">
+      <Comment>删除状态，1未删除，2删除</Comment>
+      <DasType>tinyint|0s</DasType>
+      <Position>5</Position>
+    </column>
+    <column id="475" parent="313" name="user_id">
+      <Comment>用户id</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <index id="476" parent="313" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="477" parent="313" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <check id="478" parent="314" name="tb_collect_clip_detail_chk_1">
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`status` in (1,2)</Predicate>
+    </check>
+    <column id="479" parent="314" name="id">
+      <AutoIncrement>1</AutoIncrement>
+      <Comment>ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="480" parent="314" name="collect_id">
       <Comment>收藏夹ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="469" parent="313" name="life_log_id">
+    <column id="481" parent="314" name="life_log_id">
       <Comment>lifeLog的ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="470" parent="313" name="update_time">
+    <column id="482" parent="314" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="471" parent="313" name="create_time">
+    <column id="483" parent="314" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="472" parent="313" name="status">
+    <column id="484" parent="314" name="status">
       <Comment>删除状态，1未删除，2删除</Comment>
       <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="473" parent="313" name="author_id">
+    <column id="485" parent="314" name="author_id">
       <Comment>作者id</Comment>
       <DasType>int|0s</DasType>
       <Position>7</Position>
     </column>
-    <foreign-key id="474" parent="313" name="fk_collect_clip">
+    <foreign-key id="486" parent="314" name="fk_collect_clip">
       <ColNames>collect_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>tb_collect_clip</RefTableName>
     </foreign-key>
-    <index id="475" parent="313" name="PRIMARY">
+    <index id="487" parent="314" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="476" parent="313" name="unique_collect_article">
+    <index id="488" parent="314" name="unique_collect_article">
       <ColNames>collect_id
 life_log_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="477" parent="313" name="collect_id">
+    <index id="489" parent="314" name="collect_id">
       <ColNames>collect_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="478" parent="313" name="article_id">
+    <index id="490" parent="314" name="article_id">
       <ColNames>life_log_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="479" parent="313" name="PRIMARY">
+    <key id="491" parent="314" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="480" parent="313" name="unique_collect_article">
+    <key id="492" parent="314" name="unique_collect_article">
       <UnderlyingIndexName>unique_collect_article</UnderlyingIndexName>
     </key>
-    <key id="481" parent="313" name="collect_id">
+    <key id="493" parent="314" name="collect_id">
       <UnderlyingIndexName>collect_id</UnderlyingIndexName>
     </key>
-    <key id="482" parent="313" name="article_id">
+    <key id="494" parent="314" name="article_id">
       <UnderlyingIndexName>article_id</UnderlyingIndexName>
     </key>
-    <column id="483" parent="314" name="id">
+    <column id="495" parent="315" name="id">
       <AutoIncrement>51</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="484" parent="314" name="user_id">
+    <column id="496" parent="315" name="user_id">
       <Comment>发表评论的用户ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="485" parent="314" name="biz">
+    <column id="497" parent="315" name="biz">
       <Comment>业务类型</Comment>
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="486" parent="314" name="biz_id">
+    <column id="498" parent="315" name="biz_id">
       <Comment>业务ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="487" parent="314" name="content">
+    <column id="499" parent="315" name="content">
       <Comment>评论内容</Comment>
       <DasType>varchar(1024)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="488" parent="314" name="parent_id">
+    <column id="500" parent="315" name="parent_id">
       <Comment>父评论ID</Comment>
       <DasType>bigint|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="489" parent="314" name="root_id">
+    <column id="501" parent="315" name="root_id">
       <Comment>根评论ID，用于优化查询</Comment>
       <DasType>bigint|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="490" parent="314" name="create_time">
+    <column id="502" parent="315" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="491" parent="314" name="update_time">
+    <column id="503" parent="315" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <foreign-key id="492" parent="314" name="tb_comment_ibfk_1">
+    <foreign-key id="504" parent="315" name="tb_comment_ibfk_1">
       <ColNames>parent_id</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>id</RefColNames>
       <RefTableName>tb_comment</RefTableName>
     </foreign-key>
-    <index id="493" parent="314" name="PRIMARY">
+    <index id="505" parent="315" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="494" parent="314" name="index_biz_bizid">
+    <index id="506" parent="315" name="index_biz_bizid">
       <ColNames>biz
 biz_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="495" parent="314" name="index_parent_id">
+    <index id="507" parent="315" name="index_parent_id">
       <ColNames>parent_id</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="496" parent="314" name="index_root_id_create_time">
+    <index id="508" parent="315" name="index_root_id_create_time">
       <ColNames>root_id
 create_time</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="497" parent="314" name="PRIMARY">
+    <key id="509" parent="315" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="498" parent="315" name="id">
+    <column id="510" parent="316" name="id">
       <AutoIncrement>33</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="499" parent="315" name="biz">
+    <column id="511" parent="316" name="biz">
       <Comment>业务</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="500" parent="315" name="biz_id">
+    <column id="512" parent="316" name="biz_id">
       <Comment>业务标识（lifeLog的id，或文章id，提供统一抽象）</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="501" parent="315" name="read_count">
+    <column id="513" parent="316" name="read_count">
       <Comment>阅读数</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="502" parent="315" name="collect_count">
+    <column id="514" parent="316" name="collect_count">
       <Comment>收藏数</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="503" parent="315" name="like_count">
+    <column id="515" parent="316" name="like_count">
       <Comment>点赞数</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="504" parent="315" name="create_time">
+    <column id="516" parent="316" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="505" parent="315" name="update_time">
+    <column id="517" parent="316" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>8</Position>
-    </column>
-    <index id="506" parent="315" name="PRIMARY">
-      <ColNames>id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <index id="507" parent="315" name="idx_biz_biz_id">
-      <ColNames>biz
-biz_id</ColNames>
-      <Type>btree</Type>
-      <Unique>1</Unique>
-    </index>
-    <key id="508" parent="315" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <Primary>1</Primary>
-      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
-    </key>
-    <key id="509" parent="315" name="idx_biz_biz_id">
-      <UnderlyingIndexName>idx_biz_biz_id</UnderlyingIndexName>
-    </key>
-    <check id="510" parent="316" name="tb_interactive_collect_chk_1">
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`status` in (1,2)</Predicate>
-    </check>
-    <column id="511" parent="316" name="id">
-      <AutoIncrement>1</AutoIncrement>
-      <Comment>ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-    </column>
-    <column id="512" parent="316" name="biz">
-      <Comment>业务类型</Comment>
-      <DasType>varchar(255)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>2</Position>
-    </column>
-    <column id="513" parent="316" name="biz_id">
-      <Comment>业务ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>3</Position>
-    </column>
-    <column id="514" parent="316" name="update_time">
-      <Comment>更新时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="515" parent="316" name="create_time">
-      <Comment>创建时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
-    </column>
-    <column id="516" parent="316" name="status">
-      <Comment>软删除，状态，1收藏，2取消收藏</Comment>
-      <DasType>tinyint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <column id="517" parent="316" name="user_id">
-      <Comment>用户Id</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
     </column>
     <index id="518" parent="316" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="519" parent="316" name="idx_user_id_biz_biz_id">
-      <ColNames>user_id
-biz
+    <index id="519" parent="316" name="idx_biz_biz_id">
+      <ColNames>biz
 biz_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
@@ -2227,10 +2222,10 @@ biz_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="521" parent="316" name="idx_user_id_biz_biz_id">
-      <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
+    <key id="521" parent="316" name="idx_biz_biz_id">
+      <UnderlyingIndexName>idx_biz_biz_id</UnderlyingIndexName>
     </key>
-    <check id="522" parent="317" name="tb_interactive_like_chk_1">
+    <check id="522" parent="317" name="tb_interactive_collect_chk_1">
       <NameSurrogate>1</NameSurrogate>
       <Predicate>`status` in (1,2)</Predicate>
     </check>
@@ -2266,7 +2261,7 @@ biz_id</ColNames>
       <Position>5</Position>
     </column>
     <column id="528" parent="317" name="status">
-      <Comment>软删除，状态，1点赞，2取消点赞</Comment>
+      <Comment>软删除，状态，1收藏，2取消收藏</Comment>
       <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
@@ -2297,170 +2292,237 @@ biz_id</ColNames>
     <key id="533" parent="317" name="idx_user_id_biz_biz_id">
       <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
     </key>
-    <column id="534" parent="318" name="id">
+    <check id="534" parent="318" name="tb_interactive_like_chk_1">
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`status` in (1,2)</Predicate>
+    </check>
+    <column id="535" parent="318" name="id">
       <AutoIncrement>1</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="535" parent="318" name="biz">
+    <column id="536" parent="318" name="biz">
       <Comment>业务类型</Comment>
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="536" parent="318" name="biz_id">
+    <column id="537" parent="318" name="biz_id">
       <Comment>业务ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="537" parent="318" name="update_time">
+    <column id="538" parent="318" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="538" parent="318" name="create_time">
+    <column id="539" parent="318" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="539" parent="318" name="user_id">
-      <Comment>用户Id</Comment>
-      <DasType>bigint|0s</DasType>
+    <column id="540" parent="318" name="status">
+      <Comment>软删除，状态，1点赞，2取消点赞</Comment>
+      <DasType>tinyint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <index id="540" parent="318" name="PRIMARY">
+    <column id="541" parent="318" name="user_id">
+      <Comment>用户Id</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <index id="542" parent="318" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="541" parent="318" name="idx_user_id_biz_biz_id">
+    <index id="543" parent="318" name="idx_user_id_biz_biz_id">
       <ColNames>user_id
 biz
 biz_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="542" parent="318" name="PRIMARY">
+    <key id="544" parent="318" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="543" parent="318" name="idx_user_id_biz_biz_id">
+    <key id="545" parent="318" name="idx_user_id_biz_biz_id">
       <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
     </key>
-    <column id="544" parent="319" name="id">
-      <AutoIncrement>3</AutoIncrement>
+    <column id="546" parent="319" name="id">
+      <AutoIncrement>1</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="545" parent="319" name="title">
-      <Comment>lifeLog标题</Comment>
-      <DasType>varchar(100)|0s</DasType>
+    <column id="547" parent="319" name="biz">
+      <Comment>业务类型</Comment>
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="546" parent="319" name="content">
-      <Comment>lifeLog内容</Comment>
-      <DasType>blob|0s</DasType>
+    <column id="548" parent="319" name="biz_id">
+      <Comment>业务ID</Comment>
+      <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-    </column>
-    <column id="547" parent="319" name="author_id">
-      <Comment>作者ID</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-    </column>
-    <column id="548" parent="319" name="create_time">
-      <Comment>创建时间</Comment>
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>5</Position>
     </column>
     <column id="549" parent="319" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="550" parent="319" name="create_time">
+      <Comment>创建时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="551" parent="319" name="user_id">
+      <Comment>用户Id</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="550" parent="319" name="status">
-      <Comment>lifeLog状态，制作库（2未发布状态，3撤回）</Comment>
-      <DasType>tinyint|0s</DasType>
-      <Position>7</Position>
-    </column>
-    <index id="551" parent="319" name="PRIMARY">
+    <index id="552" parent="319" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="552" parent="319" name="tb_article_title">
-      <ColNames>title</ColNames>
+    <index id="553" parent="319" name="idx_user_id_biz_biz_id">
+      <ColNames>user_id
+biz
+biz_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
-    </index>
-    <index id="553" parent="319" name="tb_article_id_create_time">
-      <ColNames>author_id
-create_time</ColNames>
-      <Type>btree</Type>
     </index>
     <key id="554" parent="319" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="555" parent="319" name="tb_article_title">
-      <UnderlyingIndexName>tb_article_title</UnderlyingIndexName>
+    <key id="555" parent="319" name="idx_user_id_biz_biz_id">
+      <UnderlyingIndexName>idx_user_id_biz_biz_id</UnderlyingIndexName>
     </key>
-    <check id="556" parent="320" name="tb_publish_lifelog_chk_1">
-      <NameSurrogate>1</NameSurrogate>
-      <Predicate>`status` in (1,2,3)</Predicate>
-    </check>
-    <column id="557" parent="320" name="id">
+    <column id="556" parent="320" name="id">
       <AutoIncrement>2</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="558" parent="320" name="title">
+    <column id="557" parent="320" name="title">
       <Comment>lifeLog标题</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="559" parent="320" name="content">
+    <column id="558" parent="320" name="content">
       <Comment>lifeLog内容</Comment>
       <DasType>blob|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="560" parent="320" name="author_id">
+    <column id="559" parent="320" name="author_id">
       <Comment>作者ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="561" parent="320" name="create_time">
+    <column id="560" parent="320" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="562" parent="320" name="update_time">
+    <column id="561" parent="320" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="563" parent="320" name="status">
+    <column id="562" parent="320" name="status">
+      <Comment>lifeLog状态，制作库（2未发布状态，3撤回）</Comment>
+      <DasType>tinyint|0s</DasType>
+      <Position>7</Position>
+    </column>
+    <index id="563" parent="320" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="564" parent="320" name="tb_article_title">
+      <ColNames>title</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="565" parent="320" name="tb_article_id_create_time">
+      <ColNames>author_id
+create_time</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="566" parent="320" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <key id="567" parent="320" name="tb_article_title">
+      <UnderlyingIndexName>tb_article_title</UnderlyingIndexName>
+    </key>
+    <check id="568" parent="321" name="tb_publish_lifelog_chk_1">
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>`status` in (1,2,3)</Predicate>
+    </check>
+    <column id="569" parent="321" name="id">
+      <AutoIncrement>2</AutoIncrement>
+      <Comment>ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="570" parent="321" name="title">
+      <Comment>lifeLog标题</Comment>
+      <DasType>varchar(100)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="571" parent="321" name="content">
+      <Comment>lifeLog内容</Comment>
+      <DasType>blob|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="572" parent="321" name="author_id">
+      <Comment>作者ID</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <column id="573" parent="321" name="create_time">
+      <Comment>创建时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="574" parent="321" name="update_time">
+      <Comment>更新时间</Comment>
+      <DasType>bigint|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <column id="575" parent="321" name="status">
       <Comment>文章的状态
 1，lifeLog已发布(线上库)
 2，lifeLog未发布(制作库/草稿库)
@@ -2469,111 +2531,111 @@ create_time</ColNames>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <index id="564" parent="320" name="PRIMARY">
+    <index id="576" parent="321" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="565" parent="320" name="tb_publish_article_title">
+    <index id="577" parent="321" name="tb_publish_article_title">
       <ColNames>title</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="566" parent="320" name="idx_author_id">
+    <index id="578" parent="321" name="idx_author_id">
       <ColNames>author_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="567" parent="320" name="PRIMARY">
+    <key id="579" parent="321" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="568" parent="320" name="tb_publish_article_title">
+    <key id="580" parent="321" name="tb_publish_article_title">
       <UnderlyingIndexName>tb_publish_article_title</UnderlyingIndexName>
     </key>
-    <column id="569" parent="321" name="id">
-      <AutoIncrement>26</AutoIncrement>
+    <column id="581" parent="322" name="id">
+      <AutoIncrement>28</AutoIncrement>
       <Comment>ID</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="570" parent="321" name="email">
+    <column id="582" parent="322" name="email">
       <Comment>邮箱</Comment>
       <DasType>varchar(30)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="571" parent="321" name="password">
+    <column id="583" parent="322" name="password">
       <Comment>密码</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="572" parent="321" name="create_time">
+    <column id="584" parent="322" name="create_time">
       <Comment>创建时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="573" parent="321" name="update_time">
+    <column id="585" parent="322" name="update_time">
       <Comment>更新时间</Comment>
       <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="574" parent="321" name="phone">
+    <column id="586" parent="322" name="phone">
       <Comment>手机号</Comment>
       <DasType>varchar(20)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="575" parent="321" name="wechat_union_id">
+    <column id="587" parent="322" name="wechat_union_id">
       <Comment>微信unionId</Comment>
       <DasType>varchar(100)|0s</DasType>
       <Position>7</Position>
     </column>
-    <column id="576" parent="321" name="wechat_open_id">
+    <column id="588" parent="322" name="wechat_open_id">
       <Comment>微信openId</Comment>
       <DasType>varchar(100)|0s</DasType>
       <Position>8</Position>
     </column>
-    <column id="577" parent="321" name="nick_name">
+    <column id="589" parent="322" name="nick_name">
       <Comment>昵称</Comment>
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>9</Position>
     </column>
-    <index id="578" parent="321" name="PRIMARY">
+    <index id="590" parent="322" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="579" parent="321" name="email">
+    <index id="591" parent="322" name="email">
       <ColNames>email</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="580" parent="321" name="phone">
+    <index id="592" parent="322" name="phone">
       <ColNames>phone</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <index id="581" parent="321" name="wechat_open_id">
+    <index id="593" parent="322" name="wechat_open_id">
       <ColNames>wechat_open_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="582" parent="321" name="PRIMARY">
+    <key id="594" parent="322" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <key id="583" parent="321" name="email">
+    <key id="595" parent="322" name="email">
       <UnderlyingIndexName>email</UnderlyingIndexName>
     </key>
-    <key id="584" parent="321" name="phone">
+    <key id="596" parent="322" name="phone">
       <UnderlyingIndexName>phone</UnderlyingIndexName>
     </key>
-    <key id="585" parent="321" name="wechat_open_id">
+    <key id="597" parent="322" name="wechat_open_id">
       <UnderlyingIndexName>wechat_open_id</UnderlyingIndexName>
     </key>
   </database-model>

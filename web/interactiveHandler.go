@@ -2,7 +2,7 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
-	interactivev1 "lifelog-grpc/api/proto/gen/api/proto/interactive/v1"
+	interactivev1 "lifelog-grpc/api/proto/gen/interactive/v1"
 	"lifelog-grpc/event/lifeLogEvent"
 	"lifelog-grpc/job"
 	"lifelog-grpc/pkg/loggerx"
@@ -43,6 +43,16 @@ func (a *InteractiveHandler) RegisterRoutes(server *gin.Engine) {
 	rg.POST("/collect", a.Collect)
 	// 取消收藏LifeLog
 	rg.POST("/unCollect", a.UnCollect)
+	// 关注作者
+	rg.POST("/follow", a.Follow)
+	// 取消关注作者
+	rg.POST("/unfollow", a.UnFollow)
+	// 关注列表
+	rg.GET("/followList", a.FollowList)
+	// 粉丝列表
+	rg.GET("/fanList", a.FanList)
+	// 互关列表
+	rg.GET("/bothFollowList", a.BothFollowList)
 }
 
 // Like 点赞LifeLog
@@ -252,5 +262,212 @@ func (i *InteractiveHandler) UnCollect(ctx *gin.Context) {
 		Code: 200,
 		Msg:  "取消收藏成功",
 		Data: "success",
+	})
+}
+
+func (a *InteractiveHandler) Follow(context *gin.Context) {
+	// 获取用户信息
+	info, ok := a.GetUserInfo(context)
+	if !ok {
+		context.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		a.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "InteractiveHandler:UnFollow"))
+		return
+	}
+	type FollowReq struct {
+		FolloweeId int64 `json:"followee_id"`
+	}
+	var req FollowReq
+	err := context.Bind(&req)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, Result[string]{
+			Code: 400,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		a.logger.Error("参数bind失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:Follow"))
+		return
+	}
+	_, err = a.interactiveServiceClient.InsertFollow(context.Request.Context(),
+		&interactivev1.InsertFollowRequest{
+			Follow: &interactivev1.Follow{
+				FollowerId: info.Id,
+				FolloweeId: req.FolloweeId,
+			},
+		})
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "关注失败",
+			Data: "error",
+		})
+		a.logger.Error("关注失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:Follow"))
+		return
+	}
+	context.JSON(http.StatusOK, Result[string]{
+		Code: 200,
+		Msg:  "关注成功",
+		Data: "success",
+	})
+}
+
+func (a *InteractiveHandler) UnFollow(context *gin.Context) {
+	// 获取用户信息
+	info, ok := a.GetUserInfo(context)
+	if !ok {
+		context.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		a.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "InteractiveHandler:UnFollow"))
+		return
+	}
+	type FollowReq struct {
+		FolloweeId int64 `json:"followee_id"`
+	}
+	var req FollowReq
+	err := context.Bind(&req)
+	if err != nil {
+		context.JSON(http.StatusBadRequest, Result[string]{
+			Code: 400,
+			Msg:  "请求参数错误",
+			Data: "error",
+		})
+		a.logger.Error("请求参数bind失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:UnFollow"))
+		return
+	}
+	_, err = a.interactiveServiceClient.CancelFollow(context.Request.Context(),
+		&interactivev1.CancelFollowRequest{
+			Follow: &interactivev1.Follow{
+				FollowerId: info.Id,
+				FolloweeId: req.FolloweeId,
+			},
+		})
+	if err != nil {
+		context.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "取消关注失败",
+			Data: "error",
+		})
+		a.logger.Error("取消关注失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:UnFollow"))
+		return
+	}
+	context.JSON(http.StatusOK, Result[string]{
+		Code: 200,
+		Msg:  "取消关注成功",
+		Data: "success",
+	})
+}
+
+// FollowList 关注列表
+func (a *InteractiveHandler) FollowList(ctx *gin.Context) {
+	// 获取用户信息
+	info, ok := a.GetUserInfo(ctx)
+	if !ok {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		a.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "InteractiveHandler:FollowList"))
+		return
+	}
+	list, err := a.interactiveServiceClient.FollowList(ctx.Request.Context(),
+		&interactivev1.FollowListRequest{
+			Id: info.Id,
+		})
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "获取关注列表失败",
+			Data: "error",
+		})
+		a.logger.Error("获取关注列表失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:FollowList"))
+		return
+	}
+	ctx.JSON(http.StatusOK, Result[[]int64]{
+		Code: 200,
+		Msg:  "获取关注列表成功",
+		Data: list.Ids,
+	})
+}
+
+func (a *InteractiveHandler) BothFollowList(ctx *gin.Context) {
+	// 获取用户信息
+	info, ok := a.GetUserInfo(ctx)
+	if !ok {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		a.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "InteractiveHandler:BothFollowList"))
+		return
+	}
+	list, err := a.interactiveServiceClient.BothFollowList(ctx.Request.Context(),
+		&interactivev1.BothFollowListRequest{
+			Id: info.Id,
+		})
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "获取互关列表失败",
+			Data: "error",
+		})
+		a.logger.Error("获取互关列表失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:BothFollowList"))
+		return
+	}
+	ctx.JSON(http.StatusOK, Result[[]int64]{
+		Code: 200,
+		Msg:  "获取互关列表成功",
+		Data: list.Ids,
+	})
+}
+
+func (a *InteractiveHandler) FanList(ctx *gin.Context) {
+	// 获取用户信息
+	info, ok := a.GetUserInfo(ctx)
+	if !ok {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		a.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "InteractiveHandler:FanList"))
+		return
+	}
+	list, err := a.interactiveServiceClient.FanList(ctx.Request.Context(),
+		&interactivev1.FanListRequest{
+			Id: info.Id,
+		})
+	if err != nil {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "获取粉丝列表失败",
+			Data: "error",
+		})
+		a.logger.Error("获取粉丝列表失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:FanList"))
+		return
+	}
+	ctx.JSON(http.StatusOK, Result[[]int64]{
+		Code: 200,
+		Msg:  "获取粉丝列表成功",
+		Data: list.Ids,
 	})
 }

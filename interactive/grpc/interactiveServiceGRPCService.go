@@ -2,8 +2,8 @@ package grpc
 
 import (
 	"context"
-	collectv1 "lifelog-grpc/api/proto/gen/api/proto/collect/v1"
-	interactivev1 "lifelog-grpc/api/proto/gen/api/proto/interactive/v1"
+	collectv1 "lifelog-grpc/api/proto/gen/collect/v1"
+	interactivev1 "lifelog-grpc/api/proto/gen/interactive/v1"
 	"lifelog-grpc/interactive/service"
 )
 
@@ -14,12 +14,60 @@ type InteractiveServiceGRPCService struct {
 	interactivev1.UnimplementedInteractiveServiceServer
 }
 
+func (i *InteractiveServiceGRPCService) FollowList(ctx context.Context, request *interactivev1.FollowListRequest) (*interactivev1.FollowListResponse, error) {
+	list, err := i.interactiveService.FollowList(ctx, request.Id)
+	if err != nil {
+		return &interactivev1.FollowListResponse{}, err
+	}
+	return &interactivev1.FollowListResponse{
+		Ids: list,
+	}, nil
+}
+
+func (i *InteractiveServiceGRPCService) FanList(ctx context.Context, request *interactivev1.FanListRequest) (*interactivev1.FanListResponse, error) {
+	list, err := i.interactiveService.FanList(ctx, request.Id)
+	if err != nil {
+		return &interactivev1.FanListResponse{}, err
+	}
+	return &interactivev1.FanListResponse{
+		Ids: list,
+	}, nil
+}
+
+func (i *InteractiveServiceGRPCService) BothFollowList(ctx context.Context, request *interactivev1.BothFollowListRequest) (*interactivev1.BothFollowListResponse, error) {
+	list, err := i.interactiveService.BothFollowList(ctx, request.Id)
+	if err != nil {
+		return &interactivev1.BothFollowListResponse{}, err
+	}
+	return &interactivev1.BothFollowListResponse{
+		Ids: list,
+	}, nil
+}
+
 func NewCodeServiceGRPCService(interactiveService service.InteractiveService,
 	collectServiceClient collectv1.CollectServiceClient) *InteractiveServiceGRPCService {
 	return &InteractiveServiceGRPCService{
 		interactiveService:   interactiveService,
 		collectServiceClient: collectServiceClient,
 	}
+}
+
+func (i *InteractiveServiceGRPCService) InsertFollow(ctx context.Context, request *interactivev1.InsertFollowRequest) (*interactivev1.InsertFollowResponse, error) {
+	err := i.interactiveService.InsertFollow(ctx, request.GetFollow().GetFollowerId(),
+		request.GetFollow().GetFolloweeId())
+	if err != nil {
+		return &interactivev1.InsertFollowResponse{}, err
+	}
+	return &interactivev1.InsertFollowResponse{}, nil
+}
+
+func (i *InteractiveServiceGRPCService) CancelFollow(ctx context.Context, request *interactivev1.CancelFollowRequest) (*interactivev1.CancelFollowResponse, error) {
+	err := i.interactiveService.CancelFollow(ctx, request.GetFollow().GetFollowerId(),
+		request.GetFollow().GetFolloweeId())
+	if err != nil {
+		return &interactivev1.CancelFollowResponse{}, err
+	}
+	return &interactivev1.CancelFollowResponse{}, nil
 }
 
 func (i *InteractiveServiceGRPCService) IncreaseRead(ctx context.Context, request *interactivev1.IncreaseReadRequest) (*interactivev1.IncreaseReadResponse, error) {

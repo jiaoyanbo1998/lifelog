@@ -3,7 +3,7 @@ package grpc
 import (
 	"context"
 	"github.com/jinzhu/copier"
-	lifelogv1 "lifelog-grpc/api/proto/gen/api/proto/lifelog/v1"
+	lifelogv1 "lifelog-grpc/api/proto/gen/lifelog/v1"
 	"lifelog-grpc/lifeLog/domain"
 	"lifelog-grpc/lifeLog/service"
 	"lifelog-grpc/pkg/loggerx"

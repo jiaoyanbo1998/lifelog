@@ -39,3 +39,10 @@ type InteractiveLikeDomain struct {
 	Status     uint8  // 软删除，1点赞，2取消点赞
 	UserId     int64  // 用户id
 }
+
+type FollowDomain struct {
+	Id         int64 // 主键
+	FollowerId int64 // 关注着
+	FolloweeId int64 // 被关注着
+	CreateTime int64 // 创建时间
+}

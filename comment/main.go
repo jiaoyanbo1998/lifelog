@@ -6,7 +6,7 @@ import (
 	"github.com/zeromicro/go-zero/core/logx"
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc"
-	commentv1 "lifelog-grpc/api/proto/gen/api/proto/comment/v1"
+	"lifelog-grpc/api/proto/gen/comment/v1"
 	"strconv"
 )
 

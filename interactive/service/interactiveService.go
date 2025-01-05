@@ -14,6 +14,11 @@ type InteractiveService interface {
 	IncreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64, collectId int64) error
 	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId int64, collectId int64) error
 	GetInteractiveInfo(ctx context.Context, biz string, bizId int64) (domain.InteractiveDomain, error)
+	InsertFollow(ctx context.Context, followerId, followeeId int64) error
+	CancelFollow(ctx context.Context, followerId, followeeId int64) error
+	FollowList(ctx context.Context, id int64) ([]int64, error)
+	FanList(ctx context.Context, id int64) ([]int64, error)
+	BothFollowList(ctx context.Context, id int64) ([]int64, error)
 }
 
 type InteractiveServiceV1 struct {
@@ -24,6 +29,26 @@ func NewInteractiveService(interactiveRepository repository.InteractiveRepositor
 	return &InteractiveServiceV1{
 		interactiveRepository: interactiveRepository,
 	}
+}
+
+func (i *InteractiveServiceV1) FollowList(ctx context.Context, id int64) ([]int64, error) {
+	return i.interactiveRepository.FollowList(ctx, id)
+}
+
+func (i *InteractiveServiceV1) FanList(ctx context.Context, id int64) ([]int64, error) {
+	return i.interactiveRepository.FanList(ctx, id)
+}
+
+func (i *InteractiveServiceV1) BothFollowList(ctx context.Context, id int64) ([]int64, error) {
+	return i.interactiveRepository.BothFollowList(ctx, id)
+}
+
+func (i *InteractiveServiceV1) InsertFollow(ctx context.Context, followerId, followeeId int64) error {
+	return i.interactiveRepository.InsertFollow(ctx, followerId, followeeId)
+}
+
+func (i *InteractiveServiceV1) CancelFollow(ctx context.Context, followerId, followeeId int64) error {
+	return i.interactiveRepository.CancelFollow(ctx, followerId, followeeId)
 }
 
 // IncreaseReadCount 增加阅读数

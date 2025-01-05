@@ -7,6 +7,7 @@ import (
 	"gorm.io/gorm/clause"
 	"lifelog-grpc/interactive/domain"
 	"lifelog-grpc/pkg/loggerx"
+	"strings"
 	"time"
 )
 
@@ -20,6 +21,11 @@ type InteractiveDao interface {
 	DecreaseCollectCount(ctx context.Context, biz string, bizId int64, userId, collectId int64) error
 	BatchInteractiveReadCount(ctx context.Context, biz string, bizIds, userIds []int64) error
 	GetInteractiveInfoByBizId(ctx context.Context, biz string, bizId int64) (domain.InteractiveDomain, error)
+	InsertFollow(ctx context.Context, followerId, followeeId int64) error
+	CancelFollow(ctx context.Context, followerId, followeeId int64) error
+	FollowList(ctx context.Context, id int64) ([]int64, error)
+	FanList(ctx context.Context, id int64) ([]int64, error)
+	BothFollowList(ctx context.Context, id int64) ([]int64, error)
 }
 
 type InteractiveDaoV1 struct {
@@ -89,6 +95,132 @@ type InteractiveCollect struct {
 
 func (InteractiveCollect) TableName() string {
 	return "tb_interactive_collect"
+}
+
+type Follow struct {
+	Id         int64 // 主键
+	FollowerId int64 // 关注着
+	FolloweeId int64 // 被关注着
+	CreateTime int64 // 创建时间
+}
+
+func (Follow) TableName() string {
+	return "tb_follow"
+}
+
+func (i *InteractiveDaoV1) FollowList(ctx context.Context, id int64) ([]int64, error) {
+	var follow []Follow
+	err := i.db.WithContext(ctx).
+		Where("follower_id = ?", id).
+		Find(&follow).Error
+	if err != nil {
+		i.logger.Error("获取关注列表失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveDaoV1:FollowList"))
+		return nil, err
+	}
+	var ids []int64
+	for _, v := range follow {
+		ids = append(ids, v.FollowerId)
+	}
+	return ids, nil
+}
+
+func (i *InteractiveDaoV1) FanList(ctx context.Context, id int64) ([]int64, error) {
+	var follow []Follow
+	err := i.db.WithContext(ctx).
+		Where("followee_id = ?", id).
+		Find(&follow).Error
+	if err != nil {
+		i.logger.Error("获取关注列表失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveDaoV1:FanList"))
+		return nil, err
+	}
+	var ids []int64
+	for _, v := range follow {
+		ids = append(ids, v.FolloweeId)
+	}
+	return ids, nil
+}
+
+func (i *InteractiveDaoV1) BothFollowList(ctx context.Context, id int64) ([]int64, error) {
+	var ids []int64
+	followList, err := i.FollowList(ctx, id)
+	if err != nil {
+		i.logger.Error("获取关注列表失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveDaoV1:BothFollowList"))
+		return nil, err
+	}
+	fanList, err := i.FanList(ctx, id)
+	if err != nil {
+		i.logger.Error("获取粉丝列表失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveDaoV1:BothFollowList"))
+		return nil, err
+	}
+	// 求followList和fanList交集
+	ids = intersection(followList, fanList)
+	if len(ids) == 0 {
+		return nil, errors.New("没有互关信息")
+	}
+	return ids, nil
+}
+
+// 求两个切片的交集
+func intersection(slice1, slice2 []int64) []int64 {
+	// 用于存储交集的切片
+	var result []int64
+	// 使用 map 来记录 slice1 中的元素
+	seen := make(map[int64]bool)
+	for _, val := range slice1 {
+		seen[val] = true
+	}
+	// 遍历 slice2，检查是否在 map 中存在
+	for _, val := range slice2 {
+		if seen[val] {
+			result = append(result, val)
+			// 避免重复添加
+			seen[val] = false
+		}
+	}
+	return result
+}
+
+func (i *InteractiveDaoV1) InsertFollow(ctx context.Context, followerId, followeeId int64) error {
+	var follow Follow
+	follow.FollowerId = followerId
+	follow.FollowerId = followeeId
+	follow.CreateTime = time.Now().UnixMilli()
+	// 没有记录插入，有记录不插入（我设置了唯一索引，限制重复插入）
+	return i.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
+		err := tx.WithContext(ctx).Create(&follow).Error
+		if err != nil {
+			i.logger.Error("插入关注记录失败", loggerx.Error(err),
+				loggerx.String("method:", "InteractiveDaoV1:InsertFollow"),
+				loggerx.Int("followerId", int(followerId)),
+				loggerx.Int("followeeId", int(followeeId)))
+			// 如果是唯一索引冲突，返回特定错误
+			if strings.Contains(err.Error(), "Duplicate entry") {
+				return errors.New("不要重复关注")
+			} else {
+				return err
+			}
+		}
+		return nil
+	})
+}
+
+func (i *InteractiveDaoV1) CancelFollow(ctx context.Context, followerId, followeeId int64) error {
+	return i.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {
+		err := tx.Where("follower_id = ? and followee_id = ?", followerId, followeeId).
+			Delete(&Follow{}).Error
+		if err != nil {
+			i.logger.Error("取消关注失败", loggerx.Error(err),
+				loggerx.String("method:", "InteractiveDaoV1:CancelFollow"),
+				loggerx.Int("followerId", int(followerId)),
+				loggerx.Int("followeeId", int(followeeId)))
+			return err
+		}
+		return nil
+	})
 }
 
 // InsertReadCount 增加阅读数，biz业务类型， bizId业务id， userId用户id
