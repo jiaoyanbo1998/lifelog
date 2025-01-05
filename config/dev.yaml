@@ -37,3 +37,8 @@ collectEtcd:
     port: 8074
     addr:
         - "localhost:12379"
+
+commentEtcd:
+    port: 8075
+    addr:
+        - "localhost:12379"

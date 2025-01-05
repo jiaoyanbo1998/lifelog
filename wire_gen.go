@@ -8,19 +8,16 @@ package main
 
 import (
 	"github.com/google/wire"
-	"lifelog-grpc/comment/repository"
-	"lifelog-grpc/comment/repository/dao"
-	"lifelog-grpc/comment/service"
 	"lifelog-grpc/event/commentEvent"
 	"lifelog-grpc/event/lifeLogEvent"
-	repository3 "lifelog-grpc/interactive/repository"
+	repository2 "lifelog-grpc/interactive/repository"
 	cache2 "lifelog-grpc/interactive/repository/cache"
-	dao2 "lifelog-grpc/interactive/repository/dao"
-	service3 "lifelog-grpc/interactive/service"
+	"lifelog-grpc/interactive/repository/dao"
+	service2 "lifelog-grpc/interactive/service"
 	"lifelog-grpc/ioc"
-	repository2 "lifelog-grpc/ranking/repository"
+	"lifelog-grpc/ranking/repository"
 	"lifelog-grpc/ranking/repository/cache"
-	service2 "lifelog-grpc/ranking/service"
+	"lifelog-grpc/ranking/service"
 	"lifelog-grpc/web"
 )
 
@@ -41,23 +38,21 @@ func InitApp() *App {
 	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, producer, interactiveServiceClient)
 	collectServiceClient := ioc.InitCollectServiceGRPCClient(logger)
 	collectHandler := web.NewCollectHandler(collectServiceClient, logger)
-	db := ioc.GetMysql(logger)
-	commentDao := dao.NewCommentDaoGorm(db, logger)
-	commentRepository := repository.NewCommentRepository(commentDao)
-	commentService := service.NewCommentService(commentRepository)
-	commentHandler := web.NewCommentHandler(logger, commentService)
+	commentServiceClient := ioc.InitCommentServiceGRPCClient(logger)
+	commentHandler := web.NewCommentHandler(logger, commentServiceClient)
 	codeServiceClient := ioc.InitCodeServiceGRPCClient(logger)
 	codeHandler := web.NewCodeHandler(logger, codeServiceClient)
 	rankingCache := cache.NewRankingCacheRedis(cmdable)
-	rankingRepository := repository2.NewRankingRepository(rankingCache)
-	rankingService := service2.NewRankingService(rankingRepository)
+	rankingRepository := repository.NewRankingRepository(rankingCache)
+	rankingService := service.NewRankingService(rankingRepository)
 	job := ioc.InitRankingJob(rankingService, logger, cmdable)
 	interactiveHandler := web.NewInteractiveHandler(logger, interactiveServiceClient, job, producer)
 	engine := ioc.InitGin(userHandler, v, lifeLogHandler, collectHandler, commentHandler, codeHandler, interactiveHandler)
-	interactiveDao := dao2.NewInteractiveDao(db, logger)
+	db := ioc.GetMysql(logger)
+	interactiveDao := dao.NewInteractiveDao(db, logger)
 	interactiveCache := cache2.NewInteractiveCache(cmdable, logger)
-	interactiveRepository := repository3.NewInteractiveRepository(interactiveDao, interactiveCache)
-	interactiveService := service3.NewInteractiveService(interactiveRepository)
+	interactiveRepository := repository2.NewInteractiveRepository(interactiveDao, interactiveCache)
+	interactiveService := service2.NewInteractiveService(interactiveRepository)
 	readEventConsumer := lifeLogEvent.NewReadEventConsumer(client, logger, interactiveService)
 	v2 := ioc.InitConsumers(readEventConsumer)
 	cron := ioc.InitCronRankingJob(logger, job)
@@ -89,14 +84,14 @@ var collectClipSet = wire.NewSet(web.NewCollectHandler, ioc.InitCollectServiceGR
 // interactiveSet interactive模块的依赖注入
 var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveServiceGRPCClient)
 
+// commentSet 评论
+var commentSet = wire.NewSet(web.NewCommentHandler, ioc.InitCommentServiceGRPCClient)
+
 // kafkaSet kafka模块的依赖注入
-var kafkaSet = wire.NewSet(ioc.InitKafka, lifeLogEvent.NewReadEventBatchConsumer, lifeLogEvent.NewReadEventConsumer, lifeLogEvent.NewSaramaSyncProducer, commentEvent.NewCommentEventBatchConsumer, ioc.InitConsumers, ioc.InitSyncProducer, service3.NewInteractiveService, repository3.NewInteractiveRepository, dao2.NewInteractiveDao, cache2.NewInteractiveCache)
+var kafkaSet = wire.NewSet(ioc.InitKafka, lifeLogEvent.NewReadEventBatchConsumer, lifeLogEvent.NewReadEventConsumer, lifeLogEvent.NewSaramaSyncProducer, commentEvent.NewCommentEventBatchConsumer, ioc.InitConsumers, ioc.InitSyncProducer, service2.NewInteractiveService, repository2.NewInteractiveRepository, dao.NewInteractiveDao, cache2.NewInteractiveCache)
 
 // rankingSet ranking模块的依赖注入
-var rankingSet = wire.NewSet(service2.NewRankingService, repository2.NewRankingRepository, cache.NewRankingCacheRedis)
+var rankingSet = wire.NewSet(service.NewRankingService, repository.NewRankingRepository, cache.NewRankingCacheRedis)
 
 // rankingJobCronSet 热榜定时任务的依赖注入
 var rankingJobCronSet = wire.NewSet(ioc.InitRankingJob, ioc.InitCronRankingJob)
-
-// commentSet 评论
-var commentSet = wire.NewSet(web.NewCommentHandler, service.NewCommentService, repository.NewCommentRepository, dao.NewCommentDaoGorm)

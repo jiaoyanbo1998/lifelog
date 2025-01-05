@@ -1,0 +1,95 @@
+// 版本
+syntax = "proto3";
+
+// 包名
+package comment.v1;
+
+// 包路径
+option go_package = "comment/v1";
+
+// comment服务
+service CommentService {
+    rpc CreateComment(CreateCommentRequest) returns(CreateCommentResponse);
+    rpc DeleteComment(DeleteCommentRequest) returns(DeleteCommentResponse);
+    rpc EditComment(EditCommentRequest) returns(EditCommentResponse);
+    rpc FirstList(FirstListRequest) returns(FirstListResponse);
+    rpc EveryRootChildSonList(EveryRootChildSonListRequest) returns(EveryRootChildSonListResponse);
+    rpc SonList(SonListRequest) returns(SonListResponse);
+}
+
+// 评论信息结构体
+message Comment {
+    int64 user_id = 1;
+    string biz = 2;
+    int64 biz_id = 3;
+    string content = 4;
+    int64 parent_id = 5;
+    int64 root_id = 6;
+    int64 id = 7;
+    int64 create_time = 8;
+    int64 update_time = 9;
+}
+
+// 创建评论
+// 请求
+message CreateCommentRequest {
+    Comment comment = 1;
+}
+// 响应
+message CreateCommentResponse {
+
+}
+
+// 删除评论
+// 请求
+message DeleteCommentRequest {
+    int64 id = 1;
+}
+// 响应
+message DeleteCommentResponse {
+
+}
+
+// 编辑评论
+// 请求
+message EditCommentRequest {
+    Comment comment = 1;
+}
+// 响应
+message EditCommentResponse {
+
+}
+
+// 查找一级评论（parent_id==null）
+// 请求
+message FirstListRequest {
+    Comment comment = 1;
+    int64 min = 2;
+}
+// 响应
+message FirstListResponse {
+  repeated Comment comments = 1;
+}
+
+// 查找根评论下的所有子孙评论，root_id = 根评论id，根据id降序排序（先发表的评论id比后发表的小）
+// 请求
+message EveryRootChildSonListRequest {
+    Comment comment = 1;
+    int64 limit = 2; // 限制条数
+}
+// 响应
+message EveryRootChildSonListResponse {
+    repeated Comment comments = 1;
+}
+
+// 查询某个评论的，一级子评论
+// 请求
+message SonListRequest {
+    Comment comment = 1;
+    int64 limit = 2; // 限制条数
+    int64 offset = 3;
+}
+// 响应
+message SonListResponse {
+    repeated Comment comments = 1;
+}

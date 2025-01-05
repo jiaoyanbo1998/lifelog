@@ -4,9 +4,6 @@ package main
 
 import (
 	"github.com/google/wire"
-	commentRepository "lifelog-grpc/comment/repository"
-	commentDao "lifelog-grpc/comment/repository/dao"
-	commentService "lifelog-grpc/comment/service"
 	"lifelog-grpc/event/commentEvent"
 	"lifelog-grpc/event/lifeLogEvent"
 	"lifelog-grpc/interactive/repository"
@@ -55,6 +52,12 @@ var interactiveSet = wire.NewSet(
 	ioc.InitInteractiveServiceGRPCClient,
 )
 
+// commentSet 评论
+var commentSet = wire.NewSet(
+	web.NewCommentHandler,
+	ioc.InitCommentServiceGRPCClient,
+)
+
 // kafkaSet kafka模块的依赖注入
 var kafkaSet = wire.NewSet(
 	ioc.InitKafka,
@@ -83,14 +86,6 @@ var rankingSet = wire.NewSet(
 var rankingJobCronSet = wire.NewSet(
 	ioc.InitRankingJob,
 	ioc.InitCronRankingJob,
-)
-
-// commentSet 评论
-var commentSet = wire.NewSet(
-	web.NewCommentHandler,
-	commentService.NewCommentService,
-	commentRepository.NewCommentRepository,
-	commentDao.NewCommentDaoGorm,
 )
 
 func InitApp() *App {
