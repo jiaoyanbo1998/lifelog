@@ -4,44 +4,12 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="comment功能微服务化">
+    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="interactive服务，新增关注功能">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/code/v1/code.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/code/v1/code_grpc.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/collect/v1/collect.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/collect/v1/collect.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/collect/v1/collect_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/collect/v1/collect_grpc.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/comment/v1/comment.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/comment/v1/comment_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment_grpc.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/interactive/v1/interactive_grpc.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/lifelog/v1/lifelog.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/lifelog/v1/lifelog.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/lifelog/v1/lifelog_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/lifelog/v1/lifelog_grpc.pb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/user/v1/user.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/api/proto/user/v1/user_grpc.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect/grpc/collectServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/grpc/collectServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect/ioc/lifeLogServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/ioc/lifeLogServiceGRPCClient.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/domain/interactiveDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/domain/interactiveDomain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/ioc/collectServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/ioc/collectServiceGRPCClient.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/service/interactiveService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/service/interactiveService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ioc/collectServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/collectServiceGRPCClient.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ioc/commentServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/commentServiceGRPCClient.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ioc/interactiveServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/interactiveServiceGRPCClient.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ioc/lifeLogServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/lifeLogServiceGRPCClient.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/collectHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/collectHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/commentHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/commentHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/interactiveHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/install.md" beforeDir="false" afterPath="$PROJECT_DIR$/install.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +41,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
@@ -81,10 +50,10 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog/comment/ioc&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog/pkg/kafkax&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;go.vgo&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
@@ -94,70 +63,66 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog\pkg\kafkax" />
+      <recent name="D:\GoLangProjects\src\lifelog\curl" />
       <recent name="D:\GoLangProjects\src\lifelog\comment\ioc" />
       <recent name="D:\GoLangProjects\src\lifelog\interactive\ioc" />
       <recent name="D:\GoLangProjects\src\lifelog\collect\ioc" />
-      <recent name="D:\GoLangProjects\src\lifelog\interactive" />
-      <recent name="D:\GoLangProjects\src\lifelog\interactive\grpc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\GoLangProjects\src\lifelog\api\proto\gen" />
       <recent name="D:\GoLangProjects\src\lifelog\interactive" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build lifelog-grpc">
-    <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestP in lifelog-grpc/pkg/kafkax">
+    <configuration name="TestCm in lifelog-grpc/pkg/kafkax" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/pkg/kafkax" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc" />
+      <package value="lifelog-grpc/pkg/kafkax" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestCm\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/collect" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="TestP in lifelog-grpc/pkg/kafkax" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/pkg/kafkax" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc/collect" />
+      <package value="lifelog-grpc/pkg/kafkax" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/collect/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTestP\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/comment" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/comment" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/comment/main.go" />
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/interactive" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/interactive/main.go" />
+    <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/lifeLog" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/lifeLog" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/lifeLog/main.go" />
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
+      <item itemvalue="Go Test.TestCm in lifelog-grpc/pkg/kafkax" />
+      <item itemvalue="Go Test.TestP in lifelog-grpc/pkg/kafkax" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build lifelog-grpc" />
-        <item itemvalue="Go Build.go build lifelog-grpc/collect" />
-        <item itemvalue="Go Build.go build lifelog-grpc/lifeLog" />
-        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
-        <item itemvalue="Go Build.go build lifelog-grpc/comment" />
+        <item itemvalue="Go Test.TestP in lifelog-grpc/pkg/kafkax" />
+        <item itemvalue="Go Test.TestCm in lifelog-grpc/pkg/kafkax" />
+        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -173,9 +138,15 @@
     <MESSAGE value="收藏功能微服务化" />
     <MESSAGE value="收藏夹服务，修复了一些参数展示bug" />
     <MESSAGE value="comment功能微服务化" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment功能微服务化" />
+    <MESSAGE value="interactive服务，新增关注功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="interactive服务，新增关注功能" />
   </component>
   <component name="VgoProject">
+    <environment>
+      <map>
+        <entry key="GOPROXY" value="https://goproxy.cn,direct" />
+      </map>
+    </environment>
     <settings-migrated>true</settings-migrated>
   </component>
   <component name="XDebuggerManager">

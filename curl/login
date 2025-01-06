@@ -1,0 +1,8 @@
+curl --location 'localhost:8080/user/login_email_password' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "email":"1242644834@qq.com",
+    "password":"125aAss#"
+}'
+
+
