@@ -14,13 +14,6 @@ func main() {
 	initPrometheus()
 	// 初始化viper
 	initViperDevelopment()
-	// 启动消费者
-	for _, c := range app.consumers {
-		err := c.Start()
-		if err != nil {
-			panic(err)
-		}
-	}
 	// 启动定时任务
 	app.cron.Start()
 	// 结束定时任务

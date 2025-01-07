@@ -29,6 +29,8 @@ const (
 	CommentService_FirstList_FullMethodName             = "/comment.v1.CommentService/FirstList"
 	CommentService_EveryRootChildSonList_FullMethodName = "/comment.v1.CommentService/EveryRootChildSonList"
 	CommentService_SonList_FullMethodName               = "/comment.v1.CommentService/SonList"
+	CommentService_BatchCreateComment_FullMethodName    = "/comment.v1.CommentService/BatchCreateComment"
+	CommentService_ProducerCommentEvent_FullMethodName  = "/comment.v1.CommentService/ProducerCommentEvent"
 )
 
 // CommentServiceClient is the client API for CommentService service.
@@ -43,6 +45,8 @@ type CommentServiceClient interface {
 	FirstList(ctx context.Context, in *FirstListRequest, opts ...grpc.CallOption) (*FirstListResponse, error)
 	EveryRootChildSonList(ctx context.Context, in *EveryRootChildSonListRequest, opts ...grpc.CallOption) (*EveryRootChildSonListResponse, error)
 	SonList(ctx context.Context, in *SonListRequest, opts ...grpc.CallOption) (*SonListResponse, error)
+	BatchCreateComment(ctx context.Context, in *BatchCreateCommentRequest, opts ...grpc.CallOption) (*BatchCreateCommentResponse, error)
+	ProducerCommentEvent(ctx context.Context, in *ProducerCommentEventRequest, opts ...grpc.CallOption) (*ProducerCommentEventResponse, error)
 }
 
 type commentServiceClient struct {
@@ -113,6 +117,26 @@ func (c *commentServiceClient) SonList(ctx context.Context, in *SonListRequest, 
 	return out, nil
 }
 
+func (c *commentServiceClient) BatchCreateComment(ctx context.Context, in *BatchCreateCommentRequest, opts ...grpc.CallOption) (*BatchCreateCommentResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(BatchCreateCommentResponse)
+	err := c.cc.Invoke(ctx, CommentService_BatchCreateComment_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *commentServiceClient) ProducerCommentEvent(ctx context.Context, in *ProducerCommentEventRequest, opts ...grpc.CallOption) (*ProducerCommentEventResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(ProducerCommentEventResponse)
+	err := c.cc.Invoke(ctx, CommentService_ProducerCommentEvent_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CommentServiceServer is the server API for CommentService service.
 // All implementations must embed UnimplementedCommentServiceServer
 // for forward compatibility.
@@ -125,6 +149,8 @@ type CommentServiceServer interface {
 	FirstList(context.Context, *FirstListRequest) (*FirstListResponse, error)
 	EveryRootChildSonList(context.Context, *EveryRootChildSonListRequest) (*EveryRootChildSonListResponse, error)
 	SonList(context.Context, *SonListRequest) (*SonListResponse, error)
+	BatchCreateComment(context.Context, *BatchCreateCommentRequest) (*BatchCreateCommentResponse, error)
+	ProducerCommentEvent(context.Context, *ProducerCommentEventRequest) (*ProducerCommentEventResponse, error)
 	mustEmbedUnimplementedCommentServiceServer()
 }
 
@@ -152,6 +178,12 @@ func (UnimplementedCommentServiceServer) EveryRootChildSonList(context.Context, 
 }
 func (UnimplementedCommentServiceServer) SonList(context.Context, *SonListRequest) (*SonListResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SonList not implemented")
+}
+func (UnimplementedCommentServiceServer) BatchCreateComment(context.Context, *BatchCreateCommentRequest) (*BatchCreateCommentResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method BatchCreateComment not implemented")
+}
+func (UnimplementedCommentServiceServer) ProducerCommentEvent(context.Context, *ProducerCommentEventRequest) (*ProducerCommentEventResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ProducerCommentEvent not implemented")
 }
 func (UnimplementedCommentServiceServer) mustEmbedUnimplementedCommentServiceServer() {}
 func (UnimplementedCommentServiceServer) testEmbeddedByValue()                        {}
@@ -282,6 +314,42 @@ func _CommentService_SonList_Handler(srv interface{}, ctx context.Context, dec f
 	return interceptor(ctx, in, info, handler)
 }
 
+func _CommentService_BatchCreateComment_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(BatchCreateCommentRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommentServiceServer).BatchCreateComment(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommentService_BatchCreateComment_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommentServiceServer).BatchCreateComment(ctx, req.(*BatchCreateCommentRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _CommentService_ProducerCommentEvent_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ProducerCommentEventRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CommentServiceServer).ProducerCommentEvent(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: CommentService_ProducerCommentEvent_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CommentServiceServer).ProducerCommentEvent(ctx, req.(*ProducerCommentEventRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // CommentService_ServiceDesc is the grpc.ServiceDesc for CommentService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -312,6 +380,14 @@ var CommentService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "SonList",
 			Handler:    _CommentService_SonList_Handler,
+		},
+		{
+			MethodName: "BatchCreateComment",
+			Handler:    _CommentService_BatchCreateComment_Handler,
+		},
+		{
+			MethodName: "ProducerCommentEvent",
+			Handler:    _CommentService_ProducerCommentEvent_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

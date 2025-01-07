@@ -8,12 +8,6 @@ package main
 
 import (
 	"github.com/google/wire"
-	"lifelog-grpc/event/commentEvent"
-	"lifelog-grpc/event/lifeLogEvent"
-	repository2 "lifelog-grpc/interactive/repository"
-	cache2 "lifelog-grpc/interactive/repository/cache"
-	"lifelog-grpc/interactive/repository/dao"
-	service2 "lifelog-grpc/interactive/service"
 	"lifelog-grpc/ioc"
 	"lifelog-grpc/ranking/repository"
 	"lifelog-grpc/ranking/repository/cache"
@@ -31,11 +25,8 @@ func InitApp() *App {
 	cmdable := ioc.InitRedis()
 	v := ioc.InitMiddlewares(logger, cmdable)
 	lifeLogServiceClient := ioc.InitLifeLogServiceCRPCClient()
-	client := ioc.InitKafka()
-	syncProducer := ioc.InitSyncProducer(client)
-	producer := lifeLogEvent.NewSaramaSyncProducer(syncProducer)
 	interactiveServiceClient := ioc.InitInteractiveServiceGRPCClient(logger)
-	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, producer, interactiveServiceClient)
+	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, interactiveServiceClient)
 	collectServiceClient := ioc.InitCollectServiceGRPCClient(logger)
 	collectHandler := web.NewCollectHandler(collectServiceClient, logger)
 	commentServiceClient := ioc.InitCommentServiceGRPCClient(logger)
@@ -46,20 +37,12 @@ func InitApp() *App {
 	rankingRepository := repository.NewRankingRepository(rankingCache)
 	rankingService := service.NewRankingService(rankingRepository)
 	job := ioc.InitRankingJob(rankingService, logger, cmdable)
-	interactiveHandler := web.NewInteractiveHandler(logger, interactiveServiceClient, job, producer)
+	interactiveHandler := web.NewInteractiveHandler(logger, interactiveServiceClient, job)
 	engine := ioc.InitGin(userHandler, v, lifeLogHandler, collectHandler, commentHandler, codeHandler, interactiveHandler)
-	db := ioc.GetMysql(logger)
-	interactiveDao := dao.NewInteractiveDao(db, logger)
-	interactiveCache := cache2.NewInteractiveCache(cmdable, logger)
-	interactiveRepository := repository2.NewInteractiveRepository(interactiveDao, interactiveCache)
-	interactiveService := service2.NewInteractiveService(interactiveRepository)
-	readEventConsumer := lifeLogEvent.NewReadEventConsumer(client, logger, interactiveService)
-	v2 := ioc.InitConsumers(readEventConsumer)
 	cron := ioc.InitCronRankingJob(logger, job)
 	app := &App{
-		server:    engine,
-		consumers: v2,
-		cron:      cron,
+		server: engine,
+		cron:   cron,
 	}
 	return app
 }
@@ -86,9 +69,6 @@ var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveS
 
 // commentSet 评论
 var commentSet = wire.NewSet(web.NewCommentHandler, ioc.InitCommentServiceGRPCClient)
-
-// kafkaSet kafka模块的依赖注入
-var kafkaSet = wire.NewSet(ioc.InitKafka, lifeLogEvent.NewReadEventBatchConsumer, lifeLogEvent.NewReadEventConsumer, lifeLogEvent.NewSaramaSyncProducer, commentEvent.NewCommentEventBatchConsumer, ioc.InitConsumers, ioc.InitSyncProducer, service2.NewInteractiveService, repository2.NewInteractiveRepository, dao.NewInteractiveDao, cache2.NewInteractiveCache)
 
 // rankingSet ranking模块的依赖注入
 var rankingSet = wire.NewSet(service.NewRankingService, repository.NewRankingRepository, cache.NewRankingCacheRedis)

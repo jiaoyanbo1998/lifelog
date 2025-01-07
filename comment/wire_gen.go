@@ -23,7 +23,8 @@ func InitCommentServiceGRPCService() *grpc.CommentServiceGRPCService {
 	commentDao := dao.NewCommentDaoGorm(db, logger)
 	commentRepository := repository.NewCommentRepository(commentDao)
 	commentService := service.NewCommentService(commentRepository)
-	commentServiceGRPCService := grpc.NewCommentServiceGRPCService(commentService)
+	kafkaProducer := ioc.InitKafka()
+	commentServiceGRPCService := grpc.NewCommentServiceGRPCService(commentService, kafkaProducer, logger)
 	return commentServiceGRPCService
 }
 
@@ -31,4 +32,4 @@ func InitCommentServiceGRPCService() *grpc.CommentServiceGRPCService {
 
 var commentSet = wire.NewSet(service.NewCommentService, repository.NewCommentRepository, dao.NewCommentDaoGorm)
 
-var third = wire.NewSet(ioc.InitLogger, ioc.GetMysql)
+var third = wire.NewSet(ioc.InitLogger, ioc.GetMysql, ioc.InitKafka)

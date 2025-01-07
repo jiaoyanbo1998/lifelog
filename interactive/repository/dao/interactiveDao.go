@@ -120,7 +120,7 @@ func (i *InteractiveDaoV1) FollowList(ctx context.Context, id int64) ([]int64, e
 	}
 	var ids []int64
 	for _, v := range follow {
-		ids = append(ids, v.FollowerId)
+		ids = append(ids, v.FolloweeId)
 	}
 	return ids, nil
 }
@@ -137,7 +137,7 @@ func (i *InteractiveDaoV1) FanList(ctx context.Context, id int64) ([]int64, erro
 	}
 	var ids []int64
 	for _, v := range follow {
-		ids = append(ids, v.FolloweeId)
+		ids = append(ids, v.FollowerId)
 	}
 	return ids, nil
 }
@@ -187,7 +187,7 @@ func intersection(slice1, slice2 []int64) []int64 {
 func (i *InteractiveDaoV1) InsertFollow(ctx context.Context, followerId, followeeId int64) error {
 	var follow Follow
 	follow.FollowerId = followerId
-	follow.FollowerId = followeeId
+	follow.FolloweeId = followeeId
 	follow.CreateTime = time.Now().UnixMilli()
 	// 没有记录插入，有记录不插入（我设置了唯一索引，限制重复插入）
 	return i.db.WithContext(ctx).Transaction(func(tx *gorm.DB) error {

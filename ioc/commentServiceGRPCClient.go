@@ -19,13 +19,13 @@ func InitCommentServiceGRPCClient(logger loggerx.Logger) commentv1.CommentServic
 	err := viper.UnmarshalKey("commentEtcd", &cfg)
 	if err != nil {
 		logger.Error("加载配置文件失败", loggerx.Error(err),
-			loggerx.String("method:", "comment:InitCommentServiceGRPCClient"))
+			loggerx.String("method:", "comments:InitCommentServiceGRPCClient"))
 	}
 	// 2.grpc客户端配置（go-zero框架）
 	clientConf := zrpc.RpcClientConf{
 		Etcd: discov.EtcdConf{
 			Hosts: cfg.Addr,
-			Key:   "service/comment",
+			Key:   "service/comments",
 		},
 	}
 	// 3.创建grpc客户端（go-zero框架）

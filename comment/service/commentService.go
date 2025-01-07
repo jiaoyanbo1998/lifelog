@@ -10,8 +10,7 @@ type CommentService interface {
 	CreateComment(ctx context.Context, commentDomain domain.CommentDomain) error
 	DeleteComment(ctx context.Context, id int64) error
 	EditComment(ctx context.Context, commentDomain domain.CommentDomain) error
-	FirstList(ctx context.Context, biz string, lifeLogId int64, min int64) (
-		[]domain.CommentDomain, error)
+	FirstList(ctx context.Context, biz string, lifeLogId int64, min int64) ([]domain.CommentDomain, error)
 	EveryRootChildSonList(ctx context.Context, id, RootId, limit int64) ([]domain.CommentDomain, error)
 	SonList(ctx context.Context, parentId int64, limit int64, offset int64) ([]domain.CommentDomain, error)
 	BatchCreateComment(ctx context.Context, comments []domain.CommentDomain) error

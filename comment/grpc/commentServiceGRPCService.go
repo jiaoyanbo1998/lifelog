@@ -2,20 +2,86 @@ package grpc
 
 import (
 	"context"
+	"encoding/json"
+	"github.com/segmentio/kafka-go"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 	commentv1 "lifelog-grpc/api/proto/gen/comment/v1"
 	"lifelog-grpc/comment/domain"
 	"lifelog-grpc/comment/service"
+	"lifelog-grpc/pkg/kafkax"
+	"lifelog-grpc/pkg/loggerx"
 )
 
 type CommentServiceGRPCService struct {
 	commentService service.CommentService
 	commentv1.UnimplementedCommentServiceServer
+	producer *kafkax.KafkaProducer
+	logger   loggerx.Logger
 }
 
-func NewCommentServiceGRPCService(commentService service.CommentService) *CommentServiceGRPCService {
+func NewCommentServiceGRPCService(commentService service.CommentService,
+	producer *kafkax.KafkaProducer, logger loggerx.Logger) *CommentServiceGRPCService {
 	return &CommentServiceGRPCService{
 		commentService: commentService,
+		producer:       producer,
+		logger:         logger,
 	}
+}
+
+func (c *CommentServiceGRPCService) ProducerCommentEvent(ctx context.Context, request *commentv1.ProducerCommentEventRequest) (*commentv1.ProducerCommentEventResponse, error) {
+	// 定义评论结构体
+	type comment struct {
+		UserId   int64  `json:"user_id"`
+		Biz      string `json:"biz"`
+		BizId    int64  `json:"biz_id"`
+		Content  string `json:"content"`
+		ParentId int64  `json:"parent_id"`
+		RootId   int64  `json:"root_id"`
+	}
+	// 将请求中的评论数据映射到结构体
+	com := comment{
+		UserId:   request.Comment.GetUserId(),
+		Biz:      request.Comment.GetBiz(),
+		BizId:    request.Comment.GetBizId(),
+		Content:  request.Comment.GetContent(),
+		ParentId: request.Comment.GetParentId(),
+		RootId:   request.Comment.GetRootId(),
+	}
+	// json序列化，将数据转为[]byte类型的json对象
+	marshal, err := json.Marshal(com)
+	if err != nil {
+		c.logger.Error("JSON 序列化失败", loggerx.Error(err))
+		return nil, status.Errorf(codes.Internal, "JSON 序列化失败: %v", err)
+	}
+	// 创建Kafka消息
+	message := kafka.Message{
+		Value: marshal,
+	}
+	// 发送消息到 Kafka
+	c.producer.Send(message)
+	// 返回成功响应
+	return &commentv1.ProducerCommentEventResponse{}, nil
+}
+
+func (c *CommentServiceGRPCService) BatchCreateComment(ctx context.Context, request *commentv1.BatchCreateCommentRequest) (*commentv1.BatchCreateCommentResponse, error) {
+	// 将[]*CommentDomain，转为[]domain.CommonDomain
+	cds := make([]domain.CommentDomain, 0, len(request.GetComment()))
+	for _, v := range request.GetComment() {
+		cds = append(cds, domain.CommentDomain{
+			UserId:   v.GetUserId(),
+			Biz:      v.GetBiz(),
+			BizId:    v.GetBizId(),
+			Content:  v.GetContent(),
+			ParentId: v.GetParentId(),
+			RootId:   v.GetRootId(),
+		})
+	}
+	err := c.commentService.BatchCreateComment(ctx, cds)
+	if err != nil {
+		return &commentv1.BatchCreateCommentResponse{}, err
+	}
+	return &commentv1.BatchCreateCommentResponse{}, nil
 }
 
 func (c *CommentServiceGRPCService) CreateComment(ctx context.Context, request *commentv1.CreateCommentRequest) (*commentv1.CreateCommentResponse, error) {

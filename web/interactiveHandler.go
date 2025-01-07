@@ -3,7 +3,6 @@ package web
 import (
 	"github.com/gin-gonic/gin"
 	interactivev1 "lifelog-grpc/api/proto/gen/interactive/v1"
-	"lifelog-grpc/event/lifeLogEvent"
 	"lifelog-grpc/job"
 	"lifelog-grpc/pkg/loggerx"
 	"net/http"
@@ -15,21 +14,18 @@ type InteractiveHandler struct {
 	interactiveServiceClient interactivev1.InteractiveServiceClient
 	job                      job.Job
 	biz                      string
-	syncProducer             lifeLogEvent.Producer
 	JWTHandler
 }
 
 func NewInteractiveHandler(
 	l loggerx.Logger,
 	interactiveServiceClient interactivev1.InteractiveServiceClient,
-	job job.Job,
-	syncProducer lifeLogEvent.Producer) *InteractiveHandler {
+	job job.Job) *InteractiveHandler {
 	return &InteractiveHandler{
 		logger:                   l,
 		interactiveServiceClient: interactiveServiceClient,
 		biz:                      "lifeLog",
 		job:                      job,
-		syncProducer:             syncProducer,
 	}
 }
 

@@ -2,7 +2,7 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
-	commentv12 "lifelog-grpc/api/proto/gen/comment/v1"
+	commentv1 "lifelog-grpc/api/proto/gen/comment/v1"
 	"lifelog-grpc/comment/vo"
 	"lifelog-grpc/errs"
 	"lifelog-grpc/pkg/loggerx"
@@ -14,12 +14,12 @@ import (
 type CommentHandler struct {
 	Biz                  string
 	logger               loggerx.Logger
-	commentServiceClient commentv12.CommentServiceClient
+	commentServiceClient commentv1.CommentServiceClient
 }
 
 // NewCommentHandler 创建评论处理器
 func NewCommentHandler(logger loggerx.Logger,
-	commentServiceClient commentv12.CommentServiceClient) *CommentHandler {
+	commentServiceClient commentv1.CommentServiceClient) *CommentHandler {
 	return &CommentHandler{
 		Biz:                  "lifeLog",
 		logger:               logger,
@@ -66,26 +66,49 @@ func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 		return
 	}
 	// 创建评论
-	_, err = c.commentServiceClient.CreateComment(ctx.Request.Context(), &commentv12.CreateCommentRequest{
-		Comment: &commentv12.Comment{
-			UserId:   cq.UserId,
-			Biz:      c.Biz,
-			BizId:    cq.BizId,
-			Content:  cq.Content,
-			ParentId: cq.ParentId,
-			RootId:   cq.RootId,
-		},
-	})
+	_, err = c.commentServiceClient.ProducerCommentEvent(ctx.Request.Context(),
+		&commentv1.ProducerCommentEventRequest{
+			Comment: &commentv1.Comment{
+				UserId:   cq.UserId,
+				Biz:      c.Biz,
+				BizId:    cq.BizId,
+				Content:  cq.Content,
+				ParentId: cq.ParentId,
+				RootId:   cq.RootId,
+			},
+		})
 	if err != nil {
-		ctx.JSON(http.StatusBadRequest, Result[string]{
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
 			Code: errs.ErrSystemError,
 			Msg:  "系统错误",
 			Data: "error",
 		})
-		c.logger.Error("创建评论失败", loggerx.Error(err),
+		c.logger.Error("发送评论到kafka失败", loggerx.Error(err),
 			loggerx.String("method:", "CommentHandler:CreateComment"))
 		return
 	}
+	/*
+		_, err = c.commentServiceClient.CreateComment(ctx.Request.Context(), &commentv1.CreateCommentRequest{
+			Comment: &commentv1.Comment{
+				UserId:   cq.UserId,
+				Biz:      c.Biz,
+				BizId:    cq.BizId,
+				Content:  cq.Content,
+				ParentId: cq.ParentId,
+				RootId:   cq.RootId,
+			},
+		})
+		if err != nil {
+			ctx.JSON(http.StatusBadRequest, Result[string]{
+				Code: errs.ErrSystemError,
+				Msg:  "系统错误",
+				Data: "error",
+			})
+			c.logger.Error("创建评论失败", loggerx.Error(err),
+				loggerx.String("method:", "CommentHandler:CreateComment"))
+			return
+		}
+	*/
 	ctx.JSON(http.StatusOK, Result[string]{
 		Code: 200,
 		Msg:  "创建成功",
@@ -117,7 +140,7 @@ func (c *CommentHandler) DeleteComment(ctx *gin.Context) {
 		return
 	}
 	_, err = c.commentServiceClient.DeleteComment(ctx.Request.Context(),
-		&commentv12.DeleteCommentRequest{
+		&commentv1.DeleteCommentRequest{
 			Id: id,
 		})
 	if err != nil {
@@ -153,8 +176,8 @@ func (c *CommentHandler) EditComment(ctx *gin.Context) {
 		c.logger.Error("参数bind失败", loggerx.Error(err))
 	}
 	_, err = c.commentServiceClient.EditComment(ctx.Request.Context(),
-		&commentv12.EditCommentRequest{
-			Comment: &commentv12.Comment{
+		&commentv1.EditCommentRequest{
+			Comment: &commentv1.Comment{
 				Id:      cq.Id,
 				Content: cq.Content,
 			},
@@ -192,8 +215,8 @@ func (c *CommentHandler) FirstList(ctx *gin.Context) {
 			loggerx.String("method", "CommentHandler:FirstList"))
 		return
 	}
-	comments, err := c.commentServiceClient.FirstList(ctx.Request.Context(), &commentv12.FirstListRequest{
-		Comment: &commentv12.Comment{
+	comments, err := c.commentServiceClient.FirstList(ctx.Request.Context(), &commentv1.FirstListRequest{
+		Comment: &commentv1.Comment{
 			Biz:   c.Biz,
 			BizId: req.BizId,
 		},
@@ -235,8 +258,8 @@ func (c *CommentHandler) EveryRootChildSonList(ctx *gin.Context) {
 		return
 	}
 	comments, err := c.commentServiceClient.EveryRootChildSonList(ctx.Request.Context(),
-		&commentv12.EveryRootChildSonListRequest{
-			Comment: &commentv12.Comment{
+		&commentv1.EveryRootChildSonListRequest{
+			Comment: &commentv1.Comment{
 				Id:     req.Id,
 				RootId: req.RootId,
 			},
@@ -277,8 +300,8 @@ func (c *CommentHandler) SonList(ctx *gin.Context) {
 			loggerx.String("method", "CommentHandler:SonList"))
 		return
 	}
-	comments, err := c.commentServiceClient.SonList(ctx.Request.Context(), &commentv12.SonListRequest{
-		Comment: &commentv12.Comment{
+	comments, err := c.commentServiceClient.SonList(ctx.Request.Context(), &commentv1.SonListRequest{
+		Comment: &commentv1.Comment{
 			ParentId: req.ParentId,
 		},
 		Limit:  req.Limit,
@@ -301,7 +324,7 @@ func (c *CommentHandler) SonList(ctx *gin.Context) {
 	})
 }
 
-func (c *CommentHandler) toVo(comments []*commentv12.Comment) []vo.CommentVo {
+func (c *CommentHandler) toVo(comments []*commentv1.Comment) []vo.CommentVo {
 	var res []vo.CommentVo
 	for _, comment := range comments {
 		c := vo.CommentVo{

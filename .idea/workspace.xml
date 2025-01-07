@@ -4,18 +4,49 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="interactive服务，新增关注功能">
+    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="新增了kafka-go的生产者，消费者（包括批量消费）">
+      <change afterPath="$PROJECT_DIR$/comment/ioc/kafka.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.md" beforeDir="false" afterPath="$PROJECT_DIR$/install.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/comment/v1/comment.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/comment/v1/comment.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/ioc/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/ioc/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/service/commentService.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/service/commentService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/commentServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/commentServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/consumers.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/kafka.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/producer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/kafkax/async_producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/kafkax/producer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/kafkax/batch_sync_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/kafkax/batch_sync_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/kafkax/kafka_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/kafkax/kafka_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commentHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/commentHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/interactiveHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" show_ignored="true" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -71,10 +102,49 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\GoLangProjects\src\lifelog\api\proto\gen" />
-      <recent name="D:\GoLangProjects\src\lifelog\interactive" />
+      <recent name="D:\GoLangProjects\src\lifelog\events\comment" />
+      <recent name="D:\GoLangProjects\src\lifelog" />
+      <recent name="D:\GoLangProjects\src\lifelog\comment\events" />
+      <recent name="D:\GoLangProjects\src\lifelog\comment" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestP in lifelog-grpc/pkg/kafkax">
+  <component name="RunManager" selected="Go Test.TestCm in lifelog-grpc/pkg/kafkax">
+    <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/collect" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/collect" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/collect/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/comment" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/comment" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/comment/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/interactive" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/interactive/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="TestCm in lifelog-grpc/pkg/kafkax" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="lifelog" />
       <working_directory value="$PROJECT_DIR$/pkg/kafkax" />
@@ -87,48 +157,43 @@
       <pattern value="^\QTestCm\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestP in lifelog-grpc/pkg/kafkax" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$/pkg/kafkax" />
-      <root_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/pkg/kafkax" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <pattern value="^\QTestP\E$" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
+      <item itemvalue="Go Build.go build lifelog-grpc" />
+      <item itemvalue="Go Build.go build lifelog-grpc/collect" />
+      <item itemvalue="Go Build.go build lifelog-grpc/comment" />
+      <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
       <item itemvalue="Go Test.TestCm in lifelog-grpc/pkg/kafkax" />
-      <item itemvalue="Go Test.TestP in lifelog-grpc/pkg/kafkax" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestP in lifelog-grpc/pkg/kafkax" />
+        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
+        <item itemvalue="Go Build.go build lifelog-grpc" />
         <item itemvalue="Go Test.TestCm in lifelog-grpc/pkg/kafkax" />
-        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
+        <item itemvalue="Go Build.go build lifelog-grpc/comment" />
+        <item itemvalue="Go Build.go build lifelog-grpc/collect" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lifelog和interactive转为微服务" />
@@ -139,7 +204,9 @@
     <MESSAGE value="收藏夹服务，修复了一些参数展示bug" />
     <MESSAGE value="comment功能微服务化" />
     <MESSAGE value="interactive服务，新增关注功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="interactive服务，新增关注功能" />
+    <MESSAGE value="新增了kafka-go实现的异步生产者和异步消费者" />
+    <MESSAGE value="新增了kafka-go的生产者，消费者（包括批量消费）" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增了kafka-go的生产者，消费者（包括批量消费）" />
   </component>
   <component name="VgoProject">
     <environment>

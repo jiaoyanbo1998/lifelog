@@ -4,12 +4,6 @@ package main
 
 import (
 	"github.com/google/wire"
-	"lifelog-grpc/event/commentEvent"
-	"lifelog-grpc/event/lifeLogEvent"
-	"lifelog-grpc/interactive/repository"
-	"lifelog-grpc/interactive/repository/cache"
-	"lifelog-grpc/interactive/repository/dao"
-	"lifelog-grpc/interactive/service"
 	"lifelog-grpc/ioc"
 	rankingRepository "lifelog-grpc/ranking/repository"
 	rankingCache "lifelog-grpc/ranking/repository/cache"
@@ -58,23 +52,6 @@ var commentSet = wire.NewSet(
 	ioc.InitCommentServiceGRPCClient,
 )
 
-// kafkaSet kafka模块的依赖注入
-var kafkaSet = wire.NewSet(
-	ioc.InitKafka,
-	lifeLogEvent.NewReadEventBatchConsumer,
-	lifeLogEvent.NewReadEventConsumer,
-	lifeLogEvent.NewSaramaSyncProducer,
-	commentEvent.NewCommentEventBatchConsumer,
-	// ioc.InitBatchConsumers,
-	ioc.InitConsumers,
-	ioc.InitSyncProducer,
-	// 生产者消费者
-	service.NewInteractiveService,
-	repository.NewInteractiveRepository,
-	dao.NewInteractiveDao,
-	cache.NewInteractiveCache,
-)
-
 // rankingSet ranking模块的依赖注入
 var rankingSet = wire.NewSet(
 	rankingService.NewRankingService,
@@ -93,9 +70,6 @@ func InitApp() *App {
 		// 初始化web服务器
 		ioc.InitGin,
 
-		// 初始化mysql
-		// ioc.InitMysql,
-		ioc.GetMysql,
 		// 初始化日志记录器
 		ioc.InitLogger,
 		// 初始化web中间件
@@ -120,9 +94,6 @@ func InitApp() *App {
 
 		// 初始化收藏夹collectClip模块
 		collectClipSet,
-
-		// 初始化kafka模块
-		kafkaSet,
 
 		// 初始化排行榜ranking模块
 		rankingSet,

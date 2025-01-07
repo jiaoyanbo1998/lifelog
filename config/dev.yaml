@@ -7,8 +7,10 @@ redis:
     password: ""
     db: 0
 
-kafka:
-    addr: "localhost:9092"
+commentKafka:
+    addr:
+        - "localhost:9092"
+    topic: "comments"
 
 grpc:
     secure : false
@@ -42,3 +44,11 @@ commentEtcd:
     port: 8075
     addr:
         - "localhost:12379"
+
+commentConsumer:
+    addr:
+        - "localhost:9092"
+    groupId: "commentGroup"
+    topic:  "comments"
+    timeout: 1
+    batch: 10

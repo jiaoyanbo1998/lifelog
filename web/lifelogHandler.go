@@ -3,9 +3,8 @@ package web
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/copier"
-	interactivev12 "lifelog-grpc/api/proto/gen/interactive/v1"
-	lifelogv12 "lifelog-grpc/api/proto/gen/lifelog/v1"
-	"lifelog-grpc/event/lifeLogEvent"
+	interactivev1 "lifelog-grpc/api/proto/gen/interactive/v1"
+	lifelogv1 "lifelog-grpc/api/proto/gen/lifelog/v1"
 	"lifelog-grpc/lifeLog/vo"
 	"lifelog-grpc/pkg/loggerx"
 	"net/http"
@@ -15,23 +14,20 @@ import (
 
 type LifeLogHandler struct {
 	logger                   loggerx.Logger
-	lifeLogServiceClient     lifelogv12.LifeLogServiceClient
-	interactiveServiceClient interactivev12.InteractiveServiceClient
+	lifeLogServiceClient     lifelogv1.LifeLogServiceClient
+	interactiveServiceClient interactivev1.InteractiveServiceClient
 	biz                      string
-	syncProducer             lifeLogEvent.Producer
 	JWTHandler
 }
 
 func NewLifeLogHandler(l loggerx.Logger,
-	lifeLogServiceClient lifelogv12.LifeLogServiceClient,
-	syncProducer lifeLogEvent.Producer,
-	interactiveServiceClient interactivev12.InteractiveServiceClient) *LifeLogHandler {
+	lifeLogServiceClient lifelogv1.LifeLogServiceClient,
+	interactiveServiceClient interactivev1.InteractiveServiceClient) *LifeLogHandler {
 	return &LifeLogHandler{
 		logger:                   l,
 		lifeLogServiceClient:     lifeLogServiceClient,
 		interactiveServiceClient: interactiveServiceClient,
 		biz:                      "lifeLog",
-		syncProducer:             syncProducer,
 	}
 }
 
@@ -91,12 +87,12 @@ func (l *LifeLogHandler) Edit(ctx *gin.Context) {
 	// 调用service层代码
 	// 传入id，表示是修改文化在哪个
 	// 不传入id，表示创建新LifeLog
-	res, err := l.lifeLogServiceClient.Edit(ctx, &lifelogv12.EditRequest{
-		LifeLogDomain: &lifelogv12.LifeLogDomain{
+	res, err := l.lifeLogServiceClient.Edit(ctx, &lifelogv1.EditRequest{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
 			Id:      req.Id,
 			Title:   req.Title,
 			Content: req.Content,
-			Author: &lifelogv12.Author{
+			Author: &lifelogv1.Author{
 				UserId: userInfo.Id,
 			},
 		},
@@ -149,7 +145,7 @@ func (l *LifeLogHandler) Delete(ctx *gin.Context) {
 		return
 	}
 	// 调用service层代码
-	_, err = l.lifeLogServiceClient.Delete(ctx, &lifelogv12.DeleteRequest{
+	_, err = l.lifeLogServiceClient.Delete(ctx, &lifelogv1.DeleteRequest{
 		Ids:      req.Ids,
 		IsPublic: req.Public,
 	})
@@ -189,8 +185,8 @@ func (l *LifeLogHandler) SearchByTitle(ctx *gin.Context) {
 			loggerx.String("method:", "LifeLogHandler:Search"))
 		return
 	}
-	res, err := l.lifeLogServiceClient.SearchByTitle(ctx, &lifelogv12.SearchByTitleRequest{
-		LifeLogDomain: &lifelogv12.LifeLogDomain{
+	res, err := l.lifeLogServiceClient.SearchByTitle(ctx, &lifelogv1.SearchByTitleRequest{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
 			Title:  req.Title,
 			Limit:  req.Limit,
 			Offset: req.Offset,
@@ -256,9 +252,9 @@ func (l *LifeLogHandler) DraftList(ctx *gin.Context) {
 			loggerx.String("method：", "LifeLogHandler:Search"))
 		return
 	}
-	res, err := l.lifeLogServiceClient.DraftList(ctx, &lifelogv12.DraftListRequest{
-		LifeLogDomain: &lifelogv12.LifeLogDomain{
-			Author: &lifelogv12.Author{
+	res, err := l.lifeLogServiceClient.DraftList(ctx, &lifelogv1.DraftListRequest{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
+			Author: &lifelogv1.Author{
 				UserId: userInfo.Id,
 			},
 			Limit:  req.Limit,
@@ -323,10 +319,10 @@ func (l *LifeLogHandler) Revoke(ctx *gin.Context) {
 			loggerx.String("method:", "LifeLogHandler:Revoke"))
 		return
 	}
-	_, err = l.lifeLogServiceClient.Revoke(ctx, &lifelogv12.RevokeRequest{
-		LifeLogDomain: &lifelogv12.LifeLogDomain{
+	_, err = l.lifeLogServiceClient.Revoke(ctx, &lifelogv1.RevokeRequest{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
 			Id: id,
-			Author: &lifelogv12.Author{
+			Author: &lifelogv1.Author{
 				UserId: userInfo.Id,
 			},
 		},
@@ -381,12 +377,12 @@ func (l *LifeLogHandler) Publish(ctx *gin.Context) {
 			loggerx.String("method:", "LifeLogHandler:Publish"))
 		return
 	}
-	_, err = l.lifeLogServiceClient.Publish(ctx, &lifelogv12.PublishRequest{
-		LifeLogDomain: &lifelogv12.LifeLogDomain{
+	_, err = l.lifeLogServiceClient.Publish(ctx, &lifelogv1.PublishRequest{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
 			Id:      req.Id,
 			Title:   req.Title,
 			Content: req.Content,
-			Author: &lifelogv12.Author{
+			Author: &lifelogv1.Author{
 				UserId: userInfo.Id,
 			},
 		},
@@ -450,8 +446,8 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			loggerx.String("method：", "LifeLogHandler:Detail"))
 		return
 	}
-	res, err := l.lifeLogServiceClient.Detail(ctx, &lifelogv12.DetailRequest{
-		LifeLogDomain: &lifelogv12.LifeLogDomain{
+	res, err := l.lifeLogServiceClient.Detail(ctx, &lifelogv1.DetailRequest{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
 			Id: req.Id,
 		},
 		IsPublic: req.Public,
@@ -467,8 +463,8 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 		return
 	}
 	// 增加阅读量
-	_, er := l.interactiveServiceClient.IncreaseRead(ctx, &interactivev12.IncreaseReadRequest{
-		InteractiveDomain: &interactivev12.InteractiveDomain{
+	_, er := l.interactiveServiceClient.IncreaseRead(ctx, &interactivev1.IncreaseReadRequest{
+		InteractiveDomain: &interactivev1.InteractiveDomain{
 			Biz:    l.biz,
 			BizId:  res.GetLifeLogDomain().GetId(),
 			UserId: userInfo.Id,
@@ -479,8 +475,8 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			loggerx.String("method:", "LifeLogHandler:Detail"))
 	}
 	// 获取点赞数，收藏数，阅读数
-	interactiveInfo, err := l.interactiveServiceClient.InteractiveInfo(ctx, &interactivev12.InteractiveInfoRequest{
-		InteractiveDomain: &interactivev12.InteractiveDomain{
+	interactiveInfo, err := l.interactiveServiceClient.InteractiveInfo(ctx, &interactivev1.InteractiveInfoRequest{
+		InteractiveDomain: &interactivev1.InteractiveDomain{
 			Biz:   l.biz,
 			BizId: res.GetLifeLogDomain().GetId(),
 		},

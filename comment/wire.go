@@ -20,6 +20,7 @@ var commentSet = wire.NewSet(
 var third = wire.NewSet(
 	ioc.InitLogger,
 	ioc.GetMysql,
+	ioc.InitKafka,
 )
 
 func InitCommentServiceGRPCService() *grpc.CommentServiceGRPCService {

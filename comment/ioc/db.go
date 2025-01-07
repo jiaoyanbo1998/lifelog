@@ -35,9 +35,9 @@ func initMysql(l loggerx.Logger) *gorm.DB {
 	// 数据库连接信息
 	dsn := "root:123456@tcp(127.0.0.1:3306)/lifelog?charset=utf8mb4&parseTime=True&loc=Local"
 	// 使用gorm的mysql驱动，建立数据库连接
-	db, err := gorm.Open(mysql.Open(dsn))
+	d, err := gorm.Open(mysql.Open(dsn))
 	if err != nil {
 		panic(err)
 	}
-	return db
+	return d
 }

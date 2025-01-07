@@ -12,6 +12,7 @@ import (
 
 func main() {
 	// 1.读取配置文件
+	initViperDevelopment()
 	type config struct {
 		Port int      `yaml:"port"`
 		Addr []string `yaml:"addr"`
@@ -46,4 +47,18 @@ func main() {
 	// 7.启动grpc服务
 	logx.Info("正在启动codeService的grpc服务...")
 	server.Start()
+}
+
+func initViperDevelopment() {
+	// 配置文件的名字
+	viper.SetConfigName("dev")
+	// 配置文件的类型
+	viper.SetConfigType("yaml")
+	// 当前目录下的，config目录
+	viper.AddConfigPath("config")
+	// 读取配置文件
+	err := viper.ReadInConfig()
+	if err != nil {
+		panic(err)
+	}
 }
