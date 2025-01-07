@@ -4,199 +4,55 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a517e45e-e016-4971-a18a-a7411f713c48" name="Changes" comment="新增了kafka-go的生产者，消费者（包括批量消费）">
-      <change afterPath="$PROJECT_DIR$/comment/ioc/consumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" afterDir="false" />
+    <list default="true" id="72e36459-e8c6-4cd0-86cf-48e1ef6c2391" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/lifelog.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/ioc/kafka.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/install.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/kafkax/batch_sync_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/kafkax/batch_sync_consumer.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ChangesViewManager" show_ignored="true" />
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Go File" />
-      </list>
-    </option>
-  </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../pack/GoLang" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/pkg/kafkax/batch_sync_consumer.go" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2r6xsngn2s46cotp0GGGH3ON3QT" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
+  <component name="ProjectId" id="2rIn9QucuDsazinS6IMlOMYbWpE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog/pkg/kafkax&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;go.vgo&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "C:/Users/17838466781",
+    "settings.editor.selected.configurable": "configurable.group.tools"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GoLangProjects\src\lifelog\pkg\kafkax" />
-      <recent name="D:\GoLangProjects\src\lifelog\curl" />
-      <recent name="D:\GoLangProjects\src\lifelog\comment\ioc" />
-      <recent name="D:\GoLangProjects\src\lifelog\interactive\ioc" />
-      <recent name="D:\GoLangProjects\src\lifelog\collect\ioc" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\GoLangProjects\src\lifelog\comment" />
-      <recent name="D:\GoLangProjects\src\lifelog\api\proto\gen" />
-      <recent name="D:\GoLangProjects\src\lifelog\events\comment" />
-      <recent name="D:\GoLangProjects\src\lifelog" />
-      <recent name="D:\GoLangProjects\src\lifelog\comment\events" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Go Build.go build lifelog-grpc">
-    <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build lifelog-grpc/collect" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/collect" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/collect/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build lifelog-grpc/comment" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/comment" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/comment/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/interactive" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/interactive/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build lifelog-grpc/lifeLog" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/lifeLog" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/lifeLog/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Go Build.go build lifelog-grpc" />
-      <item itemvalue="Go Build.go build lifelog-grpc/collect" />
-      <item itemvalue="Go Build.go build lifelog-grpc/comment" />
-      <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
-      <item itemvalue="Go Build.go build lifelog-grpc/lifeLog" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Go Build.go build lifelog-grpc" />
-        <item itemvalue="Go Build.go build lifelog-grpc/comment" />
-        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
-        <item itemvalue="Go Build.go build lifelog-grpc/collect" />
-        <item itemvalue="Go Build.go build lifelog-grpc/lifeLog" />
-      </list>
-    </recent_temporary>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="lifelog和interactive转为微服务" />
-    <MESSAGE value="修改了一些bug" />
-    <MESSAGE value="修改了互动服务的bug" />
-    <MESSAGE value="修改了收藏夹功能的命名，并且准备将收藏夹功能微服务化" />
-    <MESSAGE value="收藏功能微服务化" />
-    <MESSAGE value="收藏夹服务，修复了一些参数展示bug" />
-    <MESSAGE value="comment功能微服务化" />
-    <MESSAGE value="interactive服务，新增关注功能" />
-    <MESSAGE value="新增了kafka-go实现的异步生产者和异步消费者" />
-    <MESSAGE value="新增了kafka-go的生产者，消费者（包括批量消费）" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增了kafka-go的生产者，消费者（包括批量消费）" />
-  </component>
   <component name="VgoProject">
-    <environment>
-      <map>
-        <entry key="GOPROXY" value="https://goproxy.cn,direct" />
-      </map>
-    </environment>
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="GoApplicationRunConfiguration">
-        <watch expression="*(*&quot;lifelog-grpc/api/proto/gen/api/proto/lifelog/v1.DetailManyResponse&quot;)(824636100032)" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>
