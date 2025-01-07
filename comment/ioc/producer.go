@@ -2,11 +2,11 @@ package ioc
 
 import (
 	"github.com/spf13/viper"
-	"github.com/zeromicro/go-zero/core/logx"
 	"lifelog-grpc/pkg/kafkax"
+	"lifelog-grpc/pkg/loggerx"
 )
 
-func InitKafka() *kafkax.KafkaProducer {
+func InitKafkaProducer(logger loggerx.Logger) *kafkax.KafkaProducer {
 	type kafkaConfig struct {
 		Addr  []string `yaml:"addr"`
 		Topic string   `yaml:"topic"`
@@ -14,7 +14,7 @@ func InitKafka() *kafkax.KafkaProducer {
 	var kCfg kafkaConfig
 	err := viper.UnmarshalKey("commentKafka", &kCfg)
 	if err != nil {
-		logx.Errorf("加载配置文件失败：%s", err.Error())
+		logger.Error("加载配置文件失败", loggerx.Error(err))
 		panic(err)
 	}
 	producer := kafkax.NewKafkaProducer(kCfg.Addr, kCfg.Topic)

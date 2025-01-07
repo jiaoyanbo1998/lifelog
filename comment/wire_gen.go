@@ -17,19 +17,24 @@ import (
 
 // Injectors from wire.go:
 
-func InitCommentServiceGRPCService() *grpc.CommentServiceGRPCService {
+func InitCommentServiceGRPCService() *App {
 	logger := ioc.InitLogger()
 	db := ioc.GetMysql(logger)
 	commentDao := dao.NewCommentDaoGorm(db, logger)
 	commentRepository := repository.NewCommentRepository(commentDao)
 	commentService := service.NewCommentService(commentRepository)
-	kafkaProducer := ioc.InitKafka()
+	kafkaProducer := ioc.InitKafkaProducer(logger)
 	commentServiceGRPCService := grpc.NewCommentServiceGRPCService(commentService, kafkaProducer, logger)
-	return commentServiceGRPCService
+	commentConsumer := ioc.NewCommentConsumer(commentServiceGRPCService, logger)
+	app := &App{
+		commentServiceGRPCService: commentServiceGRPCService,
+		commentConsumer:           commentConsumer,
+	}
+	return app
 }
 
 // wire.go:
 
 var commentSet = wire.NewSet(service.NewCommentService, repository.NewCommentRepository, dao.NewCommentDaoGorm)
 
-var third = wire.NewSet(ioc.InitLogger, ioc.GetMysql, ioc.InitKafka)
+var third = wire.NewSet(ioc.InitLogger, ioc.GetMysql, ioc.InitKafkaProducer, ioc.NewCommentConsumer)

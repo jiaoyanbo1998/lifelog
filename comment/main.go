@@ -7,6 +7,7 @@ import (
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc"
 	"lifelog-grpc/api/proto/gen/comment/v1"
+	"lifelog-grpc/comment/ioc"
 	"strconv"
 )
 
@@ -37,15 +38,17 @@ func main() {
 		},
 	}
 	// 3.创建commentService的grpc服务器
-	commentServiceGRPCService := InitCommentServiceGRPCService()
+	app := InitCommentServiceGRPCService()
 	// 4.创建一个grpc服务（go-zero框架）
 	server := zrpc.MustNewServer(serverConf, func(server *grpc.Server) {
 		// 5.将commentService注册到grpc服务中
-		commentv1.RegisterCommentServiceServer(server, commentServiceGRPCService)
+		commentv1.RegisterCommentServiceServer(server, app.commentServiceGRPCService)
 	})
 	// 6.关闭grpc服务
 	defer server.Stop()
-	// 7.启动grpc服务
+	// 7.启动消费者
+	app.commentConsumer.Start(ioc.InitLogger())
+	// 8.启动grpc服务
 	logx.Info("正在启动commentService的grpc服务...")
 	server.Start()
 }

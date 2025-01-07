@@ -20,14 +20,16 @@ var commentSet = wire.NewSet(
 var third = wire.NewSet(
 	ioc.InitLogger,
 	ioc.GetMysql,
-	ioc.InitKafka,
+	ioc.InitKafkaProducer,
+	ioc.NewCommentConsumer,
 )
 
-func InitCommentServiceGRPCService() *grpc.CommentServiceGRPCService {
+func InitCommentServiceGRPCService() *App {
 	wire.Build(
 		commentSet,
 		third,
 		grpc.NewCommentServiceGRPCService,
+		wire.Struct(new(App), "*"),
 	)
-	return new(grpc.CommentServiceGRPCService)
+	return new(App)
 }

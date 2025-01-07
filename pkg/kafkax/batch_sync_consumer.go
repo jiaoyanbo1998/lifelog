@@ -28,11 +28,9 @@ func NewKafkaAsyncBatchConsumer[T any](
 	handler func(vals []T) error, opts ...BatchConsumerOption) *KafkaAsyncBatchConsumer[T] {
 	// 默认配置
 	config := kafka.ReaderConfig{
-		Brokers:  brokers,
-		GroupID:  groupId,
-		Topic:    topic,
-		MinBytes: 10e3, // 默认 最小字节数 10KB
-		MaxBytes: 10e6, // 默认 最大字节数 10MB
+		Brokers: brokers,
+		GroupID: groupId,
+		Topic:   topic,
 	}
 	// 用户自定义配置
 	for _, opt := range opts {
