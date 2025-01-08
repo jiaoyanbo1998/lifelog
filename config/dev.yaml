@@ -43,7 +43,8 @@ commentEtcd:
 commentKafka:
     addr:
         - "localhost:9092"
+        - "localhost:9094"
     groupId: "commentGroup"
     topic: "comments"
     timeout: 1
-    batch: 10
+    batch: 3

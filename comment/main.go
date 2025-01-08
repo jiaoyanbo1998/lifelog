@@ -7,7 +7,6 @@ import (
 	"github.com/zeromicro/go-zero/zrpc"
 	"google.golang.org/grpc"
 	"lifelog-grpc/api/proto/gen/comment/v1"
-	"lifelog-grpc/comment/ioc"
 	"strconv"
 )
 
@@ -47,7 +46,15 @@ func main() {
 	// 6.关闭grpc服务
 	defer server.Stop()
 	// 7.启动消费者
-	app.commentConsumer.Start(ioc.InitLogger())
+	er := app.commentConsumer.StartConsumer()
+	if er != nil {
+		logx.Errorf("启动消费者失败：%s", er.Error())
+		panic(er)
+	}
+	go func() {
+		// 关闭生产者
+		//defer app.commentServiceGRPCService.Producer.Close()
+	}()
 	// 8.启动grpc服务
 	logx.Info("正在启动commentService的grpc服务...")
 	server.Start()

@@ -1473,3 +1473,141 @@
 {"L":"error","time":"2025-01-07 15:32:20","C":"loggerx/zap_logger.go:62","M":"jwt-token获取失败，没有传入jwt，或jwt被篡改，middleware包下的jwt方法","path":"/interactive/fanList","token":""}
 {"L":"error","time":"2025-01-07 15:32:35","C":"loggerx/zap_logger.go:62","M":"jwt-token获取失败，没有传入jwt，或jwt被篡改，middleware包下的jwt方法","path":"/interactive/bothFollowList","token":""}
 {"L":"error","time":"2025-01-07 15:32:50","C":"loggerx/zap_logger.go:62","M":"获取互关列表失败","error":"rpc error: code = Unknown desc = 没有互关信息","method:":"InteractiveHandler:BothFollowList"}
+{"L":"error","time":"2025-01-08 01:01:44","C":"loggerx/zap_logger.go:62","M":"限流器创建失败","error":"i/o timeout"}
+{"L":"error","time":"2025-01-08 01:02:13","C":"loggerx/zap_logger.go:62","M":"查询收藏夹详情失败","error":"rpc error: code = Unknown desc = no details found","method:":"CollectHandler:CollectDetail"}
+{"L":"error","time":"2025-01-08 01:03:03","C":"loggerx/zap_logger.go:62","M":"查询收藏夹详情失败","error":"rpc error: code = Unknown desc = no details found","method:":"CollectHandler:CollectDetail"}
+{"L":"info","time":"2025-01-08 01:03:19","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-08 01:45:46","C":"loggerx/zap_logger.go:62","M":"发送评论到kafka失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method:":"CommentHandler:CreateComment"}
+{"L":"info","time":"2025-01-08 10:09:24","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-08 10:10:57","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-08 10:10:57","C":"loggerx/zap_logger.go:62","M":"邮箱格式不正确","error":null,"email":"17838644295qq.com","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-08 10:11:06","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-08 10:11:06","C":"loggerx/zap_logger.go:62","M":"两次输入的密码不一致，RegisterByEmailAndPassword方法","error":null,"method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-08 10:11:11","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-08 10:11:11","C":"loggerx/zap_logger.go:62","M":"密码格式错误，RegisterByEmailAndPassword方法","error":null,"method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-08 10:12:15","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-08 10:13:42","C":"loggerx/zap_logger.go:62","M":"用户不存在","error":"rpc error: code = Unknown desc = 用户没有注册","method":"UserHandler:GetUserInfoById"}
+{"L":"error","time":"2025-01-08 10:17:22","C":"loggerx/zap_logger.go:62","M":"用户已经退出","path":"/user/info/17","sessionId":"f7aabfd3-e734-4a91-b8fb-e843aceb1101"}
+{"L":"info","time":"2025-01-08 10:18:17","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-08 10:18:34","C":"loggerx/zap_logger.go:62","M":"删除失败","error":"rpc error: code = Unknown desc = 数据库删除失败，Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`lifelog`.`tb_follow`, CONSTRAINT `tb_follow_ibfk_1` FOREIGN KEY (`follower_id`) REFERENCES `tb_user` (`id`))","method":"UserHandler:DeleteUSerInfoByIds"}
+{"L":"error","time":"2025-01-08 10:19:16","C":"loggerx/zap_logger.go:62","M":"删除失败","error":"rpc error: code = Unknown desc = 数据库删除失败，Error 1451 (23000): Cannot delete or update a parent row: a foreign key constraint fails (`lifelog`.`tb_follow`, CONSTRAINT `tb_follow_ibfk_1` FOREIGN KEY (`follower_id`) REFERENCES `tb_user` (`id`))","method":"UserHandler:DeleteUSerInfoByIds"}
+{"L":"error","time":"2025-01-08 10:20:36","C":"loggerx/zap_logger.go:62","M":"用户已经退出","path":"/user/info/30","sessionId":"daac034a-0c31-409f-80a1-3b7cdb7cc04f"}
+{"L":"info","time":"2025-01-08 10:20:48","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-08 10:20:49","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"687088","phone：":"13949779974"}
+{"L":"info","time":"2025-01-08 10:21:11","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"info","time":"2025-01-08 10:21:34","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-08 10:21:34","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"003489","phone：":"13949779974"}
+{"L":"info","time":"2025-01-08 10:22:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:00","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:22:09","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:09","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:22:15","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:15","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:22:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:21","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:22:30","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:30","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:22:37","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:37","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:22:46","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:46","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:22:52","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:22:53","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:25:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-08 10:25:26","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"544618","phone：":"13949779925"}
+{"L":"info","time":"2025-01-08 10:26:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:26:26","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:26:45","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:26:45","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:26:56","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:26:56","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:27:02","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:27:03","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:27:49","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-08 10:27:49","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"425509","phone：":"13949779927"}
+{"L":"info","time":"2025-01-08 10:28:03","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:28:03","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:28:10","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:28:10","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:28:15","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:28:15","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:28:19","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:28:19","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:29:42","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-08 10:29:42","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"753437","phone：":"13949779974"}
+{"L":"info","time":"2025-01-08 10:30:05","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:30:05","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:30:17","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:30:17","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:30:22","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:30:22","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:30:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:30:26","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:30:38","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-08 10:30:38","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"431328","phone：":"13949779927"}
+{"L":"info","time":"2025-01-08 10:31:12","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/code/send_code"}
+{"L":"info","time":"2025-01-08 10:31:12","C":"loggerx/zap_logger.go:52","M":"获取短信验证码","code：":"203666","phone：":"13949779974"}
+{"L":"info","time":"2025-01-08 10:31:26","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:31:26","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:31:28","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:31:28","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:31:29","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:31:29","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 用户输入错误，%!w(<nil>)","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:31:30","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_phone_code"}
+{"L":"error","time":"2025-01-08 10:31:30","C":"loggerx/zap_logger.go:62","M":"登录失败","error":"rpc error: code = Unknown desc = 验证码验证太频繁","method":"UserHandler:LoginByPhoneCode"}
+{"L":"info","time":"2025-01-08 10:32:43","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"warn","time":"2025-01-08 10:34:02","C":"loggerx/zap_logger.go:57","M":"更新LifeLog失败，创作者非法，可能有人在搞你的系统","error":null,"method:":"LifeLogDao:UpdateById"}
+{"L":"error","time":"2025-01-08 10:34:02","C":"loggerx/zap_logger.go:62","M":"编辑LifeLog失败","error":"rpc error: code = Unknown desc = 更新LifeLog失败，创作者非法，可能有人在搞你的系统","method：":"LifeLogHandler:Edit"}
+{"L":"warn","time":"2025-01-08 10:37:04","C":"loggerx/zap_logger.go:57","M":"阅读数自增失败，缓存过期，或者有人在搞你的系统","method:":"InteractiveCache:InsertReadCount"}
+{"L":"error","time":"2025-01-08 10:37:04","C":"loggerx/zap_logger.go:62","M":"增加阅读量失败","error":"rpc error: code = Unknown desc = 阅读数自增失败，key不存在，缓存过期，或者有人在搞你的系统","method:":"LifeLogHandler:Detail"}
+{"L":"error","time":"2025-01-08 10:37:25","C":"loggerx/zap_logger.go:62","M":"redis获取失败","error":"redis: nil","method：":"LifeLogHandler:GetFirstPage"}
+{"L":"error","time":"2025-01-08 10:37:25","C":"loggerx/zap_logger.go:62","M":"预缓存失败","error":"没有数据","method:":"lifeLogRepository:SearchByAuthorId"}
+{"L":"error","time":"2025-01-08 10:37:30","C":"loggerx/zap_logger.go:62","M":"redis获取失败","error":"redis: nil","method：":"LifeLogHandler:GetFirstPage"}
+{"L":"error","time":"2025-01-08 10:37:30","C":"loggerx/zap_logger.go:62","M":"redis存储失败","error":"redis: can't marshal domain.LifeLogDomain (implement encoding.BinaryMarshaler)","method：":"LifeLogHandler:Set"}
+{"L":"error","time":"2025-01-08 10:37:30","C":"loggerx/zap_logger.go:62","M":"预缓存失败","error":"redis: can't marshal domain.LifeLogDomain (implement encoding.BinaryMarshaler)","method:":"lifeLogRepository:SearchByAuthorId"}
+{"L":"error","time":"2025-01-08 10:38:17","C":"loggerx/zap_logger.go:62","M":"查找LifeLog列表失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:58951->192.168.1.7:8072: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-08 10:38:49","C":"loggerx/zap_logger.go:62","M":"查找LifeLog列表失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:59334->192.168.1.7:8072: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-08 10:40:04","C":"loggerx/zap_logger.go:62","M":"查找LifeLog列表失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:59358->192.168.1.7:8072: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"LifeLogHandler:Search"}
+{"L":"error","time":"2025-01-08 10:47:24","C":"loggerx/zap_logger.go:62","M":"撤销LifeLog失败","error":"rpc error: code = Unknown desc = 没有找到LifeLog，可能有人在搞你的系统","method:":"LifeLogHandler:Revoke"}
+{"L":"error","time":"2025-01-08 10:47:35","C":"loggerx/zap_logger.go:62","M":"撤销LifeLog失败","error":"rpc error: code = Unknown desc = 没有找到LifeLog，可能有人在搞你的系统","method:":"LifeLogHandler:Revoke"}
+{"L":"error","time":"2025-01-08 10:49:40","C":"loggerx/zap_logger.go:62","M":"点赞失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method:":"InteractiveHandler:Like"}
+{"L":"error","time":"2025-01-08 10:50:06","C":"loggerx/zap_logger.go:62","M":"点赞失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method:":"InteractiveHandler:Like"}
+{"L":"warn","time":"2025-01-08 10:53:50","C":"loggerx/zap_logger.go:57","M":"点赞数自减失败，缓存过期，或者有人在搞你的系统","method:":"InteractiveCache:DecreaseLikeCount"}
+{"L":"error","time":"2025-01-08 10:53:50","C":"loggerx/zap_logger.go:62","M":"取消点赞失败","error":"rpc error: code = Unknown desc = 点赞数自减失败，缓存过期，或者有人在搞你的系统","method:":"InteractiveHandler:UnLike"}
+{"L":"error","time":"2025-01-08 19:57:13","C":"loggerx/zap_logger.go:62","M":"插入收藏记录失败","error":"Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveDaoV1:InsertCollectInfo"}
+{"L":"error","time":"2025-01-08 19:57:13","C":"loggerx/zap_logger.go:62","M":"插入收藏记录失败","error":"Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveDaoV1:InsertCollectCount"}
+{"L":"error","time":"2025-01-08 19:57:13","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveDaoV1:InsertCollectCount"}
+{"L":"error","time":"2025-01-08 19:57:13","C":"loggerx/zap_logger.go:62","M":"收藏失败","error":"rpc error: code = Unknown desc = Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveHandler:collect"}
+{"L":"error","time":"2025-01-08 19:58:24","C":"loggerx/zap_logger.go:62","M":"插入收藏记录失败","error":"Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveDaoV1:InsertCollectInfo"}
+{"L":"error","time":"2025-01-08 19:58:24","C":"loggerx/zap_logger.go:62","M":"插入收藏记录失败","error":"Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveDaoV1:InsertCollectCount"}
+{"L":"error","time":"2025-01-08 19:58:24","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveDaoV1:InsertCollectCount"}
+{"L":"error","time":"2025-01-08 19:58:24","C":"loggerx/zap_logger.go:62","M":"收藏失败","error":"rpc error: code = Unknown desc = Error 1062 (23000): Duplicate entry '30-lifeLog-28' for key 'tb_interactive_collect.idx_user_id_biz_biz_id'","method:":"InteractiveHandler:collect"}
+{"L":"error","time":"2025-01-08 20:04:18","C":"loggerx/zap_logger.go:62","M":"查询收藏夹详情失败","error":"rpc error: code = Unknown desc = no details found","method:":"CollectHandler:CollectDetail"}
+{"L":"error","time":"2025-01-08 20:04:55","C":"loggerx/zap_logger.go:62","M":"查询收藏夹详情失败","error":"rpc error: code = Unknown desc = no details found","method:":"CollectHandler:CollectDetail"}
+{"L":"error","time":"2025-01-08 20:07:55","C":"loggerx/zap_logger.go:62","M":"发送评论到kafka失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:59780->192.168.1.7:8075: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"CommentHandler:CreateComment"}
+{"L":"error","time":"2025-01-08 20:08:40","C":"loggerx/zap_logger.go:62","M":"发送评论到kafka失败","error":"rpc error: code = Canceled desc = context canceled","method:":"CommentHandler:CreateComment"}
+{"L":"error","time":"2025-01-08 20:14:02","C":"loggerx/zap_logger.go:62","M":"发送评论到kafka失败","error":"rpc error: code = Unavailable desc = error reading from server: read tcp 192.168.1.7:60022->192.168.1.7:8075: wsarecv: An existing connection was forcibly closed by the remote host.","method:":"CommentHandler:CreateComment"}
+{"L":"error","time":"2025-01-08 20:21:13","C":"loggerx/zap_logger.go:62","M":"获取评论失败","error":"rpc error: code = Unknown desc = record not found","method":"CommentHandler:FirstList"}
+{"L":"error","time":"2025-01-08 20:24:10","C":"loggerx/zap_logger.go:62","M":"获取评论失败","error":"rpc error: code = Unknown desc = record not found","method":"CommentHandler:FirstListSon"}
+{"L":"error","time":"2025-01-08 20:24:19","C":"loggerx/zap_logger.go:62","M":"获取评论失败","error":"rpc error: code = Unknown desc = record not found","method":"CommentHandler:FirstListSon"}
+{"L":"warn","time":"2025-01-08 20:28:51","C":"loggerx/zap_logger.go:57","M":"点赞数自增失败，缓存过期，或者有人在搞你的系统","method:":"InteractiveCache:InsertLikeCount"}
+{"L":"error","time":"2025-01-08 20:28:51","C":"loggerx/zap_logger.go:62","M":"点赞失败","error":"rpc error: code = Unknown desc = 点赞数自增失败，key不存在，缓存过期，或者有人在搞你的系统","method:":"InteractiveHandler:Like"}
+{"L":"error","time":"2025-01-08 20:28:59","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"用户已经点赞过了","method:":"InteractiveDaoV1:InsertLikeCount"}
+{"L":"error","time":"2025-01-08 20:28:59","C":"loggerx/zap_logger.go:62","M":"点赞失败","error":"rpc error: code = Unknown desc = 用户已经点赞过了","method:":"InteractiveHandler:Like"}
+{"L":"error","time":"2025-01-08 20:29:43","C":"loggerx/zap_logger.go:62","M":"事务执行失败","error":"不能重复取消点赞","method:":"InteractiveDaoV1:DecreaseLikeCount"}
+{"L":"error","time":"2025-01-08 20:29:43","C":"loggerx/zap_logger.go:62","M":"取消点赞失败","error":"rpc error: code = Unknown desc = 不能重复取消点赞","method:":"InteractiveHandler:UnLike"}
+{"L":"error","time":"2025-01-08 20:30:26","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
+{"L":"error","time":"2025-01-08 20:30:26","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-08 20:30:37","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
+{"L":"error","time":"2025-01-08 20:30:37","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-08 20:30:51","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
+{"L":"error","time":"2025-01-08 20:30:51","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-08 20:59:37","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
+{"L":"error","time":"2025-01-08 20:59:37","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-08 21:00:05","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
+{"L":"error","time":"2025-01-08 21:00:05","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-08 21:01:24","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
+{"L":"error","time":"2025-01-08 21:01:24","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"info","time":"2025-01-08 21:02:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-08 21:03:08","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
+{"L":"error","time":"2025-01-08 21:03:08","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}

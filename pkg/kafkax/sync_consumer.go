@@ -2,6 +2,7 @@ package kafkax
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/segmentio/kafka-go"
 	"go.uber.org/zap"
@@ -12,16 +13,20 @@ import (
 )
 
 // KafkaSyncConsumer 异步消费
-type KafkaSyncConsumer struct {
+type KafkaSyncConsumer[T any] struct {
 	reader  *kafka.Reader // kafka读取器
 	timeout time.Duration // 超时时间
+	// 参数1：从kafka消费者中，接收到的消息
+	// 参数2：消息中存储的值
+	handler func(val T) error // 处理函数
 }
 
 // Option 是一个函数类型，用于设置 KafkaSyncConsumer 的选项
 type Option func(*kafka.ReaderConfig)
 
 // NewKafkaConsumer 创建一个kafka消费者
-func NewKafkaConsumer(brokers []string, groupId, topic string, timeout time.Duration, opts ...Option) *KafkaSyncConsumer {
+func NewKafkaConsumer[T any](brokers []string, groupId, topic string,
+	timeout time.Duration, handler func(val T) error, opts ...Option) *KafkaSyncConsumer[T] {
 	// 默认配置
 	config := kafka.ReaderConfig{
 		Brokers:  brokers,
@@ -35,12 +40,13 @@ func NewKafkaConsumer(brokers []string, groupId, topic string, timeout time.Dura
 		opt(&config)
 	}
 	// 创建 KafkaSyncConsumer
-	ksc := &KafkaSyncConsumer{
+	ksc := &KafkaSyncConsumer[T]{
 		reader:  kafka.NewReader(config),
 		timeout: timeout,
+		handler: handler,
 	}
 	// 启动一个goroutine，读取数据
-	go ksc.readMsg()
+	go ksc.ReadMsg()
 	return ksc
 }
 
@@ -58,8 +64,8 @@ func WithMaxBytes(maxBytes int) Option {
 	}
 }
 
-// readMsg 从kafka中读取数据
-func (kc *KafkaSyncConsumer) readMsg() {
+// ReadMsg 从kafka中读取数据
+func (kc *KafkaSyncConsumer[T]) ReadMsg() {
 	// 关闭kafka读取器
 	defer kc.reader.Close()
 	// channel，1个容量
@@ -78,7 +84,7 @@ func (kc *KafkaSyncConsumer) readMsg() {
 			// 读取消息
 			ctx, cancel := context.WithTimeout(context.Background(), kc.timeout)
 			// 从kafka中读取消息
-			m, err := kc.reader.ReadMessage(ctx)
+			message, err := kc.reader.ReadMessage(ctx)
 			if err != nil {
 				if err == context.DeadlineExceeded {
 					zap.L().Warn("读取消息超时")
@@ -87,8 +93,32 @@ func (kc *KafkaSyncConsumer) readMsg() {
 				zap.L().Error("kafka读取数据失败", zap.Error(err))
 				continue
 			}
-			fmt.Printf("消息在offset %d: %s = %s\n", m.Offset, string(m.Key), string(m.Value))
+			fmt.Printf("消息在offset %d: %s = %s\n", message.Offset,
+				string(message.Key), string(message.Value))
+			// 调用处理函数
+			// json反序列化
+			var val T
+			err = json.Unmarshal(message.Value, &val)
+			if err != nil {
+				zap.L().Error("消息反序列化失败", zap.Error(err))
+				continue
+			}
+			err = kc.handler(val)
+			if err != nil {
+				zap.L().Error("调用处理接口失败", zap.Error(err))
+				continue
+			}
+			// 标记消费过的消息
+			err = kc.reader.CommitMessages(ctx, message)
+			if err != nil {
+				zap.L().Error("标记消息失败", zap.Error(err))
+			}
 			cancel()
 		}
 	}
+}
+
+func (kc *KafkaSyncConsumer[T]) Stop() {
+	// 关闭kafka读取器
+	kc.reader.Close()
 }

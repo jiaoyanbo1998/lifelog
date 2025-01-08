@@ -65,7 +65,7 @@ func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 			loggerx.String("method:", "CommentHandler:CreateComment"))
 		return
 	}
-	// 创建评论
+	// 创建评论，发送评论到kafka
 	_, err = c.commentServiceClient.ProducerCommentEvent(ctx.Request.Context(),
 		&commentv1.ProducerCommentEventRequest{
 			Comment: &commentv1.Comment{
@@ -87,28 +87,6 @@ func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 			loggerx.String("method:", "CommentHandler:CreateComment"))
 		return
 	}
-	/*
-		_, err = c.commentServiceClient.CreateComment(ctx.Request.Context(), &commentv1.CreateCommentRequest{
-			Comment: &commentv1.Comment{
-				UserId:   cq.UserId,
-				Biz:      c.Biz,
-				BizId:    cq.BizId,
-				Content:  cq.Content,
-				ParentId: cq.ParentId,
-				RootId:   cq.RootId,
-			},
-		})
-		if err != nil {
-			ctx.JSON(http.StatusBadRequest, Result[string]{
-				Code: errs.ErrSystemError,
-				Msg:  "系统错误",
-				Data: "error",
-			})
-			c.logger.Error("创建评论失败", loggerx.Error(err),
-				loggerx.String("method:", "CommentHandler:CreateComment"))
-			return
-		}
-	*/
 	ctx.JSON(http.StatusOK, Result[string]{
 		Code: 200,
 		Msg:  "创建成功",

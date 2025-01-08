@@ -9,13 +9,11 @@ option go_package = "comments/v1";
 
 // comment服务
 service CommentService {
-    rpc CreateComment(CreateCommentRequest) returns(CreateCommentResponse);
     rpc DeleteComment(DeleteCommentRequest) returns(DeleteCommentResponse);
     rpc EditComment(EditCommentRequest) returns(EditCommentResponse);
     rpc FirstList(FirstListRequest) returns(FirstListResponse);
     rpc EveryRootChildSonList(EveryRootChildSonListRequest) returns(EveryRootChildSonListResponse);
     rpc SonList(SonListRequest) returns(SonListResponse);
-    rpc BatchCreateComment(BatchCreateCommentRequest) returns(BatchCreateCommentResponse);
     rpc ProducerCommentEvent (ProducerCommentEventRequest) returns (ProducerCommentEventResponse);
 }
 
@@ -39,26 +37,6 @@ message ProducerCommentEventRequest {
 }
 // 响应
 message ProducerCommentEventResponse {
-
-}
-
-// 批量创建评论
-// 请求
-message BatchCreateCommentRequest {
-    repeated Comment comment = 1;
-}
-// 响应
-message BatchCreateCommentResponse {
-
-}
-
-// 创建评论
-// 请求
-message CreateCommentRequest {
-    Comment comment = 1;
-}
-// 响应
-message CreateCommentResponse {
 
 }
 

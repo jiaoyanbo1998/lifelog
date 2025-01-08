@@ -4,8 +4,8 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/IBM/sarama"
-	"time"
 	"lifelog-grpc/pkg/loggerx"
+	"time"
 )
 
 // BatchHandler 处理"批量消息"的处理器
@@ -13,12 +13,12 @@ type BatchHandler[T any] struct {
 	// 日志记录器
 	logger loggerx.Logger
 	// 消息处理函数
-	// 	  func Consume(msg []*sarama.ConsumerMessage, evt []ReadEvent) error {}
+	// 	  func Consume(msg []*sarama-kafka.ConsumerMessage, evt []ReadEvent) error {}
 	//    	 参数1：从kafka消费者中，接收到的消息
 	//	     参数2：消息中存储的值
-	fn            func(msg []*sarama.ConsumerMessage, ts []T) error
-	batchSize     int
-	batchDuration time.Duration
+	MessageHandlerFunc func(msg []*sarama.ConsumerMessage, ts []T) error
+	batchSize          int
+	batchDuration      time.Duration
 }
 
 // Option 是修改 BatchHandler 的配置项类型
@@ -30,10 +30,10 @@ func NewBatchHandler[T any](l loggerx.Logger,
 	options ...Option[T]) *BatchHandler[T] {
 	// 默认配置
 	handler := &BatchHandler[T]{
-		logger:        l,
-		fn:            fn,
-		batchSize:     10,              // 默认批处理大小
-		batchDuration: 5 * time.Second, // 默认批处理持续时间
+		logger:             l,
+		MessageHandlerFunc: fn,
+		batchSize:          10,              // 默认批处理大小
+		batchDuration:      5 * time.Second, // 默认批处理持续时间
 	}
 
 	// 应用所有的选项
@@ -112,7 +112,7 @@ func (b *BatchHandler[T]) ConsumeClaim(session sarama.ConsumerGroupSession,
 			continue
 		}
 		// 调用批量处理函数
-		err := b.fn(msg, ts)
+		err := b.MessageHandlerFunc(msg, ts)
 		if err != nil {
 			b.logger.Error("调用批量处理接口失败", loggerx.Error(err))
 		}

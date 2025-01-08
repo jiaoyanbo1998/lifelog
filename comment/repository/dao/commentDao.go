@@ -4,9 +4,9 @@ import (
 	"context"
 	"database/sql"
 	"gorm.io/gorm"
-	"time"
 	"lifelog-grpc/comment/domain"
 	"lifelog-grpc/pkg/loggerx"
+	"time"
 )
 
 type CommentDao interface {
@@ -130,7 +130,7 @@ func (c *CommentDaoGorm) commentToCommentDomains(comments []Comment) []domain.Co
 func (c *CommentDaoGorm) EveryRootChildSonList(ctx context.Context, id, RootId, limit int64) ([]domain.CommentDomain, error) {
 	var res []Comment
 	err := c.db.WithContext(ctx).
-		Where("root_id = ? AND id > ?", RootId, id).
+		Where("root_id = ? AND id > ?", RootId, id). // 游标，此页的最后一个数据的id，用于提高分页查询的效率
 		Order("id ASC").
 		Limit(int(limit)).Find(&res).Error
 	if len(res) == 0 {

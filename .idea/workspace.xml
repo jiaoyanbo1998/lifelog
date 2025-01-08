@@ -4,22 +4,107 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="72e36459-e8c6-4cd0-86cf-48e1ef6c2391" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6552c4c7-a9b7-442f-86f6-f9e52c2fae80/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/lifelog.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="修改了一些bug">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/comment/v1/comment.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/comment/v1/comment.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/code/v1/code.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/code/v1/code.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/code/v1/code_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/code/v1/code_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/collect/v1/collect.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/collect/v1/collect.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/collect/v1/collect_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/collect/v1/collect_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment_grpc.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/lifelog/v1/lifelog.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/lifelog/v1/lifelog.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/lifelog/v1/lifelog_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/lifelog/v1/lifelog_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/user/v1/user.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/user/v1/user.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/user/v1/user_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/user/v1/user_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/code/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/domain/collectDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/domain/collectDomain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/grpc/collectServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/grpc/collectServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/ioc/lifeLogServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/ioc/lifeLogServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/repository/collectRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/repository/collectRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/repository/dao/collectDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/repository/dao/collectDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/service/collectService.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/service/collectService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/vo/collectVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/vo/collectVo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collect/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/app.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/app.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/domain/commentDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/domain/commentDomain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/ioc/consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/kafka-go/consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/ioc/db.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/ioc/db.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/ioc/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/kafka-go/producer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/repository/dao/commentDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/repository/dao/commentDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/service/commentService.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/service/commentService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/wire_gen.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errs/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/errs/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errs/desc.go" beforeDir="false" afterPath="$PROJECT_DIR$/errs/desc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/domain/interactiveDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/domain/interactiveDomain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/ioc/collectServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/ioc/collectServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/dao/interactiveDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/service/interactiveService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/service/interactiveService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/collectServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/collectServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/commentServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/commentServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/interactiveServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/interactiveServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/lifeLogServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/lifeLogServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/web.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/service/lifeLogService.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/service/lifeLogService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/grpcx/interceptors/ratelimit/interceptor.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/grpcx/interceptors/ratelimit/interceptor.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/kafkax/batch_sync_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/kafkax/batch_sync_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/kafkax/kafka_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/kafkax/producer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/kafkax/producer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/kafkax/sync_consumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/kafkax/sync_consumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/miniox/minio.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/minio.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/miniox/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/upload.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/saramax/batch_consumer_handler_func.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/saramax/batch_consumer_handler_func.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/saramax/consumer_handler_func.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/saramax/consumer_handler_func.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/dao/userDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/dao/userDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/userRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/userRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/service/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/userService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/codeHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/codeHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/collectHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/collectHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/commentHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/commentHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/interactiveHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
   </component>
   <component name="GOROOT" url="file://$PROJECT_DIR$/../../../pack/GoLang" />
   <component name="Git.Settings">
@@ -28,29 +113,105 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2rIn9QucuDsazinS6IMlOMYbWpE" />
+  <component name="ProjectId" id="2rJ2PAOXbSeK09uJWbvk1NtZblC" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/17838466781",
-    "settings.editor.selected.configurable": "configurable.group.tools"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/17838466781&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
+    ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\api\proto\gen" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc - 副本\comment\event\sarama-kafka" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event\sarama" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event\kafka-go" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build lifelog-grpc">
+    <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/collect" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/collect" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/collect/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/comment" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/comment" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/comment/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/interactive" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/interactive/main.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build lifelog-grpc/lifeLog" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/lifeLog" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/lifeLog/main.go" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
+        <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/comment" />
+        <item itemvalue="Go Build.go build lifelog-grpc/collect" />
+        <item itemvalue="Go Build.go build lifelog-grpc/lifeLog" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="修改了一些bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了一些bug" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
