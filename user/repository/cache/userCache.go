@@ -2,8 +2,10 @@ package cache
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"github.com/redis/go-redis/v9"
+	"lifelog-grpc/user/domain"
 	"strconv"
 	"time"
 )
@@ -12,6 +14,8 @@ type UserCache interface {
 	Set(ctx context.Context, sessionId string) error
 	SetHistoryPassword(ctx context.Context, userKey, code string) error
 	GetHistoryPassword(ctx context.Context, userKey string) ([]string, error)
+	SetUserInfo(ctx context.Context, userDomain domain.UserDomain) error
+	GetUserInfo(ctx context.Context, id int64) (domain.UserDomain, error)
 }
 
 type UserRedisCache struct {
@@ -67,4 +71,30 @@ func (u *UserRedisCache) Set(ctx context.Context, sessionId string) error {
 		return fmt.Errorf("session存入redis失败，%w", err)
 	}
 	return nil
+}
+
+func (u *UserRedisCache) SetUserInfo(ctx context.Context, userDomain domain.UserDomain) error {
+	key := fmt.Sprintf("userInfo:id:%d", userDomain.Id)
+	// json序列化
+	val, _ := json.Marshal(userDomain)
+	err := u.cmd.Set(ctx, key, val, 30*time.Second).Err()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func (u *UserRedisCache) GetUserInfo(ctx context.Context, id int64) (domain.UserDomain, error) {
+	key := fmt.Sprintf("userInfo:id:%d", id)
+	res, err := u.cmd.Get(ctx, key).Result()
+	if err != nil {
+		return domain.UserDomain{}, err
+	}
+	// 反序列化
+	var userDomain domain.UserDomain
+	err = json.Unmarshal([]byte(res), &userDomain)
+	if err != nil {
+		return domain.UserDomain{}, err
+	}
+	return userDomain, nil
 }

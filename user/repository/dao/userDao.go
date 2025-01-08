@@ -17,7 +17,7 @@ type UserDao interface {
 	Insert(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error)
 	GetUserByEmail(ctx context.Context, email string) (domain.UserDomain, error)
 	GetUserById(ctx context.Context, id int64) (domain.UserDomain, error)
-	UpdateById(ctx context.Context, userDomain domain.UserDomain) error
+	UpdateById(ctx context.Context, user User) error
 	DeleteByIds(ctx context.Context, ids []int64) error
 	GetUserByPhoneOrInsert(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error)
 }
@@ -172,26 +172,9 @@ func (g *GormUserDao) GetUserById(ctx context.Context, id int64) (domain.UserDom
 	}, nil
 }
 
-func (g *GormUserDao) UpdateById(ctx context.Context, userDomain domain.UserDomain) error {
-	var user User
-	user.Id = userDomain.Id
-	user.Email = sql.NullString{
-		String: userDomain.Email,
-		Valid:  userDomain.Email != "",
-	}
-	user.Password = userDomain.Password
-	user.Phone = sql.NullString{
-		String: userDomain.Phone,
-		Valid:  userDomain.Phone != "",
-	}
-	user.NickName = userDomain.NickName
-	err := g.db.WithContext(ctx).Model(&user).Where("id = ?", user.Id).
-		Updates(map[string]any{
-			"email":     user.Email,
-			"password":  user.Password,
-			"phone":     user.Phone,
-			"nick_name": user.NickName,
-		}).Error
+func (g *GormUserDao) UpdateById(ctx context.Context, user User) error {
+	err := g.db.WithContext(ctx).Model(&User{}).
+		Where("id = ?", user.Id).Updates(user).Error // 忽略零值(0、""、false)，修改其他字段
 	if err != nil {
 		return fmt.Errorf("数据库更新失败，%w", err)
 	}

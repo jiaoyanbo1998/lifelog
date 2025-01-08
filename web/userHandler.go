@@ -302,6 +302,28 @@ func (userHandler *UserHandler) GetUserInfoById(ctx *gin.Context) {
 			loggerx.String("method", "UserHandler:GetUserInfoById"))
 		return
 	}
+	// 获取当前用户信息
+	userInfo, ok := userHandler.jwtHandler.GetUserInfo(ctx)
+	if !ok {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		userHandler.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "UserHandler:GetUserInfoById"))
+		return
+	}
+	if userInfo.Id != id {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: errs.ErrSystemError,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		userHandler.logger.Error("不能非法查找其他用户信息", loggerx.Error(err),
+			loggerx.String("method", "UserHandler:GetUserInfoById"))
+		return
+	}
 	// 调用service层
 	user, err := userHandler.userServiceClient.GetUserInfoById(ctx, &userv1.GetUserInfoByIdRequest{
 		UserDomain: &userv1.UserDomain{
@@ -348,6 +370,7 @@ func (userHandler *UserHandler) UpdateUserInfoById(ctx *gin.Context) {
 		NickName    string `json:"nick_name" binding:"required"`
 		Phone       string `json:"phone" binding:"required"`
 		Email       string `json:"email" binding:"required"`
+		Authority   int64  `json:"authority" binding:"required"`
 	}
 	var req updateReq
 	// 如果绑定失败或字段为空，返回错误
@@ -397,17 +420,17 @@ func (userHandler *UserHandler) UpdateUserInfoById(ctx *gin.Context) {
 			NewPassword: req.NewPassword,
 		},
 	})
-	if errors.Is(err, errs.UseOldPassword) {
-		ctx.JSON(http.StatusOK, Result[string]{
-			Code: errs.ErrUseOldPassword,
-			Msg:  "更新密码时，不要使用历史密码",
-			Data: "error",
-		})
-		userHandler.logger.Error("更新密码时，不要使用历史密码", loggerx.Error(err),
-			loggerx.String("method", "UserHandler:UpdateUserInfoById"))
-		return
-	}
 	if err != nil {
+		if errors.Is(err, errs.UseOldPassword) {
+			ctx.JSON(http.StatusOK, Result[string]{
+				Code: errs.ErrUseOldPassword,
+				Msg:  "更新密码时，不要使用历史密码",
+				Data: "error",
+			})
+			userHandler.logger.Error("更新密码时，不要使用历史密码", loggerx.Error(err),
+				loggerx.String("method", "UserHandler:UpdateUserInfoById"))
+			return
+		}
 		if strings.Contains(err.Error(), errs.PasswordWrong.Error()) {
 			ctx.JSON(http.StatusOK, Result[string]{
 				Code: errs.ErrUsernameOrPasswordError,

@@ -2,6 +2,7 @@ package repository
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"lifelog-grpc/user/domain"
 	"lifelog-grpc/user/repository/cache"
@@ -63,7 +64,15 @@ func (u *UserRepositoryV1) CreateUser(ctx context.Context, userDomain domain.Use
 }
 
 func (u *UserRepositoryV1) FindById(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error) {
-	return u.userDao.GetUserById(ctx, userDomain.Id)
+	userInfo, err := u.userDao.GetUserById(ctx, userDomain.Id)
+	if err != nil {
+		return domain.UserDomain{}, err
+	}
+	err = u.userCache.SetUserInfo(ctx, userInfo)
+	if err != nil {
+		return domain.UserDomain{}, err
+	}
+	return userInfo, nil
 }
 
 func (u *UserRepositoryV1) FindByEmail(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error) {
@@ -71,7 +80,35 @@ func (u *UserRepositoryV1) FindByEmail(ctx context.Context, userDomain domain.Us
 }
 
 func (u *UserRepositoryV1) Update(ctx context.Context, userDomain domain.UserDomain) error {
-	return u.userDao.UpdateById(ctx, userDomain)
+	// 获取redis中存储的用户信息
+	userInfo, err := u.userCache.GetUserInfo(ctx, userDomain.Id)
+	if err != nil {
+		return err
+	}
+	// 比较值是否相等，只修改不相等的数据，减轻数据库压力
+	var user dao.User
+	if userDomain.Email != userInfo.Email {
+		user.Email = sql.NullString{
+			String: userDomain.Email,
+			Valid:  userDomain.Email != "",
+		}
+	}
+	if userDomain.Password != userInfo.Password {
+		user.Password = userDomain.Password
+	}
+	if userDomain.Phone != userInfo.Phone {
+		user.Phone = sql.NullString{
+			String: userDomain.Phone,
+			Valid:  userDomain.Phone != "",
+		}
+	}
+	if userDomain.NickName != userInfo.NickName {
+		user.NickName = userDomain.NickName
+	}
+	if userDomain.Authority != userInfo.Authority {
+		user.Authority = userDomain.Authority
+	}
+	return u.userDao.UpdateById(ctx, user)
 }
 
 func (u *UserRepositoryV1) DeleteByIds(ctx context.Context, ids []int64) error {
