@@ -314,6 +314,7 @@ func (userHandler *UserHandler) GetUserInfoById(ctx *gin.Context) {
 			loggerx.String("method：", "UserHandler:GetUserInfoById"))
 		return
 	}
+	// 校验用户是否合法
 	if userInfo.Id != id {
 		ctx.JSON(http.StatusInternalServerError, Result[string]{
 			Code: errs.ErrSystemError,

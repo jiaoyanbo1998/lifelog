@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="消费幂等，数据库添加了uuid字段，uuid设置了唯一索引">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository/cache/userCache.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/cache/userCache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository/dao/userDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/dao/userDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository/userRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/userRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
-    </list>
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="修改了，修改用户信息接口的bug" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +125,8 @@
     <MESSAGE value="修改了一些bug" />
     <MESSAGE value="新增sarama的kafka消费者和生产者" />
     <MESSAGE value="消费幂等，数据库添加了uuid字段，uuid设置了唯一索引" />
-    <option name="LAST_COMMIT_MESSAGE" value="消费幂等，数据库添加了uuid字段，uuid设置了唯一索引" />
+    <MESSAGE value="修改了，修改用户信息接口的bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了，修改用户信息接口的bug" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
