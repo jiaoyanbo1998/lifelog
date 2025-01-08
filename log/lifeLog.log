@@ -1611,3 +1611,11 @@
 {"L":"info","time":"2025-01-08 21:02:00","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
 {"L":"error","time":"2025-01-08 21:03:08","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '30-31' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":30,"followeeId":31}
 {"L":"error","time":"2025-01-08 21:03:08","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"info","time":"2025-01-08 21:07:58","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-08 21:07:58","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-08 21:08:32","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"error","time":"2025-01-08 21:08:32","C":"loggerx/zap_logger.go:62","M":"注册失败，RegisterByEmailAndPassword方法","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses","method":"UserHandler:RegisterByEmailAndPassword"}
+{"L":"info","time":"2025-01-08 21:09:06","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/register_email_password"}
+{"L":"info","time":"2025-01-08 21:09:21","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
+{"L":"error","time":"2025-01-08 21:11:24","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unavailable desc = last connection error: connection error: desc = \"transport: Error while dialing: dial tcp 192.168.1.7:8073: connectex: No connection could be made because the target machine actively refused it.\"","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-08 21:13:53","C":"loggerx/zap_logger.go:62","M":"获取互关列表失败","error":"rpc error: code = Unknown desc = 没有互关信息","method:":"InteractiveHandler:BothFollowList"}
