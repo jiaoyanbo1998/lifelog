@@ -42,6 +42,7 @@ func (c *CommentRepositoryV1) CreateComment(ctx context.Context,
 			Int64: commentDomain.RootId,
 			Valid: commentDomain.RootId != 0,
 		},
+		Uuid: commentDomain.Uuid,
 	})
 }
 

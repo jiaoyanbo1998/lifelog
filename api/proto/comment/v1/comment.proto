@@ -28,6 +28,7 @@ message Comment {
     int64 id = 7;
     int64 create_time = 8;
     int64 update_time = 9;
+    string uuid = 10;
 }
 
 // 批量创建评论

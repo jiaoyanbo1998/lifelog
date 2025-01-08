@@ -2,6 +2,7 @@ package web
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	commentv1 "lifelog-grpc/api/proto/gen/comment/v1"
 	"lifelog-grpc/comment/vo"
 	"lifelog-grpc/errs"
@@ -52,6 +53,7 @@ func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 		Content  string `json:"content"`
 		ParentId int64  `json:"parent_id"`
 		RootId   int64  `json:"root_id"`
+		Uuid     string `json:"uuid"`
 	}
 	var cq CommentReq
 	err := ctx.Bind(&cq)
@@ -65,6 +67,8 @@ func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 			loggerx.String("method:", "CommentHandler:CreateComment"))
 		return
 	}
+	// 生成一个uuid（基于随机数生成的，生成的uuid是唯一的）
+	uuid := uuid.New().String()
 	// 创建评论，发送评论到kafka
 	_, err = c.commentServiceClient.ProducerCommentEvent(ctx.Request.Context(),
 		&commentv1.ProducerCommentEventRequest{
@@ -75,6 +79,7 @@ func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 				Content:  cq.Content,
 				ParentId: cq.ParentId,
 				RootId:   cq.RootId,
+				Uuid:     uuid,
 			},
 		})
 	if err != nil {

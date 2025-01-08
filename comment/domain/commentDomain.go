@@ -10,4 +10,5 @@ type CommentDomain struct {
 	RootId     int64  `json:"root_id"`
 	CreateTime int64  `json:"create_time"`
 	UpdateTime int64  `json:"update_time"`
+	Uuid       string `json:"uuid"`
 }
