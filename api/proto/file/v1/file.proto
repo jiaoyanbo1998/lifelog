@@ -1,0 +1,13 @@
+// 版本
+syntax = "proto3";
+
+// 包名
+package file.v1;
+
+// 包路径
+option go_package = "file/v1";
+
+// file服务
+service FileService {
+
+}

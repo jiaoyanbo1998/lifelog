@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="修改了，修改用户信息接口的bug" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="修改了，修改用户信息接口的bug">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/miniox/minio.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/minio.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/miniox/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/fileHandler.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +35,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "DefaultGoTemplateProperty": "Go File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -54,11 +59,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\web" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\api\proto\gen" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc - 副本\comment\event\sarama-kafka" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event\sarama" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event\kafka-go" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build lifelog-grpc">

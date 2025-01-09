@@ -14,19 +14,22 @@ type MinioClient struct {
 }
 
 // NewMinioClient 初始化minio客户端
-// 	 endpoint ip
-//   accessKey 访问键
-//   secretKey 密钥
-//   useSSL 是否使用SSL
+// 	  endpoint url（例如：http://localhost:9000）
+//    accessKey 密钥的key
+//    secretKey 密钥
+//    useSSL    是否使用SSL
 func NewMinioClient(endpoint, accessKey, secretKey string, useSSL bool) (*MinioClient, error) {
 	// 创建minio客户端
 	minioClient, err := minio.New(endpoint, &minio.Options{
 		Creds:  credentials.NewStaticV4(accessKey, secretKey, ""),
 		Secure: useSSL,
 	})
+	if err != nil {
+		return nil, err
+	}
 	return &MinioClient{
 		c: minioClient,
-	}, err
+	}, nil
 }
 
 // Upload 单个文件上传
@@ -43,7 +46,7 @@ func (c *MinioClient) Upload(
 		bucket,
 		fileName,
 		bytes.NewBuffer(data), // 将[]byte转为，io.Reader接口对象（从数据源读取字节流）
-		int64(len(data)),
+		int64(len(data)),      // 文件大小
 		minio.PutObjectOptions{ContentType: contentType},
 	)
 	return object, err
@@ -54,7 +57,6 @@ func (c *MinioClient) Compose(
 	ctx context.Context, // 上下文
 	bucket string,       // 存储桶
 	fileName string,     // 文件名
-	contentType string,  // 文件类型，例如：image/png，text/plain，application/json
 	totalChunk int,      // 分片总数
 ) error {
 	// 目标对象
@@ -76,6 +78,6 @@ func (c *MinioClient) Compose(
 		srcs = append(srcs, src)
 	}
 	// 合并分片，将srcs添加到dstOpts中
-	_, err := c.c.ComposeObject(context.Background(), dstOpts, srcs...)
+	_, err := c.c.ComposeObject(ctx, dstOpts, srcs...)
 	return err
 }
