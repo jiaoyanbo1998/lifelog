@@ -9,6 +9,7 @@ package main
 import (
 	"github.com/google/wire"
 	"lifelog-grpc/ioc"
+	"lifelog-grpc/pkg/miniox"
 	"lifelog-grpc/ranking/repository"
 	"lifelog-grpc/ranking/repository/cache"
 	"lifelog-grpc/ranking/service"
@@ -21,7 +22,9 @@ func InitApp() *App {
 	userServiceClient := ioc.InitUserServiceGRPCClient()
 	logger := ioc.InitLogger()
 	jwtHandler := web.NewJWTHandler(logger)
-	userHandler := web.NewUserHandler(userServiceClient, logger, jwtHandler)
+	minioClient := ioc.InitMinio()
+	fileHandler := miniox.NewFileHandler(minioClient)
+	userHandler := web.NewUserHandler(userServiceClient, logger, jwtHandler, fileHandler)
 	cmdable := ioc.InitRedis()
 	v := ioc.InitMiddlewares(logger, cmdable)
 	lifeLogServiceClient := ioc.InitLifeLogServiceCRPCClient()
@@ -69,6 +72,9 @@ var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveS
 
 // commentSet 评论
 var commentSet = wire.NewSet(web.NewCommentHandler, ioc.InitCommentServiceGRPCClient)
+
+// fileSet 文件
+var fileSet = wire.NewSet(ioc.InitMinio, miniox.NewFileHandler)
 
 // rankingSet ranking模块的依赖注入
 var rankingSet = wire.NewSet(service.NewRankingService, repository.NewRankingRepository, cache.NewRankingCacheRedis)

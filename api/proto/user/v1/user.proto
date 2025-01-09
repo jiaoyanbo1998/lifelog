@@ -18,6 +18,17 @@ service UserService {
   rpc DeleteUserInfoByIds(DeleteUserInfoByIdsRequest) returns(DeleteUserInfoByIdsResponse);
   rpc Logout(LogoutRequest) returns(LogoutResponse);
   rpc LoginByPhoneCode(LoginByPhoneCodeRequest) returns(LoginByPhoneCodeResponse);
+  rpc UpdateAvatar(UpdateAvatarRequest) returns(UpdateAvatarResponse);
+}
+
+// 根据用户id更新用户头像
+// 请求
+message UpdateAvatarRequest {
+  string filePath = 1;
+  int64 userId = 2;
+}
+// 响应
+message UpdateAvatarResponse {
 }
 
 // 手机短信验证码登录
@@ -99,4 +110,5 @@ message UserDomain {
   string new_password = 6;
   string code = 7;
   int64 Authority = 8;
+  string avatar = 9;
 }

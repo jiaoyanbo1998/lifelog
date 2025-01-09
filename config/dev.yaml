@@ -40,6 +40,11 @@ commentEtcd:
     addr:
         - "localhost:12379"
 
+fileEtcd:
+    port: 8076
+    addr:
+        - "localhost:12379"
+
 commentKafka:
     addr:
         - "localhost:9092"
@@ -48,3 +53,13 @@ commentKafka:
     topic: "comments"
     timeout: 1
     batch: 3
+
+minio:
+    endpoint: "localhost:9000"
+    accessKey: "l76IPyla7QDC2knl5Qth"
+    secretKey: "MEl77xronQ02HbovqrNQf92Y523OdUNESoqZ9W5s"
+    # 是否使用SSL，如果使用SSL，endpoint url必须以https开头
+    # false不启用，true启用
+    useSSL: false
+
+

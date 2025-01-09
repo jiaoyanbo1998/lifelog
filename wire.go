@@ -5,6 +5,7 @@ package main
 import (
 	"github.com/google/wire"
 	"lifelog-grpc/ioc"
+	"lifelog-grpc/pkg/miniox"
 	rankingRepository "lifelog-grpc/ranking/repository"
 	rankingCache "lifelog-grpc/ranking/repository/cache"
 	rankingService "lifelog-grpc/ranking/service"
@@ -50,6 +51,12 @@ var interactiveSet = wire.NewSet(
 var commentSet = wire.NewSet(
 	web.NewCommentHandler,
 	ioc.InitCommentServiceGRPCClient,
+)
+
+// fileSet 文件
+var fileSet = wire.NewSet(
+	ioc.InitMinio,
+	miniox.NewFileHandler,
 )
 
 // rankingSet ranking模块的依赖注入
@@ -103,6 +110,9 @@ func InitApp() *App {
 
 		// 初始化评论comment模块
 		commentSet,
+
+		// 初始化文件file模块
+		fileSet,
 
 		// 结构体自动填充
 		wire.Struct(new(App), "*"),

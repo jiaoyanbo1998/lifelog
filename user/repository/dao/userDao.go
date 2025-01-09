@@ -20,6 +20,7 @@ type UserDao interface {
 	UpdateById(ctx context.Context, user User) error
 	DeleteByIds(ctx context.Context, ids []int64) error
 	GetUserByPhoneOrInsert(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error)
+	UpdateAvatar(ctx context.Context, userId int64, filePath string) error
 }
 
 type GormUserDao struct {
@@ -49,10 +50,26 @@ type User struct {
 	WechatOpenId  sql.NullString `gorm:"uniqueIndex"`
 	NickName      string
 	Authority     int64
+	Avatar        string
 }
 
 func (User) TableName() string {
 	return "tb_user"
+}
+
+func (g *GormUserDao) UpdateAvatar(ctx context.Context, userId int64, filePath string) error {
+	tx := g.db.WithContext(ctx).Model(&User{}).Where("id = ?", userId).
+		Updates(map[string]any{
+			"avatar":      filePath,
+			"update_time": time.Now().UnixMilli(),
+		})
+	if tx.RowsAffected == 0 {
+		return errors.New("数据库更新失败")
+	}
+	if tx.Error != nil {
+		return tx.Error
+	}
+	return nil
 }
 
 // GetUserByPhoneOrInsert 通过手机号查询用户信息，如果没有查到就插入
@@ -169,6 +186,7 @@ func (g *GormUserDao) GetUserById(ctx context.Context, id int64) (domain.UserDom
 		Phone:    user.Phone.String,
 		NickName: user.NickName,
 		Password: user.Password,
+		Avatar:   user.Avatar,
 	}, nil
 }
 

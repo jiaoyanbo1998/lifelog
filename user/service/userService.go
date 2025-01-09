@@ -18,6 +18,7 @@ type UserService interface {
 	DeleteUSerInfoByIds(ctx context.Context, ids []int64) error
 	Logout(ctx context.Context, sessionId string) error
 	LoginByPhoneCode(ctx context.Context, userDomain domain.UserDomain, biz string) (domain.UserDomain, error)
+	UpdateAvatar(ctx context.Context, userId int64, filePath string) error
 }
 
 type UserServiceV1 struct {
@@ -28,6 +29,10 @@ func NewUserService(userRepository repository.UserRepository) UserService {
 	return &UserServiceV1{
 		userRepository: userRepository,
 	}
+}
+
+func (u *UserServiceV1) UpdateAvatar(ctx context.Context, userId int64, filePath string) error {
+	return u.userRepository.UpdateAvatar(ctx, userId, filePath)
 }
 
 func (u *UserServiceV1) LoginByPhoneCode(ctx context.Context, userDomain domain.UserDomain, biz string) (domain.UserDomain, error) {

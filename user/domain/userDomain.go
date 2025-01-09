@@ -12,4 +12,5 @@ type UserDomain struct {
 	Code          string
 	UpdateTime    int64
 	Authority     int64
+	Avatar        string
 }

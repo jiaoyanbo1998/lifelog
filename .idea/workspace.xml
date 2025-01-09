@@ -4,10 +4,37 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="修改了，修改用户信息接口的bug">
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="file服务初始化">
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/file/v1/file.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/proto/gen/file/v1/file_grpc.pb.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/file/ioc/minio.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ioc/minio.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/file/v1/file.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/file/v1/file.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/user/v1/user.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/user/v1/user_grpc.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/user/v1/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/user/v1/user.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/grpc/fileServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/grpc/fileServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/repository/dao/fileDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/repository/dao/fileDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/repository/fileRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/repository/fileRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/service/fileService.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/service/fileService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/miniox/minio.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/minio.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/miniox/upload.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/fileHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/domain/userDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/domain/userDomain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/grpc/userServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/grpc/userServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/dao/userDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/dao/userDao.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/repository/userRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/userRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/service/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/userService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fileHandler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,10 +73,10 @@
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "C:/Users/17838466781",
+    "last_opened_file_path": "D:/GoLangProjects/src/lifelog-grpc/user/ioc",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "configurable.group.tools"
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -58,12 +85,17 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\user\ioc" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\ioc" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\file\ioc" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\web" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\api\proto\gen" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\ioc" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\pkg\miniox" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\web" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc - 副本\comment\event\sarama-kafka" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event\sarama" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build lifelog-grpc">
@@ -94,6 +126,15 @@
       <filePath value="$PROJECT_DIR$/comment/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build lifelog-grpc/file" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/file" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/file/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
       <working_directory value="$PROJECT_DIR$" />
@@ -103,22 +144,13 @@
       <filePath value="$PROJECT_DIR$/interactive/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/lifeLog" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog-grpc" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/lifeLog" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/lifeLog/main.go" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/file" />
         <item itemvalue="Go Build.go build lifelog-grpc/comment" />
+        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc/collect" />
-        <item itemvalue="Go Build.go build lifelog-grpc/lifeLog" />
       </list>
     </recent_temporary>
   </component>
@@ -131,7 +163,8 @@
     <MESSAGE value="新增sarama的kafka消费者和生产者" />
     <MESSAGE value="消费幂等，数据库添加了uuid字段，uuid设置了唯一索引" />
     <MESSAGE value="修改了，修改用户信息接口的bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了，修改用户信息接口的bug" />
+    <MESSAGE value="file服务初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="file服务初始化" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

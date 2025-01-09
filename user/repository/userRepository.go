@@ -19,6 +19,7 @@ type UserRepository interface {
 	SetHistoryPassword(ctx context.Context, email, historyPassword string) error
 	GetHistoryPassword(ctx context.Context, email string) ([]string, error)
 	LoginOrRegister(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error)
+	UpdateAvatar(ctx context.Context, userId int64, filePath string) error
 }
 
 type UserRepositoryV1 struct {
@@ -31,6 +32,10 @@ func NewUserRepository(userDao dao.UserDao, userCache cache.UserCache) UserRepos
 		userDao:   userDao,
 		userCache: userCache,
 	}
+}
+
+func (u *UserRepositoryV1) UpdateAvatar(ctx context.Context, userId int64, filePath string) error {
+	return u.userDao.UpdateAvatar(ctx, userId, filePath)
 }
 
 func (u *UserRepositoryV1) LoginOrRegister(ctx context.Context, userDomain domain.UserDomain) (domain.UserDomain, error) {

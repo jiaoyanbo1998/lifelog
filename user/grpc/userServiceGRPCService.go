@@ -27,6 +27,14 @@ func NewUserServiceGRPCService(userService service.UserService,
 	}
 }
 
+func (u *UserServiceGRPCService) UpdateAvatar(ctx context.Context, request *userv1.UpdateAvatarRequest) (*userv1.UpdateAvatarResponse, error) {
+	err := u.userService.UpdateAvatar(ctx, request.GetUserId(), request.GetFilePath())
+	if err != nil {
+		return &userv1.UpdateAvatarResponse{}, err
+	}
+	return &userv1.UpdateAvatarResponse{}, nil
+}
+
 // RegisterByEmailAndPassword 邮箱密码注册
 func (u *UserServiceGRPCService) RegisterByEmailAndPassword(ctx context.Context, request *userv1.RegisterByEmailAndPasswordRequest) (*userv1.RegisterByEmailAndPasswordResponse, error) {
 	// 调用service层

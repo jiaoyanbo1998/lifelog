@@ -4,9 +4,12 @@ import (
 	"errors"
 	regexp "github.com/dlclark/regexp2"
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
+	"github.com/spf13/viper"
 	userv1 "lifelog-grpc/api/proto/gen/user/v1"
 	"lifelog-grpc/errs"
 	"lifelog-grpc/pkg/loggerx"
+	"lifelog-grpc/pkg/miniox"
 	"lifelog-grpc/user/vo"
 	"net/http"
 	"strconv"
@@ -23,14 +26,16 @@ type UserHandler struct {
 	passwordRegexp    *regexp.Regexp // 用于校验密码的正则表达式
 	phoneRegexp       *regexp.Regexp
 	// 组合jwtHandler
-	jwtHandler *JWTHandler
+	jwtHandler  *JWTHandler
+	fileHandler *miniox.FileHandler
 }
 
 // NewUserHandler 构造函数创建用户处理器
 func NewUserHandler(
 	userServiceClient userv1.UserServiceClient,
 	l loggerx.Logger,
-	jwtHandler *JWTHandler) *UserHandler {
+	jwtHandler *JWTHandler,
+	fileHandler *miniox.FileHandler) *UserHandler {
 	// 定义正则表达式常量
 	const (
 		EmailRegexp    = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
@@ -45,6 +50,7 @@ func NewUserHandler(
 		passwordRegexp: regexp.MustCompile(PasswordRegexp, regexp.None),
 		phoneRegexp:    regexp.MustCompile(PhoneRegexp, regexp.None),
 		jwtHandler:     jwtHandler,
+		fileHandler:    fileHandler,
 	}
 }
 
@@ -68,6 +74,8 @@ func (userHandler *UserHandler) RegisterRoutes(server *gin.Engine) {
 	rg.GET("/logout", userHandler.Logout)
 	// 手机号登录
 	rg.POST("/login_phone_code", userHandler.LoginByPhoneCode)
+	// 上传头像
+	rg.POST("/upload", userHandler.UploadAvatar)
 }
 
 func (userHandler *UserHandler) RegisterByEmailAndPassword(ctx *gin.Context) {
@@ -675,5 +683,69 @@ func (userHandler *UserHandler) LoginByPhoneCode(ctx *gin.Context) {
 		Code: 200,
 		Msg:  "登录成功",
 		Data: "success",
+	})
+}
+
+func (userHandler *UserHandler) UploadAvatar(ctx *gin.Context) {
+	// 获取配置文件
+	type config struct {
+		Endpoint string `yaml:"endpoint"`
+		UseSSL   bool   `yaml:"use_ssl"`
+	}
+	var c config
+	err := viper.UnmarshalKey("minio", &c)
+	if err != nil {
+		userHandler.logger.Error("读取配置文件失败", loggerx.Error(err))
+		ctx.JSON(http.StatusOK, Result[string]{
+			Code: errs.ErrSystemError,
+			Msg:  "上传失败",
+			Data: "error",
+		})
+		return
+	}
+	bucketName := "user"
+	fileName := uuid.New().String()
+	files, err := userHandler.fileHandler.UploadFiles(ctx, c.Endpoint, bucketName, fileName, c.UseSSL)
+	if err != nil {
+		ctx.JSON(http.StatusOK, Result[string]{
+			Code: errs.ErrSystemError,
+			Msg:  "上传失败",
+			Data: "error",
+		})
+		userHandler.logger.Error("上传文件失败", loggerx.Error(err),
+			loggerx.String("method", "UserHandler:UploadAvatar"))
+		return
+	}
+	// 获取当前用户信息
+	userInfo, ok := userHandler.jwtHandler.GetUserInfo(ctx)
+	if !ok {
+		ctx.JSON(http.StatusInternalServerError, Result[string]{
+			Code: 500,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		userHandler.logger.Error("获取用户信息失败，token中不存在用户信息",
+			loggerx.String("method：", "UserHandler:UploadAvatar"))
+		return
+	}
+	// 调用grpc层
+	_, err = userHandler.userServiceClient.UpdateAvatar(ctx, &userv1.UpdateAvatarRequest{
+		UserId:   userInfo.Id,
+		FilePath: files[0].URL,
+	})
+	if err != nil {
+		ctx.JSON(http.StatusOK, Result[string]{
+			Code: errs.ErrSystemError,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		userHandler.logger.Error("上传文件失败", loggerx.Error(err),
+			loggerx.String("method", "UserHandler:UploadAvatar"))
+		return
+	}
+	ctx.JSON(http.StatusOK, Result[[]miniox.UploadResult]{
+		Code: 200,
+		Msg:  "上传成功",
+		Data: files,
 	})
 }
