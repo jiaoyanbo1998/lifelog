@@ -41,7 +41,9 @@ func InitApp() *App {
 	rankingService := service.NewRankingService(rankingRepository)
 	job := ioc.InitRankingJob(rankingService, logger, cmdable)
 	interactiveHandler := web.NewInteractiveHandler(logger, interactiveServiceClient, job)
-	engine := ioc.InitGin(userHandler, v, lifeLogHandler, collectHandler, commentHandler, codeHandler, interactiveHandler)
+	filesServiceClient := ioc.InitFilesServiceGRPCClient()
+	filesHandler := web.NewFilesHandler(filesServiceClient, fileHandler, logger)
+	engine := ioc.InitGin(userHandler, v, lifeLogHandler, collectHandler, commentHandler, codeHandler, interactiveHandler, filesHandler)
 	cron := ioc.InitCronRankingJob(logger, job)
 	app := &App{
 		server: engine,
@@ -74,7 +76,7 @@ var interactiveSet = wire.NewSet(web.NewInteractiveHandler, ioc.InitInteractiveS
 var commentSet = wire.NewSet(web.NewCommentHandler, ioc.InitCommentServiceGRPCClient)
 
 // fileSet 文件
-var fileSet = wire.NewSet(ioc.InitMinio, miniox.NewFileHandler)
+var fileSet = wire.NewSet(ioc.InitMinio, miniox.NewFileHandler, web.NewFilesHandler, ioc.InitFilesServiceGRPCClient)
 
 // rankingSet ranking模块的依赖注入
 var rankingSet = wire.NewSet(service.NewRankingService, repository.NewRankingRepository, cache.NewRankingCacheRedis)

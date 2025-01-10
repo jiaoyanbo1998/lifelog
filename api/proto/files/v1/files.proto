@@ -1,0 +1,79 @@
+// 版本
+syntax = "proto3";
+
+// 包名
+package files.v1;
+
+// 包路径
+option go_package = "files/v1";
+
+// file服务
+service FilesService {
+  rpc CreateFile(CreateFileRequest) returns (CreateFileResponse);
+  rpc UpdateFile(UpdateFileRequest) returns (UpdateFileResponse);
+  rpc DeleteFile(DeleteFileRequest) returns(DeleteFileResponse);
+  rpc GetFileByUserId(GetFileByUserIdRequest) returns(GetFileByUserIdResponse);
+  rpc GetFileByName(GetFileByNameRequest) returns(GetFileByNameResponse);
+}
+
+message File{
+  int64 id = 1;            // 文件id
+  int64 user_id = 2;      // 用户id
+  string url = 3;         // 文件的minio路径
+  string name = 4;        // 文件名称
+  string content = 5;     // 文件内容
+  int64 create_time = 6; // 创建时间
+  int64 update_time = 7; // 更新时间
+}
+
+// 根据文件id，获取文件
+// 请求
+message GetFileByUserIdRequest {
+  File file = 1;
+  int64 limit = 2;
+  int64 offset = 3;
+}
+// 响应
+message GetFileByUserIdResponse {
+  repeated File file = 1;
+}
+
+// 根据文件名字，获取文件
+// 请求
+message GetFileByNameRequest {
+  File file = 1;
+}
+// 响应
+message GetFileByNameResponse {
+  File file = 1;
+}
+
+// 插入文件
+// 请求
+message CreateFileRequest {
+  File file = 1;
+}
+// 响应
+message CreateFileResponse {
+
+}
+
+// 更新文件
+// 请求
+message UpdateFileRequest {
+  File file = 1;
+}
+// 响应
+message UpdateFileResponse {
+
+}
+
+
+// 删除文件
+// 请求
+message DeleteFileRequest {
+  File file = 1;
+}
+message DeleteFileResponse {
+
+}

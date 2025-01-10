@@ -4,35 +4,26 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="file服务初始化">
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/file/v1/file.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/proto/gen/file/v1/file_grpc.pb.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/file/ioc/minio.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ioc/minio.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="新增，用户头像&#10;minio进行了一些友好的封装">
+      <change afterPath="$PROJECT_DIR$/files/vo/fileVo.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/file/v1/file.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/file/v1/file.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/user/v1/user.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/user/v1/user_grpc.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/user/v1/user.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/user/v1/user.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/grpc/fileServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/grpc/fileServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/repository/dao/fileDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/repository/dao/fileDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/repository/fileRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/repository/fileRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/service/fileService.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/service/fileService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/file/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/file/v1/file.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/file/v1/file.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/file/v1/file_grpc.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/domain/fileDomain.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/grpc/fileServiceGRPCService.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/ioc/db.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/ioc/logger.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/ioc/minio.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/repository/dao/fileDao.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/repository/fileRepository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/service/fileService.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/wire.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/file/wire_gen.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/fileServiceGRPCClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/filesServiceGRPCClient.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ioc/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/web.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/miniox/minio.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/minio.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/domain/userDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/domain/userDomain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/grpc/userServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/grpc/userServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository/dao/userDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/dao/userDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/repository/userRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/repository/userRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/service/userService.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/service/userService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/user/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/fileHandler.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
     </list>
@@ -60,30 +51,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/GoLangProjects/src/lifelog-grpc/user/ioc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog-grpc/user/ioc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GoLangProjects\src\lifelog-grpc\user\ioc" />
@@ -126,13 +117,13 @@
       <filePath value="$PROJECT_DIR$/comment/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/file" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build lifelog-grpc/files" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc/file" />
+      <package value="lifelog-grpc/files" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/file/main.go" />
+      <filePath value="$PROJECT_DIR$/files/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -147,7 +138,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build lifelog-grpc" />
-        <item itemvalue="Go Build.go build lifelog-grpc/file" />
+        <item itemvalue="Go Build.go build lifelog-grpc/files" />
         <item itemvalue="Go Build.go build lifelog-grpc/comment" />
         <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc/collect" />
@@ -164,7 +155,8 @@
     <MESSAGE value="消费幂等，数据库添加了uuid字段，uuid设置了唯一索引" />
     <MESSAGE value="修改了，修改用户信息接口的bug" />
     <MESSAGE value="file服务初始化" />
-    <option name="LAST_COMMIT_MESSAGE" value="file服务初始化" />
+    <MESSAGE value="新增，用户头像&#10;minio进行了一些友好的封装" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增，用户头像&#10;minio进行了一些友好的封装" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

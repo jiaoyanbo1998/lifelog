@@ -2,8 +2,8 @@ package service
 
 import (
 	"context"
-	"lifelog-grpc/file/domain"
-	"lifelog-grpc/file/repository"
+	"lifelog-grpc/files/domain"
+	"lifelog-grpc/files/repository"
 	"lifelog-grpc/pkg/loggerx"
 )
 
@@ -11,7 +11,8 @@ type FileService interface {
 	CreateFile(ctx context.Context, fileDomain domain.FileDomain) error
 	UpdateFile(ctx context.Context, fileDomain domain.FileDomain) error
 	DeleteFile(ctx context.Context, fileDomain domain.FileDomain) error
-	GetFile(ctx context.Context, fileDomain domain.FileDomain) ([]string, error)
+	GetFileByUserId(ctx context.Context, limit, offset, userId int64) ([]domain.FileDomain, error)
+	GetFileByName(ctx context.Context, name string) (domain.FileDomain, error)
 }
 
 type FileServiceV1 struct {
@@ -26,8 +27,12 @@ func NewFileService(fileRepository repository.FileRepository, logger loggerx.Log
 	}
 }
 
-func (f *FileServiceV1) GetFile(ctx context.Context, fileDomain domain.FileDomain) ([]string, error) {
-	return f.fileRepository.GetFile(ctx, fileDomain)
+func (f *FileServiceV1) GetFileByUserId(ctx context.Context, limit, offset, userId int64) ([]domain.FileDomain, error) {
+	return f.fileRepository.GetFileByUserId(ctx, limit, offset, userId)
+}
+
+func (f *FileServiceV1) GetFileByName(ctx context.Context, name string) (domain.FileDomain, error) {
+	return f.fileRepository.GetFileByName(ctx, name)
 }
 
 func (f *FileServiceV1) CreateFile(ctx context.Context, fileDomain domain.FileDomain) error {

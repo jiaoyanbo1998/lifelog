@@ -1647,3 +1647,18 @@
 {"L":"error","time":"2025-01-09 21:40:06","C":"loggerx/zap_logger.go:62","M":"将文件信息，插入数据库失败","error":"Error 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`lifelog`.`tb_file`, CONSTRAINT `tb_file_fk` FOREIGN KEY (`biz_id`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE)","url":"http://localhost:9000/user/user","userId":0,"biz":"user"}
 {"L":"error","time":"2025-01-09 21:40:06","C":"loggerx/zap_logger.go:62","M":"文件操作失败","error":"rpc error: code = Unknown desc = Error 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`lifelog`.`tb_file`, CONSTRAINT `tb_file_fk` FOREIGN KEY (`biz_id`) REFERENCES `tb_user` (`id`) ON DELETE CASCADE)"}
 {"L":"error","time":"2025-01-10 00:09:17","C":"loggerx/zap_logger.go:62","M":"jwt-token获取失败，没有传入jwt，或jwt被篡改，middleware包下的jwt方法","path":"/user/upload","token":""}
+{"L":"error","time":"2025-01-10 14:19:45","C":"loggerx/zap_logger.go:62","M":"创建Kafka客户端失败","error":"kafka: client has run out of available brokers to talk to: 2 errors occurred:\n\t* EOF\n\t* EOF\n","method:":"comment:ioc:InitKafka"}
+{"L":"error","time":"2025-01-10 14:20:13","C":"loggerx/zap_logger.go:62","M":"创建Kafka客户端失败","error":"kafka: client has run out of available brokers to talk to: 2 errors occurred:\n\t* EOF\n\t* EOF\n","method:":"comment:ioc:InitKafka"}
+{"L":"error","time":"2025-01-10 14:20:27","C":"loggerx/zap_logger.go:62","M":"创建Kafka客户端失败","error":"kafka: client has run out of available brokers to talk to: 2 errors occurred:\n\t* EOF\n\t* EOF\n","method:":"comment:ioc:InitKafka"}
+{"L":"error","time":"2025-01-10 14:20:43","C":"loggerx/zap_logger.go:62","M":"创建Kafka客户端失败","error":"kafka: client has run out of available brokers to talk to: 2 errors occurred:\n\t* EOF\n\t* EOF\n","method:":"comment:ioc:InitKafka"}
+{"L":"error","time":"2025-01-10 14:23:30","C":"loggerx/zap_logger.go:62","M":"创建Kafka客户端失败","error":"kafka: client has run out of available brokers to talk to: 2 errors occurred:\n\t* EOF\n\t* EOF\n","method:":"comment:ioc:InitKafka"}
+{"L":"error","time":"2025-01-10 14:23:47","C":"loggerx/zap_logger.go:62","M":"创建Kafka客户端失败","error":"kafka: client has run out of available brokers to talk to: 2 errors occurred:\n\t* EOF\n\t* EOF\n","method:":"comment:ioc:InitKafka"}
+{"L":"error","time":"2025-01-10 14:38:48","C":"loggerx/zap_logger.go:62","M":"获取文件列表失败","error":"rpc error: code = Unknown desc = 未找到文件"}
+{"L":"error","time":"2025-01-10 14:39:15","C":"loggerx/zap_logger.go:62","M":"获取文件列表失败","error":"rpc error: code = Unknown desc = 未找到文件"}
+{"L":"error","time":"2025-01-10 14:40:15","C":"loggerx/zap_logger.go:62","M":"获取文件列表失败","error":"rpc error: code = Unknown desc = 未找到文件"}
+{"L":"error","time":"2025-01-10 14:41:43","C":"loggerx/zap_logger.go:62","M":"获取文件列表失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses"}
+{"L":"error","time":"2025-01-10 14:42:27","C":"loggerx/zap_logger.go:62","M":"获取文件列表失败","error":"rpc error: code = Unavailable desc = last resolver error: produced zero addresses"}
+{"L":"error","time":"2025-01-10 14:44:04","C":"loggerx/zap_logger.go:62","M":"获取文件列表失败","error":"rpc error: code = Unknown desc = 未找到文件"}
+{"L":"error","time":"2025-01-10 14:45:32","C":"loggerx/zap_logger.go:62","M":"获取文件失败","error":"rpc error: code = Unknown desc = 未找到文件"}
+{"L":"error","time":"2025-01-10 14:47:21","C":"loggerx/zap_logger.go:62","M":"获取文件失败","error":"rpc error: code = Unknown desc = 未找到文件"}
+{"L":"error","time":"2025-01-10 14:48:26","C":"loggerx/zap_logger.go:62","M":"获取文件失败","error":"rpc error: code = Unknown desc = 未找到文件"}

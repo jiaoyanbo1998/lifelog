@@ -2,15 +2,16 @@ package repository
 
 import (
 	"context"
-	"lifelog-grpc/file/domain"
-	"lifelog-grpc/file/repository/dao"
+	"lifelog-grpc/files/domain"
+	"lifelog-grpc/files/repository/dao"
 )
 
 type FileRepository interface {
 	CreateFile(ctx context.Context, fileDomain domain.FileDomain) error
 	UpdateFile(ctx context.Context, fileDomain domain.FileDomain) error
 	DeleteFile(ctx context.Context, fileDomain domain.FileDomain) error
-	GetFile(ctx context.Context, fileDomain domain.FileDomain) ([]string, error)
+	GetFileByUserId(ctx context.Context, limit, offset, userId int64) ([]domain.FileDomain, error)
+	GetFileByName(ctx context.Context, name string) (domain.FileDomain, error)
 }
 
 type FileRepositoryV1 struct {
@@ -22,8 +23,13 @@ func NewFileService(fileDao dao.FileDao) FileRepository {
 		fileDao: fileDao,
 	}
 }
-func (f *FileRepositoryV1) GetFile(ctx context.Context, fileDomain domain.FileDomain) ([]string, error) {
-	return f.fileDao.GetFile(ctx, fileDomain)
+
+func (f *FileRepositoryV1) GetFileByUserId(ctx context.Context, limit, offset, userId int64) ([]domain.FileDomain, error) {
+	return f.fileDao.GetFileByUserId(ctx, limit, offset, userId)
+}
+
+func (f *FileRepositoryV1) GetFileByName(ctx context.Context, name string) (domain.FileDomain, error) {
+	return f.fileDao.GetFileByName(ctx, name)
 }
 
 func (f *FileRepositoryV1) CreateFile(ctx context.Context, fileDomain domain.FileDomain) error {

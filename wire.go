@@ -57,6 +57,8 @@ var commentSet = wire.NewSet(
 var fileSet = wire.NewSet(
 	ioc.InitMinio,
 	miniox.NewFileHandler,
+	web.NewFilesHandler,
+	ioc.InitFilesServiceGRPCClient,
 )
 
 // rankingSet ranking模块的依赖注入

@@ -4,30 +4,29 @@ package main
 
 import (
 	"github.com/google/wire"
-	"lifelog-grpc/file/grpc"
-	"lifelog-grpc/file/ioc"
-	"lifelog-grpc/file/repository"
-	"lifelog-grpc/file/repository/dao"
-	"lifelog-grpc/file/service"
+	"lifelog-grpc/files/grpc"
+	"lifelog-grpc/files/ioc"
+	"lifelog-grpc/files/repository"
+	"lifelog-grpc/files/repository/dao"
+	"lifelog-grpc/files/service"
 )
 
 var fileSet = wire.NewSet(
 	service.NewFileService,
 	repository.NewFileService,
-	dao.NewFileService,
+	dao.NewFileDao,
 )
 
 var thirdSet = wire.NewSet(
-	ioc.InitMinio,
 	ioc.InitLogger,
 	ioc.GetMysql,
 )
 
-func InitFileServiceGRPCService() *grpc.FileServiceGRPCService {
+func InitFileServiceGRPCService() *grpc.FilesServiceGRPCService {
 	wire.Build(
 		fileSet,
 		thirdSet,
 		grpc.NewFileServiceGRPCService,
 	)
-	return new(grpc.FileServiceGRPCService)
+	return new(grpc.FilesServiceGRPCService)
 }
