@@ -160,8 +160,9 @@ func (i *InteractiveHandler) UnLike(ctx *gin.Context) {
 // Collect 收藏LifeLog
 func (i *InteractiveHandler) Collect(ctx *gin.Context) {
 	type CollectReq struct {
-		BizId     int64 `json:"biz_id"`
-		CollectId int64 `json:"collect_id"`
+		BizId        int64 `json:"biz_id"`
+		CollectId    int64 `json:"collect_id"`
+		TargetUserId int64 `json:"target_user_id"`
 	}
 	var req CollectReq
 	err := ctx.Bind(&req)
@@ -188,9 +189,10 @@ func (i *InteractiveHandler) Collect(ctx *gin.Context) {
 	}
 	_, err = i.interactiveServiceClient.Collect(ctx.Request.Context(), &interactivev1.CollectRequest{
 		InteractiveDomain: &interactivev1.InteractiveDomain{
-			Biz:    i.biz,
-			BizId:  req.BizId,
-			UserId: userInfo.Id,
+			Biz:          i.biz,
+			BizId:        req.BizId,
+			UserId:       userInfo.Id,
+			TargetUserId: req.TargetUserId,
 		}, CollectId: req.CollectId,
 	})
 	if err != nil {

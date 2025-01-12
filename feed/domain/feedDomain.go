@@ -23,12 +23,21 @@ type LikeFeedEvent struct {
 
 type FollowFeedEvent struct {
 	Biz            string `json:"biz"`
-	BizId          int64  `json:"biz_id"`
-	FollowedUserId int64  `json:"followed_user_id"`
+	FolloweeUserId int64  `json:"followee_user_id"` // 被关注的用户id
+	FollowedUserId int64  `json:"followed_user_id"` // 关注的用户id
 }
 
 type CollectFeedEvent struct {
 	Biz             string `json:"biz"`
 	BizId           int64  `json:"biz_id"`
+	UserId          int64  `json:"user_id"`
 	CollectedUserId int64  `json:"collected_user_id"`
+}
+
+// ReadFeedEvent 阅读事件， feed流的内容：xx阅读了你的xxlifelog
+type ReadFeedEvent struct {
+	Biz          string `json:"biz"`            // lifeLog业务
+	BizId        int64  `json:"biz_id"`         // 哪一篇lifelog
+	UserId       int64  `json:"user_id"`        // 读者id
+	ReadedUserId int64  `json:"readed_user_id"` // lifelog作者id
 }

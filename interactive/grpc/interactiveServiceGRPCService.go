@@ -6,6 +6,7 @@ import (
 	collectv1 "lifelog-grpc/api/proto/gen/collect/v1"
 	feedv1 "lifelog-grpc/api/proto/gen/feed"
 	interactivev1 "lifelog-grpc/api/proto/gen/interactive/v1"
+	lifelogv1 "lifelog-grpc/api/proto/gen/lifelog/v1"
 	"lifelog-grpc/interactive/event/feed"
 	"lifelog-grpc/interactive/service"
 	"time"
@@ -16,19 +17,22 @@ type InteractiveServiceGRPCService struct {
 	interactiveService   service.InteractiveService
 	collectServiceClient collectv1.CollectServiceClient
 	interactivev1.UnimplementedInteractiveServiceServer
-	feedServiceClient   feedv1.FeedServiceClient
-	interactiveProducer *feed.SyncProducer
+	feedServiceClient    feedv1.FeedServiceClient
+	interactiveProducer  *feed.SyncProducer
+	lifeLogServiceClient lifelogv1.LifeLogServiceClient
 }
 
 func NewCodeServiceGRPCService(interactiveService service.InteractiveService,
 	collectServiceClient collectv1.CollectServiceClient,
 	feedServiceClient feedv1.FeedServiceClient,
-	interactiveProducer *feed.SyncProducer) *InteractiveServiceGRPCService {
+	interactiveProducer *feed.SyncProducer,
+	lifeLogServiceClient lifelogv1.LifeLogServiceClient) *InteractiveServiceGRPCService {
 	return &InteractiveServiceGRPCService{
 		interactiveService:   interactiveService,
 		collectServiceClient: collectServiceClient,
 		feedServiceClient:    feedServiceClient,
 		interactiveProducer:  interactiveProducer,
+		lifeLogServiceClient: lifeLogServiceClient,
 	}
 }
 
@@ -68,6 +72,30 @@ func (i *InteractiveServiceGRPCService) InsertFollow(ctx context.Context, reques
 	if err != nil {
 		return &interactivev1.InsertFollowResponse{}, err
 	}
+	// 生产关注Feed流
+	type followedFeedEvent struct {
+		Biz            string `json:"biz"`
+		FolloweeUserId int64  `json:"followee_user_id"` // 被关注的用户id
+		FollowedUserId int64  `json:"followed_user_id"` // 关注的用户id
+	}
+	ext := followedFeedEvent{
+		Biz:            "user",
+		FolloweeUserId: request.GetFollow().GetFolloweeId(),
+		FollowedUserId: request.GetFollow().GetFollowerId(),
+	}
+	marshal, err := json.Marshal(ext)
+	if err != nil {
+		return &interactivev1.InsertFollowResponse{}, err
+	}
+	err = i.interactiveProducer.ProduceInteractiveEventFeed(feed.FeedEvent{
+		UserId:     request.GetFollow().GetFolloweeId(), // 被关注的用户id
+		Content:    string(marshal),
+		CreateTime: time.Now().UnixMilli(),
+		Type:       "follow_event",
+	})
+	if err != nil {
+		return &interactivev1.InsertFollowResponse{}, err
+	}
 	return &interactivev1.InsertFollowResponse{}, nil
 }
 
@@ -85,6 +113,40 @@ func (i *InteractiveServiceGRPCService) IncreaseRead(ctx context.Context, reques
 		request.GetInteractiveDomain().GetBiz(),
 		request.GetInteractiveDomain().GetBizId(),
 		request.GetInteractiveDomain().GetUserId())
+	if err != nil {
+		return &interactivev1.IncreaseReadResponse{}, err
+	}
+	// 生产阅读Feed流
+	type readFeedEvent struct {
+		Biz          string `json:"biz"`            // lifeLog业务
+		BizId        int64  `json:"biz_id"`         // 哪一篇lifelog
+		UserId       int64  `json:"user_id"`        // 读者id
+		ReadedUserId int64  `json:"readed_user_id"` // lifelog作者id
+	}
+	detail, err := i.lifeLogServiceClient.Detail(ctx, &lifelogv1.DetailRequest{
+		LifeLogDomain: &lifelogv1.LifeLogDomain{
+			Id: request.GetInteractiveDomain().GetBizId(),
+		},
+	})
+	if err != nil {
+		return &interactivev1.IncreaseReadResponse{}, err
+	}
+	ext := readFeedEvent{
+		Biz:          "lifelog",
+		BizId:        request.GetInteractiveDomain().GetBizId(),
+		UserId:       request.GetInteractiveDomain().GetUserId(),
+		ReadedUserId: detail.GetLifeLogDomain().GetAuthor().GetUserId(),
+	}
+	marshal, err := json.Marshal(ext)
+	if err != nil {
+		return &interactivev1.IncreaseReadResponse{}, err
+	}
+	err = i.interactiveProducer.ProduceInteractiveEventFeed(feed.FeedEvent{
+		UserId:     request.GetInteractiveDomain().GetUserId(),
+		Content:    string(marshal),
+		CreateTime: time.Now().UnixMilli(),
+		Type:       "read_event",
+	})
 	if err != nil {
 		return &interactivev1.IncreaseReadResponse{}, err
 	}
@@ -177,6 +239,32 @@ func (i *InteractiveServiceGRPCService) Collect(ctx context.Context, request *in
 		CollectDetail: &collectv1.CollectDetail{
 			LifeLogId: request.GetInteractiveDomain().GetBizId(),
 		},
+	})
+	if err != nil {
+		return &interactivev1.CollectResponse{}, err
+	}
+	// 生产关注Feed流
+	type followedFeedEvent struct {
+		Biz             string `json:"biz"`
+		BizId           int64  `json:"biz_id"`
+		CollectedUserId int64  `json:"collected_user_id"`
+		UserId          int64  `json:"user_id"`
+	}
+	ext := followedFeedEvent{
+		Biz:             "lifelog",
+		BizId:           request.GetInteractiveDomain().GetBizId(),
+		CollectedUserId: request.GetInteractiveDomain().TargetUserId,
+		UserId:          request.GetInteractiveDomain().GetUserId(),
+	}
+	marshal, err := json.Marshal(ext)
+	if err != nil {
+		return &interactivev1.CollectResponse{}, err
+	}
+	err = i.interactiveProducer.ProduceInteractiveEventFeed(feed.FeedEvent{
+		UserId:     request.GetInteractiveDomain().GetUserId(),
+		Content:    string(marshal),
+		CreateTime: time.Now().UnixMilli(),
+		Type:       "collect_event",
 	})
 	if err != nil {
 		return &interactivev1.CollectResponse{}, err

@@ -29,6 +29,7 @@ var third = wire.NewSet(
 	ioc.InitSaramaSyncProducer,
 	ioc.InitSaramaKafka,
 	ioc.InitFeedServiceGRPCClient,
+	ioc.InitLifeLogServiceCRPCClient,
 	feed.NewSyncProducer,
 )
 

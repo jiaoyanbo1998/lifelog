@@ -33,7 +33,8 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 	client := ioc.InitSaramaKafka(logger)
 	syncProducer := ioc.InitSaramaSyncProducer(client)
 	feedSyncProducer := feed.NewSyncProducer(syncProducer, logger)
-	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService, collectServiceClient, feedServiceClient, feedSyncProducer)
+	lifeLogServiceClient := ioc.InitLifeLogServiceCRPCClient()
+	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService, collectServiceClient, feedServiceClient, feedSyncProducer, lifeLogServiceClient)
 	return interactiveServiceGRPCService
 }
 
@@ -42,4 +43,4 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 // interactiveSet 注入
 var interactiveSet = wire.NewSet(service.NewInteractiveService, repository.NewInteractiveRepository, cache.NewInteractiveCache, dao.NewInteractiveDao)
 
-var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitCollectServiceGRPCClient, ioc.InitSaramaSyncProducer, ioc.InitSaramaKafka, ioc.InitFeedServiceGRPCClient, feed.NewSyncProducer)
+var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitCollectServiceGRPCClient, ioc.InitSaramaSyncProducer, ioc.InitSaramaKafka, ioc.InitFeedServiceGRPCClient, ioc.InitLifeLogServiceCRPCClient, feed.NewSyncProducer)

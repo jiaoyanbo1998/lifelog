@@ -35,7 +35,7 @@ func (f *FollowEventHandler) CreateFeedEvent(ctx context.Context, feedEvent doma
 	}
 	return f.feedRepository.CreatePushEvents(ctx, []domain.FeedEvent{
 		{
-			UserId:     followFeedEvent.FollowedUserId,
+			UserId:     followFeedEvent.FolloweeUserId,
 			Type:       feedEvent.Type,
 			CreateTime: feedEvent.CreateTime,
 			Content:    feedEvent.Content,

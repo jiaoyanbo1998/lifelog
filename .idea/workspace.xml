@@ -4,22 +4,19 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="完成，feed服务">
-      <change afterPath="$PROJECT_DIR$/interactive/event/feed/syncProducer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/ioc/feedServiceGRPCClient.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/ioc/saramaKafka.go" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="完成，feed流服务：新增点赞feed流服务">
+      <change afterPath="$PROJECT_DIR$/feed/service/collectEvent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/feed/service/readEvent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/ioc/lifeLogServiceGRPCClient.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive_grpc.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/event/feed/syncProducer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/feed/syncProducer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feed/domain/feedDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/domain/feedDomain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/event/asyncConsumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/event/asyncConsumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/ioc/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/ioc/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/service/followEvent.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/service/followEvent.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feed/vo/feedVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/vo/feedVo.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interactive/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interactive/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/feedHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/feedHandler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/interactiveHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
     </list>
@@ -149,10 +146,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
+        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc/files" />
         <item itemvalue="Go Build.go build lifelog-grpc/comment" />
-        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
-        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
       </list>
     </recent_temporary>
   </component>
@@ -169,7 +166,8 @@
     <MESSAGE value="新增，用户头像&#10;minio进行了一些友好的封装" />
     <MESSAGE value="完成，文件上传服务" />
     <MESSAGE value="完成，feed服务" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成，feed服务" />
+    <MESSAGE value="完成，feed流服务：新增点赞feed流服务" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成，feed流服务：新增点赞feed流服务" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
