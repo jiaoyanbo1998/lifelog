@@ -41,7 +41,7 @@ func (as *AsyncProducer) ProduceCommentEvent(commentDomain domain.CommentDomain)
 	// 将消息发送到kafka的主题
 	messagesChan <- &sarama.ProducerMessage{
 		// 主题的名字
-		Topic: "LifeLog_Comment",
+		Topic: "LifeLog_comment_event",
 		// 消息的key（通过计算key的哈希值，将相同的key的消息发送到同一个分区）
 		Key: sarama.StringEncoder("biz-LifeLog"),
 		// 消息内容

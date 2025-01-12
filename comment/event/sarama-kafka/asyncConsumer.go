@@ -43,7 +43,7 @@ func (r *AsyncCommentEventConsumer) StartConsumer() error {
 		// 消费消息
 		er := cg.Consume(
 			context.Background(),                                          // 上下文对象
-			[]string{"LifeLog_Comment"},                                   // 消费主题
+			[]string{"LifeLog_comment_event"},                             // 消费主题
 			saramax.NewHandler[domain.CommentDomain](r.logger, r.Consume), // 消费者处理函数
 		)
 		if er != nil {

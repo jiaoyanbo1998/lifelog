@@ -8,6 +8,7 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/comment/event/feed"
 	"lifelog-grpc/comment/event/sarama-kafka"
 	"lifelog-grpc/comment/grpc"
 	"lifelog-grpc/comment/ioc"
@@ -27,7 +28,8 @@ func InitCommentServiceGRPCService() *App {
 	client := ioc.InitSaramaKafka(logger)
 	syncProducer := ioc.InitSaramaSyncProducer(client)
 	saramaKafkaSyncProducer := saramaKafka.NewSyncProducer(syncProducer, logger)
-	commentServiceGRPCService := grpc.NewCommentServiceGRPCService(commentService, saramaKafkaSyncProducer, logger)
+	feedSyncProducer := feed.NewSyncProducer(syncProducer, logger)
+	commentServiceGRPCService := grpc.NewCommentServiceGRPCService(commentService, saramaKafkaSyncProducer, logger, feedSyncProducer)
 	asyncCommentEventConsumer := saramaKafka.NewAsyncCommentEventConsumer(client, logger, commentService)
 	app := &App{
 		commentServiceGRPCService: commentServiceGRPCService,
@@ -42,4 +44,4 @@ var commentSet = wire.NewSet(service.NewCommentService, repository.NewCommentRep
 
 var thirdSet = wire.NewSet(ioc.InitLogger, ioc.GetMysql)
 
-var kafkaSet = wire.NewSet(ioc.InitSaramaKafka, saramaKafka.NewSyncProducer, saramaKafka.NewAsyncCommentEventConsumer, saramaKafka.NewAsyncProducer, saramaKafka.NewAsyncBatchCommentEventConsumer, ioc.InitSaramaSyncProducer)
+var kafkaSet = wire.NewSet(ioc.InitSaramaKafka, saramaKafka.NewSyncProducer, saramaKafka.NewAsyncCommentEventConsumer, saramaKafka.NewAsyncProducer, saramaKafka.NewAsyncBatchCommentEventConsumer, ioc.InitSaramaSyncProducer, feed.NewSyncProducer)

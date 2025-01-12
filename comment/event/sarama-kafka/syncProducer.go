@@ -40,7 +40,7 @@ func (s *SyncProducer) ProduceCommentEvent(commentDomain domain.CommentDomain) e
 	// 返回值：分区，offset(消息在分区中的位置)，错误信息
 	_, _, err = s.producer.SendMessage(&sarama.ProducerMessage{
 		// 设置主题的名字
-		Topic: "LifeLog_Comment",
+		Topic: "LifeLog_comment_event",
 		// 设置消息内容，消息的内容必须为[]byte类型
 		Value: sarama.ByteEncoder(val),
 	})

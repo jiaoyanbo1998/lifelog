@@ -1,5 +1,5 @@
 scrape_configs:
-  - job_name: 'webook' # 采集webook服务的指标
+  - job_name: 'LifeLog' # 采集LifeLog服务的指标
     scrape_interval: 5s # 每5s采集一次
     scrape_timeout: 5s # 采集超时时间为5s
     static_configs: # 静态配置

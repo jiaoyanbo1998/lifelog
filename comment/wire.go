@@ -4,6 +4,7 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/comment/event/feed"
 	"lifelog-grpc/comment/event/sarama-kafka"
 	"lifelog-grpc/comment/grpc"
 	"lifelog-grpc/comment/ioc"
@@ -31,6 +32,7 @@ var kafkaSet = wire.NewSet(
 	saramaKafka.NewAsyncProducer,
 	saramaKafka.NewAsyncBatchCommentEventConsumer,
 	ioc.InitSaramaSyncProducer,
+	feed.NewSyncProducer,
 	// kafka-go的配置
 	// kafkago.InitKafkaProducer,
 	// kafkago.NewCommentConsumer,

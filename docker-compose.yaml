@@ -34,15 +34,18 @@ services:
     volumes:
       # 将本地的prometheus.yml文件挂载到容器中
       - ./prometheus.yaml:/etc/prometheus/prometheus.yml
+    command:
+      - "--web.enable-remote-write-receiver"
+      - "--config.file=/etc/prometheus/prometheus.yml"
     ports:
       # 访问数据的端口
       - 9090:9090
 
   # grafana服务的配置
   grafana:
-    image: grafana/grafana-enterprise:10.2.0
+    image: grafana/grafana:latest # grafana/grafana-enterprise:10.2.0
     ports:
-      - 3030:3030
+      - 3000:3000
 
   # zipkin服务的配置
   zipkin:

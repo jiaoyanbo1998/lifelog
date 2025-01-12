@@ -4,5 +4,3 @@ curl --location 'localhost:8080/user/login_email_password' \
     "email":"1242644834@qq.com",
     "password":"125aAss#"
 }'
-
-

@@ -2,42 +2,79 @@ package grpc
 
 import (
 	"context"
+	"encoding/json"
 	commentv1 "lifelog-grpc/api/proto/gen/comment/v1"
 	"lifelog-grpc/comment/domain"
+	"lifelog-grpc/comment/event/feed"
 	saramaKafka "lifelog-grpc/comment/event/sarama-kafka"
 	"lifelog-grpc/comment/service"
 	"lifelog-grpc/pkg/loggerx"
+	"time"
 )
 
 type CommentServiceGRPCService struct {
 	commentService service.CommentService
 	commentv1.UnimplementedCommentServiceServer
 	// producer *kafkax.KafkaProducer
-	Producer *saramaKafka.SyncProducer
-	logger   loggerx.Logger
+	Producer            *saramaKafka.SyncProducer
+	logger              loggerx.Logger
+	CommentFeedProducer *feed.SyncProducer
 }
 
 func NewCommentServiceGRPCService(commentService service.CommentService,
-	producer *saramaKafka.SyncProducer, logger loggerx.Logger) *CommentServiceGRPCService {
+	producer *saramaKafka.SyncProducer, logger loggerx.Logger,
+	CommentFeedProducer *feed.SyncProducer) *CommentServiceGRPCService {
 	return &CommentServiceGRPCService{
-		commentService: commentService,
-		Producer:       producer,
-		logger:         logger,
+		commentService:      commentService,
+		Producer:            producer,
+		logger:              logger,
+		CommentFeedProducer: CommentFeedProducer,
 	}
 }
 
 // ProducerCommentEvent sarama的kafka生产者
 func (c *CommentServiceGRPCService) ProducerCommentEvent(ctx context.Context, request *commentv1.ProducerCommentEventRequest) (*commentv1.ProducerCommentEventResponse, error) {
+	// 调用kafka生产者发送
 	err := c.Producer.ProduceCommentEvent(domain.CommentDomain{
-		UserId:   request.Comment.GetUserId(),
-		Biz:      request.Comment.GetBiz(),
-		BizId:    request.Comment.GetBizId(),
-		Content:  request.Comment.GetContent(),
-		ParentId: request.Comment.GetParentId(),
-		RootId:   request.Comment.GetRootId(),
+		UserId:       request.GetComment().GetUserId(),
+		Biz:          request.GetComment().GetBiz(),
+		BizId:        request.GetComment().GetBizId(),
+		Content:      request.GetComment().GetContent(),
+		ParentId:     request.GetComment().GetParentId(),
+		RootId:       request.GetComment().GetRootId(),
+		TargetUserId: request.GetComment().GetTargetUserId(),
+		Uuid:         request.GetComment().Uuid,
 	})
 	if err != nil {
 		c.logger.Error("kafka生产者发送失败", loggerx.Error(err))
+		return &commentv1.ProducerCommentEventResponse{}, err
+	}
+	// 生产评论Feed流
+	type commentFeedEvent struct {
+		Biz             string `json:"biz"`
+		BizId           int64  `json:"biz_id"`
+		CommentedUserId int64  `json:"commented_user_id"`
+		Content         string `json:"content"`
+	}
+	ext := commentFeedEvent{
+		Biz:             "lifelog",
+		BizId:           request.GetComment().GetBizId(),
+		CommentedUserId: request.GetComment().GetTargetUserId(),
+		Content:         request.GetComment().GetContent(),
+	}
+	marshal, err := json.Marshal(ext)
+	if err != nil {
+		c.logger.Error("JSON 序列化失败", loggerx.Error(err))
+		return &commentv1.ProducerCommentEventResponse{}, err
+	}
+	err = c.CommentFeedProducer.ProduceCommentEventFeed(feed.FeedEvent{
+		UserId:     request.GetComment().GetUserId(),
+		Content:    string(marshal),
+		CreateTime: time.Now().UnixMilli(),
+		Type:       "LifeLogCommentEvent",
+	})
+	if err != nil {
+		c.logger.Error("kafka生产者，feed流失败", loggerx.Error(err))
 		return &commentv1.ProducerCommentEventResponse{}, err
 	}
 	// 返回成功响应

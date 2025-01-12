@@ -39,8 +39,8 @@ func (r *AsyncBatchCommentEventConsumer) StartConsumer() error {
 	// 启动一个goroutine，用于异步消费消息
 	go func() {
 		er := cg.Consume(
-			context.Background(),        // 上下文对象
-			[]string{"LifeLog_Comment"}, // 消费主题
+			context.Background(),              // 上下文对象
+			[]string{"LifeLog_comment_event"}, // 消费主题
 			saramax.NewBatchHandler[domain.CommentDomain](r.logger, r.Consume),
 		)
 		if er != nil {

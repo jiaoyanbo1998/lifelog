@@ -17,7 +17,8 @@ func InitGin(userHandler *web.UserHandler, middlewares []gin.HandlerFunc,
 	lifeLogHandler *web.LifeLogHandler, collectHandler *web.CollectHandler,
 	commentHandler *web.CommentHandler, codeHandler *web.CodeHandler,
 	interactive *web.InteractiveHandler,
-	filesHandler *web.FilesHandler) *gin.Engine {
+	filesHandler *web.FilesHandler,
+	feedHandler *web.FeedHandler) *gin.Engine {
 	// 创建默认的gin服务
 	server := gin.Default()
 	// 注册中间件
@@ -31,6 +32,7 @@ func InitGin(userHandler *web.UserHandler, middlewares []gin.HandlerFunc,
 	codeHandler.RegisterRoutes(server)
 	interactive.RegisterRoutes(server)
 	filesHandler.RegisterRoutes(server)
+	feedHandler.RegisterRouters(server)
 	return server
 }
 

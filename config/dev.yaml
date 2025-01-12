@@ -45,6 +45,11 @@ fileEtcd:
     addr:
         - "localhost:12379"
 
+feedEtcd:
+    port: 8077
+    addr:
+        - "localhost:12379"
+
 commentKafka:
     addr:
         - "localhost:9092"

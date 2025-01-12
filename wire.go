@@ -61,6 +61,12 @@ var fileSet = wire.NewSet(
 	ioc.InitFilesServiceGRPCClient,
 )
 
+// feedSet feed流
+var feedSet = wire.NewSet(
+	web.NewFeedHandler,
+	ioc.InitFeedServiceGRPCClient,
+)
+
 // rankingSet ranking模块的依赖注入
 var rankingSet = wire.NewSet(
 	rankingService.NewRankingService,
@@ -115,6 +121,9 @@ func InitApp() *App {
 
 		// 初始化文件file模块
 		fileSet,
+
+		// 初始化feed流模块
+		feedSet,
 
 		// 结构体自动填充
 		wire.Struct(new(App), "*"),

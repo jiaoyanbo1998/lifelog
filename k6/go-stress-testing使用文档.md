@@ -10,7 +10,7 @@
     }'
 
 3.压测命令：go-stress-testing-win -c 10 -n 100 -p  login
-  -c 并发数
+  -c 并发数cls
   -n 每个并发执行的请求数
   -p curl文件名
 

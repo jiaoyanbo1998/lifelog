@@ -48,12 +48,13 @@ func (c *CommentHandler) RegisterRoutes(server *gin.Engine) {
 
 func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 	type CommentReq struct {
-		UserId   int64  `json:"user_id"`
-		BizId    int64  `json:"biz_id"` // 文章id
-		Content  string `json:"content"`
-		ParentId int64  `json:"parent_id"`
-		RootId   int64  `json:"root_id"`
-		Uuid     string `json:"uuid"`
+		UserId       int64  `json:"user_id"`
+		BizId        int64  `json:"biz_id"` // 文章id
+		Content      string `json:"content"`
+		ParentId     int64  `json:"parent_id"`
+		RootId       int64  `json:"root_id"`
+		Uuid         string `json:"uuid"`
+		TargetUserId int64  `json:"target_user_id"`
 	}
 	var cq CommentReq
 	err := ctx.Bind(&cq)
@@ -73,13 +74,14 @@ func (c *CommentHandler) CreateComment(ctx *gin.Context) {
 	_, err = c.commentServiceClient.ProducerCommentEvent(ctx.Request.Context(),
 		&commentv1.ProducerCommentEventRequest{
 			Comment: &commentv1.Comment{
-				UserId:   cq.UserId,
-				Biz:      c.Biz,
-				BizId:    cq.BizId,
-				Content:  cq.Content,
-				ParentId: cq.ParentId,
-				RootId:   cq.RootId,
-				Uuid:     uuid,
+				UserId:       cq.UserId,
+				Biz:          c.Biz,
+				BizId:        cq.BizId,
+				Content:      cq.Content,
+				ParentId:     cq.ParentId,
+				RootId:       cq.RootId,
+				Uuid:         uuid,
+				TargetUserId: cq.TargetUserId,
 			},
 		})
 	if err != nil {

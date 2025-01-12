@@ -51,13 +51,11 @@ func main() {
 		logx.Errorf("启动消费者失败：%s", er.Error())
 		panic(er)
 	}
-	go func() {
-		// 关闭生产者
-		//defer app.commentServiceGRPCService.Producer.Close()
-	}()
 	// 8.启动grpc服务
 	logx.Info("正在启动commentService的grpc服务...")
 	server.Start()
+	// 关闭生产者
+	defer app.commentServiceGRPCService.Producer.Close()
 }
 
 func initViperDevelopment() {
