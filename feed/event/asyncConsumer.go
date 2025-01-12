@@ -36,7 +36,7 @@ func (r *FeedEventAsyncConsumer) Start() error {
 	go func() {
 		er := cg.Consume(
 			context.Background(),
-			[]string{"LifeLog_comment_event_feed"}, // 消费的topic
+			[]string{"LifeLog_feed_event"}, // 消费的topic
 			saramax.NewHandler[domain.FeedEvent](r.logger, r.Consume))
 		if er != nil {
 			r.logger.Error("退出了消费循环异常", loggerx.Error(err))

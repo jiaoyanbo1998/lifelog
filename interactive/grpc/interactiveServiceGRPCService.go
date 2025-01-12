@@ -2,9 +2,13 @@ package grpc
 
 import (
 	"context"
+	"encoding/json"
 	collectv1 "lifelog-grpc/api/proto/gen/collect/v1"
+	feedv1 "lifelog-grpc/api/proto/gen/feed"
 	interactivev1 "lifelog-grpc/api/proto/gen/interactive/v1"
+	"lifelog-grpc/interactive/event/feed"
 	"lifelog-grpc/interactive/service"
+	"time"
 )
 
 // InteractiveServiceGRPCService 短信服务的grpc服务器
@@ -12,6 +16,20 @@ type InteractiveServiceGRPCService struct {
 	interactiveService   service.InteractiveService
 	collectServiceClient collectv1.CollectServiceClient
 	interactivev1.UnimplementedInteractiveServiceServer
+	feedServiceClient   feedv1.FeedServiceClient
+	interactiveProducer *feed.SyncProducer
+}
+
+func NewCodeServiceGRPCService(interactiveService service.InteractiveService,
+	collectServiceClient collectv1.CollectServiceClient,
+	feedServiceClient feedv1.FeedServiceClient,
+	interactiveProducer *feed.SyncProducer) *InteractiveServiceGRPCService {
+	return &InteractiveServiceGRPCService{
+		interactiveService:   interactiveService,
+		collectServiceClient: collectServiceClient,
+		feedServiceClient:    feedServiceClient,
+		interactiveProducer:  interactiveProducer,
+	}
 }
 
 func (i *InteractiveServiceGRPCService) FollowList(ctx context.Context, request *interactivev1.FollowListRequest) (*interactivev1.FollowListResponse, error) {
@@ -42,14 +60,6 @@ func (i *InteractiveServiceGRPCService) BothFollowList(ctx context.Context, requ
 	return &interactivev1.BothFollowListResponse{
 		Ids: list,
 	}, nil
-}
-
-func NewCodeServiceGRPCService(interactiveService service.InteractiveService,
-	collectServiceClient collectv1.CollectServiceClient) *InteractiveServiceGRPCService {
-	return &InteractiveServiceGRPCService{
-		interactiveService:   interactiveService,
-		collectServiceClient: collectServiceClient,
-	}
 }
 
 func (i *InteractiveServiceGRPCService) InsertFollow(ctx context.Context, request *interactivev1.InsertFollowRequest) (*interactivev1.InsertFollowResponse, error) {
@@ -107,6 +117,30 @@ func (i *InteractiveServiceGRPCService) Like(ctx context.Context, request *inter
 		ctx, request.InteractiveDomain.Biz,
 		request.InteractiveDomain.BizId,
 		request.InteractiveDomain.UserId)
+	if err != nil {
+		return &interactivev1.LikeResponse{}, err
+	}
+	// 生产评论Feed流
+	type likeFeedEvent struct {
+		Biz         string `json:"biz"`
+		BizId       int64  `json:"biz_id"`
+		LikedUserId int64  `json:"liked_user_id"`
+	}
+	ext := likeFeedEvent{
+		Biz:         "lifelog",
+		BizId:       request.GetInteractiveDomain().GetBizId(),
+		LikedUserId: request.GetInteractiveDomain().GetTargetUserId(),
+	}
+	marshal, err := json.Marshal(ext)
+	if err != nil {
+		return &interactivev1.LikeResponse{}, err
+	}
+	err = i.interactiveProducer.ProduceInteractiveEventFeed(feed.FeedEvent{
+		UserId:     request.GetInteractiveDomain().GetUserId(),
+		Content:    string(marshal),
+		CreateTime: time.Now().UnixMilli(),
+		Type:       "like_event",
+	})
 	if err != nil {
 		return &interactivev1.LikeResponse{}, err
 	}

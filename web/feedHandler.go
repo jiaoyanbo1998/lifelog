@@ -26,10 +26,11 @@ func NewFeedHandler(feedServiceClient feedv1.FeedServiceClient, logger loggerx.L
 
 func (f *FeedHandler) RegisterRouters(server *gin.Engine) {
 	rg := server.Group("/feed")
-	rg.GET("/findCommentFeed", f.FindCommentFeed)
+	rg.GET("/findLifeLogCommentFeed", f.FindLifeLogCommentFeed)
+	rg.GET("/findLifeLogLikeFeed", f.FindLifeLogLikeFeed)
 }
 
-func (f *FeedHandler) FindCommentFeed(ctx *gin.Context) {
+func (f *FeedHandler) FindLifeLogCommentFeed(ctx *gin.Context) {
 	type findReq struct {
 		UserId int64 `form:"user_id"`
 		Limit  int64 `form:"limit"`
@@ -38,7 +39,7 @@ func (f *FeedHandler) FindCommentFeed(ctx *gin.Context) {
 	err := ctx.ShouldBind(&req)
 	if err != nil {
 		f.logger.Error("参数绑定错误", loggerx.Error(err),
-			loggerx.String("method:", "FeedHandler:Find"))
+			loggerx.String("method:", "FeedHandler:FindLifeLogCommentFeed"))
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrInvalidParams,
 			Msg:  "系统错误",
@@ -53,7 +54,7 @@ func (f *FeedHandler) FindCommentFeed(ctx *gin.Context) {
 	})
 	if err != nil {
 		f.logger.Error("查询失败", loggerx.Error(err),
-			loggerx.String("method:", "FeedHandler:Find"))
+			loggerx.String("method:", "FeedHandler:FindLifeLogCommentFeed"))
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrSystemError,
 			Msg:  "系统错误",
@@ -76,6 +77,58 @@ func (f *FeedHandler) FindCommentFeed(ctx *gin.Context) {
 		}
 	}
 	ctx.JSON(http.StatusOK, Result[[]vo.FindCommentFeedVo]{
+		Code: 200,
+		Msg:  "success",
+		Data: fcs,
+	})
+}
+
+func (f *FeedHandler) FindLifeLogLikeFeed(ctx *gin.Context) {
+	type findReq struct {
+		UserId int64 `form:"user_id"`
+		Limit  int64 `form:"limit"`
+	}
+	var req findReq
+	err := ctx.ShouldBind(&req)
+	if err != nil {
+		f.logger.Error("参数绑定错误", loggerx.Error(err),
+			loggerx.String("method:", "FeedHandler:FindLifeLogLikeFeed"))
+		ctx.JSON(http.StatusOK, Result[string]{
+			Code: errs.ErrInvalidParams,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		return
+	}
+	feedEvents, err := f.feedServiceClient.FindFeedEvents(ctx, &feedv1.FindFeedEventsRequest{
+		UserId:     req.UserId,
+		CreateTime: time.Now().UnixMilli(),
+		Limit:      req.Limit,
+	})
+	if err != nil {
+		f.logger.Error("查询失败", loggerx.Error(err),
+			loggerx.String("method:", "FeedHandler:FindLifeLogLikeFeed"))
+		ctx.JSON(http.StatusOK, Result[string]{
+			Code: errs.ErrSystemError,
+			Msg:  "系统错误",
+			Data: "error",
+		})
+		return
+	}
+	fcs := make([]vo.FindLikeFeedVo, 0, len(feedEvents.GetFeedEvents()))
+	var lfe domain.LikeFeedEvent
+	for _, feedEvent := range feedEvents.GetFeedEvents() {
+		if feedEvent.GetType() == "like_event" {
+			_ = json.Unmarshal([]byte(feedEvent.Content), &lfe)
+			fcs = append(fcs, vo.FindLikeFeedVo{
+				UserId:      feedEvent.GetUser().GetId(),
+				Biz:         lfe.Biz,
+				BizId:       lfe.BizId,
+				LikedUserId: lfe.LikedUserId,
+			})
+		}
+	}
+	ctx.JSON(http.StatusOK, Result[[]vo.FindLikeFeedVo]{
 		Code: 200,
 		Msg:  "success",
 		Data: fcs,

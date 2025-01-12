@@ -33,13 +33,13 @@ type FeedEvent struct {
 	CreateTime int64  `json:"create_time"` // 创建时间
 }
 
-// ProduceCommentEventFeed 生产commentEvent的feed流
-func (s *SyncProducer) ProduceCommentEventFeed(feedEvent FeedEvent) error {
+// ProduceInteractiveEventFeed 生产InteractiveEvent的feed流
+func (s *SyncProducer) ProduceInteractiveEventFeed(feedEvent FeedEvent) error {
 	val, err := json.Marshal(feedEvent)
 	// json序列化失败
 	if err != nil {
 		s.logger.Error("json序列化失败", loggerx.Error(err),
-			loggerx.String("method:", "comment:event:feed:sarama-kafka:SyncProducer:ProduceCommentEvent"))
+			loggerx.String("method:", "interactive:event:feed:sarama-kafka:SyncProducer:ProduceCommentEvent"))
 		return err
 	}
 	_, _, err = s.producer.SendMessage(&sarama.ProducerMessage{
@@ -50,7 +50,7 @@ func (s *SyncProducer) ProduceCommentEventFeed(feedEvent FeedEvent) error {
 	})
 	if err != nil {
 		s.logger.Error("消息发送失败", loggerx.Error(err),
-			loggerx.String("method:", "comment:event:feed:sarama-kafka:SyncProducer:ProduceCommentEvent"))
+			loggerx.String("method:", "interactive:event:feed:sarama-kafka:SyncProducer:ProduceCommentEvent"))
 		return err
 	}
 	return nil

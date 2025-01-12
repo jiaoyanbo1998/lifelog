@@ -8,6 +8,7 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/interactive/event/feed"
 	"lifelog-grpc/interactive/grpc"
 	"lifelog-grpc/interactive/ioc"
 	"lifelog-grpc/interactive/repository"
@@ -28,7 +29,11 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 	interactiveRepository := repository.NewInteractiveRepository(interactiveDao, interactiveCache)
 	interactiveService := service.NewInteractiveService(interactiveRepository)
 	collectServiceClient := ioc.InitCollectServiceGRPCClient(logger)
-	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService, collectServiceClient)
+	feedServiceClient := ioc.InitFeedServiceGRPCClient()
+	client := ioc.InitSaramaKafka(logger)
+	syncProducer := ioc.InitSaramaSyncProducer(client)
+	feedSyncProducer := feed.NewSyncProducer(syncProducer, logger)
+	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService, collectServiceClient, feedServiceClient, feedSyncProducer)
 	return interactiveServiceGRPCService
 }
 
@@ -37,4 +42,4 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 // interactiveSet 注入
 var interactiveSet = wire.NewSet(service.NewInteractiveService, repository.NewInteractiveRepository, cache.NewInteractiveCache, dao.NewInteractiveDao)
 
-var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitCollectServiceGRPCClient)
+var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitCollectServiceGRPCClient, ioc.InitSaramaSyncProducer, ioc.InitSaramaKafka, ioc.InitFeedServiceGRPCClient, feed.NewSyncProducer)

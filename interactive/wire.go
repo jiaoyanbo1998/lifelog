@@ -4,6 +4,7 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/interactive/event/feed"
 	"lifelog-grpc/interactive/grpc"
 	"lifelog-grpc/interactive/ioc"
 	"lifelog-grpc/interactive/repository"
@@ -25,6 +26,10 @@ var third = wire.NewSet(
 	ioc.GetMysql,
 	ioc.InitLogger,
 	ioc.InitCollectServiceGRPCClient,
+	ioc.InitSaramaSyncProducer,
+	ioc.InitSaramaKafka,
+	ioc.InitFeedServiceGRPCClient,
+	feed.NewSyncProducer,
 )
 
 // InitInteractiveServiceGRPCService 初始化InitInteractiveServiceGRPCService

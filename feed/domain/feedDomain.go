@@ -26,3 +26,9 @@ type FollowFeedEvent struct {
 	BizId          int64  `json:"biz_id"`
 	FollowedUserId int64  `json:"followed_user_id"`
 }
+
+type CollectFeedEvent struct {
+	Biz             string `json:"biz"`
+	BizId           int64  `json:"biz_id"`
+	CollectedUserId int64  `json:"collected_user_id"`
+}

@@ -7,3 +7,10 @@ type FindCommentFeedVo struct {
 	CommentedUserId int64  `json:"commented_user_id"`
 	Content         string `json:"content"`
 }
+
+type FindLikeFeedVo struct {
+	UserId      int64  `json:"user_id"`
+	Biz         string `json:"biz"`
+	BizId       int64  `json:"biz_id"`
+	LikedUserId int64  `json:"liked_user_id"`
+}

@@ -4,54 +4,24 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="完成，文件上传服务">
-      <change afterPath="$PROJECT_DIR$/api/proto/feed/feed.proto" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/comment/event/feed/syncProducer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/event/asyncConsumer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/grpc/feedServiceGRPCService.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/ioc/db.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/ioc/handler.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/ioc/redis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/ioc/saramaKafka.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/repository/cache/feedCache.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/repository/dao/feedPullDao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/repository/dao/feedPushDao.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/repository/feedRepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/service/commentEvent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/service/followEvent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/service/likeEvent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/vo/feedVo.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/feed/wire.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ioc/feedServiceGRPCClient.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/feedHandler.go" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="完成，feed服务">
+      <change afterPath="$PROJECT_DIR$/interactive/event/feed/syncProducer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/ioc/feedServiceGRPCClient.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/ioc/saramaKafka.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/comment/v1/comment.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/comment/v1/comment.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/proto/gen/comment/v1/comment_grpc.pb.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/domain/commentDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/domain/commentDomain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/event/sarama-kafka/asyncBatchConsumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/sarama-kafka/asyncBatchConsumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/event/sarama-kafka/asyncConsumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/sarama-kafka/asyncConsumer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/event/sarama-kafka/asyncProducer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/sarama-kafka/asyncProducer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/event/sarama-kafka/syncProducer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/sarama-kafka/syncProducer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/interactive/v1/interactive_grpc.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/interactive/v1/interactive.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/comment/event/feed/syncProducer.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/event/feed/syncProducer.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/grpc/commentServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/repository/commentRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/repository/commentRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/repository/dao/commentDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/repository/dao/commentDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/comment/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/comment/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/curl/login" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/curl/压测步骤.md" beforeDir="false" afterPath="$PROJECT_DIR$/k6/go-stress-testing使用文档.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ioc/web.go" beforeDir="false" afterPath="$PROJECT_DIR$/ioc/web.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/prometheus.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/commentHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/commentHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/domain/feedDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/domain/feedDomain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/event/asyncConsumer.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/event/asyncConsumer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feed/vo/feedVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/vo/feedVo.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/feedHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/feedHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/interactiveHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/interactiveHandler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +66,7 @@
     "git-widget-placeholder": "main",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/GoLangProjects/src/lifelog-grpc/comment/event/feed",
+    "last_opened_file_path": "D:/GoLangProjects/src/lifelog-grpc/interactive/ioc",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -110,15 +80,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event\feed" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\interactive\ioc" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\interactive\event" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\event\feed" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\feed\ioc" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\user\ioc" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\ioc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\feed\vo" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\api\proto\gen" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\feed\vo" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\ioc" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\test" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\login" />
@@ -178,11 +148,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
         <item itemvalue="Go Build.go build lifelog-grpc" />
-        <item itemvalue="Go Build.go build lifelog-grpc/comment" />
         <item itemvalue="Go Build.go build lifelog-grpc/files" />
+        <item itemvalue="Go Build.go build lifelog-grpc/comment" />
         <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
+        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
       </list>
     </recent_temporary>
   </component>
@@ -198,20 +168,10 @@
     <MESSAGE value="file服务初始化" />
     <MESSAGE value="新增，用户头像&#10;minio进行了一些友好的封装" />
     <MESSAGE value="完成，文件上传服务" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成，文件上传服务" />
+    <MESSAGE value="完成，feed服务" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成，feed服务" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/feed/repository/dao/feedPushDao.go</url>
-          <line>49</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

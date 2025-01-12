@@ -71,7 +71,7 @@ func (c *CommentServiceGRPCService) ProducerCommentEvent(ctx context.Context, re
 		UserId:     request.GetComment().GetUserId(),
 		Content:    string(marshal),
 		CreateTime: time.Now().UnixMilli(),
-		Type:       "LifeLogCommentEvent",
+		Type:       "LifeLog_comment_event",
 	})
 	if err != nil {
 		c.logger.Error("kafka生产者，feed流失败", loggerx.Error(err))

@@ -92,6 +92,7 @@ message InteractiveDomain {
   int64 like_count = 7;
   int64 create_time = 8;
   int64 update_time = 9;
+  int64 target_user_id = 10;
 }
 
 // 点赞（根据lifelog的id）

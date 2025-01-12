@@ -32,7 +32,7 @@ func NewInteractiveHandler(
 func (a *InteractiveHandler) RegisterRoutes(server *gin.Engine) {
 	rg := server.Group("/interactive")
 	// 点赞LifeLog
-	rg.PUT("/like/:id", a.Like)
+	rg.POST("/like", a.Like)
 	// 取消点赞LifeLog
 	rg.PUT("/unlike/:id", a.UnLike)
 	// 收藏LifeLog
@@ -53,18 +53,20 @@ func (a *InteractiveHandler) RegisterRoutes(server *gin.Engine) {
 
 // Like 点赞LifeLog
 func (i *InteractiveHandler) Like(ctx *gin.Context) {
-	// 获取路径参数
-	idString := ctx.Param("id")
-	// 将string转为int64
-	lifeLogId, err := strconv.ParseInt(idString, 10, 64)
+	type LikeReq struct {
+		Id           int64 `json:"id"`
+		TargetUserId int64 `json:"target_user_id"`
+	}
+	var req LikeReq
+	err := ctx.Bind(&req)
 	if err != nil {
 		ctx.JSON(http.StatusBadRequest, Result[string]{
 			Code: 400,
 			Msg:  "系统错误",
 			Data: "error",
 		})
-		i.logger.Error("id string转int64失败", loggerx.Error(err),
-			loggerx.String("method:", "LifeLogHandler:Like"))
+		i.logger.Error("参数bind失败", loggerx.Error(err),
+			loggerx.String("method:", "InteractiveHandler:Like"))
 		return
 	}
 	userInfo, ok := i.GetUserInfo(ctx)
@@ -80,9 +82,10 @@ func (i *InteractiveHandler) Like(ctx *gin.Context) {
 	}
 	_, err = i.interactiveServiceClient.Like(ctx.Request.Context(), &interactivev1.LikeRequest{
 		InteractiveDomain: &interactivev1.InteractiveDomain{
-			Biz:    i.biz,
-			BizId:  lifeLogId,
-			UserId: userInfo.Id,
+			Biz:          i.biz,
+			BizId:        req.Id,
+			UserId:       userInfo.Id,
+			TargetUserId: req.TargetUserId,
 		},
 	})
 	if err != nil {
