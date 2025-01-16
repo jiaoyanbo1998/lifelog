@@ -115,9 +115,9 @@ func (l *LifeLogHandler) Edit(ctx *gin.Context) {
 			Id:      res.GetLifeLogDomain().Id,
 			Content: res.GetLifeLogDomain().Content,
 			// 将毫秒值时间戳，转换为，time.Time类型(2024-09-23 16:00:00 +0800 CST)
-			CreateTime: time.UnixMilli(res.GetLifeLogDomain().CreateTime),
+			CreateTime: time.UnixMilli(res.GetLifeLogDomain().GetCreateTime()).Format("2006-01-02 15:04:05"),
 			Title:      res.GetLifeLogDomain().Title,
-			UpdateTime: time.UnixMilli(res.GetLifeLogDomain().UpdateTime),
+			UpdateTime: time.UnixMilli(res.GetLifeLogDomain().GetUpdateTime()).Format("2006-01-02 15:04:05"),
 			AuthorId:   res.GetLifeLogDomain().GetAuthor().GetUserId(),
 			AuthorName: res.GetLifeLogDomain().GetAuthor().GetNickName(),
 		},
@@ -273,16 +273,17 @@ func (l *LifeLogHandler) DraftList(ctx *gin.Context) {
 	}
 	// 将[]*lifelogv1.LifeLogDomain转换为[]vo.LifeLogVo
 	llvs := make([]vo.LifeLogVo, 0, len(res.GetLifeLogDomain()))
-	err = copier.Copy(&llvs, res.GetLifeLogDomain())
-	if err != nil {
-		ctx.JSON(http.StatusInternalServerError, Result[string]{
-			Code: 500,
-			Msg:  "系统错误",
-			Data: "error",
+	for _, llv := range res.GetLifeLogDomain() {
+		llvs = append(llvs, vo.LifeLogVo{
+			Id:         llv.GetId(),
+			Title:      llv.GetTitle(),
+			Content:    l.Abstract(llv.GetContent()),
+			AuthorId:   userInfo.Id,
+			AuthorName: userInfo.NickName,
+			CreateTime: time.UnixMilli(llv.GetCreateTime()).Format("2006-01-02 15:04:05"),
+			UpdateTime: time.UnixMilli(llv.GetUpdateTime()).Format("2006-01-02 15:04:05"),
+			Status:     uint8(llv.GetStatus()),
 		})
-		l.logger.Error("copier失败", loggerx.Error(err),
-			loggerx.String("method:", "LifeLogHandler:DraftList"))
-		return
 	}
 	ctx.JSON(http.StatusOK, Result[[]vo.LifeLogVo]{
 		Code: 200,
@@ -493,8 +494,8 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			Title:   res.GetLifeLogDomain().GetTitle(),
 			Content: l.Abstract(res.GetLifeLogDomain().GetContent()),
 			// 将毫秒值时间戳，转换为，time.Time类型(2024-09-23 16:00:00 +0800 CST)
-			CreateTime:   time.UnixMilli(res.GetLifeLogDomain().GetCreateTime()),
-			UpdateTime:   time.UnixMilli(res.GetLifeLogDomain().GetUpdateTime()),
+			CreateTime:   time.UnixMilli(res.GetLifeLogDomain().GetCreateTime()).Format("2006-01-02 15:04:05"),
+			UpdateTime:   time.UnixMilli(res.GetLifeLogDomain().GetUpdateTime()).Format("2006-01-02 15:04:05"),
 			AuthorId:     userInfo.Id,
 			AuthorName:   userInfo.NickName,
 			Status:       uint8(res.GetLifeLogDomain().GetStatus()),

@@ -5,9 +5,10 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/redis/go-redis/v9"
-	"time"
 	"lifelog-grpc/lifeLog/domain"
 	"lifelog-grpc/pkg/loggerx"
+	"strconv"
+	"time"
 )
 
 type LifeLogCache interface {
@@ -53,7 +54,14 @@ func (a *LifeLogRedisCache) GetFirstPage(ctx context.Context, authorId int64) ([
 // Set 将LifeLog列表的第一页的第一条数据存储到redis中
 func (a *LifeLogRedisCache) Set(ctx context.Context, lifeLogDomain domain.LifeLogDomain) error {
 	key := fmt.Sprintf("first_page_data:%d", lifeLogDomain.Id)
-	err := a.cmd.Set(ctx, key, lifeLogDomain, time.Minute*1).Err()
+	// 序列化
+	val, err := json.Marshal(lifeLogDomain)
+	if err != nil {
+		a.logger.Error("序列化失败", loggerx.Error(err),
+			loggerx.String("method：", "LifeLogHandler:Set"))
+		return err
+	}
+	err = a.cmd.Set(ctx, key, val, time.Minute*1).Err()
 	if err != nil {
 		a.logger.Error("redis存储失败", loggerx.Error(err),
 			loggerx.String("method：", "LifeLogHandler:Set"))
@@ -74,7 +82,8 @@ func (a *LifeLogRedisCache) SetFirstPage(ctx context.Context, authorId int64, li
 		return err
 	}
 	// 将数据存储到redis
-	err = a.cmd.Set(ctx, a.GetFirstKey(authorId), bytes, time.Minute*10).Err()
+	key := a.GetFirstKey(authorId)
+	err = a.cmd.Set(ctx, key, bytes, time.Minute*10).Err()
 	if err != nil {
 		a.logger.Error("redis存储失败", loggerx.Error(err),
 			loggerx.String("method：", "LifeLogHandler:SetFirstPage"))
@@ -108,7 +117,7 @@ func (a *LifeLogRedisCache) SetLifeLogAbstract(ads []domain.LifeLogDomain) {
 
 // GetFirstKey 获取key
 func (a *LifeLogRedisCache) GetFirstKey(authorId int64) string {
-	return "lifeLog_first_page_" + string(authorId)
+	return "lifeLog_first_page_" + strconv.Itoa(int(authorId))
 }
 
 // SetPublic 将第一次发布的数据存储到redis中
@@ -148,5 +157,5 @@ func (a *LifeLogRedisCache) GetPublic(ctx context.Context, authorId int64) domai
 
 // GetPublicKey 获取key
 func (a *LifeLogRedisCache) GetPublicKey(authorId int64) string {
-	return "lifeLog_public_" + string(authorId)
+	return "lifeLog_public_" + strconv.Itoa(int(authorId))
 }

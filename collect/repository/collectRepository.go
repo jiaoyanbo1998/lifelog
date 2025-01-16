@@ -3,6 +3,7 @@ package repository
 import (
 	"context"
 	"lifelog-grpc/collect/domain"
+	"lifelog-grpc/collect/repository/cache"
 	"lifelog-grpc/collect/repository/dao"
 )
 
@@ -16,12 +17,14 @@ type CollectRepository interface {
 }
 
 type CollectRepositoryV1 struct {
-	collectDao dao.CollectDao
+	collectDao   dao.CollectDao
+	collectCache cache.CollectCache
 }
 
-func NewCollectRepository(collectDao dao.CollectDao) CollectRepository {
+func NewCollectRepository(collectDao dao.CollectDao, collectCache cache.CollectCache) CollectRepository {
 	return &CollectRepositoryV1{
-		collectDao: collectDao,
+		collectDao:   collectDao,
+		collectCache: collectCache,
 	}
 }
 
@@ -53,7 +56,26 @@ func (c *CollectRepositoryV1) DeleteCollect(ctx context.Context, ids []int64, au
 
 // CollectList 收藏夹列表
 func (c *CollectRepositoryV1) CollectList(ctx context.Context, userId int64, limit int, offset int) ([]domain.CollectDomain, error) {
-	return c.collectDao.PageQuery(ctx, userId, limit, offset)
+	// 从缓存中获取
+	res, err := c.collectCache.Get(ctx, userId)
+	// 缓存中有，直接返回
+	if err == nil {
+		return res, nil
+	}
+	// 缓存中没有，从数据库中获取
+	res, err = c.collectDao.PageQuery(ctx, userId, limit, offset)
+	// 数据库查询失败
+	if err != nil {
+		return nil, err
+	}
+	// 回写缓存
+	err = c.collectCache.Set(ctx, userId, res)
+	// 缓存回写失败
+	if err != nil {
+		return nil, err
+	}
+	// 数据库查询成功，返回结果
+	return res, nil
 }
 
 // InsertCollectDetail 将文章插入到收藏夹

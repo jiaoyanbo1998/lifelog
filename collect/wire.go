@@ -7,6 +7,7 @@ import (
 	"lifelog-grpc/collect/grpc"
 	"lifelog-grpc/collect/ioc"
 	"lifelog-grpc/collect/repository"
+	"lifelog-grpc/collect/repository/cache"
 	"lifelog-grpc/collect/repository/dao"
 	"lifelog-grpc/collect/service"
 )
@@ -16,12 +17,14 @@ var collectSet = wire.NewSet(
 	repository.NewCollectRepository,
 	dao.NewCollectDao,
 	service.NewCollectService,
+	cache.NewCollectRedisCache,
 )
 
 var third = wire.NewSet(
 	ioc.InitLogger,
 	ioc.GetMysql,
 	ioc.InitLifeLogServiceCRPCClient,
+	ioc.GetRedis,
 )
 
 // InitCollectServiceGRPCService 初始化CollectServiceGRPCService

@@ -140,11 +140,19 @@ func (l *LifeLogServiceGRPCService) DraftList(ctx context.Context, request *life
 	}
 	// 将[]domain.LifeLogDomain，转为[]*LifeLogDomain
 	llds := make([]*lifelogv1.LifeLogDomain, 0, len(res))
-	err = copier.Copy(&llds, &res)
-	if err != nil {
-		l.logger.Error("copier失败", loggerx.Error(err),
-			loggerx.String("method:", "LifeLogServiceGRPCService:SearchByTitle"))
-		return &lifelogv1.DraftListResponse{}, err
+	for _, llv := range res {
+		llds = append(llds, &lifelogv1.LifeLogDomain{
+			Id:      llv.Id,
+			Title:   llv.Title,
+			Content: llv.Content,
+			Author: &lifelogv1.Author{
+				UserId:   llv.Author.Id,
+				NickName: llv.Author.Name,
+			},
+			CreateTime: llv.CreateTime,
+			UpdateTime: llv.UpdateTime,
+			Status:     int64(llv.Status),
+		})
 	}
 	return &lifelogv1.DraftListResponse{
 		LifeLogDomain: llds,

@@ -118,8 +118,9 @@ func (a *LifeLogRepositoryV1) SearchByAuthorId(ctx context.Context, authorId, li
 	// 缓存第一页的第一条数据
 	err = a.preCache(ctx, ads)
 	if err != nil {
-		a.logger.Error("预缓存失败", loggerx.Error(err),
+		a.logger.Error("预加载缓存失败", loggerx.Error(err),
 			loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"))
+		return ads, err
 	}
 	return ads, nil
 }

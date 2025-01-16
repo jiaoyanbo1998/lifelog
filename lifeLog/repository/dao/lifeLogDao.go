@@ -462,6 +462,7 @@ func (g *GormLifeLogDao) lifeLogsToLifeLogDomains(lifeLogs []LifeLog) []domain.L
 			},
 			CreateTime: lifeLog.CreateTime,
 			UpdateTime: lifeLog.UpdateTime,
+			Status:     lifeLog.Status,
 		})
 	}
 	return ads

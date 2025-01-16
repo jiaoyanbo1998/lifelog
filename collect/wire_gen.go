@@ -11,6 +11,7 @@ import (
 	"lifelog-grpc/collect/grpc"
 	"lifelog-grpc/collect/ioc"
 	"lifelog-grpc/collect/repository"
+	"lifelog-grpc/collect/repository/cache"
 	"lifelog-grpc/collect/repository/dao"
 	"lifelog-grpc/collect/service"
 )
@@ -22,7 +23,9 @@ func InitCollectServiceGRPCService() *grpc.CollectServiceGRPCService {
 	logger := ioc.InitLogger()
 	db := ioc.GetMysql(logger)
 	collectDao := dao.NewCollectDao(db, logger)
-	collectRepository := repository.NewCollectRepository(collectDao)
+	cmdable := ioc.GetRedis()
+	collectCache := cache.NewCollectRedisCache(cmdable)
+	collectRepository := repository.NewCollectRepository(collectDao, collectCache)
 	collectService := service.NewCollectService(collectRepository)
 	lifeLogServiceClient := ioc.InitLifeLogServiceCRPCClient()
 	collectServiceGRPCService := grpc.NewCollectServiceGRPCService(collectService, lifeLogServiceClient)
@@ -32,6 +35,6 @@ func InitCollectServiceGRPCService() *grpc.CollectServiceGRPCService {
 // wire.go:
 
 // collectSet 注入
-var collectSet = wire.NewSet(repository.NewCollectRepository, dao.NewCollectDao, service.NewCollectService)
+var collectSet = wire.NewSet(repository.NewCollectRepository, dao.NewCollectDao, service.NewCollectService, cache.NewCollectRedisCache)
 
-var third = wire.NewSet(ioc.InitLogger, ioc.GetMysql, ioc.InitLifeLogServiceCRPCClient)
+var third = wire.NewSet(ioc.InitLogger, ioc.GetMysql, ioc.InitLifeLogServiceCRPCClient, ioc.GetRedis)
