@@ -1,14 +1,22 @@
 技术栈：Gin、gRPC、GORM、MySQL、Redis、JWT、Kafka、Viper、MinIO、Zap、ELK、Wire等
 
 项目功能：
+
 1.登录服务
 将JWT的校验逻辑封装为Gin的Middleware，实现了统一的登录校验。
+
 使用Lua脚本限制发送短信的次数和验证短信的次数，防止非法用户恶意消耗短信资源。
+
 使用布隆过滤器实现手机号黑名单，阻止非法用户发送短信。
+
 使用Lua脚本实现滑动窗口限流，防止服务器被大量请求击垮。
+
 使用Redis的Zset数据类型实现历史密码库，不允许用户使用历史密码当作新密码。
+
 使用bcrypt不可逆哈希算法对密码进行加密，避免数据库存储明文。
+
 使用长短token机制，短token用于登录校验，长token用于给短token续约。
+
 
 2.退出服务
 使用Redis实现了token的实时失效管理，有效防止token滥用和非法访问。
