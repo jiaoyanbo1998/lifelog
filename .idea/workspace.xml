@@ -4,27 +4,9 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="完成，feed流服务：新增收藏、关注、阅读feed流服务">
-      <change afterPath="$PROJECT_DIR$/collect/ioc/redis.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/collect/repository/cache/collectCache.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6/collect/collect_detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6/collect/测试结果.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6/lifelog/lifelog_list.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6/lifelog/测试结果.md" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="新增了，生活日志接口和收藏列表接口的性能压测">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect/repository/collectRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/repository/collectRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collect/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/collect/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/k6的使用文档.md" beforeDir="false" afterPath="$PROJECT_DIR$/k6/k6的使用文档.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/domain/lifeLogDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/domain/lifeLogDomain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/grpc/lifeLogServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/repository/cache/lifeLogCache.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/cache/lifeLogCache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/dao/lifeLogDao.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifeLog/vo/lifeLogVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/vo/lifeLogVo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +80,7 @@
       <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\login" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build lifelog-grpc/user">
+  <component name="RunManager" selected="Go Build.go build lifelog-grpc">
     <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
       <working_directory value="$PROJECT_DIR$" />
@@ -108,13 +90,13 @@
       <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/code" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="go build lifelog-grpc/collect" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc/code" />
+      <package value="lifelog-grpc/collect" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/code/main.go" />
+      <filePath value="$PROJECT_DIR$/collect/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build lifelog-grpc/feed" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
@@ -126,6 +108,15 @@
       <filePath value="$PROJECT_DIR$/feed/main.go" />
       <method v="2" />
     </configuration>
+    <configuration name="go build lifelog-grpc/files" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/files" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/files/main.go" />
+      <method v="2" />
+    </configuration>
     <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
       <working_directory value="$PROJECT_DIR$" />
@@ -133,15 +124,6 @@
       <package value="lifelog-grpc/interactive" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$/interactive/main.go" />
-      <method v="2" />
-    </configuration>
-    <configuration name="go build lifelog-grpc/user" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
-      <module name="lifelog-grpc" />
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/user" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/user/main.go" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
@@ -152,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build lifelog-grpc/code" />
-        <item itemvalue="Go Build.go build lifelog-grpc/user" />
+        <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/files" />
         <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc/feed" />
-        <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/collect" />
       </list>
     </recent_temporary>
   </component>
@@ -175,7 +157,8 @@
     <MESSAGE value="完成，feed服务" />
     <MESSAGE value="完成，feed流服务：新增点赞feed流服务" />
     <MESSAGE value="完成，feed流服务：新增收藏、关注、阅读feed流服务" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成，feed流服务：新增收藏、关注、阅读feed流服务" />
+    <MESSAGE value="新增了，生活日志接口和收藏列表接口的性能压测" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增了，生活日志接口和收藏列表接口的性能压测" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

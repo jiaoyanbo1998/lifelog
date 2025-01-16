@@ -108,10 +108,10 @@ func (l *LifeLogHandler) Edit(ctx *gin.Context) {
 			loggerx.String("method：", "LifeLogHandler:Edit"))
 		return
 	}
-	ctx.JSON(http.StatusOK, Result[vo.LifeLogVo]{
+	ctx.JSON(http.StatusOK, Result[vo.LifeLogListVo]{
 		Code: 200,
 		Msg:  "编辑LifeLog成功",
-		Data: vo.LifeLogVo{
+		Data: vo.LifeLogListVo{
 			Id:      res.GetLifeLogDomain().Id,
 			Content: res.GetLifeLogDomain().Content,
 			// 将毫秒值时间戳，转换为，time.Time类型(2024-09-23 16:00:00 +0800 CST)
@@ -272,9 +272,9 @@ func (l *LifeLogHandler) DraftList(ctx *gin.Context) {
 		return
 	}
 	// 将[]*lifelogv1.LifeLogDomain转换为[]vo.LifeLogVo
-	llvs := make([]vo.LifeLogVo, 0, len(res.GetLifeLogDomain()))
+	llvs := make([]vo.LifeLogListVo, 0, len(res.GetLifeLogDomain()))
 	for _, llv := range res.GetLifeLogDomain() {
-		llvs = append(llvs, vo.LifeLogVo{
+		llvs = append(llvs, vo.LifeLogListVo{
 			Id:         llv.GetId(),
 			Title:      llv.GetTitle(),
 			Content:    l.Abstract(llv.GetContent()),
@@ -285,7 +285,7 @@ func (l *LifeLogHandler) DraftList(ctx *gin.Context) {
 			Status:     uint8(llv.GetStatus()),
 		})
 	}
-	ctx.JSON(http.StatusOK, Result[[]vo.LifeLogVo]{
+	ctx.JSON(http.StatusOK, Result[[]vo.LifeLogListVo]{
 		Code: 200,
 		Msg:  "查找LifeLog列表成功",
 		Data: llvs,
@@ -490,18 +490,22 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 		Code: 200,
 		Msg:  "查找LifeLog成功",
 		Data: vo.LifeLogVo{
-			Id:      res.GetLifeLogDomain().GetId(),
-			Title:   res.GetLifeLogDomain().GetTitle(),
-			Content: l.Abstract(res.GetLifeLogDomain().GetContent()),
-			// 将毫秒值时间戳，转换为，time.Time类型(2024-09-23 16:00:00 +0800 CST)
-			CreateTime:   time.UnixMilli(res.GetLifeLogDomain().GetCreateTime()).Format("2006-01-02 15:04:05"),
-			UpdateTime:   time.UnixMilli(res.GetLifeLogDomain().GetUpdateTime()).Format("2006-01-02 15:04:05"),
-			AuthorId:     userInfo.Id,
-			AuthorName:   userInfo.NickName,
-			Status:       uint8(res.GetLifeLogDomain().GetStatus()),
-			ReadCount:    interactiveInfo.GetInteractiveDomain().GetReadCount(),
-			LikeCount:    interactiveInfo.GetInteractiveDomain().GetLikeCount(),
-			CollectCount: interactiveInfo.GetInteractiveDomain().GetCollectCount(),
+			LifeLogListVo: vo.LifeLogListVo{
+				Id:      res.GetLifeLogDomain().GetId(),
+				Title:   res.GetLifeLogDomain().GetTitle(),
+				Content: l.Abstract(res.GetLifeLogDomain().GetContent()),
+				// 将毫秒值时间戳，转换为，time.Time类型(2024-09-23 16:00:00 +0800 CST)
+				CreateTime: time.UnixMilli(res.GetLifeLogDomain().GetCreateTime()).Format("2006-01-02 15:04:05"),
+				UpdateTime: time.UnixMilli(res.GetLifeLogDomain().GetUpdateTime()).Format("2006-01-02 15:04:05"),
+				AuthorId:   userInfo.Id,
+				AuthorName: userInfo.NickName,
+				Status:     uint8(res.GetLifeLogDomain().GetStatus()),
+			},
+			LifeLogInterVo: vo.LifeLogInterVo{
+				ReadCount:    interactiveInfo.GetInteractiveDomain().GetReadCount(),
+				LikeCount:    interactiveInfo.GetInteractiveDomain().GetLikeCount(),
+				CollectCount: interactiveInfo.GetInteractiveDomain().GetCollectCount(),
+			},
 		},
 	})
 }
