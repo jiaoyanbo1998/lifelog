@@ -62,12 +62,12 @@ func (c *MinioClient) Compose(
 ) error {
 	// 目标对象
 	dstOpts := minio.CopyDestOptions{
-		Bucket: bucketName, // 目标桶名称
-		Object: fileName,   // 目标对象名字
+		Bucket: bucketName,     // 目标桶名称
+		Object: fileName + ext, // 目标对象名字
 	}
 	var srcs []minio.CopySrcOptions
 	// 遍历分片
-	for i := 1; i <= totalChunk; i++ {
+	for i := 0; i < totalChunk; i++ {
 		// 将分片编号转为字符串
 		idx := strconv.Itoa(i)
 		// 分片对象

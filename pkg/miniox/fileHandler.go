@@ -3,6 +3,7 @@ package miniox
 import (
 	"context"
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"mime/multipart"
 	"strconv"
@@ -130,8 +131,6 @@ func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fil
 		// 没有找到对应的扩展名，使用默认扩展名
 		ext = ".bin"
 	}
-	// 每一片的大小
-	size := sizeSum / totalChunks
 	// 打开文件
 	open, er := file.Open()
 	if er != nil {
@@ -139,10 +138,12 @@ func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fil
 	}
 	// 关闭文件
 	defer open.Close()
+	// 分片大小
+	size := defaultChunkSize
 	for i := 0; i < totalChunks; i++ {
-		// 计算当前分片的大小
+		// 计算最后一个分片的大小
 		if i == totalChunks-1 {
-			size = sizeSum
+			size = sizeSum - i*size
 		}
 		buf := make([]byte, size)
 		// 读取文件内容
@@ -153,13 +154,13 @@ func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fil
 		// 编号
 		idx := strconv.Itoa(i)
 		// 上传文件
-		ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
-		defer cancel()
-		_, er = f.minio.Upload(ctx, bucketName, fileName+"_"+idx+ext, contentType, buf[:n])
+		ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+		fName := fmt.Sprintf("%s_%s%s", fileName, idx, ext)
+		_, er = f.minio.Upload(ctx, bucketName, fName, contentType, buf[:n])
 		if er != nil {
 			return "", errors.New("上传分片失败")
 		}
-		sizeSum = sizeSum - size
+		cancel()
 	}
 	ctx2, cancel2 := context.WithTimeout(context.Background(), 30*time.Second)
 	defer cancel2()

@@ -17,8 +17,8 @@ func InitMinio() *miniox.MinioClient {
 	c := config{
 		Endpoint:  "localhost:9000",
 		UseSSL:    false,
-		AccessKey: "l76IPyla7QDC2knl5Qth",
-		SecretKey: "MEl77xronQ02HbovqrNQf92Y523OdUNESoqZ9W5s",
+		AccessKey: "RaEKllxArIYNXNu7WIay",
+		SecretKey: "9SkofrJa1DA3vwF1NHEgbzt86ozoLr4b8rEtCJzS",
 	}
 	err := viper.UnmarshalKey("minio", &c)
 	if err != nil {

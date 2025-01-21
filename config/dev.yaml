@@ -61,8 +61,8 @@ commentKafka:
 
 minio:
     endpoint: "localhost:9000"
-    accessKey: "l76IPyla7QDC2knl5Qth"
-    secretKey: "MEl77xronQ02HbovqrNQf92Y523OdUNESoqZ9W5s"
+    accessKey: "RaEKllxArIYNXNu7WIay"
+    secretKey: "9SkofrJa1DA3vwF1NHEgbzt86ozoLr4b8rEtCJzS"
     # 是否使用SSL，如果使用SSL，endpoint url必须以https开头
     # false不启用，true启用
     useSSL: false
