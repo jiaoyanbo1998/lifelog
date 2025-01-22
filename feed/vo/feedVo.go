@@ -19,7 +19,7 @@ type FindFollowFeedVo struct {
 	UserId         int64  `json:"user_id"`
 	Biz            string `json:"biz"`
 	FolloweeUserId int64  `json:"followee_user_id"` // 被关注的用户id
-	FollowedUserId int64  `json:"followed_user_id"`
+	FollowerUserId int64  `json:"follower_user_id"`
 }
 
 type FindCollectFeedVo struct {

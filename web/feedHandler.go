@@ -179,7 +179,7 @@ func (f *FeedHandler) FindFollowFeed(ctx *gin.Context) {
 			fcs = append(fcs, vo.FindFollowFeedVo{
 				UserId:         feedEvent.GetUser().GetId(),
 				FolloweeUserId: ffe.FolloweeUserId,
-				FollowedUserId: ffe.FollowedUserId,
+				FollowerUserId: ffe.FollowerUserId,
 				Biz:            ffe.Biz,
 			})
 		}

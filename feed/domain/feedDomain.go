@@ -24,7 +24,7 @@ type LikeFeedEvent struct {
 type FollowFeedEvent struct {
 	Biz            string `json:"biz"`
 	FolloweeUserId int64  `json:"followee_user_id"` // 被关注的用户id
-	FollowedUserId int64  `json:"followed_user_id"` // 关注的用户id
+	FollowerUserId int64  `json:"follower_user_id"` // 关注的用户id
 }
 
 type CollectFeedEvent struct {

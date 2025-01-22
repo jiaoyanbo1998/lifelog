@@ -76,12 +76,12 @@ func (i *InteractiveServiceGRPCService) InsertFollow(ctx context.Context, reques
 	type followedFeedEvent struct {
 		Biz            string `json:"biz"`
 		FolloweeUserId int64  `json:"followee_user_id"` // 被关注的用户id
-		FollowedUserId int64  `json:"followed_user_id"` // 关注的用户id
+		FollowerUserId int64  `json:"follower_user_id"` // 关注的用户id
 	}
 	ext := followedFeedEvent{
 		Biz:            "user",
 		FolloweeUserId: request.GetFollow().GetFolloweeId(),
-		FollowedUserId: request.GetFollow().GetFollowerId(),
+		FollowerUserId: request.GetFollow().GetFollowerId(),
 	}
 	marshal, err := json.Marshal(ext)
 	if err != nil {

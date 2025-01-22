@@ -154,7 +154,7 @@ func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fil
 		// 编号
 		idx := strconv.Itoa(i)
 		// 上传文件
-		ctx, cancel := context.WithTimeout(context.Background(), 3*time.Second)
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
 		fName := fmt.Sprintf("%s_%s%s", fileName, idx, ext)
 		_, er = f.minio.Upload(ctx, bucketName, fName, contentType, buf[:n])
 		if er != nil {
