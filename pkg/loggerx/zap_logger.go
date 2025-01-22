@@ -7,12 +7,13 @@ import (
 	"os"
 )
 
-// ZapLogger（日志管理库）
+// ZapLogger Logger接口的适配类 --- zap框架实现
 type ZapLogger struct {
-	zapLogger *zap.Logger // 创建zap.Logger实例（日志对象）
+	// zap.Logger zap框架的核心日志记录器
+	zapLogger *zap.Logger
 }
 
-// NewZapLogger 使用构造函数初始化zap.Logger实例（日志对象）
+// NewZapLogger 使用构造函数初始化ZapLogger
 func NewZapLogger() *ZapLogger {
 	// 构建日志核心组件，支持同时输出到文件和控制台
 	core := zapcore.NewTee(
@@ -86,9 +87,9 @@ func getJSONEncoder() zapcore.Encoder {
 	return zapcore.NewJSONEncoder(encoderConfig)
 }
 
-// getLogWriter 将日志写入文件
-// 分片
+// getLogWriter 同步日志记录器
 func getLogWriter() zapcore.WriteSyncer {
+	// 分片
 	lumberLogger := &lumberjack.Logger{
 		Filename:   "./log/lifeLog.log", // 日志文件路径
 		MaxSize:    10,                  // 日志文件最大体积（MB）
@@ -96,4 +97,19 @@ func getLogWriter() zapcore.WriteSyncer {
 		MaxBackups: 5,                   // 最大保留的日志文件数量
 	}
 	return zapcore.AddSync(lumberLogger)
+}
+
+// getLogWriterSync 异步日志记录器
+func getLogWriterSync() *zapcore.BufferedWriteSyncer {
+	// 分片
+	lumberLogger := &lumberjack.Logger{
+		Filename:   "./log/lifeLog.log", // 日志文件路径
+		MaxSize:    10,                  // 日志文件最大体积（MB）
+		MaxAge:     30,                  // 日志文件最大保存天数
+		MaxBackups: 5,                   // 最大保留的日志文件数量
+	}
+	return &zapcore.BufferedWriteSyncer{
+		WS:   zapcore.AddSync(lumberLogger),
+		Size: 4096,
+	}
 }

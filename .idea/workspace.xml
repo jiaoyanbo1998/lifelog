@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="修复了分片上传的bug&#10;并对文件上传接口进行压测">
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="feedService服务，添加了一个并发安全的实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/domain/feedDomain.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/domain/feedDomain.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/service/feedService.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/service/feedService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feed/vo/feedVo.go" beforeDir="false" afterPath="$PROJECT_DIR$/feed/vo/feedVo.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/grpc/interactiveServiceGRPCService.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/feedHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/feedHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/loggerx/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/loggerx/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +162,8 @@
     <MESSAGE value="调整了lifeLog服务的vo层代码" />
     <MESSAGE value="修改" />
     <MESSAGE value="修复了分片上传的bug&#10;并对文件上传接口进行压测" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复了分片上传的bug&#10;并对文件上传接口进行压测" />
+    <MESSAGE value="feedService服务，添加了一个并发安全的实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="feedService服务，添加了一个并发安全的实现" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
