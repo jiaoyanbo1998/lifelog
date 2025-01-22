@@ -2,3 +2,7 @@
 {"L":"info","time":"2025-01-22 10:54:58","C":"loggerx/zap_logger.go:52","M":"当前路径不需要登录校验","path":"/user/login_email_password"}
 {"L":"error","time":"2025-01-22 10:58:51","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '33-32' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":33,"followeeId":32}
 {"L":"error","time":"2025-01-22 10:58:51","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-22 11:42:31","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '33-32' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":33,"followeeId":32}
+{"L":"error","time":"2025-01-22 11:42:31","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
+{"L":"error","time":"2025-01-22 11:43:11","C":"loggerx/zap_logger.go:62","M":"插入关注记录失败","error":"Error 1062 (23000): Duplicate entry '33-32' for key 'tb_follow.follower_id'","method:":"InteractiveDaoV1:InsertFollow","followerId":33,"followeeId":32}
+{"L":"error","time":"2025-01-22 11:43:11","C":"loggerx/zap_logger.go:62","M":"关注失败","error":"rpc error: code = Unknown desc = 不要重复关注","method:":"InteractiveHandler:Follow"}
