@@ -1,5 +1,0 @@
-curl --location 'localhost:8080/files/upload' \
---header 'Authorization: Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJJZCI6MzMsIk5pY2tOYW1lIjoiMjRiMDYzZTAtNjU5OS00MDI4LTk3YzctZTgwY2M5NDI4ZGU4IiwiZXhwIjoxNzM4MDU1NzQ3LCJTZXNzaW9uSWQiOiI5ODEwMjMwYy0zNzdjLTQ3ZTAtYjA0My00MjY3ODRkODYyOTAiLCJBdXRob3JpdHkiOjJ9.ll-ZnMneWJjWNgzYG-KBo9x7H7k36c8eg21yddVg5ARGyhcbw5sy3AQYcfzwNLGZ-6zLSp80CkX6VAKZxqYUuA' \
---form 'name="开题报告"' \
---form 'content="这是我的开题报告"' \
---form 'file=@"/D:/GoLangProjects/minio/开题报告1.pdf"'
