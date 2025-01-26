@@ -8773,3 +8773,4 @@
 {"L":"error","time":"2025-01-25 11:48:33","C":"loggerx/zap_logger.go:63","M":"退出消费循环异常","error":"kafka server: Request was for a consumer group that is not coordinated by this broker","method:":"comment/event/sarama-kafka/AsyncCommentEventConsumer/Start.go"}
 {"L":"error","time":"2025-01-25 11:48:43","C":"loggerx/zap_logger.go:63","M":"退出了消费循环异常","error":null}
 {"L":"error","time":"2025-01-25 11:49:32","C":"loggerx/zap_logger.go:63","M":"退出了消费循环异常","error":null}
+{"L":"error","time":"2025-01-26 08:20:02","C":"loggerx/zap_logger.go:63","M":"上传文件失败","error":"文件列表为空"}

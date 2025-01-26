@@ -14,6 +14,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var ErrVerifyToMany = errors.New("验证码验证太频繁")
@@ -705,7 +706,7 @@ func (userHandler *UserHandler) UploadAvatar(ctx *gin.Context) {
 	}
 	bucketName := "user"
 	fileName := uuid.New().String()
-	files, err := userHandler.fileHandler.UploadFiles(ctx, c.Endpoint, bucketName, fileName, c.UseSSL)
+	files, err := userHandler.fileHandler.UploadFiles(ctx, c.Endpoint, bucketName, fileName, c.UseSSL, 10*time.Second)
 	if err != nil {
 		ctx.JSON(http.StatusOK, Result[string]{
 			Code: errs.ErrSystemError,

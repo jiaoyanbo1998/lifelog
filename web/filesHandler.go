@@ -9,6 +9,7 @@ import (
 	"lifelog-grpc/pkg/loggerx"
 	"lifelog-grpc/pkg/miniox"
 	"net/http"
+	"time"
 )
 
 type FilesHandler struct {
@@ -18,7 +19,8 @@ type FilesHandler struct {
 	JWTHandler
 }
 
-func NewFilesHandler(filesv1 filesv1.FilesServiceClient, minio *miniox.FileHandler, logger loggerx.Logger) *FilesHandler {
+func NewFilesHandler(filesv1 filesv1.FilesServiceClient, minio *miniox.FileHandler,
+	logger loggerx.Logger) *FilesHandler {
 	return &FilesHandler{
 		FilesServiceClient: filesv1,
 		minio:              minio,
@@ -69,7 +71,7 @@ func (f *FilesHandler) UploadFiles(ctx *gin.Context) {
 	}
 	bucketName := "user"
 	// 上传文件
-	vals, err := f.minio.UploadFiles(ctx, c.Endpoint, bucketName, req.Name, c.UseSSL)
+	vals, err := f.minio.UploadFiles(ctx, c.Endpoint, bucketName, req.Name, c.UseSSL, 2*time.Minute)
 	if err != nil {
 		f.logger.Error("上传文件失败", loggerx.Error(err))
 		ctx.JSON(http.StatusOK, Result[string]{
@@ -152,7 +154,7 @@ func (f *FilesHandler) FileDelete(ctx *gin.Context) {
 	}
 	bucketName := "user"
 	fileName := req.Name + req.Ext
-	err = f.minio.DeleteFile(bucketName, fileName)
+	err = f.minio.DeleteFile(bucketName, fileName, 2*time.Minute)
 	if err != nil {
 		f.logger.Error("删除文件失败", loggerx.Error(err))
 		ctx.JSON(http.StatusOK, Result[string]{

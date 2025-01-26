@@ -4,18 +4,11 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="扩展了ZapLogger适配类的功能，添加了异步日志记录器">
-      <change afterPath="$PROJECT_DIR$/k6/login/测试结果.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="压测进行了一些修改，新增了异步分片上传">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/file/file" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/file/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/k6/file/file.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/go-stress-testing使用文档.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/test/test" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/test/test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/test/test_test.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/filesHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/filesHandler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,31 +41,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/GoLangProjects/src/lifelog-grpc/k6/file",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "go.vgo"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog-grpc/k6/file&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;go.vgo&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\file" />
@@ -144,9 +137,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/files" />
         <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc/feed" />
-        <item itemvalue="Go Build.go build lifelog-grpc/files" />
         <item itemvalue="Go Build.go build lifelog-grpc/comment" />
       </list>
     </recent_temporary>
@@ -172,7 +165,8 @@
     <MESSAGE value="修复了分片上传的bug&#10;并对文件上传接口进行压测" />
     <MESSAGE value="feedService服务，添加了一个并发安全的实现" />
     <MESSAGE value="扩展了ZapLogger适配类的功能，添加了异步日志记录器" />
-    <option name="LAST_COMMIT_MESSAGE" value="扩展了ZapLogger适配类的功能，添加了异步日志记录器" />
+    <MESSAGE value="压测进行了一些修改，新增了异步分片上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="压测进行了一些修改，新增了异步分片上传" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

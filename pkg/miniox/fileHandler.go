@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	defaultChunkSize = 100 * 1024 * 1024 // 默认的分片大小：100MB
-	maxConcurrency   = 5                 // 最大并发上传数
+	defaultChunkSize = 50 * 1024 * 1024 // 默认的分片大小：50MB
+	maxConcurrency   = 5                // 最大并发上传数
 )
 
 type FileHandler struct {
@@ -57,7 +57,8 @@ var contentTypeToExt = map[string]string{
 	"video/mp4":        ".mp4",
 }
 
-func (f *FileHandler) UploadFiles(ctx *gin.Context, endpoint, bucketName, fileName string, useSSL bool) ([]UploadResult, error) {
+func (f *FileHandler) UploadFiles(ctx *gin.Context, endpoint, bucketName, fileName string,
+	useSSL bool, timeout time.Duration) ([]UploadResult, error) {
 	// 获取文件信息
 	multipartForm, err := ctx.MultipartForm()
 	if err != nil {
@@ -93,12 +94,11 @@ func (f *FileHandler) UploadFiles(ctx *gin.Context, endpoint, bucketName, fileNa
 			totalChunks := f.calculateTotalChunks(file.Size)
 			if totalChunks == 1 {
 				// 不分片上传
-				url, er = f.onlyPickUpload(file, bucketName, fileName, endpoint, useSSL)
+				url, er = f.onlyPickUpload(file, bucketName, fileName, endpoint, useSSL, timeout)
 			} else {
 				// 分片上传
-				// url, er = f.manyPickUpload(file, bucketName, fileName, endpoint, totalChunks, useSSL)
-				// url, er = f.manyPickSyncUpload(file, bucketName, fileName, endpoint, totalChunks, useSSL)
-				url, er = f.onlyPickUpload(file, bucketName, fileName, endpoint, useSSL)
+				// url, er = f.manyPickUpload(file, bucketName, fileName, endpoint, totalChunks, useSSL, timeout)
+				url, er = f.manyPickSyncUpload(file, bucketName, fileName, endpoint, totalChunks, useSSL, timeout)
 			}
 			// 将结果发送到channel
 			resultChan <- UploadResult{
@@ -121,7 +121,7 @@ func (f *FileHandler) UploadFiles(ctx *gin.Context, endpoint, bucketName, fileNa
 
 // ManyPickUpload 分片上传
 func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fileName,
-	endpoint string, totalChunks int, useSSL bool) (string, error) {
+	endpoint string, totalChunks int, useSSL bool, timeout time.Duration) (string, error) {
 	// 文件大小
 	sizeSum := int(file.Size)
 	// 文件在minio中的路径
@@ -157,7 +157,7 @@ func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fil
 		// 编号
 		idx := strconv.Itoa(i)
 		// 上传文件
-		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		ctx, cancel := context.WithTimeout(context.Background(), timeout)
 		fName := fmt.Sprintf("%s_%s%s", fileName, idx, ext)
 		_, er = f.minio.Upload(ctx, bucketName, fName, contentType, buf[:n])
 		if er != nil {
@@ -165,7 +165,7 @@ func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fil
 		}
 		cancel()
 	}
-	ctx2, cancel2 := context.WithTimeout(context.Background(), 30*time.Second)
+	ctx2, cancel2 := context.WithTimeout(context.Background(), timeout)
 	defer cancel2()
 	// 合并文件
 	err := f.minio.Compose(ctx2, bucketName, fileName, totalChunks, ext)
@@ -183,7 +183,7 @@ func (f *FileHandler) manyPickUpload(file *multipart.FileHeader, bucketName, fil
 }
 
 func (f *FileHandler) onlyPickUpload(file *multipart.FileHeader, bucketName, fileName,
-	endpoint string, useSSL bool) (string, error) {
+	endpoint string, useSSL bool, timeout time.Duration) (string, error) {
 	// 打开文件
 	open, er := file.Open()
 	if er != nil {
@@ -207,7 +207,7 @@ func (f *FileHandler) onlyPickUpload(file *multipart.FileHeader, bucketName, fil
 	// 拼接后的文件名
 	fileName = fmt.Sprintf("%s%s", fileName, ext)
 	// 上传文件
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	_, er = f.minio.Upload(ctx, bucketName, fileName, contentType, buf[:n])
 	if er != nil {
 		return "", errors.New("上传文件失败")
@@ -224,8 +224,8 @@ func (f *FileHandler) onlyPickUpload(file *multipart.FileHeader, bucketName, fil
 }
 
 // DeleteFile 删除文件
-func (f *FileHandler) DeleteFile(bucketName, fileName string) error {
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+func (f *FileHandler) DeleteFile(bucketName, fileName string, timeout time.Duration) error {
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
 	// 删除文件
 	er := f.minio.Delete(ctx, bucketName, fileName)
@@ -236,8 +236,8 @@ func (f *FileHandler) DeleteFile(bucketName, fileName string) error {
 }
 
 // CheckFileExist 检查文件是否存在
-func (f *FileHandler) CheckFileExist(bucketName, fileName string) bool {
-	ctx, cancel := context.WithTimeout(context.Background(), 1*time.Second)
+func (f *FileHandler) CheckFileExist(bucketName, fileName string, timeout time.Duration) bool {
+	ctx, cancel := context.WithTimeout(context.Background(), timeout)
 	defer cancel()
 	// 检查文件是否存在
 	exist, er := f.minio.CheckFileExists(ctx, bucketName, fileName)
@@ -251,7 +251,7 @@ func (f *FileHandler) CheckFileExist(bucketName, fileName string) bool {
 
 // 分片异步上传
 func (f *FileHandler) manyPickSyncUpload(file *multipart.FileHeader, bucketName, fileName,
-	endpoint string, totalChunks int, useSSL bool) (string, error) {
+	endpoint string, totalChunks int, useSSL bool, timeout time.Duration) (string, error) {
 	// 文件大小
 	sizeSum := int(file.Size)
 	// 文件在minio中的路径
@@ -288,7 +288,7 @@ func (f *FileHandler) manyPickSyncUpload(file *multipart.FileHeader, bucketName,
 		// 读取文件内容
 		n, err := open.Read(buf)
 		if err != nil {
-			return "", errors.New("读取文件内容失败")
+			return "", fmt.Errorf("读取文件内容失败: %w", err)
 		}
 
 		// 启动一个协程来处理分片上传
@@ -300,14 +300,14 @@ func (f *FileHandler) manyPickSyncUpload(file *multipart.FileHeader, bucketName,
 			// 编号
 			idx := strconv.Itoa(i)
 			// 上传文件
-			ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-			defer cancel()
+			ctx, cancel := context.WithTimeout(context.Background(), timeout)
 			fName := fmt.Sprintf("%s_%s%s", fileName, idx, ext)
 			_, err := f.minio.Upload(ctx, bucketName, fName, contentType, buf[:n])
 			if err != nil {
 				errChan <- fmt.Errorf("上传分片 %d 失败: %v", i, err)
 				return
 			}
+			cancel()
 		}(i, buf, n)
 	}
 
@@ -322,12 +322,12 @@ func (f *FileHandler) manyPickSyncUpload(file *multipart.FileHeader, bucketName,
 		}
 	}
 
-	ctx2, cancel2 := context.WithTimeout(context.Background(), 30*time.Second)
+	ctx2, cancel2 := context.WithTimeout(context.Background(), timeout)
 	defer cancel2()
 	// 合并文件
 	err := f.minio.Compose(ctx2, bucketName, fileName, totalChunks, ext)
 	if err != nil {
-		return "", errors.New("文件合并失败")
+		return "", fmt.Errorf("文件合并失败: %w", err)
 	}
 	// 文件路径
 	filePath = endpoint + "/" + bucketName + "/" + fileName + ext
