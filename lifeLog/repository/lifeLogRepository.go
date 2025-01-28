@@ -84,6 +84,13 @@ func (a *LifeLogRepositoryV1) SearchByTitle(ctx context.Context, title string, l
 
 // SearchById 搜索LifeLog
 func (a *LifeLogRepositoryV1) SearchById(ctx context.Context, id int64, public bool) (domain.LifeLogDomain, error) {
+	// 查询缓存
+	detail, err := a.lifeLogCache.GetFirstPageDetail(ctx, id)
+	// 缓存命中，直接返回
+	if err == nil {
+		return detail, nil
+	}
+	// 缓存未命中，查询数据库
 	return a.lifeLogDao.SelectById(ctx, id, public)
 }
 

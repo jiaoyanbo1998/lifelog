@@ -104,3 +104,8 @@ services:
       - i18n.locale=zh-CN
     ports:
       - "5601:5601"
+
+  redis:
+    image: redis:latest      # 使用官方镜像
+    ports:
+      - "6379:6379"          # 暴露端口到宿主机

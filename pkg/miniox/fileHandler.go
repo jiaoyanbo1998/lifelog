@@ -12,8 +12,8 @@ import (
 )
 
 const (
-	defaultChunkSize = 50 * 1024 * 1024 // 默认的分片大小：50MB
-	maxConcurrency   = 5                // 最大并发上传数
+	defaultChunkSize = 100 * 1024 * 1024 // 默认的分片大小：50MB
+	maxConcurrency   = 5                 // 最大并发上传数
 )
 
 type FileHandler struct {

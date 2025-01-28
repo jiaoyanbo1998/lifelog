@@ -18,6 +18,7 @@ type LifeLogCache interface {
 	Set(ctx context.Context, lifeLogDomain domain.LifeLogDomain) error
 	SetPublic(ctx context.Context, lifeLogDomain domain.LifeLogDomain) error
 	GetPublic(ctx context.Context, authorId int64) domain.LifeLogDomain
+	GetFirstPageDetail(ctx context.Context, lifeLogId int64) (domain.LifeLogDomain, error)
 }
 
 type LifeLogRedisCache struct {
@@ -30,6 +31,20 @@ func NewLifeLogRedisCache(cmd redis.Cmdable, l loggerx.Logger) LifeLogCache {
 		cmd:    cmd,
 		logger: l,
 	}
+}
+
+func (a *LifeLogRedisCache) GetFirstPageDetail(ctx context.Context, lifeLogId int64) (domain.LifeLogDomain, error) {
+	key := fmt.Sprintf("first_page_data:%d", lifeLogId)
+	bytes, err := a.cmd.Get(ctx, key).Bytes()
+	if err != nil {
+		return domain.LifeLogDomain{}, err
+	}
+	var lifeLogDomain domain.LifeLogDomain
+	err = json.Unmarshal(bytes, &lifeLogDomain)
+	if err != nil {
+		return domain.LifeLogDomain{}, err
+	}
+	return lifeLogDomain, nil
 }
 
 // GetFirstPage 获取redis中存储的LifeLog列表的第一页数据
