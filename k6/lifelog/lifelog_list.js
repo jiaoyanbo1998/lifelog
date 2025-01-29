@@ -1,7 +1,7 @@
 import http from 'k6/http';
 
 const url = 'http://localhost:8080/lifeLog/author_id';
-const jwtToken = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJJZCI6MzMsIk5pY2tOYW1lIjoiMjRiMDYzZTAtNjU5OS00MDI4LTk3YzctZTgwY2M5NDI4ZGU4IiwiZXhwIjoxNzM3NjE4NDUzLCJTZXNzaW9uSWQiOiIxNTk1MGI0YS1hZDVmLTQ2ZDgtYTI4Yi0xODA3ZTExNTAzNmYiLCJBdXRob3JpdHkiOjJ9.E-6eTQsqCO_SiB0B8nWa0Cb7Rcy3v08HYe9W_7jVQ-190Z69b0NGnv1Pqw2CLezH4191SFkr_dY5wCDdNqJLzg'; // 替换为你的JWT Token
+const jwtToken = 'eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJJZCI6MzMsIk5pY2tOYW1lIjoiMjRiMDYzZTAtNjU5OS00MDI4LTk3YzctZTgwY2M5NDI4ZGU4IiwiZXhwIjoxNzM4NjU0OTE1LCJTZXNzaW9uSWQiOiI1OGY4NGQ0MC1hZTU0LTRlMWMtOTlkNi03OWQyNzgzYjBiMDAiLCJBdXRob3JpdHkiOjJ9.sFFmBqNXBpl7JN6WDJgpF_YhcWp6lX1aFqbMOLqJ0j12cZIzVYljRh-Xt9rpXG6k69l-SrorGBbPpghw4AyZoQ'
 
 export default function () {
     let data = {

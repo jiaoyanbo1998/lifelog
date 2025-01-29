@@ -4,16 +4,21 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="修改了ctx的过期时间">
-      <change afterPath="$PROJECT_DIR$/k6/lifelog/detail.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k6/lifelog/详情接口的测试结果.md" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/goCache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/repository/cache/localCache.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/lifelog/测试结果.md" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/分页接口的测试结果.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/repository/cache/lifeLogCache.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/cache/lifeLogCache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k6/lifelog/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k6/lifelog/lifelog_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/lifelog_list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k6/lifelog/分页接口的测试结果.md" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/分页接口的测试结果.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k6/lifelog/详情接口的测试结果.md" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/详情接口的测试结果.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog-2025-01-16T10-39-32.685.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/miniox/fileHandler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,9 +148,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build lifelog-grpc" />
+        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
         <item itemvalue="Go Build.go build lifelog-grpc/files" />
         <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
-        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
         <item itemvalue="Go Build.go build lifelog-grpc/comment" />
       </list>
     </recent_temporary>
@@ -173,7 +178,8 @@
     <MESSAGE value="扩展了ZapLogger适配类的功能，添加了异步日志记录器" />
     <MESSAGE value="压测进行了一些修改，新增了异步分片上传" />
     <MESSAGE value="修改了ctx的过期时间" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了ctx的过期时间" />
+    <MESSAGE value="修改了lifeLog服务的详情接口，优化了缓存方案&#10;并新增了，该接口的压测" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改了lifeLog服务的详情接口，优化了缓存方案&#10;并新增了，该接口的压测" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

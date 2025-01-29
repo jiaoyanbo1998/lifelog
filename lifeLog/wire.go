@@ -16,6 +16,7 @@ var thirdSet = wire.NewSet(
 	ioc.InitRedis,
 	ioc.GetMysql,
 	ioc.InitLogger,
+	ioc.InitGoCache,
 )
 
 var lifelogSet = wire.NewSet(
@@ -23,6 +24,7 @@ var lifelogSet = wire.NewSet(
 	repository.NewLifeLogRepository,
 	dao.NewLifeLogDao,
 	cache.NewLifeLogRedisCache,
+	cache.NewLocalCache,
 )
 
 func InitLifeLogServiceGRPCService() *grpc.LifeLogServiceGRPCService {

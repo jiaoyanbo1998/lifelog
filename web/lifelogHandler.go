@@ -464,19 +464,22 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 		return
 	}
 	// 并发增加点赞数
-	go func() {
-		_, err := l.interactiveServiceClient.IncreaseRead(ctx, &interactivev1.IncreaseReadRequest{
-			InteractiveDomain: &interactivev1.InteractiveDomain{
-				Biz:    l.biz,
-				BizId:  res.GetLifeLogDomain().GetId(),
-				UserId: userInfo.Id,
-			},
-		})
-		if err != nil {
-			l.logger.Error("增加阅读量失败", loggerx.Error(err),
-				loggerx.String("method:", "LifeLogHandler:Detail"))
-		}
-	}()
+	/*
+		go func() {
+
+			_, err := l.interactiveServiceClient.IncreaseRead(ctx, &interactivev1.IncreaseReadRequest{
+				InteractiveDomain: &interactivev1.InteractiveDomain{
+					Biz:    l.biz,
+					BizId:  res.GetLifeLogDomain().GetId(),
+					UserId: userInfo.Id,
+				},
+			})
+			if err != nil {
+				l.logger.Error("增加阅读量失败", loggerx.Error(err),
+					loggerx.String("method:", "LifeLogHandler:Detail"))
+			}
+		}()
+	*/
 
 	// 获取点赞数，收藏数，阅读数
 	interactiveInfo, err := l.interactiveServiceClient.InteractiveInfo(ctx, &interactivev1.InteractiveInfoRequest{

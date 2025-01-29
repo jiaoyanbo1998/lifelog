@@ -24,7 +24,9 @@ func InitLifeLogServiceGRPCService() *grpc.LifeLogServiceGRPCService {
 	lifeLogDao := dao.NewLifeLogDao(db, logger)
 	cmdable := ioc.InitRedis()
 	lifeLogCache := cache.NewLifeLogRedisCache(cmdable, logger)
-	lifeLogRepository := repository.NewLifeLogRepository(lifeLogDao, logger, lifeLogCache)
+	cacheCache := ioc.InitGoCache()
+	localCache := cache.NewLocalCache(cacheCache)
+	lifeLogRepository := repository.NewLifeLogRepository(lifeLogDao, logger, lifeLogCache, localCache)
 	lifeLogService := service.NewLifeLogService(lifeLogRepository)
 	lifeLogServiceGRPCService := grpc.NewLifeLogServiceGRPCService(lifeLogService, logger)
 	return lifeLogServiceGRPCService
@@ -32,6 +34,6 @@ func InitLifeLogServiceGRPCService() *grpc.LifeLogServiceGRPCService {
 
 // wire.go:
 
-var thirdSet = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger)
+var thirdSet = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitGoCache)
 
-var lifelogSet = wire.NewSet(service.NewLifeLogService, repository.NewLifeLogRepository, dao.NewLifeLogDao, cache.NewLifeLogRedisCache)
+var lifelogSet = wire.NewSet(service.NewLifeLogService, repository.NewLifeLogRepository, dao.NewLifeLogDao, cache.NewLifeLogRedisCache, cache.NewLocalCache)

@@ -24,24 +24,33 @@ type LifeLogRepository interface {
 type LifeLogRepositoryV1 struct {
 	lifeLogDao   dao.LifeLogDao
 	lifeLogCache cache.LifeLogCache
+	localCache   *cache.LocalCache
 	logger       loggerx.Logger
 }
 
 func NewLifeLogRepository(lifeLogDao dao.LifeLogDao, l loggerx.Logger,
-	lifeLogCache cache.LifeLogCache) LifeLogRepository {
+	lifeLogCache cache.LifeLogCache, localCache *cache.LocalCache) LifeLogRepository {
 	return &LifeLogRepositoryV1{
 		lifeLogDao:   lifeLogDao,
 		lifeLogCache: lifeLogCache,
 		logger:       l,
+		localCache:   localCache,
 	}
 }
 
 // Modify 修改LifeLog
 func (a *LifeLogRepositoryV1) Modify(ctx context.Context, lifeLogDomain domain.LifeLogDomain) (domain.LifeLogDomain, error) {
 	go func() {
-		err := a.lifeLogCache.DelFirstPage(ctx, lifeLogDomain.Author.Id)
+		// 删除本地缓存
+		err := a.localCache.DelFirstPage(lifeLogDomain.Author.Id)
 		if err != nil {
-			a.logger.Error("删除缓存失败", loggerx.Error(err),
+			a.logger.Error("删除本地缓存失败", loggerx.Error(err),
+				loggerx.String("method:", "lifeLogRepository:Modify"))
+		}
+		// 删除redis缓存
+		err = a.lifeLogCache.DelFirstPage(ctx, lifeLogDomain.Author.Id)
+		if err != nil {
+			a.logger.Error("删除redis缓存失败", loggerx.Error(err),
 				loggerx.String("method:", "lifeLogRepository:Modify"))
 		}
 	}()
@@ -84,8 +93,13 @@ func (a *LifeLogRepositoryV1) SearchByTitle(ctx context.Context, title string, l
 
 // SearchById 搜索LifeLog
 func (a *LifeLogRepositoryV1) SearchById(ctx context.Context, id int64, public bool) (domain.LifeLogDomain, error) {
-	// 查询缓存
-	detail, err := a.lifeLogCache.GetFirstPageDetail(ctx, id)
+	// 查询本地缓存
+	detail, err := a.localCache.Get(id)
+	if err == nil {
+		return detail, nil
+	}
+	// 查询redis缓存
+	detail, err = a.lifeLogCache.GetFirstPageDetail(ctx, id)
 	// 缓存命中，直接返回
 	if err == nil {
 		return detail, nil
@@ -101,41 +115,81 @@ func (a *LifeLogRepositoryV1) SearchByIds(ctx context.Context, ids []int64) ([]d
 
 // SearchByAuthorId 搜索LifeLog
 func (a *LifeLogRepositoryV1) SearchByAuthorId(ctx context.Context, authorId, limit, offset int64) ([]domain.LifeLogDomain, error) {
-	// 缓存第一页数据（我不知道第一页有多少条数据，暂且认为有100条）
-	if offset == 0 && limit <= 100 {
-		ads, err := a.lifeLogCache.GetFirstPage(ctx, authorId)
+	// 参数校验
+	if authorId <= 0 || limit < 0 || offset < 0 {
+		return nil, errors.New("invalid parameters")
+	}
+	// 查询本地缓存
+	if isFirstPage(offset, limit) {
+		ads, err := a.localCache.GetFirstPage(authorId)
 		if err == nil && len(ads) > 0 {
-			return ads[:limit], nil
+			return ads[:min(limit, int64(len(ads)))], nil
 		}
 	}
-	// 根据作者id，查询作者的LifeLog列表
+	// 本地缓存没有数据，查询redis缓存
+	if isFirstPage(offset, limit) {
+		ads, err := a.lifeLogCache.GetFirstPage(ctx, authorId)
+		if err == nil && len(ads) > 0 {
+			return ads[:min(limit, int64(len(ads)))], nil
+		}
+	}
+	// redis没有缓存，查询数据库
 	ads, err := a.lifeLogDao.SelectByAuthorId(ctx, authorId, limit, offset)
 	if err != nil {
 		a.logger.Error("查询数据库失败", loggerx.Error(err),
-			loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"))
-		return nil, err
+			loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"),
+			loggerx.Int64("authorId", authorId),
+			loggerx.Int64("limit", limit),
+			loggerx.Int64("offset", offset))
+		// 所有数据源都查询失败
+		// 返回降级提示
+		return nil, errors.New("系统繁忙，请稍后再试")
 	}
-	// 将查询出来的数据，存储到redis中
-	err = a.lifeLogCache.SetFirstPage(ctx, authorId, ads)
-	if err != nil {
-		a.logger.Error("回写缓存失败", loggerx.Error(err),
-			loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"))
-		return ads, err
+	// 异步回写缓存
+	if isFirstPage(offset, limit) {
+		if err := a.localCache.SetFirstPage(authorId, ads); err != nil {
+			a.logger.Warn("回写本地缓存失败", loggerx.Error(err),
+				loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"),
+				loggerx.Int64("authorId", authorId))
+		}
+		if err := a.lifeLogCache.SetFirstPage(ctx, authorId, ads); err != nil {
+			a.logger.Warn("回写redis缓存失败", loggerx.Error(err),
+				loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"),
+				loggerx.Int64("authorId", authorId))
+		}
 	}
-	// 缓存第一页的第一条数据
-	err = a.preCache(ctx, ads)
-	if err != nil {
-		a.logger.Error("预加载缓存失败", loggerx.Error(err),
-			loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"))
-		return ads, err
+	if err := a.preCache(ctx, ads); err != nil {
+		a.logger.Warn("预加载缓存失败", loggerx.Error(err),
+			loggerx.String("method:", "lifeLogRepository:SearchByAuthorId"),
+			loggerx.Int64("authorId", authorId))
 	}
 	return ads, nil
+}
+
+func isFirstPage(offset, limit int64) bool {
+	return offset == 0 && limit <= 100
+}
+
+func min(a, b int64) int64 {
+	if a < b {
+		return a
+	}
+	return b
 }
 
 // preCache 预缓存第一页的第一条数据
 func (a *LifeLogRepositoryV1) preCache(ctx context.Context, ads []domain.LifeLogDomain) error {
 	if len(ads) > 0 {
-		return a.lifeLogCache.Set(ctx, ads[0])
+		// 本地缓存
+		err := a.localCache.Set(ads[0])
+		if err != nil {
+			return err
+		}
+		// redis
+		err = a.lifeLogCache.Set(ctx, ads[0])
+		if err != nil {
+			return err
+		}
 	}
 	return errors.New("没有数据")
 }
