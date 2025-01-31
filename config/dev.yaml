@@ -59,6 +59,11 @@ commentKafka:
     timeout: 1
     batch: 3
 
+LikedKafka:
+    addr:
+        - "localhost:9092"
+        - "localhost:9094"
+
 minio:
     endpoint: "localhost:9000"
     accessKey: "RaEKllxArIYNXNu7WIay"

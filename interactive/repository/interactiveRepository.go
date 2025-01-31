@@ -62,8 +62,8 @@ func (i *InteractiveRepositoryV1) IncreaseReadCount(ctx context.Context, biz str
 	if err != nil {
 		return err
 	}
-	// 再更新缓存中的阅读数
-	err = i.interactiveCache.InsertReadCount(ctx, biz, bizId)
+	// 再删除缓存中的阅读数
+	err = i.interactiveCache.DeleteReadCount(ctx, biz, bizId)
 	if err != nil {
 		return err
 	}

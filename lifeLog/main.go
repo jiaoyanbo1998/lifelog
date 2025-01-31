@@ -36,15 +36,20 @@ func main() {
 		},
 	}
 	// 3.创建lifelog服务的grpc服务器
-	lifeLogServiceGRPCService := InitLifeLogServiceGRPCService()
+	app := InitLifeLogServiceGRPCService()
 	// 4.创建grpc服务器（go-zero）
 	server := zrpc.MustNewServer(serverConf, func(server *grpc.Server) {
 		// 5.将lifelog服务注册到grpc服务器中
-		lifelogv1.RegisterLifeLogServiceServer(server, lifeLogServiceGRPCService)
+		lifelogv1.RegisterLifeLogServiceServer(server, app.lifeLogServiceGRPCService)
 	})
 	// 6.关闭grpc服务器
 	defer server.Stop()
-	// 7.启动grpc服务器
+	// 7.启动消费者
+	err = app.asyncLifeLogEventConsumer.StartConsumer()
+	if err != nil {
+		panic(err)
+	}
+	// 8.启动grpc服务器
 	logx.Info("正在启动lifelogService，服务端口：", cfg.Port, "......")
 	server.Start()
 }

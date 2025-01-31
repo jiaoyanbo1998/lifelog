@@ -8,6 +8,7 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/lifeLog/event"
 	"lifelog-grpc/lifeLog/grpc"
 	"lifelog-grpc/lifeLog/repository"
 	"lifelog-grpc/lifeLog/repository/cache"
@@ -18,7 +19,7 @@ import (
 
 // Injectors from wire.go:
 
-func InitLifeLogServiceGRPCService() *grpc.LifeLogServiceGRPCService {
+func InitLifeLogServiceGRPCService() *App {
 	logger := ioc.InitLogger()
 	db := ioc.GetMysql(logger)
 	lifeLogDao := dao.NewLifeLogDao(db, logger)
@@ -29,11 +30,17 @@ func InitLifeLogServiceGRPCService() *grpc.LifeLogServiceGRPCService {
 	lifeLogRepository := repository.NewLifeLogRepository(lifeLogDao, logger, lifeLogCache, localCache)
 	lifeLogService := service.NewLifeLogService(lifeLogRepository)
 	lifeLogServiceGRPCService := grpc.NewLifeLogServiceGRPCService(lifeLogService, logger)
-	return lifeLogServiceGRPCService
+	client := ioc.InitSaramaKafka(logger)
+	asyncLifeLogEventConsumer := event.NewAsyncLifeLogEventConsumer(client, logger, lifeLogService)
+	app := &App{
+		lifeLogServiceGRPCService: lifeLogServiceGRPCService,
+		asyncLifeLogEventConsumer: asyncLifeLogEventConsumer,
+	}
+	return app
 }
 
 // wire.go:
 
-var thirdSet = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitGoCache)
+var thirdSet = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitGoCache, ioc.InitSaramaKafka, event.NewAsyncLifeLogEventConsumer)
 
 var lifelogSet = wire.NewSet(service.NewLifeLogService, repository.NewLifeLogRepository, dao.NewLifeLogDao, cache.NewLifeLogRedisCache, cache.NewLocalCache)

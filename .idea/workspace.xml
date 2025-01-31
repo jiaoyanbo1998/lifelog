@@ -5,21 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/goCache.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/repository/cache/localCache.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/interactiveEvent/interactiveEvent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/lifeLogEvent/lifeLogEvent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/event/lifeLogEvent/syncProducer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/event/likedEvent/asyncConsumer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/interactive/repository/cache/lua/delete.lua" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ioc/saramaKafka.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/app.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/event/asyncConsumer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/event/lifeLogEvent.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/saramaKafka.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/lifelog/detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/lifelog/lifelog_list.js" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/lifelog_list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/lifelog/分页接口的测试结果.md" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/分页接口的测试结果.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k6/lifelog/详情接口的测试结果.md" beforeDir="false" afterPath="$PROJECT_DIR$/k6/lifelog/详情接口的测试结果.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/repository/lifeLogRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/cache/interactiveCache.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/cache/interactiveCache.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interactive/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lifeLog/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifeLog/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lifeLog/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog-2025-01-16T10-39-32.685.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog-2025-01-21T12-11-54.396.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/log/lifeLog-2025-01-22T02-40-13.838.log" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,45 +65,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog-grpc/k6/file&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;go.vgo&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "DefaultGoTemplateProperty": "Go File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "D:/GoLangProjects/src/lifelog-grpc/lifeLog/ioc",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "go.vgo"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\file" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\login" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\lifeLog\ioc" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\collect\ioc" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\collect" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\lifeLog\event" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\event\lifeLogEvent" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\interactive\event\likedEvent" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\ioc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\event\interactiveEvent" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\interactive\event\feed" />
+      <recent name="D:\GoLangProjects\src\lifelog-grpc\event\interactive" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\api\proto\gen" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\feed\vo" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\comment\ioc" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\test" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\k6\login" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build lifelog-grpc">
@@ -148,10 +161,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build lifelog-grpc" />
-        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
-        <item itemvalue="Go Build.go build lifelog-grpc/files" />
-        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
         <item itemvalue="Go Build.go build lifelog-grpc/comment" />
+        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
+        <item itemvalue="Go Build.go build lifelog-grpc/files" />
+        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +192,8 @@
     <MESSAGE value="压测进行了一些修改，新增了异步分片上传" />
     <MESSAGE value="修改了ctx的过期时间" />
     <MESSAGE value="修改了lifeLog服务的详情接口，优化了缓存方案&#10;并新增了，该接口的压测" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改了lifeLog服务的详情接口，优化了缓存方案&#10;并新增了，该接口的压测" />
+    <MESSAGE value="给生活日志服务的查询接口，添加了本地缓存和降级策略，并使用k6进行了性能压测" />
+    <option name="LAST_COMMIT_MESSAGE" value="给生活日志服务的查询接口，添加了本地缓存和降级策略，并使用k6进行了性能压测" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

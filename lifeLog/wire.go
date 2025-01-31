@@ -4,6 +4,7 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/lifeLog/event"
 	"lifelog-grpc/lifeLog/grpc"
 	"lifelog-grpc/lifeLog/repository"
 	"lifelog-grpc/lifeLog/repository/cache"
@@ -17,6 +18,8 @@ var thirdSet = wire.NewSet(
 	ioc.GetMysql,
 	ioc.InitLogger,
 	ioc.InitGoCache,
+	ioc.InitSaramaKafka,
+	event.NewAsyncLifeLogEventConsumer,
 )
 
 var lifelogSet = wire.NewSet(
@@ -27,11 +30,12 @@ var lifelogSet = wire.NewSet(
 	cache.NewLocalCache,
 )
 
-func InitLifeLogServiceGRPCService() *grpc.LifeLogServiceGRPCService {
+func InitLifeLogServiceGRPCService() *App {
 	wire.Build(
 		thirdSet,
 		lifelogSet,
 		grpc.NewLifeLogServiceGRPCService,
+		wire.Struct(new(App), "*"),
 	)
-	return new(grpc.LifeLogServiceGRPCService)
+	return new(App)
 }

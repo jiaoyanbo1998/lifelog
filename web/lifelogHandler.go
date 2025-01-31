@@ -5,6 +5,7 @@ import (
 	"github.com/jinzhu/copier"
 	interactivev1 "lifelog-grpc/api/proto/gen/interactive/v1"
 	lifelogv1 "lifelog-grpc/api/proto/gen/lifelog/v1"
+	"lifelog-grpc/event/interactiveEvent"
 	"lifelog-grpc/lifeLog/vo"
 	"lifelog-grpc/pkg/loggerx"
 	"net/http"
@@ -16,18 +17,21 @@ type LifeLogHandler struct {
 	logger                   loggerx.Logger
 	lifeLogServiceClient     lifelogv1.LifeLogServiceClient
 	interactiveServiceClient interactivev1.InteractiveServiceClient
+	syncProducer             *interactiveEvent.SyncProducer
 	biz                      string
 	JWTHandler
 }
 
 func NewLifeLogHandler(l loggerx.Logger,
 	lifeLogServiceClient lifelogv1.LifeLogServiceClient,
-	interactiveServiceClient interactivev1.InteractiveServiceClient) *LifeLogHandler {
+	interactiveServiceClient interactivev1.InteractiveServiceClient,
+	syncProducer *interactiveEvent.SyncProducer) *LifeLogHandler {
 	return &LifeLogHandler{
 		logger:                   l,
 		lifeLogServiceClient:     lifeLogServiceClient,
 		interactiveServiceClient: interactiveServiceClient,
 		biz:                      "lifeLog",
+		syncProducer:             syncProducer,
 	}
 }
 
@@ -463,24 +467,16 @@ func (l *LifeLogHandler) Detail(ctx *gin.Context) {
 			loggerx.String("method:", "LifeLogHandler:Detail"))
 		return
 	}
-	// 并发增加点赞数
-	/*
-		go func() {
-
-			_, err := l.interactiveServiceClient.IncreaseRead(ctx, &interactivev1.IncreaseReadRequest{
-				InteractiveDomain: &interactivev1.InteractiveDomain{
-					Biz:    l.biz,
-					BizId:  res.GetLifeLogDomain().GetId(),
-					UserId: userInfo.Id,
-				},
-			})
-			if err != nil {
-				l.logger.Error("增加阅读量失败", loggerx.Error(err),
-					loggerx.String("method:", "LifeLogHandler:Detail"))
-			}
-		}()
-	*/
-
+	// 增加点赞数，kafka异步处理
+	err = l.syncProducer.ProduceInteractiveEvent(interactiveEvent.EventInteractive{
+		UserId: userInfo.Id,
+		Biz:    l.biz,
+		BizId:  res.GetLifeLogDomain().GetId(),
+	})
+	if err != nil {
+		l.logger.Error("增加阅读量失败", loggerx.Error(err),
+			loggerx.String("method:", "LifeLogHandler:Detail"))
+	}
 	// 获取点赞数，收藏数，阅读数
 	interactiveInfo, err := l.interactiveServiceClient.InteractiveInfo(ctx, &interactivev1.InteractiveInfoRequest{
 		InteractiveDomain: &interactivev1.InteractiveDomain{

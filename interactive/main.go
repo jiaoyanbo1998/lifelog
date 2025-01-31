@@ -36,15 +36,20 @@ func main() {
 		},
 	}
 	// 3.创建InteractiveService的grpc服务器
-	interactiveServiceGRPCService := InitInteractiveServiceGRPCService()
+	app := InitInteractiveServiceGRPCService()
 	// 4.创建一个grpc服务（go-zero框架）
 	server := zrpc.MustNewServer(serverConf, func(server *grpc.Server) {
 		// 5.将interactiveService注册到grpc服务中
-		interactivev1.RegisterInteractiveServiceServer(server, interactiveServiceGRPCService)
+		interactivev1.RegisterInteractiveServiceServer(server, app.interactiveServiceGRPCService)
 	})
 	// 6.关闭grpc服务
 	defer server.Stop()
-	// 7.启动grpc服务
+	// 7.启动消费者
+	err = app.asyncLikedEventConsumer.StartConsumer()
+	if err != nil {
+		panic(err)
+	}
+	// 8.启动grpc服务
 	logx.Info("正在启动interactiveService的grpc服务...")
 	server.Start()
 }

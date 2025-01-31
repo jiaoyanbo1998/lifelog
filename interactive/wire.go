@@ -5,6 +5,7 @@ package main
 import (
 	"github.com/google/wire"
 	"lifelog-grpc/interactive/event/feed"
+	"lifelog-grpc/interactive/event/likedEvent"
 	"lifelog-grpc/interactive/grpc"
 	"lifelog-grpc/interactive/ioc"
 	"lifelog-grpc/interactive/repository"
@@ -31,14 +32,16 @@ var third = wire.NewSet(
 	ioc.InitFeedServiceGRPCClient,
 	ioc.InitLifeLogServiceCRPCClient,
 	feed.NewSyncProducer,
+	likedEvent.NewAsyncLikedEventConsumer,
 )
 
 // InitInteractiveServiceGRPCService 初始化InitInteractiveServiceGRPCService
-func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
+func InitInteractiveServiceGRPCService() *App {
 	wire.Build(
 		third,
 		grpc.NewCodeServiceGRPCService,
 		interactiveSet,
+		wire.Struct(new(App), "*"),
 	)
-	return new(grpc.InteractiveServiceGRPCService)
+	return new(App)
 }

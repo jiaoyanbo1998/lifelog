@@ -8,6 +8,8 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/event/interactiveEvent"
+	"lifelog-grpc/event/lifeLogEvent"
 	"lifelog-grpc/ioc"
 	"lifelog-grpc/pkg/miniox"
 	"lifelog-grpc/ranking/repository"
@@ -24,12 +26,16 @@ func InitApp() *App {
 	jwtHandler := web.NewJWTHandler(logger)
 	minioClient := ioc.InitMinio()
 	fileHandler := miniox.NewFileHandler(minioClient)
-	userHandler := web.NewUserHandler(userServiceClient, logger, jwtHandler, fileHandler)
+	client := ioc.InitSaramaKafka(logger)
+	syncProducer := ioc.InitSaramaSyncProducer(client)
+	lifeLogEventSyncProducer := lifeLogEvent.NewSyncProducer(syncProducer, logger)
+	userHandler := web.NewUserHandler(userServiceClient, logger, jwtHandler, fileHandler, lifeLogEventSyncProducer)
 	cmdable := ioc.InitRedis()
 	v := ioc.InitMiddlewares(logger, cmdable)
 	lifeLogServiceClient := ioc.InitLifeLogServiceCRPCClient()
 	interactiveServiceClient := ioc.InitInteractiveServiceGRPCClient(logger)
-	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, interactiveServiceClient)
+	interactiveEventSyncProducer := interactiveEvent.NewSyncProducer(syncProducer, logger)
+	lifeLogHandler := web.NewLifeLogHandler(logger, lifeLogServiceClient, interactiveServiceClient, interactiveEventSyncProducer)
 	collectServiceClient := ioc.InitCollectServiceGRPCClient(logger)
 	collectHandler := web.NewCollectHandler(collectServiceClient, logger)
 	commentServiceClient := ioc.InitCommentServiceGRPCClient(logger)
@@ -57,7 +63,7 @@ func InitApp() *App {
 // wire.go:
 
 // userSet user模块的依赖注入
-var userSet = wire.NewSet(web.NewUserHandler, ioc.InitUserServiceGRPCClient)
+var userSet = wire.NewSet(web.NewUserHandler, ioc.InitUserServiceGRPCClient, lifeLogEvent.NewSyncProducer)
 
 // codeSet code模块的依赖注入
 var codeSet = wire.NewSet(web.NewCodeHandler, ioc.InitCodeServiceGRPCClient)
@@ -66,7 +72,7 @@ var codeSet = wire.NewSet(web.NewCodeHandler, ioc.InitCodeServiceGRPCClient)
 var JwtSet = wire.NewSet(web.NewJWTHandler)
 
 // LifeLog模块
-var lifeLogSet = wire.NewSet(web.NewLifeLogHandler, ioc.InitLifeLogServiceCRPCClient)
+var lifeLogSet = wire.NewSet(web.NewLifeLogHandler, ioc.InitLifeLogServiceCRPCClient, ioc.InitSaramaKafka, ioc.InitSaramaSyncProducer, interactiveEvent.NewSyncProducer)
 
 // collectClipSet collectClip模块的依赖注入
 var collectClipSet = wire.NewSet(web.NewCollectHandler, ioc.InitCollectServiceGRPCClient)

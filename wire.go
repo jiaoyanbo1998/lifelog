@@ -4,6 +4,8 @@ package main
 
 import (
 	"github.com/google/wire"
+	"lifelog-grpc/event/interactiveEvent"
+	"lifelog-grpc/event/lifeLogEvent"
 	"lifelog-grpc/ioc"
 	"lifelog-grpc/pkg/miniox"
 	rankingRepository "lifelog-grpc/ranking/repository"
@@ -16,6 +18,7 @@ import (
 var userSet = wire.NewSet(
 	web.NewUserHandler,
 	ioc.InitUserServiceGRPCClient,
+	lifeLogEvent.NewSyncProducer,
 )
 
 // codeSet code模块的依赖注入
@@ -33,6 +36,9 @@ var JwtSet = wire.NewSet(
 var lifeLogSet = wire.NewSet(
 	web.NewLifeLogHandler,
 	ioc.InitLifeLogServiceCRPCClient,
+	ioc.InitSaramaKafka,              // sarama.Client
+	ioc.InitSaramaSyncProducer,       // sarama.SyncProducer
+	interactiveEvent.NewSyncProducer, // 参数sarama.AsyncProducer
 )
 
 // collectClipSet collectClip模块的依赖注入

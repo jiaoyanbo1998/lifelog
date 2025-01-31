@@ -8,6 +8,7 @@ import (
 	"github.com/spf13/viper"
 	userv1 "lifelog-grpc/api/proto/gen/user/v1"
 	"lifelog-grpc/errs"
+	"lifelog-grpc/event/lifeLogEvent"
 	"lifelog-grpc/pkg/loggerx"
 	"lifelog-grpc/pkg/miniox"
 	"lifelog-grpc/user/vo"
@@ -27,8 +28,9 @@ type UserHandler struct {
 	passwordRegexp    *regexp.Regexp // 用于校验密码的正则表达式
 	phoneRegexp       *regexp.Regexp
 	// 组合jwtHandler
-	jwtHandler  *JWTHandler
-	fileHandler *miniox.FileHandler
+	jwtHandler   *JWTHandler
+	fileHandler  *miniox.FileHandler
+	syncProducer *lifeLogEvent.SyncProducer
 }
 
 // NewUserHandler 构造函数创建用户处理器
@@ -36,7 +38,8 @@ func NewUserHandler(
 	userServiceClient userv1.UserServiceClient,
 	l loggerx.Logger,
 	jwtHandler *JWTHandler,
-	fileHandler *miniox.FileHandler) *UserHandler {
+	fileHandler *miniox.FileHandler,
+	syncProducer *lifeLogEvent.SyncProducer) *UserHandler {
 	// 定义正则表达式常量
 	const (
 		EmailRegexp    = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
@@ -52,6 +55,7 @@ func NewUserHandler(
 		phoneRegexp:    regexp.MustCompile(PhoneRegexp, regexp.None),
 		jwtHandler:     jwtHandler,
 		fileHandler:    fileHandler,
+		syncProducer:   syncProducer,
 	}
 }
 
@@ -274,9 +278,19 @@ func (userHandler *UserHandler) LoginByEmailAndPassword(ctx *gin.Context) {
 	}
 	// 设置token的负载，也就是存储在token中的数据
 	userClaims := UserClaims{
-		Id:        res.GetUserDomain().Id,
-		NickName:  res.GetUserDomain().NickName,
-		Authority: res.GetUserDomain().Authority,
+		Id:        res.GetUserDomain().Id,        // 用户id
+		NickName:  res.GetUserDomain().NickName,  // 用户昵称
+		Authority: res.GetUserDomain().Authority, // 用户权限
+	}
+	// 预加载lifeLog的分页查询
+	err = userHandler.syncProducer.ProduceLifeLogEvent(lifeLogEvent.EventLifeLog{
+		AuthorId: res.GetUserDomain().Id,
+		Limit:    10,
+		Offset:   0,
+	})
+	if err != nil {
+		userHandler.logger.Error("预加载lifeLog的分页查询失败", loggerx.Error(err),
+			loggerx.String("method", "UserHandler:Login"))
 	}
 	// 登陆成功，生成长短token
 	userHandler.jwtHandler.SetJwt(ctx, userClaims, true)

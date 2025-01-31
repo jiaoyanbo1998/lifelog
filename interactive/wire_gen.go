@@ -9,6 +9,7 @@ package main
 import (
 	"github.com/google/wire"
 	"lifelog-grpc/interactive/event/feed"
+	"lifelog-grpc/interactive/event/likedEvent"
 	"lifelog-grpc/interactive/grpc"
 	"lifelog-grpc/interactive/ioc"
 	"lifelog-grpc/interactive/repository"
@@ -20,7 +21,7 @@ import (
 // Injectors from wire.go:
 
 // InitInteractiveServiceGRPCService 初始化InitInteractiveServiceGRPCService
-func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
+func InitInteractiveServiceGRPCService() *App {
 	logger := ioc.InitLogger()
 	db := ioc.GetMysql(logger)
 	interactiveDao := dao.NewInteractiveDao(db, logger)
@@ -35,7 +36,12 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 	feedSyncProducer := feed.NewSyncProducer(syncProducer, logger)
 	lifeLogServiceClient := ioc.InitLifeLogServiceCRPCClient()
 	interactiveServiceGRPCService := grpc.NewCodeServiceGRPCService(interactiveService, collectServiceClient, feedServiceClient, feedSyncProducer, lifeLogServiceClient)
-	return interactiveServiceGRPCService
+	asyncLikedEventConsumer := likedEvent.NewAsyncLikedEventConsumer(client, logger, interactiveService)
+	app := &App{
+		interactiveServiceGRPCService: interactiveServiceGRPCService,
+		asyncLikedEventConsumer:       asyncLikedEventConsumer,
+	}
+	return app
 }
 
 // wire.go:
@@ -43,4 +49,4 @@ func InitInteractiveServiceGRPCService() *grpc.InteractiveServiceGRPCService {
 // interactiveSet 注入
 var interactiveSet = wire.NewSet(service.NewInteractiveService, repository.NewInteractiveRepository, cache.NewInteractiveCache, dao.NewInteractiveDao)
 
-var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitCollectServiceGRPCClient, ioc.InitSaramaSyncProducer, ioc.InitSaramaKafka, ioc.InitFeedServiceGRPCClient, ioc.InitLifeLogServiceCRPCClient, feed.NewSyncProducer)
+var third = wire.NewSet(ioc.InitRedis, ioc.GetMysql, ioc.InitLogger, ioc.InitCollectServiceGRPCClient, ioc.InitSaramaSyncProducer, ioc.InitSaramaKafka, ioc.InitFeedServiceGRPCClient, ioc.InitLifeLogServiceCRPCClient, feed.NewSyncProducer, likedEvent.NewAsyncLikedEventConsumer)
