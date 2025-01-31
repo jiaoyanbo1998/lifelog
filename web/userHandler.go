@@ -154,7 +154,7 @@ func (userHandler *UserHandler) RegisterByEmailAndPassword(ctx *gin.Context) {
 	}
 	// 检查两次输入的密码是否相同
 	if req.Password != req.ConfirmPassword {
-		ctx.JSON(http.StatusOK, Result[string]{
+		ctx.JSON(http.StatusBadRequest, Result[string]{
 			Code: errs.ErrUserInputError,
 			Msg:  "两次输入的密码不一致",
 			Data: "error",

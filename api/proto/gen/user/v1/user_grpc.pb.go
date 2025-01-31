@@ -38,6 +38,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 //
 // 定义服务
+//go:generate mockgen -source=./user_grpc.pb.go -package=userGRPCMock -destination=mock/usergRPC.mock.go UserServiceClient
 type UserServiceClient interface {
 	RegisterByEmailAndPassword(ctx context.Context, in *RegisterByEmailAndPasswordRequest, opts ...grpc.CallOption) (*RegisterByEmailAndPasswordResponse, error)
 	LoginByEmailAndPassword(ctx context.Context, in *LoginByEmailAndPasswordRequest, opts ...grpc.CallOption) (*LoginByEmailAndPasswordResponse, error)

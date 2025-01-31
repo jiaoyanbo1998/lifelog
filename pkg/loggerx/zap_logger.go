@@ -13,6 +13,18 @@ type ZapLogger struct {
 	zapLogger *zap.Logger
 }
 
+// ZapNoLogger 不执行的zap
+type ZapNoLogger struct {
+	zapLogger *zap.Logger
+}
+
+// NewZapNoLogger 创建一个“不执行的zap”
+func NewZapNoLogger() *ZapLogger {
+	return &ZapLogger{
+		zapLogger: zap.NewNop(),
+	}
+}
+
 // NewZapLogger 使用构造函数初始化ZapLogger
 func NewZapLogger() *ZapLogger {
 	// 构建日志核心组件，支持同时输出到文件和控制台

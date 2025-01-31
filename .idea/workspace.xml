@@ -4,35 +4,15 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/event/interactiveEvent/interactiveEvent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/lifeLogEvent/lifeLogEvent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/event/lifeLogEvent/syncProducer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/event/likedEvent/asyncConsumer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/interactive/repository/cache/lua/delete.lua" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ioc/saramaKafka.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/app.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/event/asyncConsumer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/event/lifeLogEvent.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lifeLog/ioc/saramaKafka.go" afterDir="false" />
+    <list default="true" id="d567ea4a-56f0-4259-8a33-07aee52c4bd0" name="Changes" comment="添加了应用启动预加载，点赞数，阅读数，收藏数改为kafka生产者和消费者">
+      <change afterPath="$PROJECT_DIR$/web/userHandler_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/dev.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/dev.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/repository/cache/interactiveCache.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/cache/interactiveCache.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/repository/interactiveRepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/interactive/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/interactive/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lifeLog/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/lifeLog/wire_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog-2025-01-21T12-11-54.396.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog-2025-01-22T02-40-13.838.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/log/lifeLog.log" beforeDir="false" afterPath="$PROJECT_DIR$/log/lifeLog.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lifelogHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/lifelogHandler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/proto/gen/user/v1/user_grpc.pb.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/proto/gen/user/v1/user_grpc.pb.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/loggerx/zap_logger.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/userHandler.go" beforeDir="false" afterPath="$PROJECT_DIR$/web/userHandler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/wire_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/wire_gen.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,31 +45,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "DefaultGoTemplateProperty": "Go File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "go.import.settings.migrated": "true",
-    "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "D:/GoLangProjects/src/lifelog-grpc/lifeLog/ioc",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "go.vgo"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
+    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/GoLangProjects/src/lifelog-grpc/lifeLog/ioc&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;go.vgo&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\GoLangProjects\src\lifelog-grpc\lifeLog\ioc" />
@@ -99,57 +79,91 @@
       <recent name="D:\GoLangProjects\src\lifelog-grpc\ioc" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GoLangProjects\src\lifelog\api\proto\gen\user\v1\mock" />
+      <recent name="D:\GoLangProjects\src\lifelog\api\proto\gen\user\v1" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\event\interactiveEvent" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\interactive\event\feed" />
       <recent name="D:\GoLangProjects\src\lifelog-grpc\event\interactive" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\api\proto\gen" />
-      <recent name="D:\GoLangProjects\src\lifelog-grpc\feed\vo" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.go build lifelog-grpc">
-    <configuration name="go build lifelog-grpc" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.Test_UserHandler_LoginByEmailAndPassword/登录成功#01 in lifelog-grpc/web">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="lifelog-grpc" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc" />
+      <package value="lifelog" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
+      <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/comment" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_UserHandler_LoginByEmailAndPassword/登录成功 in lifelog-grpc/web" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/web" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc/comment" />
+      <package value="lifelog-grpc/web" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/comment/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_UserHandler_LoginByEmailAndPassword\E$/^\Q登录成功\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/feed" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_UserHandler_LoginByEmailAndPassword/系统错误 in lifelog-grpc/web" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/web" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc/feed" />
+      <package value="lifelog-grpc/web" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/feed/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_UserHandler_LoginByEmailAndPassword\E$/^\Q系统错误\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/files" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_UserHandler_LoginByEmailAndPassword/需要修改密码 in lifelog-grpc/web" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="lifelog-grpc" />
-      <working_directory value="$PROJECT_DIR$" />
+      <working_directory value="$PROJECT_DIR$/web" />
+      <root_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <package value="lifelog-grpc/files" />
+      <package value="lifelog-grpc/web" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/files/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_UserHandler_LoginByEmailAndPassword\E$/^\Q需要修改密码\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="go build lifelog-grpc/interactive" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+    <configuration name="Test_UserHandler_LoginByEmailAndPassword/登录成功#01 in lifelog-grpc/web" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$/web" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/web" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_UserHandler_LoginByEmailAndPassword\E$/^\Q登录成功#01\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_UserHandler_RegisterByEmailAndPassword/注册成功 in lifelog-grpc/web" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="lifelog-grpc" />
+      <working_directory value="$PROJECT_DIR$/web" />
+      <root_directory value="$PROJECT_DIR$" />
+      <kind value="PACKAGE" />
+      <package value="lifelog-grpc/web" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <pattern value="^\QTest_UserHandler_RegisterByEmailAndPassword\E$/^\Q注册成功\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <module name="lifelog-grpc" />
       <working_directory value="$PROJECT_DIR$" />
-      <kind value="PACKAGE" />
-      <package value="lifelog-grpc/interactive" />
+      <kind value="DIRECTORY" />
+      <package value="lifelog" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/interactive/main.go" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
@@ -160,11 +174,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Build.go build lifelog-grpc" />
-        <item itemvalue="Go Build.go build lifelog-grpc/comment" />
-        <item itemvalue="Go Build.go build lifelog-grpc/interactive" />
-        <item itemvalue="Go Build.go build lifelog-grpc/files" />
-        <item itemvalue="Go Build.go build lifelog-grpc/feed" />
+        <item itemvalue="Go Test.Test_UserHandler_LoginByEmailAndPassword/登录成功#01 in lifelog-grpc/web" />
+        <item itemvalue="Go Test.Test_UserHandler_RegisterByEmailAndPassword/注册成功 in lifelog-grpc/web" />
+        <item itemvalue="Go Test.Test_UserHandler_LoginByEmailAndPassword/需要修改密码 in lifelog-grpc/web" />
+        <item itemvalue="Go Test.Test_UserHandler_LoginByEmailAndPassword/系统错误 in lifelog-grpc/web" />
+        <item itemvalue="Go Test.Test_UserHandler_LoginByEmailAndPassword/登录成功 in lifelog-grpc/web" />
       </list>
     </recent_temporary>
   </component>
@@ -193,9 +207,14 @@
     <MESSAGE value="修改了ctx的过期时间" />
     <MESSAGE value="修改了lifeLog服务的详情接口，优化了缓存方案&#10;并新增了，该接口的压测" />
     <MESSAGE value="给生活日志服务的查询接口，添加了本地缓存和降级策略，并使用k6进行了性能压测" />
-    <option name="LAST_COMMIT_MESSAGE" value="给生活日志服务的查询接口，添加了本地缓存和降级策略，并使用k6进行了性能压测" />
+    <MESSAGE value="添加了应用启动预加载，点赞数，阅读数，收藏数改为kafka生产者和消费者" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加了应用启动预加载，点赞数，阅读数，收藏数改为kafka生产者和消费者" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/lifelog$Test_UserHandler_RegisterByEmailAndPassword__in_lifelog_grpc_web.out" NAME="Test_UserHandler_RegisterByEmailAndPassword/注册成功 in lifelog-grpc/web Coverage Results" MODIFIED="1738317905881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/lifelog$Test_UserHandler_RegisterByEmailAndPassword_in_lifelog_grpc_web.out" NAME="Test_UserHandler_RegisterByEmailAndPassword in lifelog-grpc/web Coverage Results" MODIFIED="1738324430797" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
